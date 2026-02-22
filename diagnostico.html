@@ -455,7 +455,9 @@
     <p class="subtitle">Gratuito &mdash; 30 minutos &mdash; Online (Zoom/Google Meet)</p>
 
     <div class="form-box">
-      <form id="diagnostico-form" onsubmit="handleSubmit(event)">
+      <form id="diagnostico-form" action="https://formspree.io/f/xjgeaepv" method="POST">
+        <input type="hidden" name="_subject" value="Novo Diagnóstico Prosperidade Alquímica">
+        <input type="hidden" name="_next" value="https://marinaveauvy.github.io/costuras-meditacoes/obrigada.html">
         <div class="form-group">
           <label for="nome">Nome completo</label>
           <input type="text" id="nome" name="nome" required placeholder="Seu nome">
@@ -509,16 +511,6 @@
         <p class="form-note">Após o envio, entraremos em contato pelo WhatsApp para confirmar o melhor horário.</p>
       </form>
 
-      <div class="success-message" id="success">
-        <h3>Formulário enviado com sucesso!</h3>
-        <p>
-          Obrigada por se inscrever no Diagnóstico Prosperidade Alquímica.<br><br>
-          Vou entrar em contato pelo WhatsApp nas próximas 24 horas
-          para agendarmos o melhor horário.<br><br>
-          Enquanto isso, se ainda não leu, conheça o livro
-          <a href="https://amazon.com.br" style="color: var(--emerald); font-weight: 700;">Costuras da Abundância</a>.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -541,42 +533,6 @@
     <p>&copy; 2026 Marina Veauvy. Todos os direitos reservados.</p>
   </section>
 
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-
-      // Collect form data
-      const form = document.getElementById('diagnostico-form');
-      const data = new FormData(form);
-
-      // For now, encode as mailto or WhatsApp message
-      const nome = data.get('nome');
-      const email = data.get('email');
-      const whatsapp = data.get('whatsapp');
-      const profissao = data.get('profissao');
-      const renda = data.get('renda');
-      const livro = data.get('livro');
-      const dor = data.get('dor');
-
-      const msg = encodeURIComponent(
-        `*Novo Diagnóstico Prosperidade Alquímica*\n\n` +
-        `Nome: ${nome}\n` +
-        `Email: ${email}\n` +
-        `WhatsApp: ${whatsapp}\n` +
-        `Profissão: ${profissao}\n` +
-        `Renda: ${renda}\n` +
-        `Leu o livro: ${livro}\n` +
-        `Maior dor: ${dor}`
-      );
-
-      // Open WhatsApp with the data (Marina receives via WhatsApp)
-      window.open('https://wa.me/5528992543596?text=' + msg, '_blank');
-
-      // Show success message
-      form.style.display = 'none';
-      document.getElementById('success').style.display = 'block';
-    }
-  </script>
 
 </body>
 </html>
