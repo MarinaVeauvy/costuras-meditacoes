@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico Prosperidade Alquímica — Marina Veauvy</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+    :root {
+      --gold: #C5A55A;
+      --gold-light: #E8D5A3;
+      --gold-dark: #8B7340;
+      --emerald: #2D6B4F;
+      --emerald-light: #3D8B6A;
+      --emerald-dark: #1A4030;
+      --cream: #FDF8F0;
+      --cream-dark: #F5EDE0;
+      --brown: #3E2C1C;
+      --brown-light: #5C4033;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      min-height: 100vh;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 50%, var(--emerald-light) 100%);
+      color: var(--cream);
+      text-align: center;
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    .hero-ornament {
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .hero h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-author {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15rem;
+      color: var(--gold);
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .content h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .content p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--brown-light);
+      margin-bottom: 1rem;
+    }
+
+    .content p.highlight {
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    /* FOR WHO */
+    .for-who {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+    }
+
+    .for-who h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 1rem;
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .check-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--brown-light);
+    }
+
+    .check-list li::before {
+      content: '\2714';
+      position: absolute;
+      left: 0;
+      color: var(--emerald);
+      font-weight: bold;
+    }
+
+    .not-list li::before {
+      content: '\2718';
+      color: #C0392B;
+    }
+
+    /* WHAT YOU GET */
+    .what-you-get {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+    }
+
+    .what-you-get h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .benefit-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 8px rgba(62,44,28,0.06);
+    }
+
+    .benefit-card .number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--emerald);
+      color: var(--white);
+      text-align: center;
+      line-height: 28px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 0.3rem;
+    }
+
+    .benefit-card p {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--brown-light);
+      margin: 0;
+    }
+
+    /* FORM */
+    .form-section {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+    }
+
+    .form-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .form-section .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--brown-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-box {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(62,44,28,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--brown);
+      background: var(--cream);
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .form-group .hint {
+      font-size: 0.78rem;
+      color: var(--brown-light);
+      opacity: 0.7;
+      margin-top: 0.3rem;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--emerald-dark);
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--brown-light);
+      opacity: 0.6;
+      margin-top: 1rem;
+    }
+
+    /* TRUST */
+    .trust {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .trust p {
+      font-size: 0.85rem;
+      color: var(--brown-light);
+      opacity: 0.7;
+      line-height: 1.6;
+    }
+
+    .trust .credentials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .trust .badge {
+      background: var(--cream-dark);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      color: var(--brown-light);
+      font-weight: 400;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--emerald-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .footer p {
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+
+    /* SUCCESS MESSAGE */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .success-message h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--emerald);
+      margin-bottom: 1rem;
+    }
+
+    .success-message p {
+      font-size: 1rem;
+      color: var(--brown-light);
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVE */
+    @media (min-width: 768px) {
+      .hero { padding: 4rem 2rem 3rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .benefit-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-ornament">&#9674; &#9674; &#9674;</div>
+    <h1>Diagnóstico Prosperidade Alquímica</h1>
+    <h2>Descubra o que realmente trava sua relação com dinheiro</h2>
+    <p class="hero-author">com Marina Veauvy</p>
+  </section>
+
+  <!-- INTRO -->
+  <section class="content">
+    <h3>Uma conversa de 30 minutos que pode mudar sua vida financeira</h3>
+    <p>
+      Você ganha bem. Já tentou planilha, app, assessor financeiro. Nada resolveu.
+      E se o problema não for racional?
+    </p>
+    <p>
+      No Diagnóstico Prosperidade Alquímica, vamos olhar juntas para os
+      <strong>3 eixos invisíveis</strong> que controlam sua relação com dinheiro
+      &mdash; ligados à sua espiritualidade, à herança da sua família e ao valor
+      que você dá ao seu trabalho.
+    </p>
+    <p class="highlight">
+      Não é terapia. Não é consultoria financeira. É um mapa de consciência.
+    </p>
+  </section>
+
+  <!-- FOR WHO -->
+  <section class="for-who">
+    <h3>Para quem é</h3>
+    <ul class="check-list">
+      <li>Mulheres que ganham acima de R$10k/mês mas sentem que o dinheiro escorre</li>
+      <li>Empreendedoras e profissionais liberais que já tentaram educação financeira convencional</li>
+      <li>Quem sente culpa ao prosperar mais que a família</li>
+      <li>Quem cobra menos do que vale e sabe disso</li>
+      <li>Quem busca prosperidade com propósito, não apenas números</li>
+    </ul>
+
+    <h3 style="margin-top: 1.5rem; color: #C0392B;">Para quem NÃO é</h3>
+    <ul class="check-list not-list">
+      <li>Quem busca "fique rica rápido" ou promessas de retorno financeiro</li>
+      <li>Quem não acredita que padrões emocionais afetam finanças</li>
+      <li>Quem quer apenas uma planilha ou dica de investimento</li>
+    </ul>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="what-you-get">
+    <h3>O que acontece no diagnóstico</h3>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <span class="number">1</span>
+        <h4>Mapeamento dos 3 Eixos</h4>
+        <p>Identificamos qual das 3 costuras (espiritualidade, herança, autovalor) está mais ativa na sua relação com dinheiro.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="number">2</span>
+        <h4>Padrão Dominante</h4>
+        <p>Revelamos o padrão financeiro herdado que mais impacta suas decisões &mdash; mesmo que você nunca tenha percebido.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="number">3</span>
+        <h4>Caminho Personalizado</h4>
+        <p>Desenhamos o próximo passo concreto: qual costura tratar primeiro e qual abordagem faz sentido para o seu caso.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="number">4</span>
+        <h4>Clareza em 30 Minutos</h4>
+        <p>Você sai da conversa sabendo exatamente o que te trava &mdash; e o que fazer a respeito. Sem enrolação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section">
+    <h3>Agende seu Diagnóstico</h3>
+    <p class="subtitle">Gratuito &mdash; 30 minutos &mdash; Online (Zoom/Google Meet)</p>
+
+    <div class="form-box">
+      <form id="diagnostico-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(11) 99999-9999">
+        </div>
+
+        <div class="form-group">
+          <label for="profissao">Qual sua profissão?</label>
+          <input type="text" id="profissao" name="profissao" required placeholder="Ex: Psicóloga, Empreendedora, Advogada...">
+        </div>
+
+        <div class="form-group">
+          <label for="renda">Faixa de renda mensal</label>
+          <select id="renda" name="renda" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="5-10k">R$ 5.000 a R$ 10.000</option>
+            <option value="10-20k">R$ 10.000 a R$ 20.000</option>
+            <option value="20-50k">R$ 20.000 a R$ 50.000</option>
+            <option value="50k+">Acima de R$ 50.000</option>
+          </select>
+          <p class="hint">Essa informação nos ajuda a personalizar o diagnóstico. Totalmente confidencial.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="livro">Você leu o livro "Costuras da Abundância"?</label>
+          <select id="livro" name="livro" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="sim-completo">Sim, li inteiro</option>
+            <option value="sim-parcial">Sim, estou lendo</option>
+            <option value="nao-conheco">Não, mas conheço</option>
+            <option value="nao">Ainda não</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dor">Em uma frase: qual sua maior dor com dinheiro hoje?</label>
+          <textarea id="dor" name="dor" required placeholder="Ex: Ganho R$20k mas no final do mês não sobra nada..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Quero Agendar Meu Diagnóstico</button>
+
+        <p class="form-note">Após o envio, entraremos em contato pelo WhatsApp para confirmar o melhor horário.</p>
+      </form>
+
+      <div class="success-message" id="success">
+        <h3>Formulário enviado com sucesso!</h3>
+        <p>
+          Obrigada por se inscrever no Diagnóstico Prosperidade Alquímica.<br><br>
+          Vou entrar em contato pelo WhatsApp nas próximas 24 horas
+          para agendarmos o melhor horário.<br><br>
+          Enquanto isso, se ainda não leu, conheça o livro
+          <a href="https://amazon.com.br" style="color: var(--emerald); font-weight: 700;">Costuras da Abundância</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <p>
+      Marina Veauvy é terapeuta especializada em constelação financeira,
+      autora de "Costuras da Abundância" e formada pela Escola de Alquimia Joel Aleixo.
+    </p>
+    <div class="credentials">
+      <span class="badge">Constelação Financeira</span>
+      <span class="badge">7Healings Nível 3</span>
+      <span class="badge">Alquimia Floral</span>
+      <span class="badge">Escola de Alquimia Joel Aleixo</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <p>&copy; 2026 Marina Veauvy. Todos os direitos reservados.</p>
+  </section>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      // Collect form data
+      const form = document.getElementById('diagnostico-form');
+      const data = new FormData(form);
+
+      // For now, encode as mailto or WhatsApp message
+      const nome = data.get('nome');
+      const email = data.get('email');
+      const whatsapp = data.get('whatsapp');
+      const profissao = data.get('profissao');
+      const renda = data.get('renda');
+      const livro = data.get('livro');
+      const dor = data.get('dor');
+
+      const msg = encodeURIComponent(
+        `*Novo Diagnóstico Prosperidade Alquímica*\n\n` +
+        `Nome: ${nome}\n` +
+        `Email: ${email}\n` +
+        `WhatsApp: ${whatsapp}\n` +
+        `Profissão: ${profissao}\n` +
+        `Renda: ${renda}\n` +
+        `Leu o livro: ${livro}\n` +
+        `Maior dor: ${dor}`
+      );
+
+      // Open WhatsApp with the data (Marina receives via WhatsApp)
+      window.open('https://wa.me/5528992543596?text=' + msg, '_blank');
+
+      // Show success message
+      form.style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
