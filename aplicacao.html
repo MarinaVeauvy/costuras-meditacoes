@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicação — Prosperidade Alquímica</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+    :root {
+      --gold: #C5A55A;
+      --gold-light: #E8D5A3;
+      --gold-dark: #8B7340;
+      --emerald: #2D6B4F;
+      --emerald-light: #3D8B6A;
+      --emerald-dark: #1A4030;
+      --cream: #FDF8F0;
+      --cream-dark: #F5EDE0;
+      --brown: #3E2C1C;
+      --brown-light: #5C4033;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 50%, var(--emerald-light) 100%);
+      color: var(--cream);
+      text-align: center;
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    .hero-ornament {
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .hero h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-author {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15rem;
+      color: var(--gold);
+    }
+
+    .form-container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .form-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .form-intro p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--brown-light);
+    }
+
+    .form-section {
+      margin-bottom: 2rem;
+    }
+
+    .form-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold-light);
+    }
+
+    .field {
+      margin-bottom: 1.2rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+    }
+
+    .field label .required {
+      color: #C0392B;
+      margin-left: 2px;
+    }
+
+    .field .hint {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--brown-light);
+      opacity: 0.7;
+      margin-bottom: 0.4rem;
+    }
+
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"],
+    .field input[type="date"],
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--brown);
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px rgba(45, 107, 79, 0.1);
+    }
+
+    .field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .field select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235C4033' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .submit-section {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-1px);
+    }
+
+    .submit-note {
+      font-size: 0.85rem;
+      color: var(--brown-light);
+      opacity: 0.7;
+      margin-top: 1rem;
+    }
+
+    .footer {
+      background: var(--emerald-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .footer p {
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding: 4rem 2rem 3rem; }
+      .hero h1 { font-size: 2.5rem; }
+      .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .field-row .field { margin-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-ornament">&#9674; &#9674; &#9674;</div>
+    <h1>Prosperidade Alquímica</h1>
+    <h2>Formulário de Aplicação</h2>
+    <p class="hero-author">com Marina Veauvy</p>
+  </section>
+
+  <!-- FORM -->
+  <div class="form-container">
+    <div class="form-intro">
+      <p>
+        Obrigada pelo seu interesse! Preencha com carinho &mdash;
+        essas informações me ajudam a preparar sua jornada.
+      </p>
+    </div>
+
+    <form action="https://formsubmit.co/macmarina@gmail.com" method="POST">
+      <!-- FormSubmit config -->
+      <input type="hidden" name="_subject" value="Nova Aplicação — Prosperidade Alquímica">
+      <input type="hidden" name="_next" value="https://marinaveauvy.github.io/costuras-meditacoes/obrigada.html">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none">
+
+      <!-- DADOS PESSOAIS -->
+      <div class="form-section">
+        <h3>Seus dados</h3>
+
+        <div class="field">
+          <label>Nome completo <span class="required">*</span></label>
+          <input type="text" name="nome" required placeholder="Seu nome completo">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>WhatsApp com DDD <span class="required">*</span></label>
+            <input type="tel" name="whatsapp" required placeholder="(11) 99999-0000">
+          </div>
+          <div class="field">
+            <label>Email <span class="required">*</span></label>
+            <input type="email" name="email" required placeholder="seu@email.com">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Instagram</label>
+          <input type="text" name="instagram" placeholder="@seuperfil">
+        </div>
+      </div>
+
+      <!-- DADOS NASCIMENTO -->
+      <div class="form-section">
+        <h3>Dados de nascimento</h3>
+        <p style="font-size: 0.88rem; color: var(--brown-light); margin-bottom: 1rem;">
+          Preciso dessas informações para analisar seu mapa natal financeiro.
+        </p>
+
+        <div class="field">
+          <label>Data de nascimento <span class="required">*</span></label>
+          <input type="date" name="data_nascimento" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Hora de nascimento <span class="required">*</span></label>
+            <span class="hint">Se não souber, procure na certidão de nascimento</span>
+            <input type="text" name="hora_nascimento" required placeholder="Ex: 14h30">
+          </div>
+          <div class="field">
+            <label>Cidade de nascimento <span class="required">*</span></label>
+            <input type="text" name="cidade_nascimento" required placeholder="Cidade e estado">
+          </div>
+        </div>
+      </div>
+
+      <!-- PERFIL -->
+      <div class="form-section">
+        <h3>Seu momento</h3>
+
+        <div class="field">
+          <label>Profissão / atividade atual <span class="required">*</span></label>
+          <input type="text" name="profissao" required placeholder="O que você faz profissionalmente hoje">
+        </div>
+
+        <div class="field">
+          <label>Faixa de renda mensal <span class="required">*</span></label>
+          <select name="faixa_renda" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Até R$5.000">Até R$5.000</option>
+            <option value="R$5.000 a R$15.000">R$5.000 a R$15.000</option>
+            <option value="R$15.000 a R$30.000">R$15.000 a R$30.000</option>
+            <option value="R$30.000 a R$50.000">R$30.000 a R$50.000</option>
+            <option value="R$50.000 a R$80.000">R$50.000 a R$80.000</option>
+            <option value="Acima de R$80.000">Acima de R$80.000</option>
+            <option value="Prefiro não informar">Prefiro não informar</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Como você descreveria sua relação atual com dinheiro? <span class="required">*</span></label>
+          <span class="hint">Pode ser curta ou longa &mdash; o importante é ser honesta consigo mesma</span>
+          <textarea name="relacao_dinheiro" required placeholder="Conte como você se sente em relação ao dinheiro hoje..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Você já fez algum processo terapêutico? <span class="required">*</span></label>
+          <select name="processo_terapeutico" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Sim, terapia individual">Sim, terapia individual</option>
+            <option value="Sim, constelação familiar">Sim, constelação familiar</option>
+            <option value="Sim, ambos">Sim, ambos</option>
+            <option value="Sim, outros">Sim, outros (coaching, retiros, vivências)</option>
+            <option value="Não">Não</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- MOTIVACAO -->
+      <div class="form-section">
+        <h3>Sua motivação</h3>
+
+        <div class="field">
+          <label>O que te motivou a buscar a Prosperidade Alquímica? <span class="required">*</span></label>
+          <textarea name="motivacao" required placeholder="O que te trouxe até aqui? O que você espera dessa jornada?"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Como ficou sabendo do meu trabalho? <span class="required">*</span></label>
+          <select name="origem" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Instagram">Instagram</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Livro Costuras da Abundância">Livro "Costuras da Abundância"</option>
+            <option value="Indicação de amiga">Indicação de amiga</option>
+            <option value="Diagnóstico de Prosperidade">Diagnóstico de Prosperidade</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- PAGAMENTO -->
+      <div class="form-section">
+        <h3>Forma de pagamento</h3>
+
+        <div class="field">
+          <label>Forma de pagamento preferida <span class="required">*</span></label>
+          <select name="forma_pagamento" required>
+            <option value="" disabled selected>Selecione...</option>
+            <option value="À vista R$5.000">À vista R$5.000</option>
+            <option value="12x de R$497">12x de R$497</option>
+            <option value="6x de R$897">6x de R$897</option>
+            <option value="2x de R$2.700">2x de R$2.700</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Alguma observação ou pergunta?</label>
+          <textarea name="observacoes" placeholder="Espaço livre para compartilhar o que quiser"></textarea>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-section">
+        <button type="submit" class="submit-btn">Enviar Aplicação</button>
+        <p class="submit-note">
+          Após o envio, entrarei em contato em até 48h para confirmar sua entrada.
+        </p>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <p>&copy; 2026 Marina Veauvy. Todos os direitos reservados.</p>
+  </section>
+
+</body>
+</html>
