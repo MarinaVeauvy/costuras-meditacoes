@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Qual Costura da Abundância Está Mais Ativa em Você?</title>
+  <meta name="description" content="Descubra em 2 minutos qual padrão ancestral está travando sua relação com dinheiro. Quiz gratuito por Marina Veauvy.">
+  <meta property="og:title" content="Quiz — Qual Costura da Abundância Está Mais Ativa em Você?">
+  <meta property="og:description" content="Descubra em 2 minutos qual padrão ancestral está travando sua relação com dinheiro.">
+  <meta property="og:type" content="website">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+    :root {
+      --gold: #C5A55A;
+      --gold-light: #E8D5A3;
+      --gold-dark: #8B7340;
+      --emerald: #2D6B4F;
+      --emerald-light: #3D8B6A;
+      --emerald-dark: #1A4030;
+      --cream: #FDF8F0;
+      --cream-dark: #F5EDE0;
+      --brown: #3E2C1C;
+      --brown-light: #5C4033;
+      --white: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      min-height: 100vh;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 50%, var(--emerald-light) 100%);
+      color: var(--cream);
+      text-align: center;
+      padding: 2.5rem 1.5rem 2rem;
+    }
+
+    .hero-ornament {
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .hero h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--cream);
+      opacity: 0.9;
+    }
+
+    .hero-author {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15rem;
+      color: var(--gold);
+      margin-top: 0.8rem;
+    }
+
+    /* --- PROGRESS BAR --- */
+    .progress-bar {
+      height: 4px;
+      background: var(--cream-dark);
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--emerald), var(--gold));
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* --- CONTAINER --- */
+    .quiz-container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      min-height: 60vh;
+    }
+
+    /* --- SCREENS --- */
+    .screen {
+      display: none;
+      padding: 2rem 0 3rem;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- WELCOME SCREEN --- */
+    .welcome-text {
+      text-align: center;
+    }
+
+    .welcome-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .welcome-text p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--brown-light);
+      margin-bottom: 1rem;
+    }
+
+    .welcome-highlight {
+      background: var(--cream-dark);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+      text-align: left;
+      font-size: 0.9rem;
+      border-radius: 0 6px 6px 0;
+      line-height: 1.6;
+      color: var(--brown-light);
+    }
+
+    .welcome-highlight strong {
+      color: var(--emerald);
+    }
+
+    .time-badge {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* --- QUESTION SCREEN --- */
+    .question-counter {
+      font-size: 0.8rem;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .question-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--brown);
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .option-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 1rem 1.2rem;
+      background: var(--white);
+      border: 2px solid var(--cream-dark);
+      border-radius: 10px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: var(--brown);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+
+    .option-btn:hover {
+      border-color: var(--emerald-light);
+      background: #f0f9f5;
+      transform: translateY(-1px);
+    }
+
+    .option-btn:active {
+      transform: translateY(0);
+    }
+
+    .option-btn.selected {
+      border-color: var(--emerald);
+      background: #e8f5ee;
+    }
+
+    /* --- CAPTURE SCREEN --- */
+    .capture-icon {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .capture-text {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .capture-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 0.5rem;
+    }
+
+    .capture-text p {
+      font-size: 0.92rem;
+      color: var(--brown-light);
+      line-height: 1.6;
+    }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.3rem;
+    }
+
+    .field label .req {
+      color: #C0392B;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--cream-dark);
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem;
+      color: var(--brown);
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .field input:focus {
+      outline: none;
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px rgba(45, 107, 79, 0.1);
+    }
+
+    .field input.error {
+      border-color: #C0392B;
+    }
+
+    .trust-text {
+      font-size: 0.8rem;
+      color: var(--brown-light);
+      opacity: 0.7;
+      text-align: center;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    /* --- RESULT SCREEN --- */
+    .result-badge {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .result-badge span {
+      display: inline-block;
+      background: var(--emerald);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+    }
+
+    .result-title {
+      text-align: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .result-title h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--emerald);
+      line-height: 1.3;
+    }
+
+    .result-subtitle {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gold-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .result-body p {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: var(--brown-light);
+      margin-bottom: 1rem;
+    }
+
+    .result-signs {
+      background: var(--cream-dark);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .result-signs h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 0.8rem;
+    }
+
+    .sign-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(197, 165, 90, 0.2);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: var(--brown-light);
+    }
+
+    .sign-item:last-child { border-bottom: none; }
+
+    .sign-item strong {
+      color: var(--brown);
+    }
+
+    .result-exercise {
+      background: var(--white);
+      border: 2px solid var(--gold-light);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .result-exercise h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-exercise p {
+      font-size: 0.88rem;
+      margin-bottom: 0;
+    }
+
+    .result-cta {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--cream-dark);
+    }
+
+    .result-cta h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-cta p {
+      font-size: 0.88rem;
+      color: var(--brown-light);
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+
+    /* --- BUTTONS --- */
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-gold {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background: var(--gold);
+      color: var(--brown);
+      border: none;
+      border-radius: 30px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--emerald);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'Lato', sans-serif;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      background: var(--emerald-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .footer p {
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero h2 { font-size: 1.1rem; }
+      .question-text { font-size: 1.5rem; }
+      .welcome-text h3 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-ornament">&#9674; &#9674; &#9674;</div>
+    <h1>Costuras da Abundância</h1>
+    <h2>Qual padrão ancestral está ativo em você?</h2>
+    <p class="hero-author">por Marina Veauvy</p>
+  </section>
+
+  <!-- PROGRESS -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- QUIZ CONTAINER -->
+  <div class="quiz-container">
+
+    <!-- SCREEN 0: WELCOME -->
+    <div class="screen active" id="screen-welcome">
+      <div class="welcome-text">
+        <span class="time-badge">2 minutos</span>
+        <h3>Qual padrão ancestral está travando sua relação com dinheiro?</h3>
+        <p>
+          A maioria das pessoas trata dinheiro como um problema de planilha.
+          Mas a verdade é que sua relação com dinheiro carrega histórias,
+          padrões e lealdades que vieram antes de você.
+        </p>
+        <div class="welcome-highlight">
+          As <strong>Costuras da Abundância</strong> são os 3 grandes eixos que governam
+          &mdash; muitas vezes sem que você perceba &mdash; como você ganha, guarda e gasta dinheiro.
+          <br><br>
+          Responda 10 perguntas honestas e descubra qual costura está pedindo atenção agora.
+        </div>
+        <button class="btn-primary" onclick="startQuiz()">Começar o Quiz</button>
+        <br>
+        <span style="display:block; margin-top:1rem; font-size:0.8rem; color:var(--brown-light); opacity:0.6;">
+          Criado por Marina Veauvy &bull; Prosperidade Alquímica
+        </span>
+      </div>
+    </div>
+
+    <!-- SCREENS 1-10: QUESTIONS (generated by JS) -->
+    <div class="screen" id="screen-question">
+      <div class="question-counter" id="questionCounter"></div>
+      <div class="question-text" id="questionText"></div>
+      <div class="options" id="optionsContainer"></div>
+    </div>
+
+    <!-- SCREEN 11: CAPTURE -->
+    <div class="screen" id="screen-capture">
+      <div class="capture-icon">&#10024;</div>
+      <div class="capture-text">
+        <h3>Seu resultado está pronto</h3>
+        <p>
+          Para receber seu resultado completo &mdash; incluindo uma explicação
+          detalhada e uma meditação guiada personalizada &mdash; preencha abaixo:
+        </p>
+      </div>
+
+      <form id="captureForm" onsubmit="return submitCapture(event)">
+        <div class="field">
+          <label>Seu nome <span class="req">*</span></label>
+          <input type="text" id="capName" required placeholder="Seu nome">
+        </div>
+        <div class="field">
+          <label>Seu melhor e-mail <span class="req">*</span></label>
+          <input type="email" id="capEmail" required placeholder="seu@email.com">
+        </div>
+        <div class="field">
+          <label>Seu WhatsApp com DDD <span class="req">*</span></label>
+          <input type="tel" id="capPhone" required placeholder="(11) 99999-0000">
+        </div>
+        <p class="trust-text">
+          Seus dados estão seguros. Eu não envio spam &mdash; só conteúdo que pode
+          transformar sua relação com dinheiro.
+        </p>
+        <div style="text-align:center; margin-top:1.5rem;">
+          <button type="submit" class="btn-primary">Ver Meu Resultado</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- SCREEN 12: RESULT MERECIMENTO -->
+    <div class="screen" id="screen-result-M">
+      <div class="result-badge"><span>Sua costura mais ativa</span></div>
+      <div class="result-title"><h3>Costura do Merecimento</h3></div>
+      <div class="result-subtitle">&ldquo;Eu mereço ser bem paga pelo que faço?&rdquo;</div>
+
+      <div class="result-body">
+        <p>
+          A Costura do Merecimento conecta o seu autovalor ao seu trabalho diário.
+          Quando ela está ativa, você vive numa tensão silenciosa entre o que entrega
+          e o que cobra &mdash; e quase sempre cobra menos.
+        </p>
+        <p>
+          Esse padrão faz com que o seu valor fique atrelado à quantidade de trabalho,
+          não à qualidade. Você trabalha mais, entrega mais, se esgota mais &mdash;
+          e o dinheiro nunca parece ser suficiente, porque a régua do
+          &ldquo;merecimento&rdquo; sempre sobe.
+        </p>
+        <p>
+          A raiz não está na sua capacidade. Está na crença de que seu valor
+          precisa ser provado. E essa crença, na maioria das vezes, veio antes de você.
+        </p>
+      </div>
+
+      <div class="result-signs">
+        <h4>3 sinais desse padrão:</h4>
+        <div class="sign-item"><strong>1.</strong> Você dá desconto antes que peçam. Na hora de falar o preço, algo em você já recua.</div>
+        <div class="sign-item"><strong>2.</strong> Acumula certificações, mas nunca se sente &ldquo;pronta&rdquo;. A síndrome da impostora não sai.</div>
+        <div class="sign-item"><strong>3.</strong> Burnout recorrente. Você se entrega até o limite porque acredita que descanso é preguiça.</div>
+      </div>
+
+      <div class="result-exercise">
+        <h4>Micro-ação para começar:</h4>
+        <p>
+          <strong>Exercício do Espelho do Valor</strong> &mdash; Durante 7 dias,
+          antes de começar a trabalhar, olhe no espelho e diga em voz alta:
+          <em>&ldquo;Meu valor existe antes do meu trabalho.&rdquo;</em>
+          Observe o que acontece no seu corpo. Contrai? Desvia o olhar?
+          Essa é a costura pedindo atenção.
+        </p>
+      </div>
+
+      <div class="result-cta">
+        <h4>Quer ir mais fundo?</h4>
+        <p>
+          Esse quiz mostra a superfície. Mas a costura real &mdash; a que opera
+          por baixo &mdash; precisa de um olhar individual.
+        </p>
+        <a href="https://cal.com/marina-veauvy/diagnostico" target="_blank" class="btn-gold">
+          Agendar Diagnóstico Gratuito
+        </a>
+        <br>
+        <a href="https://www.amazon.com.br/dp/B0F1Y3QKQ7" target="_blank" class="btn-secondary">
+          Conhecer o livro Costuras da Abundância
+        </a>
+      </div>
+    </div>
+
+    <!-- SCREEN 13: RESULT TRANSMUTACAO -->
+    <div class="screen" id="screen-result-T">
+      <div class="result-badge"><span>Sua costura mais ativa</span></div>
+      <div class="result-title"><h3>Costura da Transmutação</h3></div>
+      <div class="result-subtitle">&ldquo;O que eu herdei da minha família sobre dinheiro?&rdquo;</div>
+
+      <div class="result-body">
+        <p>
+          A Costura da Transmutação conecta o seu dinheiro ao dinheiro da sua
+          família &mdash; não só o que foi herdado materialmente, mas os padrões
+          emocionais, as histórias não contadas, as lealdades invisíveis.
+        </p>
+        <p>
+          Esse padrão cria uma espécie de &ldquo;teto invisível&rdquo;. Você pode
+          ganhar bem, mas algo não permite que o dinheiro cresça. No fundo, existe
+          uma lealdade inconsciente que diz: <em>&ldquo;Se eu tiver mais do que meus
+          pais tiveram, estarei traindo minha família.&rdquo;</em>
+        </p>
+        <p>
+          A transmutação começa quando você consegue olhar para o que herdou,
+          honrar a história &mdash; e devolver o que não é seu.
+        </p>
+      </div>
+
+      <div class="result-signs">
+        <h4>3 sinais desse padrão:</h4>
+        <div class="sign-item"><strong>1.</strong> O dinheiro &ldquo;some&rdquo; sem explicação lógica. Você ganha bem, mas no final do mês não sobra nada.</div>
+        <div class="sign-item"><strong>2.</strong> Você sente algo no corpo quando pensa em ter muito dinheiro guardado. Aperto no peito, nó no estômago.</div>
+        <div class="sign-item"><strong>3.</strong> Você sabota investimentos na hora H. Na hora de assinar, de transferir &mdash; recua.</div>
+      </div>
+
+      <div class="result-exercise">
+        <h4>Micro-ação para começar:</h4>
+        <p>
+          <strong>Carta ao Ancestral</strong> &mdash; Pegue papel e caneta (não digital).
+          Escreva uma carta para a pessoa da sua família que mais teve dificuldade
+          com dinheiro. Diga a ela: <em>&ldquo;Eu honro sua história. Eu vejo sua dor.
+          E agora, com amor, eu sigo o meu caminho.&rdquo;</em>
+          Guarde a carta num lugar seguro. O movimento já aconteceu.
+        </p>
+      </div>
+
+      <div class="result-cta">
+        <h4>Quer ir mais fundo?</h4>
+        <p>
+          Esse quiz mostra a superfície. Mas a costura real &mdash; a que conecta
+          você ao seu sistema familiar &mdash; precisa de um olhar individual.
+        </p>
+        <a href="https://cal.com/marina-veauvy/diagnostico" target="_blank" class="btn-gold">
+          Agendar Diagnóstico Gratuito
+        </a>
+        <br>
+        <a href="https://www.amazon.com.br/dp/B0F1Y3QKQ7" target="_blank" class="btn-secondary">
+          Conhecer o livro Costuras da Abundância
+        </a>
+      </div>
+    </div>
+
+    <!-- SCREEN 14: RESULT DISSOLUCAO -->
+    <div class="screen" id="screen-result-D">
+      <div class="result-badge"><span>Sua costura mais ativa</span></div>
+      <div class="result-title"><h3>Costura da Dissolução</h3></div>
+      <div class="result-subtitle">&ldquo;O que eu não consigo ver que está me impedindo?&rdquo;</div>
+
+      <div class="result-body">
+        <p>
+          A Costura da Dissolução é a mais profunda das três &mdash; e a mais difícil
+          de reconhecer. Ela conecta o que é visível na sua vida financeira com
+          o que é invisível: os padrões que operam por baixo da sua consciência,
+          sabotando silenciosamente tudo que você tenta construir.
+        </p>
+        <p>
+          Quando a dissolução está ativa, você vive ciclos. Constrói, desmorona.
+          Avança, recua. Ganha, perde. E a parte mais frustrante é que você não
+          entende por quê.
+        </p>
+        <p>
+          Essa costura carrega padrões que muitas vezes transcendem a história
+          familiar consciente. O primeiro passo é iluminar o que está no escuro.
+        </p>
+      </div>
+
+      <div class="result-signs">
+        <h4>3 sinais desse padrão:</h4>
+        <div class="sign-item"><strong>1.</strong> Ciclos de montanha-russa financeira. Meses bons seguidos de meses ruins, sem causa externa clara.</div>
+        <div class="sign-item"><strong>2.</strong> Resistência inexplicável à organização financeira. Começa bem, mas depois simplesmente para.</div>
+        <div class="sign-item"><strong>3.</strong> Sensação de que &ldquo;algo&rdquo; te impede &mdash; mas você não sabe o quê. Como uma âncora invisível.</div>
+      </div>
+
+      <div class="result-exercise">
+        <h4>Micro-ação para começar:</h4>
+        <p>
+          <strong>Diário de Brancos Financeiros</strong> &mdash; Durante 14 dias,
+          toda vez que perceber um &ldquo;branco&rdquo; na sua relação com dinheiro
+          (esqueceu de cobrar, perdeu um prazo, gastou sem perceber), anote.
+          Sem julgamento. Data, o que aconteceu, o que sentiu.
+          Ao final, olhe para o padrão. Quando você vê, o padrão começa a perder força.
+        </p>
+      </div>
+
+      <div class="result-cta">
+        <h4>Quer ir mais fundo?</h4>
+        <p>
+          Esse quiz mostra a superfície. Mas a costura da dissolução é a que
+          opera mais fundo &mdash; no lugar que a conversa não alcança.
+        </p>
+        <a href="https://cal.com/marina-veauvy/diagnostico" target="_blank" class="btn-gold">
+          Agendar Diagnóstico Gratuito
+        </a>
+        <br>
+        <a href="https://www.amazon.com.br/dp/B0F1Y3QKQ7" target="_blank" class="btn-secondary">
+          Conhecer o livro Costuras da Abundância
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <p>&copy; 2026 Marina Veauvy &bull; Prosperidade Alquímica &bull; Todos os direitos reservados.</p>
+  </section>
+
+  <script>
+    // === QUIZ DATA ===
+    var questions = [
+      {
+        text: "Quando alguém te pede desconto, você...",
+        options: [
+          { text: "Dá o desconto antes mesmo de ser pedido \u2014 às vezes até se antecipa.", type: "M" },
+          { text: "Sente uma culpa estranha se não der, como se estivesse traindo alguém.", type: "T" },
+          { text: "Dá o desconto, se arrepende depois, mas não consegue entender por quê.", type: "D" }
+        ]
+      },
+      {
+        text: "Quando pensa na história financeira da sua família, o que vem primeiro?",
+        options: [
+          { text: "A sensação de que todo mundo trabalhou muito e ganhou pouco.", type: "M" },
+          { text: "Uma história específica \u2014 alguém que perdeu tudo, que foi traído, que faliu.", type: "T" },
+          { text: "Uma névoa \u2014 você sabe que algo aconteceu, mas ninguém fala sobre isso.", type: "D" }
+        ]
+      },
+      {
+        text: "Quando você recebe uma quantia boa de dinheiro, o que acontece nos dias seguintes?",
+        options: [
+          { text: "Você já começa a pensar no que precisa fazer pra \u201cmerecer\u201d ter recebido.", type: "M" },
+          { text: "Uma voz interna diz que isso não vai durar \u2014 ou que alguém da sua família nunca teve essa sorte.", type: "T" },
+          { text: "O dinheiro some. Você não sabe exatamente como, mas em poucos dias ele já foi embora.", type: "D" }
+        ]
+      },
+      {
+        text: "Quando pensa em guardar dinheiro ou investir, qual é a reação mais honesta?",
+        options: [
+          { text: "\u201cPrimeiro preciso trabalhar mais, depois penso nisso.\u201d", type: "M" },
+          { text: "Uma sensação no corpo \u2014 aperto no peito, nó no estômago \u2014 que você não consegue explicar.", type: "T" },
+          { text: "Você até começa a se organizar, mas algo sempre acontece que \u201cdesvia\u201d o plano.", type: "D" }
+        ]
+      },
+      {
+        text: "Como você descreveria sua relação entre trabalho e dinheiro?",
+        options: [
+          { text: "Trabalho demais pelo que ganho. Sei que mereço mais, mas cobrar mais me paralisa.", type: "M" },
+          { text: "Ganho bem, mas não consigo fazer o dinheiro crescer \u2014 parece que estou devolvendo pra alguém.", type: "T" },
+          { text: "Tenho fases boas e fases ruins, como uma montanha-russa que eu não controlo.", type: "D" }
+        ]
+      },
+      {
+        text: "Se você ganhasse o dobro do que ganha hoje, qual seria sua primeira reação emocional?",
+        options: [
+          { text: "\u201cSerá que eu mereço mesmo? Será que meu trabalho vale tudo isso?\u201d", type: "M" },
+          { text: "\u201cO que as pessoas da minha família iriam pensar? Será que isso é justo?\u201d", type: "T" },
+          { text: "\u201cTomara que dessa vez eu consiga manter.\u201d", type: "D" }
+        ]
+      },
+      {
+        text: "Qual dessas frases você mais se identifica \u2014 no fundo, mesmo que nunca tenha dito em voz alta?",
+        options: [
+          { text: "\u201cEu preciso provar meu valor todos os dias.\u201d", type: "M" },
+          { text: "\u201cSe eu tiver mais do que meus pais tiveram, algo em mim se sente errado.\u201d", type: "T" },
+          { text: "\u201cTem algo em mim que destrói o que eu construo \u2014 e eu não sei o que é.\u201d", type: "D" }
+        ]
+      },
+      {
+        text: "Quando compara seu preço com o valor real do que entrega, você sente que...",
+        options: [
+          { text: "Seu preço está abaixo \u2014 mas toda vez que tenta aumentar, recua.", type: "M" },
+          { text: "Seu preço até está ok, mas você tem uma sensação vaga de que não deveria estar ganhando \u201ctanto assim\u201d.", type: "T" },
+          { text: "Nem sabe ao certo. A relação entre o que cobra e o que vale é confusa, muda conforme o dia.", type: "D" }
+        ]
+      },
+      {
+        text: "Complete a frase: \u201cNa minha família, dinheiro sempre foi...\u201d",
+        options: [
+          { text: "\u201c...algo que você ganha com muito suor. Nada vem fácil.\u201d", type: "M" },
+          { text: "\u201c...um assunto complicado. Alguém sempre saiu machucado.\u201d", type: "T" },
+          { text: "\u201c...um mistério. Nunca entendi direito como funciona \u2014 e ninguém me ensinou.\u201d", type: "D" }
+        ]
+      },
+      {
+        text: "Se uma amiga próxima te descrevesse em relação a dinheiro, ela provavelmente diria:",
+        options: [
+          { text: "\u201cEla trabalha demais e cobra de menos. Não se valoriza o suficiente.\u201d", type: "M" },
+          { text: "\u201cEla carrega o peso da família nas costas \u2014 financeiro ou emocional.\u201d", type: "T" },
+          { text: "\u201cEla tem tudo pra dar certo, mas sempre acontece algo que estraga. É inexplicável.\u201d", type: "D" }
+        ]
+      }
+    ];
+
+    // === STATE ===
+    var currentQuestion = 0;
+    var scores = { M: 0, T: 0, D: 0 };
+    var answers = [];
+
+    // === FUNCTIONS ===
+    function showScreen(id) {
+      var screens = document.querySelectorAll('.screen');
+      for (var i = 0; i < screens.length; i++) {
+        screens[i].classList.remove('active');
+      }
+      document.getElementById(id).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateProgress(step) {
+      // 0 = welcome, 1-10 = questions, 11 = capture, 12 = result
+      var pct = Math.round((step / 12) * 100);
+      document.getElementById('progressFill').style.width = pct + '%';
+    }
+
+    function shuffleArray(arr) {
+      var shuffled = arr.slice();
+      for (var i = shuffled.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = shuffled[i];
+        shuffled[i] = shuffled[j];
+        shuffled[j] = temp;
+      }
+      return shuffled;
+    }
+
+    function startQuiz() {
+      currentQuestion = 0;
+      scores = { M: 0, T: 0, D: 0 };
+      answers = [];
+      renderQuestion();
+      showScreen('screen-question');
+      updateProgress(1);
+    }
+
+    function renderQuestion() {
+      var q = questions[currentQuestion];
+      document.getElementById('questionCounter').textContent =
+        'Pergunta ' + (currentQuestion + 1) + ' de 10';
+      document.getElementById('questionText').textContent = q.text;
+
+      var container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+
+      var shuffled = shuffleArray(q.options);
+      for (var i = 0; i < shuffled.length; i++) {
+        var btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = shuffled[i].text;
+        btn.setAttribute('data-type', shuffled[i].type);
+        btn.onclick = function() { selectOption(this); };
+        container.appendChild(btn);
+      }
+    }
+
+    function selectOption(btn) {
+      // Visual feedback
+      var btns = document.querySelectorAll('.option-btn');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.remove('selected');
+        btns[i].onclick = null;
+      }
+      btn.classList.add('selected');
+
+      // Record answer
+      var type = btn.getAttribute('data-type');
+      scores[type]++;
+      answers.push({
+        question: currentQuestion + 1,
+        answer: type,
+        text: btn.textContent
+      });
+
+      // Next question or capture
+      setTimeout(function() {
+        currentQuestion++;
+        if (currentQuestion < 10) {
+          renderQuestion();
+          showScreen('screen-question');
+          updateProgress(currentQuestion + 1);
+        } else {
+          showScreen('screen-capture');
+          updateProgress(11);
+        }
+      }, 400);
+    }
+
+    function getResult() {
+      // Desempate: D > T > M
+      if (scores.D >= scores.T && scores.D >= scores.M) return 'D';
+      if (scores.T >= scores.M && scores.T >= scores.D) return 'T';
+      return 'M';
+    }
+
+    function getResultName(code) {
+      if (code === 'M') return 'Merecimento';
+      if (code === 'T') return 'Transmutação';
+      return 'Dissolução';
+    }
+
+    function submitCapture(e) {
+      e.preventDefault();
+
+      var name = document.getElementById('capName').value.trim();
+      var email = document.getElementById('capEmail').value.trim();
+      var phone = document.getElementById('capPhone').value.trim();
+
+      if (!name || !email || !phone) return false;
+
+      var result = getResult();
+      var resultName = getResultName(result);
+
+      // Send data via FormSubmit (background)
+      var formData = new FormData();
+      formData.append('_subject', 'Quiz Costuras — ' + name + ' — ' + resultName);
+      formData.append('_template', 'table');
+      formData.append('_captcha', 'false');
+      formData.append('Nome', name);
+      formData.append('Email', email);
+      formData.append('WhatsApp', phone);
+      formData.append('Costura Dominante', resultName);
+      formData.append('Pontuação M (Merecimento)', scores.M);
+      formData.append('Pontuação T (Transmutação)', scores.T);
+      formData.append('Pontuação D (Dissolução)', scores.D);
+
+      var detalhes = '';
+      for (var i = 0; i < answers.length; i++) {
+        detalhes += 'P' + answers[i].question + ': ' + answers[i].answer + ' | ';
+      }
+      formData.append('Respostas', detalhes);
+
+      fetch('https://formsubmit.co/ajax/macmarina@gmail.com', {
+        method: 'POST',
+        body: formData
+      }).catch(function() {
+        // Silently fail — result still shows
+      });
+
+      // Show result
+      showScreen('screen-result-' + result);
+      updateProgress(12);
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>
