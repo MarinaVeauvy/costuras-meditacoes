@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa da Alma Financeira — Marina Veauvy</title>
+  <meta name="description" content="Guia gratuito para entender os padrões invisíveis que governam sua relação com dinheiro. Por Marina Veauvy — Prosperidade Alquímica.">
+  <meta property="og:title" content="Mapa da Alma Financeira — Guia Gratuito">
+  <meta property="og:description" content="Descubra os 3 padrões ancestrais que governam sua relação com dinheiro.">
+  <meta property="og:type" content="website">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap');
+
+    :root {
+      --gold: #C5A55A;
+      --gold-light: #E8D5A3;
+      --gold-dark: #8B7340;
+      --emerald: #2D6B4F;
+      --emerald-light: #3D8B6A;
+      --emerald-dark: #1A4030;
+      --cream: #FDF8F0;
+      --cream-dark: #F5EDE0;
+      --brown: #3E2C1C;
+      --brown-light: #5C4033;
+      --white: #FFFFFF;
+      --bordeaux: #722F37;
+      --navy: #1B2A4A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      min-height: 100vh;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 50%, var(--emerald-light) 100%);
+      color: var(--cream);
+      text-align: center;
+      padding: 3rem 1.5rem 2.5rem;
+    }
+
+    .hero-ornament { font-size: 1.5rem; color: var(--gold); letter-spacing: 0.5rem; margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--gold-light); margin-bottom: 0.3rem; }
+    .hero h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; font-style: italic; color: var(--cream); opacity: 0.9; margin-bottom: 1.5rem; }
+    .hero-author { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15rem; color: var(--gold); }
+    .hero-tagline { font-size: 0.8rem; color: var(--cream); opacity: 0.6; margin-top: 0.5rem; font-style: italic; }
+
+    /* --- CONTENT --- */
+    .content { max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* --- SECTIONS --- */
+    .section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--brown-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .section p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      color: var(--brown-light);
+    }
+
+    .section strong { color: var(--brown); }
+
+    /* --- COSTURA CARDS --- */
+    .costura-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .costura-card.merecimento { border-left: 5px solid var(--gold); }
+    .costura-card.transmutacao { border-left: 5px solid var(--bordeaux); }
+    .costura-card.dissolucao { border-left: 5px solid var(--navy); }
+
+    .costura-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .costura-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .merecimento .costura-icon { background: var(--gold-light); color: var(--gold-dark); }
+    .transmutacao .costura-icon { background: #f0d0d8; color: var(--bordeaux); }
+    .dissolucao .costura-icon { background: #c8d8e8; color: var(--navy); }
+
+    .costura-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .merecimento .costura-title { color: var(--gold-dark); }
+    .transmutacao .costura-title { color: var(--bordeaux); }
+    .dissolucao .costura-title { color: var(--navy); }
+
+    .costura-axes {
+      font-size: 0.8rem;
+      color: var(--brown-light);
+      letter-spacing: 0.05rem;
+    }
+
+    .costura-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--brown-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .costura-body p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+      color: var(--brown-light);
+    }
+
+    .symptom-list {
+      list-style: none;
+      margin: 1rem 0;
+    }
+
+    .symptom-list li {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      color: var(--brown-light);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .symptom-list li:last-child { border-bottom: none; }
+
+    .symptom-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .merecimento .symptom-list li::before { color: var(--gold); }
+    .transmutacao .symptom-list li::before { color: var(--bordeaux); }
+    .dissolucao .symptom-list li::before { color: var(--navy); }
+
+    .root-text {
+      background: var(--cream-dark);
+      padding: 1rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+
+    .reflection {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .reflection p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--brown);
+      margin-bottom: 0;
+    }
+
+    .anchor-phrase {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin: 1.5rem 0 0;
+      padding: 1rem;
+      background: var(--cream-dark);
+      border-radius: 8px;
+    }
+
+    /* --- EXERCISE (VENN) --- */
+    .exercise-container {
+      margin: 2rem 0;
+    }
+
+    .circle-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .circle-group { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .circle-card {
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .circle-card.herdei { background: #f8eff0; border: 2px solid var(--bordeaux); }
+    .circle-card.repito { background: #faf5e8; border: 2px solid var(--gold); }
+    .circle-card.construir { background: #eaf0f6; border: 2px solid var(--navy); }
+
+    .circle-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .circle-card.herdei h4 { color: var(--bordeaux); }
+    .circle-card.repito h4 { color: var(--gold-dark); }
+    .circle-card.construir h4 { color: var(--navy); }
+
+    .circle-card .sub { font-size: 0.8rem; color: var(--brown-light); font-style: italic; margin-bottom: 1rem; }
+
+    .circle-card ul {
+      list-style: none;
+      text-align: left;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--brown-light);
+    }
+
+    .circle-card ul li { padding: 0.2rem 0; }
+    .circle-card ul li::before { content: '→ '; color: var(--gold); }
+
+    .write-space {
+      width: 100%;
+      min-height: 80px;
+      border: 1px dashed var(--gold-dark);
+      border-radius: 8px;
+      margin-top: 1rem;
+      padding: 0.8rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      color: var(--brown);
+      background: var(--white);
+      resize: vertical;
+    }
+
+    .read-map {
+      background: var(--emerald);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .read-map h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      margin-bottom: 0.8rem;
+    }
+
+    .read-map p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    /* --- TOOLS --- */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .tools-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .tool-card {
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .tool-card.healings { background: #eaf0f6; border-top: 4px solid var(--navy); }
+    .tool-card.constelacao { background: #f8eff0; border-top: 4px solid var(--bordeaux); }
+    .tool-card.florais { background: #faf5e8; border-top: 4px solid var(--gold); }
+
+    .tool-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .tool-card .for-costura {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .tool-card.healings h4 { color: var(--navy); }
+    .tool-card.healings .for-costura { color: var(--navy); }
+    .tool-card.constelacao h4 { color: var(--bordeaux); }
+    .tool-card.constelacao .for-costura { color: var(--bordeaux); }
+    .tool-card.florais h4 { color: var(--gold-dark); }
+    .tool-card.florais .for-costura { color: var(--gold-dark); }
+
+    .tool-card p {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--brown-light);
+    }
+
+    .patrimonio-box {
+      background: var(--cream-dark);
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 2rem 0;
+    }
+
+    .patrimonio-box p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .patrimonio-box strong { color: var(--emerald); }
+
+    /* --- CTA SECTION --- */
+    .cta-section {
+      background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%);
+      color: var(--cream);
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .cta-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--cream);
+      opacity: 0.9;
+      max-width: 500px;
+      margin: 0 auto 0.5rem;
+    }
+
+    .cta-benefits {
+      list-style: none;
+      text-align: left;
+      max-width: 400px;
+      margin: 1.5rem auto;
+    }
+
+    .cta-benefits li {
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      color: var(--cream);
+    }
+
+    .cta-benefits li::before {
+      content: '✓ ';
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--gold);
+      color: var(--brown);
+      border: none;
+      border-radius: 30px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .cta-note {
+      font-size: 0.8rem;
+      color: var(--cream);
+      opacity: 0.5;
+      font-style: italic;
+    }
+
+    /* --- LINKS SECTION --- */
+    .links-section {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .links-section h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+
+    .links-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+
+    .link-pill {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      background: var(--cream-dark);
+      color: var(--emerald);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .link-pill:hover { background: var(--gold-light); }
+
+    /* --- PRINT STYLES --- */
+    .save-btn-container {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--cream-dark);
+    }
+
+    .btn-save {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-save:hover { background: var(--emerald-dark); }
+
+    @media print {
+      .save-btn-container { display: none; }
+      .cta-section { break-before: page; }
+      body { background: white; }
+      .costura-card { break-inside: avoid; }
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      background: var(--emerald-dark);
+      color: var(--cream);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .footer p { font-size: 0.75rem; opacity: 0.5; }
+
+    /* --- RESPONSIVE --- */
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      .hero h2 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-ornament">◆ ◆ ◆</div>
+    <h1>Mapa da Alma Financeira</h1>
+    <h2>Um guia para entender os padrões invisíveis que governam sua relação com dinheiro</h2>
+    <p class="hero-author">Marina Veauvy &bull; Prosperidade Alquímica</p>
+    <p class="hero-tagline">Da clareza interna ao patrimônio real.</p>
+  </section>
+
+  <!-- SAVE AS PDF -->
+  <div class="save-btn-container">
+    <button class="btn-save" onclick="window.print()">Salvar como PDF</button>
+    <span style="display:block;font-size:0.78rem;color:var(--brown-light);margin-top:0.5rem;opacity:0.6;">
+      Clique para salvar ou imprimir este guia
+    </span>
+  </div>
+
+  <div class="content">
+
+    <!-- INTRODUCAO -->
+    <div class="section">
+      <h3>Antes de abrir a planilha, abra os olhos.</h3>
+      <p>
+        A maioria das pessoas trata dinheiro como problema de planilha. Quando o dinheiro não fica,
+        a solução parece óbvia: organizar melhor, cortar gastos, aprender sobre investimentos.
+        E quando isso não funciona, a conclusão é ainda mais cruel: "o problema sou eu — sou
+        desorganizada, não tenho disciplina, não sirvo pra isso."
+      </p>
+      <p>
+        Eu já estive nesse lugar. Já ganhei bem e vi o dinheiro escorrer pelos dedos. Já tentei
+        todas as planilhas. E nenhuma funcionou — porque o problema nunca foi racional.
+      </p>
+      <p>
+        A verdade que ninguém te conta é que a sua relação com dinheiro carrega histórias. Padrões.
+        Lealdades. Dores que vieram antes de você — da sua mãe, da sua avó, de gerações que
+        aprenderam a sobreviver, não a prosperar. Esses <strong>padrões ancestrais</strong> operam por baixo da
+        sua consciência, governando como você ganha, como você guarda e como você gasta.
+      </p>
+      <p>
+        Eu chamo esses padrões de <strong>Costuras da Abundância</strong>. São 3 eixos profundos que conectam
+        o seu dinheiro ao seu autovalor, à sua história familiar e ao seu inconsciente. Quando estão
+        "descosturados", nenhuma planilha resolve. Quando são iluminados e integrados, algo muda —
+        de dentro pra fora.
+      </p>
+      <p>
+        Esse guia é o seu primeiro passo. Aqui você vai conhecer as 3 Costuras, vai se reconhecer
+        em pelo menos uma delas, e vai ter ferramentas práticas para começar a costurar o que
+        foi separado.
+      </p>
+      <p>Não é terapia. É clareza. E clareza é onde tudo começa.</p>
+      <p style="margin-top:1rem;">Com carinho,<br><strong>Marina</strong></p>
+    </div>
+
+    <!-- COSTURA 1: MERECIMENTO -->
+    <div class="costura-card merecimento">
+      <div class="costura-header">
+        <div class="costura-icon">⚖</div>
+        <div>
+          <div class="costura-title">Costura do Merecimento</div>
+          <div class="costura-axes">Casa 2 ↔ Casa 6 &nbsp;|&nbsp; Autovalor ↔ Trabalho Diário</div>
+        </div>
+      </div>
+      <div class="costura-quote">"Eu mereço ser bem paga pelo que faço?"</div>
+      <div class="costura-body">
+        <p>
+          A Costura do Merecimento conecta duas partes da sua vida que deveriam caminhar juntas,
+          mas em muitas mulheres estão em guerra: o quanto você se valoriza e o quanto você trabalha.
+          Quando essa costura está ativa, você vive uma equação impossível — precisa trabalhar mais
+          e mais pra sentir que "merece" o que ganha.
+        </p>
+        <p><strong>Os sintomas:</strong></p>
+        <ul class="symptom-list">
+          <li>Você cobra menos do que vale — e sabe disso, mas não consegue mudar</li>
+          <li>Dá desconto antes que peçam, como se o preço fosse uma ofensa</li>
+          <li>Acumula certificações e formações, mas nunca se sente "pronta"</li>
+          <li>Trabalha 12, 14 horas por dia e sente que ainda deveria fazer mais</li>
+          <li>Burnout recorrente — o corpo grita o que a mente não ouve</li>
+          <li>Sente culpa quando lucra, como se ganhar dinheiro fosse egoísmo</li>
+        </ul>
+        <div class="root-text">
+          <strong>A raiz:</strong> Esse padrão nasce de uma crença profunda: <em>"Meu valor depende do que eu faço,
+          não de quem eu sou."</em> E quase sempre essa crença veio de fora — de uma família onde descanso
+          era preguiça, onde só merecia quem suava, onde pedir era fraqueza. Não é culpa sua.
+          É uma herança. E heranças podem ser devolvidas.
+        </div>
+      </div>
+      <div class="reflection">
+        <p>"Quando foi a última vez que você aumentou seu preço sem pedir desculpa? Sem justificar? Sem sentir que estava fazendo algo errado?"</p>
+      </div>
+      <div class="anchor-phrase">
+        "Eu não preciso provar meu valor trabalhando até quebrar. Meu valor existe antes do trabalho."
+      </div>
+    </div>
+
+    <!-- COSTURA 2: TRANSMUTACAO -->
+    <div class="costura-card transmutacao">
+      <div class="costura-header">
+        <div class="costura-icon">🌳</div>
+        <div>
+          <div class="costura-title">Costura da Transmutação</div>
+          <div class="costura-axes">Casa 2 ↔ Casa 8 &nbsp;|&nbsp; Dinheiro Próprio ↔ Herança Familiar</div>
+        </div>
+      </div>
+      <div class="costura-quote">"O que eu herdei da minha família sobre dinheiro?"</div>
+      <div class="costura-body">
+        <p>
+          A Costura da Transmutação conecta o seu dinheiro ao dinheiro da sua família — e não
+          estou falando de herança material. Falo dos padrões emocionais, das histórias não contadas,
+          das lealdades invisíveis que fazem você repetir, sem perceber, a vida financeira de quem
+          veio antes de você.
+        </p>
+        <p>
+          Quando essa costura está ativa, existe um "teto invisível" que impede o seu dinheiro de crescer.
+          Você pode ganhar bem — mas guardar, investir, prosperar de verdade? Algo trava.
+        </p>
+        <p><strong>Os sintomas:</strong></p>
+        <ul class="symptom-list">
+          <li>Ganha bem, mas no final do mês não sobra nada — o dinheiro "some"</li>
+          <li>Sente algo no corpo quando pensa em ter muito dinheiro guardado</li>
+          <li>Sabota investimentos ou grandes decisões financeiras na hora H</li>
+          <li>Atrai parceiros que controlam o dinheiro ou repetem dinâmicas familiares</li>
+          <li>Sente-se "errada" quando ganha muito — como se estivesse roubando algo</li>
+          <li>Carrega o peso financeiro ou emocional da família nas costas</li>
+        </ul>
+        <div class="root-text">
+          <strong>A raiz:</strong> Toda família tem uma história com dinheiro. Alguém perdeu tudo. Alguém nunca teve.
+          Essas histórias criam uma "lei" silenciosa: <em>"Nesta família, não se prospera."</em>
+          E você obedece essa lei sem saber que ela existe. Não é fraqueza. É lealdade.
+          E lealdades podem ser honradas sem precisar ser repetidas.
+        </div>
+      </div>
+      <div class="reflection">
+        <p>"O que acontece no seu corpo quando você pensa em ter MUITO dinheiro guardado? Aperta o peito? Contrai o estômago? Observe — seu corpo guarda a memória do que a sua família viveu."</p>
+      </div>
+      <div class="anchor-phrase">
+        "Eu posso honrar minha família E prosperar. Não preciso escolher entre pertencimento e abundância."
+      </div>
+    </div>
+
+    <!-- COSTURA 3: DISSOLUCAO -->
+    <div class="costura-card dissolucao">
+      <div class="costura-header">
+        <div class="costura-icon">🔮</div>
+        <div>
+          <div class="costura-title">Costura da Dissolução</div>
+          <div class="costura-axes">Casa 2 ↔ Casa 12 &nbsp;|&nbsp; Dinheiro Consciente ↔ Sabotagem Inconsciente</div>
+        </div>
+      </div>
+      <div class="costura-quote">"O que eu não consigo ver que está me impedindo?"</div>
+      <div class="costura-body">
+        <p>
+          A Costura da Dissolução é a mais profunda — e a mais silenciosa. Ela conecta o que é
+          visível na sua vida financeira com o que é invisível: os padrões que operam por baixo da
+          sua consciência, dissolvendo tudo que você tenta construir, sem que você entenda por quê.
+        </p>
+        <p>
+          Quando essa costura está ativa, você vive em ciclos. Constrói, desmorona. Avança, recua.
+          E a parte mais frustrante é que ninguém ao redor entende — porque de fora, você
+          "tem tudo pra dar certo".
+        </p>
+        <p><strong>Os sintomas:</strong></p>
+        <ul class="symptom-list">
+          <li>Ciclos de montanha-russa: meses bons seguidos de meses ruins, sem causa clara</li>
+          <li>"Não sei por que o dinheiro não fica" — e genuinamente não sabe</li>
+          <li>Resistência inexplicável a se organizar financeiramente</li>
+          <li>Compulsão por gastar ou generosidade que prejudica</li>
+          <li>Sensação de que "algo" impede, mas não consegue nomear</li>
+          <li>Já tentou tudo (planilha, terapia, curso) — nada resolveu de verdade</li>
+        </ul>
+        <div class="root-text">
+          <strong>A raiz:</strong> Essa costura carrega marcas que muitas vezes transcendem a história familiar
+          consciente. São padrões do inconsciente profundo — memórias ancestrais que ninguém na família
+          nomeia. <em>"Não é seguro ter"</em> ou <em>"não é pra mim"</em> de um lugar tão fundo que nenhuma
+          afirmação positiva alcança. Não é fraqueza. É o invisível operando. E o que é invisível
+          só precisa de uma coisa para perder poder: ser visto.
+        </div>
+      </div>
+      <div class="reflection">
+        <p>"Você já construiu algo — um negócio, uma reserva, um projeto — e viu desmoronar sem entender por quê? Lembre desse momento. O que você sentiu no corpo?"</p>
+      </div>
+      <div class="anchor-phrase">
+        "O que eu não vejo tem poder sobre mim. Quando eu olho com amor, o padrão se dissolve."
+      </div>
+    </div>
+
+    <!-- EXERCICIO: MAPA -->
+    <div class="section">
+      <h3>Seu Mapa da Alma Financeira</h3>
+      <p>
+        Este exercício é simples, mas profundo. Não pense demais. Escreva o que vier primeiro.
+        A primeira resposta é quase sempre a mais verdadeira.
+      </p>
+
+      <div class="circle-group">
+        <div class="circle-card herdei">
+          <h4>O QUE EU HERDEI</h4>
+          <div class="sub">As mensagens da minha família sobre dinheiro</div>
+          <ul>
+            <li>O que meus pais diziam sobre dinheiro?</li>
+            <li>O que eu aprendi observando?</li>
+            <li>Qual era a "lei" sobre dinheiro na minha casa?</li>
+            <li>Quem teve relação difícil com dinheiro?</li>
+          </ul>
+          <textarea class="write-space" placeholder="Escreva aqui..."></textarea>
+        </div>
+
+        <div class="circle-card repito">
+          <h4>O QUE EU REPITO</h4>
+          <div class="sub">Os padrões que reconheço na minha vida</div>
+          <ul>
+            <li>Quais comportamentos se repetem?</li>
+            <li>Onde eu travo sempre no mesmo lugar?</li>
+            <li>O que minha mãe/avó fazia igual?</li>
+            <li>Qual ciclo financeiro eu reconheço?</li>
+          </ul>
+          <textarea class="write-space" placeholder="Escreva aqui..."></textarea>
+        </div>
+
+        <div class="circle-card construir">
+          <h4>O QUE EU QUERO CONSTRUIR</h4>
+          <div class="sub">Minha visão de prosperidade com propósito</div>
+          <ul>
+            <li>Se dinheiro não fosse problema, como seria?</li>
+            <li>O que quero deixar de legado?</li>
+            <li>Que patrimônio quero construir?</li>
+            <li>Como seria sem medo?</li>
+          </ul>
+          <textarea class="write-space" placeholder="Escreva aqui..."></textarea>
+        </div>
+      </div>
+
+      <div class="read-map">
+        <h4>Como ler seu mapa:</h4>
+        <p>Olhe para os 3 círculos juntos. Perceba as conexões:</p>
+        <p>→ O que do Círculo 1 (herança) está aparecendo no Círculo 2 (repetição)?</p>
+        <p>→ O que do Círculo 2 (repetição) está bloqueando o Círculo 3 (visão)?</p>
+        <p>→ O que precisa ser costurado entre os 3 para que o caminho se abra?</p>
+        <p style="margin-top:0.8rem;font-style:italic;opacity:0.8;">Se algo te emocionou enquanto escrevia, preste atenção. Onde tem emoção, tem padrão. E onde tem padrão, tem possibilidade de transformação.</p>
+      </div>
+    </div>
+
+    <!-- FERRAMENTAS -->
+    <div class="section">
+      <h3>O caminho de volta pra você mesma</h3>
+      <p>
+        Se você se reconheceu em uma (ou mais) das 3 Costuras, saiba: isso é normal. Na verdade,
+        é um bom sinal. Porque o padrão só machuca enquanto é invisível. No momento em que você vê,
+        ele já começa a perder força.
+      </p>
+      <p>
+        Na Prosperidade Alquímica, eu trabalho com 3 ferramentas terapêuticas, cada uma desenhada
+        para alcançar uma camada diferente:
+      </p>
+
+      <div class="tools-grid">
+        <div class="tool-card healings">
+          <h4>7Healings</h4>
+          <div class="for-costura">Para a Dissolução</div>
+          <p>Trabalha nas 7 camadas energéticas, acessando padrões que a conversa não alcança. Abre o campo e ilumina o inconsciente profundo.</p>
+        </div>
+        <div class="tool-card constelacao">
+          <h4>Constelação Financeira</h4>
+          <div class="for-costura">Para a Transmutação</div>
+          <p>Revela dinâmicas ocultas do sistema familiar: lealdades, exclusões, dívidas emocionais que podem ser devolvidas com amor.</p>
+        </div>
+        <div class="tool-card florais">
+          <h4>Florais Alquímicos</h4>
+          <div class="for-costura">Para o Merecimento</div>
+          <p>Trabalham na camada energética do corpo, ancorando o novo padrão no dia a dia e transformando a relação com valor e trabalho.</p>
+        </div>
+      </div>
+
+      <div class="patrimonio-box">
+        <p>
+          <strong>Desbloquear é só metade do caminho. A outra metade é construir.</strong>
+        </p>
+        <p>
+          Existe um momento na jornada em que a pessoa percebe: "Agora eu tenho clareza. E agora,
+          o que eu faço com isso?" É aí que entra o conceito de <strong>Patrimônio com Propósito</strong>.
+          Não é sobre acumular. É sobre construir algo sólido no mundo real — com consciência,
+          com maturidade emocional, com os pés no chão e a alma integrada.
+        </p>
+        <p style="margin-bottom:0;font-weight:700;color:var(--emerald);">Consciência constrói patrimônio.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h3>Seu próximo passo: Diagnóstico de Prosperidade</h3>
+    <p>
+      Esse guia te deu clareza. Agora eu quero te dar direção.
+    </p>
+    <p>
+      O <strong>Diagnóstico de Prosperidade</strong> é uma sessão de 30 minutos comigo,
+      gratuita, online. Não é venda. É diagnóstico de verdade.
+    </p>
+    <ul class="cta-benefits">
+      <li>Ouço a sua história financeira</li>
+      <li>Identifico qual costura está mais ativa em você</li>
+      <li>Te dou um insight real sobre sua relação com dinheiro</li>
+      <li>Te mostro o próximo passo ideal para o seu momento</li>
+    </ul>
+    <p><em>Se algo nesse guia te tocou, esse é o sinal.</em></p>
+    <a href="https://cal.com/marina-veauvy/diagnostico" target="_blank" class="btn-gold">
+      Agendar Diagnóstico Gratuito
+    </a>
+    <p class="cta-note">Vagas limitadas por semana.</p>
+  </section>
+
+  <!-- LINKS -->
+  <section class="links-section">
+    <h4>Me encontre:</h4>
+    <div class="links-grid">
+      <a href="https://instagram.com/marinaveauvy" target="_blank" class="link-pill">Instagram</a>
+      <a href="https://linkedin.com/in/marinaveauvy" target="_blank" class="link-pill">LinkedIn</a>
+      <a href="https://marinaveauvy.github.io/costuras-meditacoes/" target="_blank" class="link-pill">Meditações</a>
+      <a href="https://www.amazon.com.br/dp/B0F1Y3QKQ7" target="_blank" class="link-pill">Livro</a>
+      <a href="https://marinaveauvy.github.io/costuras-meditacoes/quiz.html" target="_blank" class="link-pill">Quiz</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <p>&copy; 2026 Marina Veauvy &bull; Prosperidade Alquímica &bull; Todos os direitos reservados.</p>
+  </section>
+
+</body>
+</html>
