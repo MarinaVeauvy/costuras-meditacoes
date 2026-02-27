@@ -492,6 +492,149 @@
       background: rgba(212,175,55,0.25);
     }
 
+    /* === HERO PHOTO === */
+    .hero-photo-wrapper {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 1.8rem auto 0;
+    }
+
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      object-position: center 15%;
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+      border: 2px solid rgba(124,58,237,0.15);
+      box-shadow: 0 0 40px rgba(124,58,237,0.15), 0 0 80px rgba(212,175,55,0.08);
+      margin: 10px;
+    }
+
+    .photo-aura {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(ellipse 55% 55% at 50% 42%,
+        rgba(124,58,237,0.12) 0%, rgba(212,175,55,0.06) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .photo-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid rgba(124,58,237,0.06);
+      z-index: 1;
+    }
+
+    /* === ABOUT PHOTO === */
+    .about-photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      flex-shrink: 0;
+      border: 2px solid rgba(124,58,237,0.15);
+    }
+
+    /* === FLOATING CTA === */
+    .floating-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0.75rem 1.5rem;
+      background: rgba(11,10,18,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .floating-cta.visible {
+      transform: translateY(0);
+    }
+
+    .floating-cta a {
+      display: inline-block;
+      width: 100%;
+      max-width: 400px;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, var(--purple) 0%, #6D28D9 100%);
+      color: var(--text-primary);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px var(--purple-glow);
+    }
+
+    /* === ENHANCED: SCROLL PROGRESS === */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--purple), var(--gold));
+    }
+
+    /* === ENHANCED: GRAIN TEXTURE === */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 9990;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+      animation: grain-shift 0.5s steps(4) infinite;
+    }
+
+    @keyframes grain-shift {
+      0% { background-position: 0 0; }
+      25% { background-position: -80px 40px; }
+      50% { background-position: 40px -60px; }
+      75% { background-position: -40px 80px; }
+    }
+
+    /* === ENHANCED: SCROLL REVEALS === */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+      filter: blur(4px);
+      transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* === ENHANCED: GRADIENT TEXT === */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--gold-light), var(--purple-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
     /* === FOOTER === */
     .footer {
       position: relative;
@@ -519,7 +662,14 @@
 
       /* FIX-4: About section stacks vertically on mobile */
       .about { flex-direction: column; align-items: center; text-align: center; }
-      .about-avatar { width: 48px; height: 48px; font-size: 1.1rem; }
+      .about-photo { width: 56px; height: 56px; }
+
+      /* Hero photo smaller on mobile */
+      .hero-photo-wrapper { width: 140px; height: 140px; margin-top: 1.2rem; }
+      .hero-photo { width: 120px; height: 120px; margin: 10px; }
+
+      /* Floating CTA: extra bottom padding on body so content not hidden */
+      body { padding-bottom: 70px; }
 
       /* Provocation quotes tighter on mobile */
       .provocation { font-size: 1rem; padding: 1.1rem 1.2rem; }
@@ -535,11 +685,25 @@
 </head>
 <body>
 
+  <!-- ENHANCED: Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ENHANCED: Grain texture -->
+  <div class="grain"></div>
+
   <!-- HERO -->
   <header class="hero">
     <div class="hero-badge">Masterclass gratuita ao vivo</div>
     <h1>Por que seu patrimônio ainda não reflete o seu esforço?</h1>
     <h2>A costura invisível entre sua história familiar e a construção de riqueza real.</h2>
+
+    <!-- Hero Photo -->
+    <div class="hero-photo-wrapper">
+      <div class="photo-aura"></div>
+      <div class="photo-ring"></div>
+      <img src="marina-cutout.png" alt="Marina Veauvy" class="hero-photo">
+    </div>
+
     <p class="hero-desc">Você ganha bem, mas a sensação é de estar sempre recomeçando? Descubra como as lealdades invisíveis à escassez sabotam sua retenção financeira — e como a integração entre consciência e estratégia permite a construção de um patrimônio sólido.</p>
     <div class="hero-author">Masterclass com Marina Veauvy</div>
     <p class="hero-audience">Para mulheres que querem sair do ciclo "ganha-gasta" para a maturidade da construção patrimonial consciente.</p>
@@ -568,15 +732,15 @@
     <div class="container">
 
       <!-- PROVOCATION -->
-      <div class="section">
+      <div class="section reveal">
         <div class="provocation">
           "Terapia que não constrói patrimônio é catarse cara. Assessoria que ignora o emocional é dinheiro jogado fora. Eu junto os dois."
         </div>
       </div>
 
       <!-- WHAT YOU'LL LEARN -->
-      <div class="section">
-        <h3>O que você vai descobrir</h3>
+      <div class="section reveal">
+        <h3 class="gradient-text">O que você vai descobrir</h3>
         <ul class="learn-list">
           <li class="learn-item">
             <span class="learn-icon">&#128269;</span>
@@ -598,17 +762,17 @@
       </div>
 
       <!-- SECOND QUOTE (between learn + about for visual breathing) -->
-      <div class="section">
+      <div class="section reveal">
         <div class="provocation provocation-purple">
           "O dinheiro não é apenas um número — é um símbolo. Para construir patrimônio real, é preciso costurar sua história pessoal com a inteligência estratégica do mercado."
         </div>
       </div>
 
       <!-- ABOUT -->
-      <div class="section">
-        <h3>Quem é Marina Veauvy</h3>
+      <div class="section reveal">
+        <h3 class="gradient-text">Quem é Marina Veauvy</h3>
         <div class="about">
-          <div class="about-avatar">MV</div>
+          <img src="marina-cutout.png" alt="Marina Veauvy" class="about-photo">
           <div class="about-text">
             <div class="about-name">Marina Veauvy</div>
             <p><strong>Idealizadora da Prosperidade Alquímica.</strong> Terapeuta Alquimista Floral, especialista em Constelação Financeira e 7Healings. Autora do livro <em>Costuras da Abundância</em>. Dedica-se a ser a ponte entre o autoconhecimento profundo e a materialização de patrimônio consciente e duradouro.</p>
@@ -618,8 +782,8 @@
       </div>
 
       <!-- FORM -->
-      <div class="form-section">
-        <h3>Garanta sua vaga na masterclass</h3>
+      <div class="form-section reveal" id="form-section">
+        <h3 class="gradient-text">Garanta sua vaga na masterclass</h3>
         <p class="form-subtitle">As vagas para a sala ao vivo são limitadas. Inscreva-se para garantir o material de apoio e o link de acesso.</p>
 
         <div class="form-card">
@@ -674,6 +838,11 @@
         &#128197; Adicionar ao Google Calendar
       </a>
     </div>
+  </div>
+
+  <!-- FLOATING CTA (visible after scroll, hidden after registration) -->
+  <div class="floating-cta" id="floating-cta">
+    <a href="#form-section" id="floating-cta-link">GARANTIR MINHA VAGA</a>
   </div>
 
   <!-- FOOTER -->
@@ -811,10 +980,53 @@
       registrations.push(data);
       localStorage.setItem('pa-webinario-registrations', JSON.stringify(registrations));
 
-      // Show confirmation
+      // Show confirmation + hide floating CTA
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('confirmation').classList.add('active');
+      document.getElementById('floating-cta').classList.remove('visible');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ============================
+    // ENHANCED: SCROLL PROGRESS
+    // ============================
+    window.addEventListener('scroll', function() {
+      var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      document.getElementById('scroll-progress').style.width = pct + '%';
+    });
+
+    // ============================
+    // ENHANCED: SCROLL REVEALS
+    // ============================
+    var revealObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
+
+    // ============================
+    // FLOATING CTA (show after scrolling past hero, hide on form visible)
+    // ============================
+    var floatingCta = document.getElementById('floating-cta');
+    var formSection = document.getElementById('form-section');
+
+    window.addEventListener('scroll', function() {
+      var scrollY = window.scrollY;
+      var heroH = document.querySelector('.hero').offsetHeight;
+      var formTop = formSection ? formSection.getBoundingClientRect().top : 9999;
+
+      if (scrollY > heroH && formTop > window.innerHeight * 0.5) {
+        floatingCta.classList.add('visible');
+      } else {
+        floatingCta.classList.remove('visible');
+      }
+    });
+
+    // Smooth scroll for floating CTA
+    document.getElementById('floating-cta-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   </script>
 
