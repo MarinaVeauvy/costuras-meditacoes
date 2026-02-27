@@ -250,6 +250,10 @@
       -webkit-backdrop-filter: blur(8px);
     }
 
+    .provocation-purple {
+      border-left-color: var(--purple-light);
+    }
+
     /* === FORM === */
     .form-section {
       padding: 2.5rem 0 3rem;
@@ -342,6 +346,8 @@
       margin-top: 0.5rem;
       letter-spacing: 0.03em;
     }
+
+    .btn-text-short { display: none; }
 
     .btn-submit:hover {
       transform: translateY(-2px);
@@ -498,6 +504,27 @@
     }
 
     /* === RESPONSIVE === */
+    @media (max-width: 480px) {
+      /* FIX-1: CTA button text shorter on mobile */
+      .btn-text-full { display: none; }
+      .btn-text-short { display: inline; }
+      .btn-submit { font-size: 0.92rem; padding: 1rem 0.8rem; }
+
+      /* FIX-3: Hero more compact on mobile */
+      .hero { padding: 2rem 1.5rem 1.5rem; }
+      .hero h1 { font-size: 1.7rem; }
+      .hero-desc { font-size: 0.84rem; margin-top: 0.8rem; }
+      .hero-audience { display: none; }
+      .hero-author { margin-top: 1rem; }
+
+      /* FIX-4: About section stacks vertically on mobile */
+      .about { flex-direction: column; align-items: center; text-align: center; }
+      .about-avatar { width: 48px; height: 48px; font-size: 1.1rem; }
+
+      /* Provocation quotes tighter on mobile */
+      .provocation { font-size: 1rem; padding: 1.1rem 1.2rem; }
+    }
+
     @media (min-width: 768px) {
       .hero h1 { font-size: 2.4rem; }
       .hero h2 { font-size: 1.1rem; }
@@ -547,13 +574,6 @@
         </div>
       </div>
 
-      <!-- SECOND QUOTE (reinforcement before learn section) -->
-      <div class="section" style="padding-top: 0; border-bottom: none;">
-        <div class="provocation" style="border-left-color: var(--purple-light);">
-          "O dinheiro não é apenas um número — é um símbolo. Para construir patrimônio real, é preciso costurar sua história pessoal com a inteligência estratégica do mercado."
-        </div>
-      </div>
-
       <!-- WHAT YOU'LL LEARN -->
       <div class="section">
         <h3>O que você vai descobrir</h3>
@@ -575,6 +595,13 @@
             <p><strong>O Caminho da Consolidação</strong> — A transição do esforço isolado para a inteligência patrimonial. O que acontece quando você para de reagir ao dinheiro e começa a construir com ele.</p>
           </li>
         </ul>
+      </div>
+
+      <!-- SECOND QUOTE (between learn + about for visual breathing) -->
+      <div class="section">
+        <div class="provocation provocation-purple">
+          "O dinheiro não é apenas um número — é um símbolo. Para construir patrimônio real, é preciso costurar sua história pessoal com a inteligência estratégica do mercado."
+        </div>
       </div>
 
       <!-- ABOUT -->
@@ -616,7 +643,8 @@
             </div>
 
             <button type="submit" class="btn-submit" id="btn-submit">
-              GARANTIR MINHA VAGA NA MASTERCLASS
+              <span class="btn-text-full">GARANTIR MINHA VAGA NA MASTERCLASS</span>
+              <span class="btn-text-short">GARANTIR MINHA VAGA</span>
             </button>
 
             <p class="form-note">Gratuito. Sem spam. Você receberá apenas informações sobre o evento.</p>
@@ -752,7 +780,7 @@
       if (!valid) return;
 
       btnSubmit.disabled = true;
-      btnSubmit.textContent = 'Garantindo sua vaga...';
+      btnSubmit.innerHTML = 'Garantindo sua vaga...';
 
       const data = {
         nome,
