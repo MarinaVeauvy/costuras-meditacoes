@@ -509,14 +509,189 @@
 
     .footer p { font-size: 0.75rem; opacity: 0.5; }
 
+    /* --- GATE (Lead Capture) --- */
+    .gate-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .gate-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .gate-card {
+      max-width: 460px;
+      width: 90%;
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+
+    .gate-ornament { font-size: 1.2rem; color: var(--gold); letter-spacing: 0.5rem; margin-bottom: 1rem; }
+
+    .gate-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--emerald);
+      margin-bottom: 0.5rem;
+    }
+
+    .gate-card .gate-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--brown-light);
+      margin-bottom: 1.8rem;
+    }
+
+    .gate-form { text-align: left; }
+
+    .gate-form .field {
+      margin-bottom: 1rem;
+    }
+
+    .gate-form label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08rem;
+      color: var(--brown-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .gate-form input[type="text"],
+    .gate-form input[type="email"] {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--cream-dark);
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.92rem;
+      color: var(--brown);
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .gate-form input:focus {
+      outline: none;
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 3px rgba(45,107,79,0.12);
+    }
+
+    .gate-form input.error {
+      border-color: #c0392b;
+      box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
+    }
+
+    .gate-error {
+      font-size: 0.78rem;
+      color: #c0392b;
+      margin-top: 0.3rem;
+      display: none;
+    }
+
+    .gate-error.visible { display: block; }
+
+    .gate-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin: 1.2rem 0;
+      font-size: 0.8rem;
+      color: var(--brown-light);
+      cursor: pointer;
+    }
+
+    .gate-consent input { margin-top: 0.15rem; flex-shrink: 0; }
+
+    .btn-gate {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-gate:hover { background: var(--emerald-light); transform: translateY(-1px); }
+    .btn-gate:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .gate-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--brown-light);
+      opacity: 0.6;
+      margin-top: 0.8rem;
+    }
+
+    .gate-bypass {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .gate-bypass a {
+      font-size: 0.78rem;
+      color: var(--brown-light);
+      opacity: 0.5;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .gate-bypass a:hover { opacity: 0.8; }
+
     /* --- RESPONSIVE --- */
     @media (min-width: 768px) {
       .hero h1 { font-size: 2.6rem; }
       .hero h2 { font-size: 1.2rem; }
+      .gate-card { padding: 3rem 2.5rem; }
+      .gate-card h2 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- GATE: Captura de email -->
+  <div class="gate-overlay" id="gate">
+    <div class="gate-card">
+      <div class="gate-ornament">&#9670; &#9670; &#9670;</div>
+      <h2>Radiografia Financeira</h2>
+      <p class="gate-sub">Descubra os 3 padr&otilde;es ancestrais que governam sua rela&ccedil;&atilde;o com dinheiro.</p>
+      <form class="gate-form" id="gate-form" novalidate>
+        <div class="field">
+          <label for="gate-nome">Seu nome</label>
+          <input type="text" id="gate-nome" name="nome" placeholder="Como gosta de ser chamada?" required>
+          <div class="gate-error" id="gate-nome-error">Por favor, informe seu nome.</div>
+        </div>
+        <div class="field">
+          <label for="gate-email">Seu melhor email</label>
+          <input type="email" id="gate-email" name="email" placeholder="seuemail@exemplo.com" required>
+          <div class="gate-error" id="gate-email-error">Por favor, informe um email v&aacute;lido.</div>
+        </div>
+        <label class="gate-consent">
+          <input type="checkbox" id="gate-consent" required>
+          <span>Concordo em receber comunica&ccedil;&otilde;es da Marina Veauvy. Posso cancelar a qualquer momento. <a href="#" style="color:var(--emerald);">Pol&iacute;tica de privacidade</a></span>
+        </label>
+        <div class="gate-error" id="gate-consent-error" style="text-align:center;">Voc&ecirc; precisa concordar para acessar o guia.</div>
+        <button type="submit" class="btn-gate" id="btn-gate">ACESSAR O GUIA GRATUITO</button>
+        <p class="gate-note">Gratuito. Sem spam. Seus dados est&atilde;o seguros.</p>
+      </form>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero">
@@ -808,25 +983,25 @@
 
   <!-- CTA SECTION -->
   <section class="cta-section">
-    <h3>Seu próximo passo: Diagnóstico de Prosperidade</h3>
+    <h3>Seu pr&oacute;ximo passo: Masterclass Gratuita</h3>
     <p>
-      Esse guia te deu clareza. Agora eu quero te dar direção.
+      Esse guia te deu clareza. Agora eu quero te dar dire&ccedil;&atilde;o.
     </p>
     <p>
-      O <strong>Diagnóstico de Prosperidade</strong> é uma sessão de 30 minutos comigo,
-      gratuita, online. Não é venda. É diagnóstico de verdade.
+      Na <strong>Masterclass ao vivo</strong> eu vou te mostrar como essas costuras
+      operam na pr&aacute;tica &mdash; e o que fazer para come&ccedil;ar a costurar o que foi separado.
     </p>
     <ul class="cta-benefits">
-      <li>Ouço a sua história financeira</li>
-      <li>Identifico qual costura está mais ativa em você</li>
-      <li>Te dou um insight real sobre sua relação com dinheiro</li>
-      <li>Te mostro o próximo passo ideal para o seu momento</li>
+      <li>Por que seu patrim&ocirc;nio ainda n&atilde;o reflete o seu esfor&ccedil;o</li>
+      <li>A costura invis&iacute;vel entre hist&oacute;ria familiar e riqueza real</li>
+      <li>O primeiro passo pr&aacute;tico para sair do ciclo de sabotagem</li>
+      <li>Sess&atilde;o ao vivo com espa&ccedil;o para perguntas</li>
     </ul>
-    <p><em>Se algo nesse guia te tocou, esse é o sinal.</em></p>
-    <a href="https://cal.com/marina-veauvy/diagnostico" target="_blank" class="btn-gold">
-      Agendar Diagnóstico Gratuito
+    <p><em>Se algo nesse guia te tocou, esse &eacute; o sinal.</em></p>
+    <a href="https://marinaveauvy.github.io/costuras-meditacoes/webinario.html" target="_blank" class="btn-gold">
+      INSCREVER NA MASTERCLASS GRATUITA
     </a>
-    <p class="cta-note">Vagas limitadas por semana.</p>
+    <p class="cta-note">Vagas limitadas. Quinta, 20h, 90 minutos ao vivo.</p>
   </section>
 
   <!-- LINKS -->
@@ -843,8 +1018,77 @@
 
   <!-- FOOTER -->
   <section class="footer">
-    <p>&copy; 2026 Marina Veauvy &bull; Prosperidade Alquímica &bull; Todos os direitos reservados.</p>
+    <p>&copy; 2026 Marina Veauvy &bull; Prosperidade Alqu&iacute;mica &bull; Todos os direitos reservados.</p>
   </section>
+
+  <script>
+  (function() {
+    var WEBHOOK_URL = 'https://webhook-pa.vercel.app/api/webhook/lead-magnet';
+    var STORAGE_KEY = 'pa_radiografia_unlocked';
+
+    var gate = document.getElementById('gate');
+    var form = document.getElementById('gate-form');
+    var btnGate = document.getElementById('btn-gate');
+
+    // If already unlocked, skip gate
+    if (localStorage.getItem(STORAGE_KEY) === 'true') {
+      gate.classList.add('hidden');
+    }
+
+    function showError(id, msg) {
+      var el = document.getElementById(id);
+      if (msg) el.textContent = msg;
+      el.classList.add('visible');
+      var input = el.previousElementSibling;
+      if (input && input.tagName === 'INPUT') input.classList.add('error');
+    }
+
+    function clearErrors() {
+      form.querySelectorAll('.gate-error').forEach(function(el) { el.classList.remove('visible'); });
+      form.querySelectorAll('input').forEach(function(el) { el.classList.remove('error'); });
+    }
+
+    function unlockContent() {
+      localStorage.setItem(STORAGE_KEY, 'true');
+      gate.classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      clearErrors();
+
+      var nome = document.getElementById('gate-nome').value.trim();
+      var email = document.getElementById('gate-email').value.trim();
+      var consent = document.getElementById('gate-consent').checked;
+      var valid = true;
+
+      if (!nome) { showError('gate-nome-error'); valid = false; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError('gate-email-error');
+        valid = false;
+      }
+      if (!consent) { showError('gate-consent-error'); valid = false; }
+
+      if (!valid) return;
+
+      btnGate.disabled = true;
+      btnGate.textContent = 'Liberando acesso...';
+
+      try {
+        await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome: nome, email: email })
+        });
+      } catch (err) {
+        console.warn('[radiografia] webhook error:', err);
+      }
+
+      unlockContent();
+    });
+  })();
+  </script>
 
 </body>
 </html>
