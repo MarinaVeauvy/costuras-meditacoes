@@ -1165,7 +1165,22 @@
       // Render score rings on the result page
       renderScoreRings('scores-' + result, result);
 
-      // Send data via FormSubmit (background)
+      // Send data to webhook central (Brevo + AizyFlow)
+      fetch('https://webhook-pa.vercel.app/api/webhook/quiz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: name,
+          email: email,
+          whatsapp: phone,
+          costura: resultName,
+          scoreM: scores.M,
+          scoreT: scores.T,
+          scoreD: scores.D
+        })
+      }).catch(function() {});
+
+      // Fallback: FormSubmit (email para Marina)
       var formData = new FormData();
       formData.append('_subject', 'Quiz Costuras \u2014 ' + name + ' \u2014 ' + resultName);
       formData.append('_template', 'table');
@@ -1177,13 +1192,6 @@
       formData.append('Pontuação M (Merecimento)', scores.M);
       formData.append('Pontuação T (Transmutação)', scores.T);
       formData.append('Pontuação D (Dissolução)', scores.D);
-
-      var detalhes = '';
-      for (var i = 0; i < answers.length; i++) {
-        detalhes += 'P' + answers[i].question + ': ' + answers[i].answer + ' | ';
-      }
-      formData.append('Respostas', detalhes);
-
       fetch('https://formsubmit.co/ajax/macmarina@gmail.com', {
         method: 'POST',
         body: formData
