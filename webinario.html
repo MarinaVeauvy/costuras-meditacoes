@@ -43,6 +43,7 @@
       overflow-x: hidden;
     }
 
+    /* === AMBIENT BG === */
     body::before {
       content: '';
       position: fixed;
@@ -62,546 +63,21 @@
       100% { transform: translate(-2%, -1%) rotate(1deg); }
     }
 
-    /* === HERO === */
-    .hero {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 3rem 1.5rem 2rem;
-      background: linear-gradient(180deg, rgba(124,58,237,0.12) 0%, transparent 100%);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: var(--gold-soft);
-      color: var(--gold-light);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.35rem 1rem;
-      border-radius: 20px;
-      margin-bottom: 1.2rem;
-      border: 1px solid rgba(212,175,55,0.20);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 0.6rem;
-      line-height: 1.2;
-    }
-
-    .hero h2 {
-      font-family: 'Lato', sans-serif;
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .hero-desc {
-      font-family: 'Lato', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 300;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 520px;
-      margin: 1rem auto 0;
-    }
-
-    .hero-author {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2rem;
-      color: var(--gold);
-      margin-top: 1.4rem;
-      opacity: 0.6;
-    }
-
-    .hero-audience {
-      font-size: 0.82rem;
-      font-style: italic;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-      max-width: 460px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.5;
-    }
-
-    /* === MAIN CONTAINER === */
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* === EVENT INFO === */
-    .event-info {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-
-    .event-detail {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-    }
-
-    .event-detail .icon {
-      font-size: 1.1rem;
-      color: var(--purple-light);
-    }
-
-    .event-detail strong {
-      color: var(--text-primary);
-      font-weight: 700;
-    }
-
-    /* === SECTION === */
-    .section {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section:last-of-type {
-      border-bottom: none;
-    }
-
-    .section h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 1.2rem;
-      text-align: center;
-    }
-
-    /* === WHAT YOU'LL LEARN === */
-    .learn-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .learn-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      background: var(--bg-card);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 1.2rem 1.4rem;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .learn-icon {
-      font-size: 1.3rem;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    .learn-item p {
-      font-size: 0.92rem;
-      line-height: 1.6;
-      color: var(--text-secondary);
-    }
-
-    .learn-item strong {
-      display: block;
-      font-size: 0.98rem;
-      font-family: 'Cormorant Garamond', serif;
-      color: var(--gold-light);
-      margin-bottom: 0.25rem;
-    }
-
-    /* === PROVOCATIVE QUOTE === */
-    .provocation {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      border-left: 3px solid var(--gold);
-      padding: 1.4rem 1.6rem;
-      margin: 2rem 0;
-      border-radius: 0 10px 10px 0;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-style: italic;
-      line-height: 1.6;
-      color: var(--gold-light);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .provocation-purple {
-      border-left-color: var(--purple-light);
-    }
-
-    /* === FORM === */
-    .form-section {
-      padding: 2.5rem 0 3rem;
-    }
-
-    .form-section h3 {
-      margin-bottom: 0.4rem;
-    }
-
-    .form-subtitle {
-      text-align: center;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-
-    .form-card {
-      background: var(--bg-card);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      padding: 2rem;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text-primary);
-      font-family: 'Lato', sans-serif;
-      font-size: 0.95rem;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      outline: none;
-    }
-
-    .form-group input::placeholder {
-      color: var(--text-muted);
-    }
-
-    .form-group input:focus {
-      border-color: var(--purple);
-      box-shadow: 0 0 0 3px var(--purple-glow);
-    }
-
-    .form-group input.error {
-      border-color: var(--red);
-      box-shadow: 0 0 0 3px var(--red-soft);
-    }
-
-    .form-error {
-      font-size: 0.75rem;
-      color: var(--red);
-      margin-top: 0.3rem;
-      display: none;
-    }
-
-    .form-error.visible {
-      display: block;
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 1rem;
-      background: linear-gradient(135deg, var(--purple) 0%, #6D28D9 100%);
-      color: var(--text-primary);
-      font-family: 'Lato', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.3s;
-      margin-top: 0.5rem;
-      letter-spacing: 0.03em;
-    }
-
-    .btn-text-short { display: none; }
-
-    .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px var(--purple-glow);
-    }
-
-    .btn-submit:active {
-      transform: translateY(0);
-    }
-
-    .btn-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .form-note {
-      text-align: center;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 1rem;
-    }
-
-    /* === ABOUT MARINA === */
-    .about {
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-      background: var(--bg-card);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-
-    .about-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--purple) 0%, var(--gold) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      flex-shrink: 0;
-    }
-
-    .about-text p {
-      font-size: 0.88rem;
-      line-height: 1.65;
-      color: var(--text-secondary);
-    }
-
-    .about-text strong {
-      color: var(--text-primary);
-    }
-
-    .about-text .about-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--gold-light);
-      margin-bottom: 0.3rem;
-    }
-
-    /* === CONFIRMATION SCREEN === */
-    .confirmation {
-      display: none;
-      text-align: center;
-      padding: 3rem 0 4rem;
-    }
-
-    .confirmation.active {
-      display: block;
-      animation: screenIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    @keyframes screenIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .confirmation-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .confirmation h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--gold-light);
-      margin-bottom: 0.5rem;
-    }
-
-    .confirmation p {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-
-    .confirmation-details {
-      background: var(--bg-card);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      text-align: left;
-    }
-
-    .confirmation-details p {
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .confirmation-details strong {
-      color: var(--gold-light);
-    }
-
-    .btn-calendar {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      background: var(--gold-soft);
-      color: var(--gold-light);
-      font-family: 'Lato', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      border: 1px solid rgba(212,175,55,0.25);
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s;
-      margin-top: 0.5rem;
-    }
-
-    .btn-calendar:hover {
-      background: rgba(212,175,55,0.25);
-    }
-
-    /* === HERO PHOTO === */
-    .hero-photo-wrapper {
-      position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 1.8rem auto 0;
-    }
-
-    .hero-photo {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      object-position: center 15%;
-      border-radius: 50%;
-      position: relative;
-      z-index: 2;
-      border: 2px solid rgba(124,58,237,0.15);
-      box-shadow: 0 0 40px rgba(124,58,237,0.15), 0 0 80px rgba(212,175,55,0.08);
-      margin: 10px;
-    }
-
-    .photo-aura {
-      position: absolute;
-      inset: -20px;
-      background: radial-gradient(ellipse 55% 55% at 50% 42%,
-        rgba(124,58,237,0.12) 0%, rgba(212,175,55,0.06) 40%, transparent 70%);
-      pointer-events: none;
-      z-index: 1;
-      border-radius: 50%;
-    }
-
-    .photo-ring {
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      border: 1px solid rgba(124,58,237,0.06);
-      z-index: 1;
-    }
-
-    /* === ABOUT PHOTO === */
-    .about-photo {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 15%;
-      flex-shrink: 0;
-      border: 2px solid rgba(124,58,237,0.15);
-    }
-
-    /* === FLOATING CTA === */
-    .floating-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 0.75rem 1.5rem;
-      background: rgba(11,10,18,0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--glass-border);
-      text-align: center;
-      transform: translateY(100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .floating-cta.visible {
-      transform: translateY(0);
-    }
-
-    .floating-cta a {
-      display: inline-block;
-      width: 100%;
-      max-width: 400px;
-      padding: 0.8rem 1.5rem;
-      background: linear-gradient(135deg, var(--purple) 0%, #6D28D9 100%);
-      color: var(--text-primary);
-      font-family: 'Lato', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      border-radius: 10px;
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      box-shadow: 0 4px 20px var(--purple-glow);
-    }
-
-    /* === ENHANCED: SCROLL PROGRESS === */
+    /* === SCROLL PROGRESS === */
     .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 200;
-      height: 2px;
-      width: 0%;
+      position: fixed; top: 0; left: 0; z-index: 200;
+      height: 2px; width: 0%;
       background: linear-gradient(90deg, var(--purple), var(--gold));
     }
 
-    /* === ENHANCED: GRAIN TEXTURE === */
+    /* === GRAIN === */
     .grain {
-      position: fixed;
-      inset: 0;
-      z-index: 9990;
-      pointer-events: none;
-      opacity: 0.025;
+      position: fixed; inset: 0; z-index: 9990;
+      pointer-events: none; opacity: 0.025;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 200px;
       animation: grain-shift 0.5s steps(4) infinite;
     }
-
     @keyframes grain-shift {
       0% { background-position: 0 0; }
       25% { background-position: -80px 40px; }
@@ -609,162 +85,509 @@
       75% { background-position: -40px 80px; }
     }
 
-    /* === ENHANCED: SCROLL REVEALS === */
+    /* === REVEALS === */
     .reveal {
-      opacity: 0;
-      transform: translateY(24px) scale(0.98);
-      filter: blur(4px);
+      opacity: 0; transform: translateY(24px) scale(0.98); filter: blur(4px);
       transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease;
     }
-
     .reveal.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
+      opacity: 1; transform: translateY(0) scale(1); filter: blur(0);
     }
-
     .reveal-d1 { transition-delay: 0.1s; }
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
 
-    /* === ENHANCED: GRADIENT TEXT === */
+    /* === GRADIENT TEXT === */
     .gradient-text {
       background: linear-gradient(135deg, var(--gold-light), var(--purple-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    /* === NAV BAR === */
+    .navbar {
+      position: relative; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.8rem 2rem;
+      background: rgba(11,10,18,0.85);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap; gap: 0.5rem;
+    }
+
+    .navbar-logo {
+      height: 28px;
+      opacity: 0.9;
+    }
+
+    .navbar-info {
+      display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;
+    }
+
+    .navbar-detail {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.78rem; color: var(--text-secondary);
+    }
+
+    .navbar-detail strong { color: var(--text-primary); font-weight: 700; }
+    .navbar-detail .icon { color: var(--purple-light); font-size: 0.9rem; }
+
+    /* === HERO SPLIT === */
+    .hero {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+      background: linear-gradient(135deg, rgba(124,58,237,0.10) 0%, rgba(212,175,55,0.04) 50%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 3rem 2rem 3rem 4rem;
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--gold-soft); color: var(--gold-light);
+      font-size: 0.68rem; font-weight: 700;
+      padding: 0.3rem 0.9rem; border-radius: 20px;
+      border: 1px solid rgba(212,175,55,0.20);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      width: fit-content; margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem; font-weight: 700;
+      color: var(--gold-light); line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h2 {
+      font-family: 'Lato', sans-serif;
+      font-size: 1rem; font-weight: 300;
+      color: var(--text-secondary); line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Quote box inside hero */
+    .hero-quote {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.2rem; border-radius: 0 10px 10px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; font-style: italic;
+      line-height: 1.5; color: var(--gold-light);
+      margin-bottom: 1.8rem;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--purple) 0%, #6D28D9 100%);
+      color: var(--text-primary);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      border: none; border-radius: 12px;
+      cursor: pointer; text-decoration: none;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 24px var(--purple-glow);
+      transition: transform 0.2s, box-shadow 0.3s;
+      width: fit-content;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--purple-glow);
+    }
+
+    /* Hero photo side */
+    .hero-photo-side {
+      position: relative;
+      display: flex; align-items: flex-end; justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-photo-side img {
+      max-height: 85vh; width: auto; max-width: 100%;
+      object-fit: contain; object-position: bottom center;
+      position: relative; z-index: 2;
+      filter: drop-shadow(0 0 40px rgba(124,58,237,0.15)) drop-shadow(0 0 80px rgba(212,175,55,0.08));
+    }
+
+    .hero-photo-aura {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 120%; height: 80%;
+      background: radial-gradient(ellipse 50% 60% at 50% 70%,
+        rgba(124,58,237,0.12) 0%, rgba(212,175,55,0.05) 40%, transparent 70%);
+      pointer-events: none; z-index: 1;
+    }
+
+    /* === SECTION CONTAINER === */
+    .section-wrap {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type { border-bottom: none; }
+
+    .section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2rem; text-align: center;
+    }
+
+    /* === CARDS GRID === */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(124,58,237,0.1);
+      border-color: rgba(124,58,237,0.15);
+    }
+
+    .card-icon {
+      font-size: 1.5rem; margin-bottom: 0.8rem;
+    }
+
+    .card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.85rem; line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* === PROVOCATION (between sections) === */
+    .provocation-section {
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .provocation {
+      background: var(--glass); border: 1px solid var(--glass-border);
+      border-left: 3px solid var(--purple-light);
+      padding: 1.4rem 1.6rem;
+      border-radius: 0 10px 10px 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-style: italic;
+      line-height: 1.6; color: var(--gold-light);
+      max-width: 700px; margin: 0 auto;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* === ABOUT === */
+    .about {
+      display: flex; gap: 2rem; align-items: center;
+      max-width: 700px; margin: 0 auto;
+    }
+
+    .about-photo {
+      width: 120px; height: 120px;
+      border-radius: 16px;
+      object-fit: cover; object-position: center 15%;
+      flex-shrink: 0;
+      border: 2px solid rgba(124,58,237,0.15);
+      box-shadow: 0 0 30px rgba(124,58,237,0.1);
+    }
+
+    .about-text p {
+      font-size: 0.9rem; line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .about-text strong { color: var(--text-primary); }
+
+    .about-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 0.4rem;
+    }
+
+    /* === FORM === */
+    .form-section { padding: 4rem 0 4.5rem; }
+
+    .form-subtitle {
+      text-align: center; font-size: 0.9rem;
+      color: var(--text-muted); margin-bottom: 2rem;
+    }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px; padding: 2rem;
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      max-width: 480px; margin: 0 auto;
+    }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    .form-group label {
+      display: block; font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); margin-bottom: 0.4rem;
+    }
+
+    .form-group input {
+      width: 100%; padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text-primary);
+      font-family: 'Lato', sans-serif; font-size: 0.95rem;
+      transition: border-color 0.3s, box-shadow 0.3s; outline: none;
+    }
+
+    .form-group input::placeholder { color: var(--text-muted); }
+    .form-group input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px var(--purple-glow); }
+    .form-group input.error { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-soft); }
+
+    .form-error {
+      font-size: 0.75rem; color: var(--red);
+      margin-top: 0.3rem; display: none;
+    }
+    .form-error.visible { display: block; }
+
+    .btn-submit {
+      width: 100%; padding: 1rem;
+      background: linear-gradient(135deg, var(--purple) 0%, #6D28D9 100%);
+      color: var(--text-primary);
+      font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 700;
+      border: none; border-radius: 12px; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s;
+      margin-top: 0.5rem; letter-spacing: 0.03em;
+    }
+
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--purple-glow); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-note {
+      text-align: center; font-size: 0.72rem;
+      color: var(--text-muted); margin-top: 1rem;
+    }
+
+    /* === CONFIRMATION === */
+    .confirmation { display: none; text-align: center; padding: 3rem 0 4rem; }
+    .confirmation.active { display: block; animation: screenIn 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+    @keyframes screenIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .confirmation-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .confirmation h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--gold-light); margin-bottom: 0.5rem; }
+    .confirmation p { font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem; }
+    .confirmation-details { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem auto; text-align: left; max-width: 480px; }
+    .confirmation-details p { margin-bottom: 0.5rem; font-size: 0.9rem; }
+    .confirmation-details strong { color: var(--gold-light); }
+    .btn-calendar { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--gold-soft); color: var(--gold-light); font-family: 'Lato', sans-serif; font-size: 0.88rem; font-weight: 700; border: 1px solid rgba(212,175,55,0.25); border-radius: 10px; cursor: pointer; text-decoration: none; transition: background 0.3s; margin-top: 0.5rem; }
+    .btn-calendar:hover { background: rgba(212,175,55,0.25); }
+
+    /* === FLOATING CTA === */
+    .floating-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      padding: 0.75rem 1.5rem;
+      background: rgba(11,10,18,0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--glass-border);
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: none;
+    }
+
+    .floating-cta.visible { transform: translateY(0); }
+
+    .floating-cta a {
+      display: inline-block; width: 100%; max-width: 400px;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, var(--purple) 0%, #6D28D9 100%);
+      color: var(--text-primary);
+      font-family: 'Lato', sans-serif; font-size: 0.88rem; font-weight: 700;
+      border-radius: 10px; text-decoration: none; letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px var(--purple-glow);
     }
 
     /* === FOOTER === */
     .footer {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 2rem 1.5rem;
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 2rem;
       border-top: 1px solid var(--border);
-      font-size: 0.72rem;
-      color: var(--text-muted);
+      font-size: 0.72rem; color: var(--text-muted);
+      flex-wrap: wrap; gap: 0.5rem;
     }
+
+    .footer-logo { height: 20px; opacity: 0.5; }
+
+    .footer-social {
+      display: flex; gap: 1rem;
+    }
+
+    .footer-social a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.3s;
+    }
+
+    .footer-social a:hover { color: var(--gold-light); }
 
     /* === RESPONSIVE === */
-    @media (max-width: 480px) {
-      /* FIX-1: CTA button text shorter on mobile */
-      .btn-text-full { display: none; }
-      .btn-text-short { display: inline; }
-      .btn-submit { font-size: 0.92rem; padding: 1rem 0.8rem; }
+    @media (max-width: 768px) {
+      .navbar { padding: 0.6rem 1rem; justify-content: center; }
+      .navbar-logo { height: 22px; }
+      .navbar-info { display: none; }
 
-      /* FIX-3: Hero more compact on mobile */
-      .hero { padding: 2rem 1.5rem 1.5rem; }
-      .hero h1 { font-size: 1.7rem; }
-      .hero-desc { font-size: 0.84rem; margin-top: 0.8rem; }
-      .hero-audience { display: none; }
-      .hero-author { margin-top: 1rem; }
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
 
-      /* FIX-4: About section stacks vertically on mobile */
+      .hero-content {
+        padding: 2rem 1.5rem 1rem;
+        text-align: center;
+        max-width: none;
+      }
+
+      .hero-badge { margin: 0 auto 1rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero h2 { font-size: 0.92rem; }
+      .hero-quote { font-size: 0.92rem; text-align: left; }
+      .hero-cta { margin: 0 auto; }
+
+      .hero-photo-side {
+        justify-content: center;
+        padding: 0 2rem;
+        max-height: 50vh;
+      }
+
+      .hero-photo-side img { max-height: 45vh; }
+
+      .section-wrap { padding: 0 1.5rem; }
+      .section { padding: 2.5rem 0; }
+      .section h3 { font-size: 1.4rem; }
+
+      .cards-grid { grid-template-columns: 1fr; }
+
       .about { flex-direction: column; align-items: center; text-align: center; }
-      .about-photo { width: 56px; height: 56px; }
+      .about-photo { width: 90px; height: 90px; }
 
-      /* Hero photo smaller on mobile */
-      .hero-photo-wrapper { width: 140px; height: 140px; margin-top: 1.2rem; }
-      .hero-photo { width: 120px; height: 120px; margin: 10px; }
-
-      /* Floating CTA: extra bottom padding on body so content not hidden */
+      .floating-cta { display: block; }
       body { padding-bottom: 70px; }
 
-      /* Provocation quotes tighter on mobile */
-      .provocation { font-size: 1rem; padding: 1.1rem 1.2rem; }
+      .footer { justify-content: center; text-align: center; }
     }
 
-    @media (min-width: 768px) {
-      .hero h1 { font-size: 2.4rem; }
-      .hero h2 { font-size: 1.1rem; }
-      .hero-desc { font-size: 1rem; }
-      .event-info { gap: 2.5rem; }
+    @media (min-width: 1200px) {
+      .hero-content { padding-left: 6rem; }
+      .hero h1 { font-size: 3rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ENHANCED: Scroll progress bar -->
+  <!-- Enhanced effects -->
   <div class="scroll-progress" id="scroll-progress"></div>
-
-  <!-- ENHANCED: Grain texture -->
   <div class="grain"></div>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-badge">Masterclass gratuita ao vivo</div>
-    <h1>Por que seu patrimônio ainda não reflete o seu esforço?</h1>
-    <h2>A costura invisível entre sua história familiar e a construção de riqueza real.</h2>
+  <!-- NAV BAR -->
+  <nav class="navbar">
+    <img src="logo-pa.png" alt="Prosperidade Alquimica" class="navbar-logo">
+    <div class="navbar-info">
+      <div class="navbar-detail">
+        <span class="icon">&#128197;</span>
+        <strong id="event-date">A definir</strong>
+      </div>
+      <div class="navbar-detail">
+        <span class="icon">&#128336;</span>
+        <strong id="event-time">20h</strong> (Brasilia)
+      </div>
+      <div class="navbar-detail">
+        <span class="icon">&#127909;</span>
+        Online e <strong>gratuito</strong>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Photo -->
-    <div class="hero-photo-wrapper">
-      <div class="photo-aura"></div>
-      <div class="photo-ring"></div>
-      <img src="marina-cutout.png" alt="Marina Veauvy" class="hero-photo">
+  <!-- HERO SPLIT -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Masterclass gratuita ao vivo</div>
+      <h1>Por que seu patrimônio ainda não reflete o seu esforço?</h1>
+      <h2>A costura invisível entre sua história familiar e a construção de riqueza real.</h2>
+
+      <div class="hero-quote">
+        "O dinheiro não é apenas um número — é um símbolo. Para construir patrimônio real, é preciso costurar sua história pessoal com a inteligência estratégica do mercado."
+      </div>
+
+      <a href="#form-section" class="hero-cta" id="hero-cta-link">QUERO PARTICIPAR DA MASTERCLASS GRATUITA</a>
     </div>
 
-    <p class="hero-desc">Você ganha bem, mas a sensação é de estar sempre recomeçando? Descubra como as lealdades invisíveis à escassez sabotam sua retenção financeira — e como a integração entre consciência e estratégia permite a construção de um patrimônio sólido.</p>
-    <div class="hero-author">Masterclass com Marina Veauvy</div>
-    <p class="hero-audience">Para mulheres que querem sair do ciclo "ganha-gasta" para a maturidade da construção patrimonial consciente.</p>
+    <div class="hero-photo-side">
+      <div class="hero-photo-aura"></div>
+      <img src="marina-cutout.png" alt="Marina Veauvy">
+    </div>
   </header>
 
-  <!-- EVENT INFO -->
-  <div class="container">
-    <div class="event-info">
-      <div class="event-detail">
-        <span class="icon">&#128197;</span>
-        <span><strong id="event-date">A definir</strong></span>
-      </div>
-      <div class="event-detail">
-        <span class="icon">&#128336;</span>
-        <span><strong id="event-time">20h</strong> (horário de Brasília)</span>
-      </div>
-      <div class="event-detail">
-        <span class="icon">&#127909;</span>
-        <span>Online e <strong>gratuito</strong></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- MAIN CONTENT (hidden after registration) -->
+  <!-- MAIN CONTENT -->
   <div id="main-content">
-    <div class="container">
-
-      <!-- PROVOCATION -->
-      <div class="section reveal">
-        <div class="provocation">
-          "Terapia que não constrói patrimônio é catarse cara. Assessoria que ignora o emocional é dinheiro jogado fora. Eu junto os dois."
-        </div>
-      </div>
+    <div class="section-wrap">
 
       <!-- WHAT YOU'LL LEARN -->
       <div class="section reveal">
         <h3 class="gradient-text">O que você vai descobrir</h3>
-        <ul class="learn-list">
-          <li class="learn-item">
-            <span class="learn-icon">&#128269;</span>
-            <p><strong>O Ralo Ancestral</strong> — Por que produzir muito não é suficiente. Entenda como padrões familiares herdados funcionam como comandos invisíveis que drenam sua retenção financeira — mesmo quando você ganha bem.</p>
+        <ul class="cards-grid">
+          <li class="card reveal reveal-d1">
+            <div class="card-icon">&#128269;</div>
+            <h4>O Ralo Ancestral</h4>
+            <p>Entenda como padrões familiares herdados funcionam como comandos invisíveis que drenam sua retenção financeira — mesmo quando você ganha bem.</p>
           </li>
-          <li class="learn-item">
-            <span class="learn-icon">&#128268;</span>
-            <p><strong>O Framework das 3 Costuras</strong> — O método para identificar onde exatamente o fluxo da sua prosperidade é interrompido: no Merecimento, na Transmutação ou na Dissolução.</p>
+          <li class="card reveal reveal-d2">
+            <div class="card-icon">&#128268;</div>
+            <h4>Framework das 3 Costuras</h4>
+            <p>O método para identificar onde exatamente o fluxo da sua prosperidade é interrompido: no Merecimento, na Transmutação ou na Dissolução.</p>
           </li>
-          <li class="learn-item">
-            <span class="learn-icon">&#128161;</span>
-            <p><strong>Mercado Real vs. Mercado Predatório</strong> — Por que as ferramentas financeiras tradicionais falham para mulheres conscientes — e como a integração entre clareza interna e estratégia técnica muda o jogo.</p>
+          <li class="card reveal reveal-d3">
+            <div class="card-icon">&#128161;</div>
+            <h4>Mercado Real vs. Predatório</h4>
+            <p>Por que as ferramentas financeiras tradicionais falham para mulheres conscientes — e como a integração entre clareza interna e estratégia técnica muda o jogo.</p>
           </li>
-          <li class="learn-item">
-            <span class="learn-icon">&#9889;</span>
-            <p><strong>O Caminho da Consolidação</strong> — A transição do esforço isolado para a inteligência patrimonial. O que acontece quando você para de reagir ao dinheiro e começa a construir com ele.</p>
+          <li class="card reveal reveal-d1">
+            <div class="card-icon">&#9889;</div>
+            <h4>O Caminho da Consolidação</h4>
+            <p>A transição do esforço isolado para a inteligência patrimonial. O que acontece quando você para de reagir ao dinheiro e começa a construir com ele.</p>
           </li>
         </ul>
       </div>
 
-      <!-- SECOND QUOTE (between learn + about for visual breathing) -->
-      <div class="section reveal">
-        <div class="provocation provocation-purple">
-          "O dinheiro não é apenas um número — é um símbolo. Para construir patrimônio real, é preciso costurar sua história pessoal com a inteligência estratégica do mercado."
+      <!-- PROVOCATION -->
+      <div class="provocation-section reveal">
+        <div class="provocation">
+          "Terapia que não constrói patrimônio é catarse cara. Assessoria que ignora o emocional é dinheiro jogado fora. Eu junto os dois."
         </div>
       </div>
 
@@ -807,11 +630,10 @@
             </div>
 
             <button type="submit" class="btn-submit" id="btn-submit">
-              <span class="btn-text-full">GARANTIR MINHA VAGA NA MASTERCLASS</span>
-              <span class="btn-text-short">GARANTIR MINHA VAGA</span>
+              GARANTIR MINHA VAGA NA MASTERCLASS
             </button>
 
-            <p class="form-note">Gratuito. Sem spam. Você receberá apenas informações sobre o evento.</p>
+            <p class="form-note">Gratuito. Sem spam. Você receberá apenas informações sobre a masterclass.</p>
           </form>
         </div>
       </div>
@@ -819,13 +641,12 @@
     </div>
   </div>
 
-  <!-- CONFIRMATION (shown after registration) -->
-  <div class="container">
+  <!-- CONFIRMATION -->
+  <div class="section-wrap">
     <div class="confirmation" id="confirmation">
       <div class="confirmation-icon">&#10024;</div>
       <h3>Sua vaga está garantida!</h3>
       <p>Você vai receber o link de acesso no seu email e WhatsApp antes da masterclass.</p>
-
       <div class="confirmation-details">
         <p><strong>Masterclass:</strong> Por que seu patrimônio ainda não reflete o seu esforço?</p>
         <p><strong>Data:</strong> <span id="confirm-date">A definir</span></p>
@@ -833,37 +654,36 @@
         <p><strong>Com:</strong> Marina Veauvy</p>
         <p style="margin-top: 1rem; color: var(--gold-light);"><strong>Dica:</strong> Esteja num lugar tranquilo, com fone de ouvido. O que vou compartilhar pode mexer com algumas coisas dentro de você.</p>
       </div>
-
-      <a class="btn-calendar" id="btn-calendar" href="#" target="_blank">
-        &#128197; Adicionar ao Google Calendar
-      </a>
+      <a class="btn-calendar" id="btn-calendar" href="#" target="_blank">&#128197; Adicionar ao Google Calendar</a>
     </div>
   </div>
 
-  <!-- FLOATING CTA (visible after scroll, hidden after registration) -->
+  <!-- FLOATING CTA (mobile) -->
   <div class="floating-cta" id="floating-cta">
     <a href="#form-section" id="floating-cta-link">GARANTIR MINHA VAGA</a>
   </div>
 
   <!-- FOOTER -->
   <footer class="footer">
-    Prosperidade Alquímica &middot; Marina Veauvy<br>
-    Consciência constrói patrimônio.
+    <div>
+      <img src="logo-pa.png" alt="Prosperidade Alquimica" class="footer-logo">
+      <span style="margin-left: 0.5rem;">Consciência constrói patrimônio.</span>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/marina.veauvy/" target="_blank" aria-label="Instagram">&#9679; Instagram</a>
+    </div>
   </footer>
 
   <script>
     // ============================
     // CONFIGURACAO DO EVENTO
-    // Edite aqui para cada webinário
     // ============================
     const EVENT_CONFIG = {
-      title: 'Da Clareza Interna ao Patrimônio Real',
-      date: '2026-04-09',        // YYYY-MM-DD (Quinta-feira)
-      time: '20:00',             // HH:MM (Brasília)
+      title: 'Por que seu patrimônio ainda não reflete o seu esforço?',
+      date: '2026-04-09',
+      time: '20:00',
       durationMinutes: 90,
-      // URL do webhook central (Vercel) — substituir quando construir
       webhookUrl: '',
-      // Fallback: salvar no localStorage se webhook falhar
     };
 
     // ============================
@@ -883,16 +703,14 @@
     document.getElementById('confirm-date').textContent = dateDisplay;
     document.getElementById('confirm-time').textContent = EVENT_CONFIG.time.replace(':', 'h');
 
-    // Google Calendar link
+    // Google Calendar
     function buildCalendarUrl() {
       const [y, m, d] = EVENT_CONFIG.date.split('-');
       const [hh, mm] = EVENT_CONFIG.time.split(':');
-      const startUTC = new Date(Date.UTC(+y, +m - 1, +d, +hh + 3, +mm)); // BRT = UTC-3
+      const startUTC = new Date(Date.UTC(+y, +m - 1, +d, +hh + 3, +mm));
       const endUTC = new Date(startUTC.getTime() + EVENT_CONFIG.durationMinutes * 60000);
       const fmt = (dt) => dt.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-      const start = fmt(startUTC);
-      const end = fmt(endUTC);
-      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(EVENT_CONFIG.title + ' — Marina Veauvy')}&dates=${start}/${end}&details=${encodeURIComponent('Evento ao vivo gratuito com Marina Veauvy.\\nLink de acesso será enviado por email.')}&location=Online`;
+      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(EVENT_CONFIG.title + ' — Marina Veauvy')}&dates=${fmt(startUTC)}/${fmt(endUTC)}&details=${encodeURIComponent('Masterclass ao vivo gratuita com Marina Veauvy.\\nLink de acesso será enviado por email.')}&location=Online`;
     }
 
     document.getElementById('btn-calendar').href = buildCalendarUrl();
@@ -918,12 +736,10 @@
       error.classList.remove('visible');
     }
 
-    // Clear errors on input
     ['nome', 'email', 'whatsapp'].forEach(id => {
       document.getElementById(id).addEventListener('input', () => clearError(id));
     });
 
-    // Phone mask (optional)
     document.getElementById('whatsapp').addEventListener('input', function(e) {
       let v = e.target.value.replace(/\D/g, '');
       if (v.length > 11) v = v.slice(0, 11);
@@ -949,11 +765,10 @@
       if (!valid) return;
 
       btnSubmit.disabled = true;
-      btnSubmit.innerHTML = 'Garantindo sua vaga...';
+      btnSubmit.textContent = 'Garantindo sua vaga...';
 
       const data = {
-        nome,
-        email,
+        nome, email,
         whatsapp: whatsapp.replace(/\D/g, ''),
         evento: EVENT_CONFIG.title,
         dataEvento: EVENT_CONFIG.date,
@@ -962,7 +777,6 @@
         origem: document.referrer || 'direto',
       };
 
-      // Send to webhook
       if (EVENT_CONFIG.webhookUrl) {
         try {
           await fetch(EVENT_CONFIG.webhookUrl, {
@@ -975,12 +789,10 @@
         }
       }
 
-      // Always save locally as backup
       const registrations = JSON.parse(localStorage.getItem('pa-webinario-registrations') || '[]');
       registrations.push(data);
       localStorage.setItem('pa-webinario-registrations', JSON.stringify(registrations));
 
-      // Show confirmation + hide floating CTA
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('confirmation').classList.add('active');
       document.getElementById('floating-cta').classList.remove('visible');
@@ -988,7 +800,7 @@
     });
 
     // ============================
-    // ENHANCED: SCROLL PROGRESS
+    // SCROLL PROGRESS
     // ============================
     window.addEventListener('scroll', function() {
       var pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
@@ -996,7 +808,7 @@
     });
 
     // ============================
-    // ENHANCED: SCROLL REVEALS
+    // SCROLL REVEALS
     // ============================
     var revealObs = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
@@ -1006,12 +818,13 @@
     document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
 
     // ============================
-    // FLOATING CTA (show after scrolling past hero, hide on form visible)
+    // FLOATING CTA (mobile only)
     // ============================
     var floatingCta = document.getElementById('floating-cta');
     var formSection = document.getElementById('form-section');
 
     window.addEventListener('scroll', function() {
+      if (window.innerWidth > 768) return;
       var scrollY = window.scrollY;
       var heroH = document.querySelector('.hero').offsetHeight;
       var formTop = formSection ? formSection.getBoundingClientRect().top : 9999;
@@ -1023,10 +836,12 @@
       }
     });
 
-    // Smooth scroll for floating CTA
-    document.getElementById('floating-cta-link').addEventListener('click', function(e) {
-      e.preventDefault();
-      formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Smooth scroll for CTAs
+    document.querySelectorAll('a[href="#form-section"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
     });
   </script>
 
