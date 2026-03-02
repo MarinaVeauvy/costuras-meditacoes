@@ -629,11 +629,19 @@
               <div class="form-error" id="whatsapp-error"></div>
             </div>
 
+            <div class="form-group" style="margin-bottom:1rem;">
+              <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;font-size:0.82rem;color:var(--text-secondary);text-transform:none;letter-spacing:0;font-weight:400;">
+                <input type="checkbox" id="consent" name="consent" required style="margin-top:3px;accent-color:var(--purple);min-width:16px;">
+                <span>Concordo em receber comunicações sobre a masterclass e conteúdos da Prosperidade Alquímica por email e WhatsApp. Posso cancelar a qualquer momento.</span>
+              </label>
+              <div class="form-error" id="consent-error">Você precisa concordar para se inscrever.</div>
+            </div>
+
             <button type="submit" class="btn-submit" id="btn-submit">
               GARANTIR MINHA VAGA NA MASTERCLASS
             </button>
 
-            <p class="form-note">Gratuito. Sem spam. Você receberá apenas informações sobre a masterclass.</p>
+            <p class="form-note">Gratuito. Sem spam. Seus dados estão seguros e não serão compartilhados com terceiros.</p>
           </form>
         </div>
       </div>
@@ -739,6 +747,7 @@
     ['nome', 'email', 'whatsapp'].forEach(id => {
       document.getElementById(id).addEventListener('input', () => clearError(id));
     });
+    document.getElementById('consent').addEventListener('change', () => clearError('consent'));
 
     document.getElementById('whatsapp').addEventListener('input', function(e) {
       let v = e.target.value.replace(/\D/g, '');
@@ -759,6 +768,12 @@
       if (!nome) { showError('nome', 'Por favor, informe seu nome.'); valid = false; }
       if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         showError('email', 'Por favor, informe um email válido.');
+        valid = false;
+      }
+
+      const consent = document.getElementById('consent');
+      if (!consent.checked) {
+        showError('consent', 'Você precisa concordar para se inscrever.');
         valid = false;
       }
 
