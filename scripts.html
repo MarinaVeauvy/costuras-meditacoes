@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scripts PA &mdash; Marina Veauvy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+    :root {
+      --bg: #0f0e17;
+      --surface: #1a1826;
+      --card: #222035;
+      --border: rgba(255,255,255,0.08);
+      --gold: #D4AF37;
+      --gold-soft: rgba(212,175,55,0.15);
+      --purple: #7C3AED;
+      --purple-soft: rgba(124,58,237,0.12);
+      --text: #F0ECF7;
+      --text2: #A09BB5;
+      --text3: #6B6580;
+      --green: #2D6B4F;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Lato',sans-serif; background:var(--bg); color:var(--text); padding-bottom:2rem; }
+
+    .topbar {
+      position:sticky; top:0; z-index:100;
+      background:rgba(15,14,23,0.95); backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--border);
+      padding:0.8rem 1rem;
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .topbar h1 { font-size:0.9rem; color:var(--gold); }
+    .topbar span { font-size:0.7rem; color:var(--text3); }
+
+    .tabs {
+      display:flex; overflow-x:auto; gap:0.4rem;
+      padding:0.8rem 1rem; border-bottom:1px solid var(--border);
+      -webkit-overflow-scrolling:touch;
+    }
+    .tabs::-webkit-scrollbar { display:none; }
+    .tab {
+      flex-shrink:0; padding:0.5rem 1rem;
+      background:var(--surface); color:var(--text2);
+      border:1px solid var(--border); border-radius:20px;
+      font-size:0.78rem; font-weight:700; cursor:pointer;
+      white-space:nowrap; transition:all 0.2s;
+    }
+    .tab.active { background:var(--purple-soft); color:var(--gold); border-color:var(--purple); }
+
+    .panel { display:none; padding:1rem; }
+    .panel.active { display:block; }
+
+    .script-block {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:12px; margin-bottom:1rem; overflow:hidden;
+    }
+    .script-header {
+      padding:0.8rem 1rem; cursor:pointer;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid var(--border);
+    }
+    .script-header h3 { font-size:0.85rem; color:var(--gold); }
+    .script-header .arrow { color:var(--text3); font-size:0.7rem; transition:transform 0.2s; }
+    .script-block.open .arrow { transform:rotate(180deg); }
+    .script-body { display:none; padding:0.8rem 1rem; }
+    .script-block.open .script-body { display:block; }
+
+    .msg {
+      background:var(--surface); border-left:3px solid var(--green);
+      border-radius:0 8px 8px 0; padding:0.8rem 1rem;
+      margin:0.6rem 0; font-size:0.85rem; line-height:1.6;
+      color:var(--text); white-space:pre-wrap; position:relative;
+    }
+    .msg-label {
+      font-size:0.65rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:0.08em; color:var(--purple); margin-bottom:0.3rem;
+    }
+    .btn-copy {
+      position:absolute; top:0.5rem; right:0.5rem;
+      background:var(--purple-soft); color:var(--gold);
+      border:none; border-radius:6px; padding:0.3rem 0.6rem;
+      font-size:0.65rem; font-weight:700; cursor:pointer;
+    }
+    .btn-copy.copied { background:var(--green); color:#fff; }
+
+    .note {
+      font-size:0.78rem; color:var(--text3); font-style:italic;
+      margin:0.5rem 0; padding:0 0.2rem;
+    }
+
+    h4 { font-size:0.8rem; color:var(--text2); margin:1rem 0 0.5rem; text-transform:uppercase; letter-spacing:0.05em; }
+
+    .link-asaas {
+      display:block; text-align:center; padding:0.8rem;
+      background:var(--gold-soft); border:1px solid var(--gold);
+      border-radius:10px; color:var(--gold); font-weight:700;
+      font-size:0.85rem; text-decoration:none; margin:1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>Scripts PA</h1>
+  <span>Marina Veauvy</span>
+</div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" data-panel="dm">DMs</div>
+  <div class="tab" data-panel="webinario">Webinario</div>
+  <div class="tab" data-panel="followup">Follow-up</div>
+  <div class="tab" data-panel="conversao">Conversao</div>
+  <div class="tab" data-panel="diagnostico">Diag. QV</div>
+  <div class="tab" data-panel="templates">Templates</div>
+  <div class="tab" data-panel="links">Links</div>
+</div>
+
+<!-- DMs -->
+<div class="panel active" id="panel-dm">
+  <div class="script-block open">
+    <div class="script-header"><h3>A: Reagiu a um post</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Mensagem 1</div><button class="btn-copy">Copiar</button>Oi, [nome]! Que bom que voce veio falar comigo.
+
+Vi que voce reagiu ao post sobre [tema].
+Me conta — o que te chamou atencao?</div>
+      <p class="note">Espere a resposta. Ouca.</p>
+      <div class="msg"><div class="msg-label">Apos responder</div><button class="btn-copy">Copiar</button>Faz total sentido. Olha, eu tenho um evento ao vivo gratuito onde eu aprofundo exatamente isso — mostro de onde vem esses padroes e o que fazer pra transformar de verdade.
+
+E na [dia], as [hora]. Quer participar?
+Te mando o link de inscricao.
+
+https://marinaveauvy.github.io/costuras-meditacoes/webinario.html</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>B: Perguntou preco/trabalho</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Resposta</div><button class="btn-copy">Copiar</button>Oi, [nome]! Obrigada pelo interesse.
+
+A melhor forma de entender meu trabalho e participar do meu evento ao vivo gratuito.
+
+Em 90 minutos eu mostro o framework completo, casos reais e como funciona a jornada. La eu explico tudo — inclusive valores.
+
+O proximo e [dia], as [hora].
+
+Se inscreve aqui:
+https://marinaveauvy.github.io/costuras-meditacoes/webinario.html
+
+Depois a gente conversa com mais contexto.</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>C: Lead do quiz/lead magnet</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Automatica (AizyFlow)</div><button class="btn-copy">Copiar</button>Oi, [nome]! Aqui e a Marina.
+
+Vi que voce fez o quiz Costuras da Abundancia e sua costura mais ativa e a [COSTURA].
+
+Isso significa que [1 frase sobre o padrao].
+
+Tenho um evento ao vivo gratuito onde eu aprofundo isso e mostro o caminho completo — da clareza interna ao patrimonio real.
+
+Proximo evento: [dia], [hora].
+Inscricao: https://marinaveauvy.github.io/costuras-meditacoes/webinario.html
+
+Te espero la!</div>
+    </div>
+  </div>
+</div>
+
+<!-- Webinario -->
+<div class="panel" id="panel-webinario">
+  <div class="script-block open">
+    <div class="script-header"><h3>Roteiro 90 min (6 blocos)</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <h4>Bloco 1 — Conexao (0-10 min)</h4>
+      <p class="note">Quem e Marina (30s), enquete inicial, aquecimento</p>
+
+      <h4>Bloco 2 — O Problema (10-25 min)</h4>
+      <p class="note">3 padroes que drenam dinheiro (3 Costuras). Por que planilha/coach/assessor nao resolve</p>
+
+      <h4>Bloco 3 — O Framework (25-45 min)</h4>
+      <p class="note">Costuras: Merecimento, Transmutacao, Dissolucao. Fases alquimicas: Nigredo &rarr; Rubedo &rarr; Albedo. 1 caso real detalhado</p>
+
+      <h4>Bloco 4 — A Ponte (45-60 min)</h4>
+      <p class="note">"Da clareza interna ao patrimonio real". O gap que ninguem preenche (terapeuta vs assessor)</p>
+
+      <h4>Bloco 5 — A Oferta (60-75 min)</h4>
+      <div class="msg"><div class="msg-label">Fala da oferta</div><button class="btn-copy">Copiar</button>A Prosperidade Alquimica e uma jornada de 12 meses.
+
+O que inclui:
+- 12 encontros em grupo ao vivo (mensal, quintas 20h)
+- 4 sessoes individuais comigo (1 por trimestre)
+- Grupo exclusivo no WhatsApp
+- Florais alquimicos personalizados
+- Acesso as gravacoes
+
+Investimento: R$ 4.997 a vista ou 12x de R$ 497
+
+Link de pagamento no chat agora.</div>
+      <a class="link-asaas" href="https://www.asaas.com/c/n9123aif35j68zwb" target="_blank">Link Asaas — R$ 4.997</a>
+
+      <h4>Bloco 6 — Q&A + Fechamento (75-90 min)</h4>
+      <p class="note">Ultimas objecoes. "Porta aberta por 72h"</p>
+    </div>
+  </div>
+</div>
+
+<!-- Follow-up -->
+<div class="panel" id="panel-followup">
+  <div class="script-block open">
+    <div class="script-header"><h3>Assistiu + nao comprou (24h)</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Email + WhatsApp</div><button class="btn-copy">Copiar</button>[Nome], obrigada por estar comigo ontem.
+
+Vi que voce ficou ate o final — e isso diz muito sobre onde voce esta.
+
+Se algo do que eu falei mexeu com voce, a porta esta aberta por mais 48h:
+https://www.asaas.com/c/n9123aif35j68zwb
+
+Se ainda tem duvidas, me responde aqui.
+Sem pressao — so quero ter certeza de que voce tem as informacoes que precisa.
+
+Marina</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>Assistiu + nao comprou (72h — ultimo)</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Email</div><button class="btn-copy">Copiar</button>[Nome], esse e meu ultimo contato sobre o webinario.
+
+O replay sai do ar amanha.
+E a proxima turma de inscricao aberta e so no proximo evento.
+
+Se voce sentiu que esse caminho e pra voce:
+https://www.asaas.com/c/n9123aif35j68zwb
+
+Se nao for agora, ta tudo bem.
+Voce continua recebendo meu conteudo e quando for o momento, eu to aqui.
+
+Marina</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>NAO assistiu (replay)</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Email</div><button class="btn-copy">Copiar</button>[Nome], voce se inscreveu mas nao pode participar.
+
+Eu entendo — a vida e corrida.
+
+Gravei o evento completo pra voce.
+Fica disponivel por 72h:
+[LINK REPLAY]
+
+Sao 90 minutos que podem mudar como voce se relaciona com dinheiro. Vale assistir.
+
+Marina</div>
+    </div>
+  </div>
+</div>
+
+<!-- Conversao -->
+<div class="panel" id="panel-conversao">
+  <div class="script-block open">
+    <div class="script-header"><h3>Confirmacao de pagamento</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Automatica / WhatsApp</div><button class="btn-copy">Copiar</button>[Nome]! Pagamento confirmado &#10024;
+
+Seja oficialmente bem-vinda a Prosperidade Alquimica.
+
+O que vai acontecer agora:
+
+1. Voce ja foi adicionada ao nosso grupo exclusivo no WhatsApp:
+   https://chat.whatsapp.com/IovMUawG5oNHz07l728mZS
+2. Nosso proximo encontro em grupo e dia [DATA], as 20h, por Google Meet.
+3. Sua primeira sessao individual comigo sera nas proximas semanas — vou te mandar o link pra agendar.
+
+Enquanto isso, o livro "Costuras da Abundancia" e um otimo comeco:
+https://www.amazon.com.br/dp/B0F1Y3QKQ7
+
+Qualquer coisa, me chama. Essa jornada e nossa.
+
+Marina</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>Regras do grupo WhatsApp</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Grupo</div><button class="btn-copy">Copiar</button>Bem-vindas ao grupo Prosperidade Alquimica &#10024;
+
+Esse e nosso espaco de troca e apoio.
+
+Regras simples:
+- Respeito e confidencialidade (o que se fala aqui, fica aqui)
+- Sem vendas ou divulgacao de terceiros
+- Duvidas e compartilhamentos sao bem-vindos
+- Encontros: Quintas, 20h (link enviado antes)
+
+Me chama no privado se precisar de algo individual.
+
+Marina</div>
+    </div>
+  </div>
+</div>
+
+<!-- Diagnostico QV -->
+<div class="panel" id="panel-diagnostico">
+  <p class="note" style="margin-bottom:1rem;">PRIVADO — Somente para clientes PA com perfil QV (min 5 meses, renda 20k+, maturidade emocional)</p>
+
+  <div class="script-block open">
+    <div class="script-header"><h3>Convite para diagnostico QV</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">WhatsApp pessoal</div><button class="btn-copy">Copiar</button>[Nome], quero conversar com voce sobre algo.
+
+Eu tenho acompanhado sua evolucao nesses [X] meses e a mudanca e real.
+
+Lembra que eu falo do caminho completo?
+Clareza interna → patrimonio real?
+
+Voce ja fez a primeira parte de um jeito que me deixa muito orgulhosa.
+
+Agora quero te apresentar a segunda.
+E uma conversa individual comigo, 1 hora, onde eu vou te mostrar como funciona a construcao patrimonial no mercado real.
+
+Sem compromisso. So informacao.
+
+Quer agendar?</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>Roteiro da sessao QV (1h)</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <h4>Parte 1 — Revisao da jornada (15 min)</h4>
+      <p class="note">"[Nome], me conta: o que mudou na sua relacao com dinheiro desde que voce entrou na PA?"</p>
+
+      <h4>Parte 2 — Semente patrimonial (15 min)</h4>
+      <p class="note">"Se voce pudesse construir uma fonte de renda que trabalha por voce — mesmo quando voce esta dormindo — como seria?"</p>
+
+      <h4>Parte 3 — Apresentacao (20 min)</h4>
+      <p class="note">Mercado real (incorporacao), como funciona, numeros, simulacao de renda passiva. NUNCA mencionar "Quarta Via" em conteudo publico.</p>
+
+      <h4>Parte 4 — Decisao (10 min)</h4>
+      <p class="note">Sem pressao. Prazo de 7 dias. "Se fizer sentido, e so me dizer."</p>
+    </div>
+  </div>
+</div>
+
+<!-- Templates -->
+<div class="panel" id="panel-templates">
+  <div class="script-block">
+    <div class="script-header"><h3>Lembrete encontro (3 dias antes)</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Grupo WhatsApp</div><button class="btn-copy">Copiar</button>Meninas, lembrete: nosso proximo encontro e [DIA], as 20h.
+
+Tema: [TEMA DO MES]
+
+Prepare-se: [exercicio ou reflexao preparatoria]
+
+Link do Meet: https://meet.google.com/dsd-ouom-zbn
+
+Quem puder, confirma com um &#10024;
+
+Marina</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>Pos-encontro (48h)</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Grupo WhatsApp</div><button class="btn-copy">Copiar</button>Meninas, a gravacao do encontro de [DATA] ja esta disponivel:
+[LINK YOUTUBE NAO LISTADO]
+
+Fica disponivel por 30 dias.
+
+Exercicio da semana: [exercicio]
+
+Quem nao pode participar ao vivo, assiste quando puder e compartilha suas reflexoes aqui no grupo.
+
+Marina</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>Renovacao (30 dias antes)</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">WhatsApp pessoal</div><button class="btn-copy">Copiar</button>[Nome], quero te contar uma coisa.
+
+Faz quase 12 meses que voce esta comigo e eu sei — porque eu acompanhei de perto — o quanto voce mudou.
+
+Sua anuidade vence em [DATA].
+
+Se voce quiser renovar, o link e:
+https://www.asaas.com/c/n9123aif35j68zwb
+
+Nao precisa decidir agora. So quero que voce saiba que a porta ta aberta e eu adoraria continuar caminhando com voce.
+
+Marina</div>
+    </div>
+  </div>
+
+  <div class="script-block">
+    <div class="script-header"><h3>Pedido de indicacao</h3><span class="arrow">&#9660;</span></div>
+    <div class="script-body">
+      <div class="msg"><div class="msg-label">Grupo ou individual</div><button class="btn-copy">Copiar</button>Meninas, tenho um pedido especial.
+
+Voces conhecem alguma mulher empreendedora que ganha bem mas sente que o dinheiro "escorre"? Que trabalha demais e nao ve resultado?
+
+Se lembrar de alguem, manda o link da masterclass gratuita pra ela:
+https://marinaveauvy.github.io/costuras-meditacoes/webinario.html
+
+Indicacao de quem vive a jornada e a melhor porta de entrada.
+
+Obrigada &#10024;
+
+Marina</div>
+    </div>
+  </div>
+</div>
+
+<!-- Links -->
+<div class="panel" id="panel-links">
+  <h4>Links Rapidos</h4>
+  <a class="link-asaas" href="https://www.asaas.com/c/n9123aif35j68zwb" target="_blank">Pagamento Asaas — R$ 4.997</a>
+  <a class="link-asaas" href="https://marinaveauvy.github.io/costuras-meditacoes/webinario.html" target="_blank" style="background:var(--purple-soft);border-color:var(--purple);">Pagina Masterclass</a>
+  <a class="link-asaas" href="https://chat.whatsapp.com/IovMUawG5oNHz07l728mZS" target="_blank" style="background:rgba(45,107,79,0.15);border-color:var(--green);color:var(--green);">Grupo WhatsApp PA</a>
+  <a class="link-asaas" href="https://meet.google.com/dsd-ouom-zbn" target="_blank" style="background:rgba(45,107,79,0.15);border-color:var(--green);color:var(--green);">Google Meet</a>
+  <a class="link-asaas" href="https://cal.com/marina-veauvy/diagnostico" target="_blank" style="background:var(--purple-soft);border-color:var(--purple);">Cal.com (Diagnostico)</a>
+  <a class="link-asaas" href="https://www.amazon.com.br/dp/B0F1Y3QKQ7" target="_blank" style="background:var(--purple-soft);border-color:var(--purple);">Livro Amazon</a>
+  <a class="link-asaas" href="https://marinaveauvy.github.io/costuras-meditacoes/quiz.html" target="_blank" style="background:var(--purple-soft);border-color:var(--purple);">Quiz Costuras</a>
+  <a class="link-asaas" href="https://marinaveauvy.github.io/costuras-meditacoes/radiografia-financeira.html" target="_blank" style="background:var(--purple-soft);border-color:var(--purple);">Radiografia Financeira</a>
+  <a class="link-asaas" href="https://marinaveauvy.github.io/costuras-meditacoes/aplicacao.html" target="_blank" style="background:var(--purple-soft);border-color:var(--purple);">Formulario Aplicacao PA</a>
+</div>
+
+<script>
+// Tabs
+document.querySelectorAll('.tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+  });
+});
+
+// Accordion
+document.querySelectorAll('.script-header').forEach(function(h) {
+  h.addEventListener('click', function() {
+    h.parentElement.classList.toggle('open');
+  });
+});
+
+// Copy
+document.querySelectorAll('.btn-copy').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var msg = btn.parentElement;
+    var text = msg.innerText.replace('Copiar', '').replace(msg.querySelector('.msg-label').innerText, '').trim();
+    navigator.clipboard.writeText(text).then(function() {
+      btn.textContent = 'Copiado!';
+      btn.classList.add('copied');
+      setTimeout(function() { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 1500);
+    });
+  });
+});
+</script>
+
+</body>
+</html>
