@@ -684,14 +684,50 @@
 
   <script>
     // ============================
-    // CONFIGURACAO DO EVENTO
+    // CONFIGURACAO DO EVENTO (QUINZENAL)
     // ============================
+    // Base: primeira terca-feira do ciclo. A cada 14 dias repete.
+    // Para mudar o ciclo, altere apenas BASE_DATE.
+    const BASE_DATE = '2026-04-07'; // Primeira terca do ciclo
+    const EVENT_TIME = '20:00';
+    const DURATION_MINUTES = 90;
+    const WEBHOOK_URL = 'https://webhook-pa.vercel.app/api/webhook/webinario';
+
+    function getNextBiweeklyTuesday(baseDateStr) {
+      const base = new Date(baseDateStr + 'T00:00:00');
+      const now = new Date();
+      // Hoje no fuso de Brasilia (UTC-3)
+      const brNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
+      const today = new Date(brNow.getFullYear(), brNow.getMonth(), brNow.getDate());
+
+      // Se o webinario base ainda esta no futuro, retorna ele
+      if (base >= today) return baseDateStr;
+
+      // Calcula quantos ciclos de 14 dias passaram
+      const diffMs = today.getTime() - base.getTime();
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      const cyclesPassed = Math.floor(diffDays / 14);
+      let nextDate = new Date(base.getTime() + (cyclesPassed * 14) * 24 * 60 * 60 * 1000);
+
+      // Se a data calculada ja passou, avanca mais um ciclo
+      if (nextDate < today) {
+        nextDate = new Date(nextDate.getTime() + 14 * 24 * 60 * 60 * 1000);
+      }
+
+      const y = nextDate.getFullYear();
+      const m = String(nextDate.getMonth() + 1).padStart(2, '0');
+      const d = String(nextDate.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+
+    const nextEventDate = getNextBiweeklyTuesday(BASE_DATE);
+
     const EVENT_CONFIG = {
       title: 'Por que seu patrimônio ainda não reflete o seu esforço?',
-      date: '2026-04-09',
-      time: '20:00',
-      durationMinutes: 90,
-      webhookUrl: 'https://webhook-pa.vercel.app/api/webhook/webinario',
+      date: nextEventDate,
+      time: EVENT_TIME,
+      durationMinutes: DURATION_MINUTES,
+      webhookUrl: WEBHOOK_URL,
     };
 
     // ============================
