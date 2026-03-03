@@ -701,9 +701,11 @@
     // ============================
     // CONFIGURACAO DO EVENTO (QUINZENAL)
     // ============================
-    // Base: primeira terca-feira do ciclo. A cada 14 dias repete.
-    // Para mudar o ciclo, altere apenas BASE_DATE.
-    const BASE_DATE = '2026-03-24'; // Primeira terca do ciclo
+    // Base: terca-feira que inicia o ciclo quinzenal recorrente.
+    // PRIMEIRA_DATA: evento avulso antes do ciclo (se existir).
+    // Apos PRIMEIRA_DATA passar, o ciclo quinzenal assume a partir de BASE_DATE.
+    const BASE_DATE = '2026-04-14'; // Ciclo quinzenal: 14/04 → 28/04 → 12/05...
+    const PRIMEIRA_DATA = '2026-03-24'; // Evento avulso antes do ciclo
     const EVENT_TIME = '20:00';
     const DURATION_MINUTES = 90;
     const WEBHOOK_URL = 'https://webhook-pa.vercel.app/api/webhook/webinario';
@@ -711,20 +713,16 @@
     function getNextBiweeklyTuesday(baseDateStr) {
       const base = new Date(baseDateStr + 'T00:00:00');
       const now = new Date();
-      // Hoje no fuso de Brasilia (UTC-3)
       const brNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
       const today = new Date(brNow.getFullYear(), brNow.getMonth(), brNow.getDate());
 
-      // Se o webinario base ainda esta no futuro, retorna ele
       if (base >= today) return baseDateStr;
 
-      // Calcula quantos ciclos de 14 dias passaram
       const diffMs = today.getTime() - base.getTime();
       const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
       const cyclesPassed = Math.floor(diffDays / 14);
       let nextDate = new Date(base.getTime() + (cyclesPassed * 14) * 24 * 60 * 60 * 1000);
 
-      // Se a data calculada ja passou, avanca mais um ciclo
       if (nextDate < today) {
         nextDate = new Date(nextDate.getTime() + 14 * 24 * 60 * 60 * 1000);
       }
@@ -735,7 +733,11 @@
       return `${y}-${m}-${d}`;
     }
 
-    const nextEventDate = getNextBiweeklyTuesday(BASE_DATE);
+    // Se PRIMEIRA_DATA ainda nao passou, mostra ela; senao, ciclo quinzenal
+    const brNowInit = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Sao_Paulo' }));
+    const todayInit = new Date(brNowInit.getFullYear(), brNowInit.getMonth(), brNowInit.getDate());
+    const primeiraDate = new Date(PRIMEIRA_DATA + 'T00:00:00');
+    const nextEventDate = (primeiraDate >= todayInit) ? PRIMEIRA_DATA : getNextBiweeklyTuesday(BASE_DATE);
 
     const EVENT_CONFIG = {
       title: 'Por que seu patrimônio ainda não reflete o seu esforço?',
