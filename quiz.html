@@ -8,6 +8,20 @@
   <meta property="og:title" content="Quiz — Qual Costura da Abundância Está Mais Ativa em Você?">
   <meta property="og:description" content="Descubra em 2 minutos qual padrão ancestral está travando sua relação com dinheiro.">
   <meta property="og:type" content="website">
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '754010884230693');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=754010884230693&ev=PageView&noscript=1"/></noscript>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
 
@@ -797,8 +811,8 @@
           Esse quiz mostra a superfície. Mas a costura real &mdash; a que opera
           por baixo &mdash; precisa de um olhar individual.
         </p>
-        <a href="https://cal.com/marina-veauvy/diagnostico" target="_blank" class="btn-gold">
-          Agendar Diagnóstico Gratuito
+        <a href="webinario.html" class="btn-gold">
+          Participar da Masterclass Gratuita
         </a>
         <br>
         <a href="https://www.amazon.com.br/dp/B0F1Y3QKQ7" target="_blank" class="btn-secondary">
@@ -856,8 +870,8 @@
           Esse quiz mostra a superfície. Mas a costura real &mdash; a que conecta
           você ao seu sistema familiar &mdash; precisa de um olhar individual.
         </p>
-        <a href="https://cal.com/marina-veauvy/diagnostico" target="_blank" class="btn-gold">
-          Agendar Diagnóstico Gratuito
+        <a href="webinario.html" class="btn-gold">
+          Participar da Masterclass Gratuita
         </a>
         <br>
         <a href="https://www.amazon.com.br/dp/B0F1Y3QKQ7" target="_blank" class="btn-secondary">
@@ -915,8 +929,8 @@
           Esse quiz mostra a superfície. Mas a costura da dissolução é a que
           opera mais fundo &mdash; no lugar que a conversa não alcança.
         </p>
-        <a href="https://cal.com/marina-veauvy/diagnostico" target="_blank" class="btn-gold">
-          Agendar Diagnóstico Gratuito
+        <a href="webinario.html" class="btn-gold">
+          Participar da Masterclass Gratuita
         </a>
         <br>
         <a href="https://www.amazon.com.br/dp/B0F1Y3QKQ7" target="_blank" class="btn-secondary">
@@ -1164,6 +1178,11 @@
 
       // Render score rings on the result page
       renderScoreRings('scores-' + result, result);
+
+      // Meta Pixel — Lead event
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', { content_name: 'Quiz Costuras', content_category: 'quiz', costura: resultName });
+      }
 
       // Send data to webhook central (Brevo + AizyFlow)
       fetch('https://webhook-pa.vercel.app/api/webhook/quiz', {
