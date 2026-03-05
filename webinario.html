@@ -671,16 +671,18 @@
     <div class="confirmation" id="confirmation">
       <div class="confirmation-icon">&#10024;</div>
       <h3>Sua vaga está garantida!</h3>
-      <p>Você vai receber o link de acesso no seu email e WhatsApp antes da masterclass.</p>
-      <div class="confirmation-details">
+      <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.3rem;"><strong>Agora falta um passo importante:</strong></p>
+      <p style="font-size: 1rem; color: var(--gold-light); margin-bottom: 1.5rem;">Entre no grupo do WhatsApp para receber o link de acesso, lembretes e materiais exclusivos da masterclass.</p>
+
+      <a class="btn-whatsapp" href="https://chat.whatsapp.com/IovMUawG5oNHz07l728mZS" target="_blank" style="font-size: 1.15rem; padding: 1.2rem 2.5rem;">&#128172; ENTRAR NO GRUPO DO WHATSAPP</a>
+      <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.8rem;">O grupo vai abrir automaticamente em 3 segundos...</p>
+
+      <div class="confirmation-details" style="margin-top: 2rem;">
         <p><strong>Masterclass:</strong> Por que seu patrimônio ainda não reflete o seu esforço?</p>
         <p><strong>Data:</strong> <span id="confirm-date">A definir</span></p>
         <p><strong>Horário:</strong> <span id="confirm-time">20h</span> (Brasília)</p>
         <p><strong>Com:</strong> Marina Veauvy</p>
-        <p style="margin-top: 1rem; color: var(--gold-light);"><strong>Dica:</strong> Esteja num lugar tranquilo, com fone de ouvido. O que vou compartilhar pode mexer com algumas coisas dentro de você.</p>
       </div>
-      <a class="btn-whatsapp" href="https://chat.whatsapp.com/IovMUawG5oNHz07l728mZS" target="_blank">&#128172; ENTRAR NO GRUPO DO WHATSAPP</a>
-      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">Entre no grupo para receber lembretes e materiais exclusivos</p>
       <a class="btn-calendar" id="btn-calendar" href="#" target="_blank">&#128197; Adicionar ao Google Calendar</a>
     </div>
   </div>
@@ -874,6 +876,11 @@
       document.getElementById('confirmation').classList.add('active');
       document.getElementById('floating-cta').classList.remove('visible');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Auto-abrir grupo WhatsApp após 3 segundos
+      setTimeout(function() {
+        window.open('https://chat.whatsapp.com/IovMUawG5oNHz07l728mZS', '_blank');
+      }, 3000);
     });
 
     // ============================
