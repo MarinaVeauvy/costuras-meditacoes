@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marinaveauvy.github.io/costuras-meditacoes/sitemap.xml
