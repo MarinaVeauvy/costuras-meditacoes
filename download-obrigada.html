@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Download Está Pronto!</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f4f4f4; color: #333; line-height: 1.6; }
+        .header { background-color: #1a1a2e; padding: 50px 20px 70px; text-align: center; position: relative; }
+        .header::after { content: ''; position: absolute; bottom: -40px; left: 0; right: 0; height: 80px; background: #1a1a2e; clip-path: ellipse(55% 100% at 50% 0%); }
+        .header h1 { color: #fff; font-size: 34px; font-weight: 800; margin-bottom: 12px; }
+        .header p { color: #b0b0cc; font-size: 17px; }
+        .container { max-width: 640px; margin: 0 auto; padding: 60px 20px 40px; position: relative; z-index: 2; }
+        .download-card { background: #fff; border-radius: 16px; padding: 40px 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin-bottom: 24px; text-align: center; }
+        .download-card .icon-big { font-size: 64px; margin-bottom: 16px; }
+        .download-card h2 { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+        .download-card p { font-size: 15px; color: #666; margin-bottom: 24px; }
+        .download-btn { display: inline-block; padding: 16px 40px; background-color: #e94560; color: #fff; border: none; border-radius: 10px; font-size: 17px; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; text-decoration: none; transition: background-color 0.2s, transform 0.1s; }
+        .download-btn:hover { background-color: #d13350; transform: translateY(-1px); }
+        .next-card { background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin-bottom: 24px; }
+        .next-card h3 { font-size: 18px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px; text-align: center; }
+        .resource-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .resource-list li a { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 2px solid #e0e0e0; border-radius: 10px; text-decoration: none; color: #333; font-size: 15px; font-weight: 500; transition: border-color 0.2s, background 0.2s; }
+        .resource-list li a:hover { border-color: #e94560; background: rgba(233,69,96,0.03); }
+        .resource-list li a .emoji { font-size: 24px; flex-shrink: 0; }
+        .newsletter-card { background: #1a1a2e; border-radius: 16px; padding: 32px; text-align: center; margin-bottom: 24px; }
+        .newsletter-card h3 { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .newsletter-card p { color: #b0b0cc; font-size: 14px; margin-bottom: 16px; }
+        .newsletter-links { display: flex; flex-direction: column; gap: 8px; }
+        .newsletter-links a { display: inline-block; padding: 10px 20px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s; }
+        .newsletter-links a:hover { background: rgba(233,69,96,0.3); }
+        .footer { text-align: center; padding: 30px 20px; font-size: 13px; color: #999; }
+        .footer a { color: #e94560; text-decoration: none; }
+        @media (max-width: 600px) {
+            .header { padding: 40px 16px 60px; }
+            .header h1 { font-size: 26px; }
+            .download-card, .next-card, .newsletter-card { padding: 28px 20px; }
+            .container { padding: 40px 16px 30px; }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '754010884230693');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=754010884230693&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Seu download está pronto!</h1>
+        <p>Clique no botão abaixo para baixar seu recurso</p>
+    </div>
+
+    <div class="container">
+
+        <div class="download-card" id="download-section">
+            <div class="icon-big" id="product-icon">📦</div>
+            <h2 id="product-title">Seu recurso</h2>
+            <p id="product-desc">Clique para fazer o download.</p>
+            <a href="#" id="download-link" class="download-btn">Baixar Agora</a>
+        </div>
+
+        <div class="next-card">
+            <h3>Outros recursos gratuitos</h3>
+            <ul class="resource-list" id="other-resources">
+                <li><a href="planilha-auditoria.html"><span class="emoji">📊</span> Planilha de Auditoria Financeira</a></li>
+                <li><a href="pack-prompts.html"><span class="emoji">🤖</span> Pack 50+ Prompts ChatGPT</a></li>
+                <li><a href="ebook-ia-pmes.html"><span class="emoji">📚</span> E-book IA Prática para PMEs</a></li>
+            </ul>
+        </div>
+
+        <div class="newsletter-card">
+            <h3>Receba conteúdo novo toda semana</h3>
+            <p>Newsletters gratuitas com dicas práticas para empreendedores</p>
+            <div class="newsletter-links">
+                <a href="newsletter-impulso-ia.html">🤖 Impulso IA — IA para negócios (terças)</a>
+                <a href="newsletter-dinheiro-simples.html">💰 Dinheiro Simples — Finanças práticas (quintas)</a>
+                <a href="newsletter-renda-extra.html">🚀 Renda Extra Report — Ideias de renda (sábados)</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Marina Veauvy &middot; <a href="https://marinaveauvy.com.br">marinaveauvy.com.br</a>
+        </div>
+
+    </div>
+
+    <script>
+    const products = {
+        'planilha-auditoria': {
+            icon: '📊',
+            title: 'Planilha de Auditoria Financeira',
+            desc: 'Sua planilha Excel com 5 abas e fórmulas prontas está aqui.',
+            file: 'products/planilha-auditoria-financeira.xlsx',
+            hide: 'planilha-auditoria.html'
+        },
+        'pack-prompts': {
+            icon: '🤖',
+            title: 'Pack 50+ Prompts ChatGPT',
+            desc: 'Seus 50+ prompts organizados por categoria estão prontos.',
+            file: 'products/pack-prompts-chatgpt-empreendedores.html',
+            hide: 'pack-prompts.html'
+        },
+        'ebook-ia-pmes': {
+            icon: '📚',
+            title: 'E-book IA Prática para PMEs',
+            desc: 'Seu e-book com 40+ páginas e 8 capítulos práticos está aqui.',
+            file: 'products/ebook-ia-pratica-pmes.html',
+            hide: 'ebook-ia-pmes.html'
+        }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('product');
+    const product = products[productId];
+
+    if (product) {
+        document.getElementById('product-icon').textContent = product.icon;
+        document.getElementById('product-title').textContent = product.title;
+        document.getElementById('product-desc').textContent = product.desc;
+        document.getElementById('download-link').href = product.file;
+        document.getElementById('download-link').setAttribute('download', '');
+
+        // Hide current product from "other resources"
+        const resources = document.getElementById('other-resources');
+        const items = resources.querySelectorAll('li a');
+        items.forEach(function(a) {
+            if (a.getAttribute('href') === product.hide) {
+                a.parentElement.style.display = 'none';
+            }
+        });
+    }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-book IA Prática para Pequenos Negócios — Grátis</title>
+    <meta name="description" content="Guia completo de 40+ páginas: aprenda a usar inteligência artificial no atendimento, marketing, vendas e gestão do seu negócio. Baixe grátis.">
+    <meta name="author" content="Marina Veauvy">
+    <meta property="og:title" content="E-book IA Prática para Pequenos Negócios — Grátis">
+    <meta property="og:description" content="Guia definitivo de IA para empreendedores em 2026. 40+ páginas, 8 capítulos práticos. Baixe grátis.">
+    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #f4f4f4; color: #333; line-height: 1.6; }
+        .header { background-color: #1a1a2e; padding: 60px 20px 80px; text-align: center; position: relative; }
+        .header::after { content: ''; position: absolute; bottom: -40px; left: 0; right: 0; height: 80px; background: #1a1a2e; clip-path: ellipse(55% 100% at 50% 0%); }
+        .badge { display: inline-block; background-color: #e94560; color: #fff; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 6px 16px; border-radius: 20px; margin-bottom: 24px; }
+        .header h1 { color: #fff; font-size: 38px; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
+        .header h1 span { color: #e94560; }
+        .header p.tagline { color: #b0b0cc; font-size: 18px; font-weight: 500; max-width: 560px; margin: 0 auto; }
+        .container { max-width: 640px; margin: 0 auto; padding: 60px 20px 40px; position: relative; z-index: 2; }
+        .benefits-card { background: #fff; border-radius: 16px; padding: 40px 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin-bottom: 24px; }
+        .benefits-card h3 { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 20px; text-align: center; }
+        .benefits { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+        .benefits li { display: flex; align-items: flex-start; gap: 14px; font-size: 15px; color: #444; }
+        .benefits li .icon { flex-shrink: 0; width: 36px; height: 36px; background-color: rgba(233,69,96,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .benefits li .icon svg { width: 18px; height: 18px; stroke: #e94560; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .chapters { background: #fff; border-radius: 16px; padding: 40px 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin-bottom: 24px; }
+        .chapters h3 { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 20px; text-align: center; }
+        .chapters ol { list-style: none; counter-reset: chapter; display: flex; flex-direction: column; gap: 12px; }
+        .chapters ol li { counter-increment: chapter; display: flex; align-items: center; gap: 14px; font-size: 15px; color: #444; }
+        .chapters ol li::before { content: counter(chapter); flex-shrink: 0; width: 32px; height: 32px; background: #1a1a2e; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+        .form-card { background: #fff; border-radius: 16px; padding: 40px 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin-bottom: 24px; }
+        .form-card h2 { font-size: 22px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; text-align: center; }
+        .form-card p.form-desc { font-size: 15px; color: #666; text-align: center; margin-bottom: 24px; }
+        .form-card form { display: flex; flex-direction: column; gap: 12px; }
+        .form-card input[type="text"], .form-card input[type="email"] { width: 100%; padding: 14px 16px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 16px; font-family: 'Inter', sans-serif; transition: border-color 0.2s; outline: none; }
+        .form-card input[type="text"]:focus, .form-card input[type="email"]:focus { border-color: #e94560; }
+        .form-card button { width: 100%; padding: 16px; background-color: #e94560; color: #fff; border: none; border-radius: 10px; font-size: 17px; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: background-color 0.2s, transform 0.1s; margin-top: 4px; }
+        .form-card button:hover { background-color: #d13350; transform: translateY(-1px); }
+        .form-card button:active { transform: translateY(0); }
+        .form-card .privacy { font-size: 12px; color: #999; text-align: center; margin-top: 8px; }
+        .back-link { text-align: center; margin-top: 16px; }
+        .back-link a { color: #e94560; text-decoration: none; font-size: 14px; font-weight: 600; }
+        .back-link a:hover { text-decoration: underline; }
+        .footer { text-align: center; padding: 30px 20px; font-size: 13px; color: #999; }
+        .footer a { color: #e94560; text-decoration: none; }
+        @media (max-width: 600px) {
+            .header { padding: 40px 16px 60px; }
+            .header h1 { font-size: 28px; }
+            .header p.tagline { font-size: 16px; }
+            .form-card, .benefits-card, .chapters { padding: 28px 20px; }
+            .container { padding: 40px 16px 30px; }
+        }
+    </style>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '754010884230693');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=754010884230693&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+    <div class="header">
+        <div class="badge">E-book Gratuito — 40+ Páginas</div>
+        <h1>IA Prática para <span>Pequenos Negócios</span></h1>
+        <p class="tagline">O Guia Definitivo para Empreendedores em 2026 — sem jargão, só o que funciona</p>
+    </div>
+
+    <div class="container">
+
+        <div class="benefits-card">
+            <h3>O que você vai aprender</h3>
+            <ul class="benefits">
+                <li>
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                    <div>8 capítulos práticos com exemplos de empresas brasileiras</div>
+                </li>
+                <li>
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                    <div>Plano de implementação de IA em 30 dias</div>
+                </li>
+                <li>
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                    <div>50+ ferramentas de IA listadas com preços</div>
+                </li>
+                <li>
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                    <div>30 prompts prontos para copiar e colar</div>
+                </li>
+                <li>
+                    <div class="icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                    <div>Cases reais: como PMEs brasileiras estão usando IA</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="chapters">
+            <h3>Sumário</h3>
+            <ol>
+                <li>O que é IA (sem enrolação)</li>
+                <li>Atendimento ao Cliente com IA</li>
+                <li>Marketing e Conteúdo com IA</li>
+                <li>Vendas e CRM Inteligente</li>
+                <li>Finanças e Gestão com IA</li>
+                <li>Produtividade Pessoal do Empreendedor</li>
+                <li>Plano de Implementação em 30 Dias</li>
+                <li>Erros Comuns (e como evitá-los)</li>
+            </ol>
+        </div>
+
+        <div class="form-card">
+            <h2>Baixe seu e-book grátis</h2>
+            <p class="form-desc">Mais de 40 páginas de conteúdo prático. Download instantâneo.</p>
+            <form action="https://costuras-meditacoes.vercel.app/api/product/download" method="POST" id="download-form">
+                <input type="hidden" name="product_id" value="ebook-ia-pmes">
+                <input type="text" name="name" placeholder="Seu nome" required>
+                <input type="email" name="email" placeholder="seu@email.com" required>
+                <button type="submit">Quero Meu E-book Grátis</button>
+            </form>
+            <p class="privacy">Ao baixar, você receberá também a newsletter Impulso IA com dicas semanais de IA para negócios. Pode cancelar quando quiser.</p>
+        </div>
+
+        <div class="back-link">
+            <a href="produtos-digitais.html">&larr; Ver todos os recursos gratuitos</a>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Marina Veauvy &middot; <a href="https://marinaveauvy.com.br">marinaveauvy.com.br</a>
+        </div>
+
+    </div>
+
+    <script>
+    document.getElementById('download-form').addEventListener('submit', function() {
+        fbq('track', 'Lead');
+    });
+    </script>
+
+</body>
+</html>

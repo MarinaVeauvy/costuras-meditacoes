@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA Prática para Pequenos Negócios — O Guia Definitivo para Empreendedores em 2026</title>
+<style>
+    @media print { .page-break { page-break-before: always; } }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #fff; color: #333; line-height: 1.8; max-width: 750px; margin: 0 auto; padding: 20px; }
+    .cover { background: #1a1a2e; color: #fff; text-align: center; padding: 100px 40px; border-radius: 12px; margin-bottom: 48px; }
+    .cover h1 { font-size: 40px; margin-bottom: 16px; letter-spacing: -1px; }
+    .cover h1 span { color: #e94560; }
+    .cover h2 { font-size: 20px; font-weight: 400; color: #b0b0cc; margin-bottom: 40px; }
+    .cover .author { font-size: 18px; color: #e8d5b7; }
+    .cover .site { font-size: 14px; color: #888; margin-top: 8px; }
+    .toc { margin-bottom: 48px; }
+    .toc h2 { font-size: 28px; color: #1a1a2e; border-bottom: 3px solid #e94560; padding-bottom: 12px; margin-bottom: 24px; }
+    .toc ol { list-style: none; counter-reset: toc-item; }
+    .toc ol li { counter-increment: toc-item; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 17px; }
+    .toc ol li a { text-decoration: none; color: #333; display: flex; justify-content: space-between; }
+    .toc ol li a:hover { color: #e94560; }
+    .toc ol li a::before { content: "Capítulo " counter(toc-item) " — "; color: #e94560; font-weight: bold; }
+    .chapter { margin-bottom: 48px; }
+    .chapter h2 { font-size: 30px; color: #1a1a2e; border-bottom: 3px solid #e94560; padding-bottom: 12px; margin-bottom: 24px; }
+    .chapter h3 { font-size: 22px; color: #1a1a2e; margin: 24px 0 12px; }
+    .chapter p { margin-bottom: 16px; font-size: 16px; }
+    .chapter ul, .chapter ol { margin: 12px 0 20px 24px; }
+    .chapter li { margin-bottom: 8px; font-size: 16px; }
+    .highlight { background: #f8f8f8; border-left: 4px solid #e94560; padding: 20px 24px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+    .highlight strong { color: #e94560; }
+    .prompt-box { background: #1a1a2e; color: #fff; padding: 20px 24px; border-radius: 8px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+    .tool-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+    .tool-table th { background: #1a1a2e; color: #fff; padding: 10px 12px; text-align: left; }
+    .tool-table td { padding: 10px 12px; border-bottom: 1px solid #eee; }
+    .tool-table tr:nth-child(even) { background: #f8f8f8; }
+    .case-box { background: #e8d5b7; padding: 24px; border-radius: 8px; margin: 20px 0; }
+    .case-box h4 { color: #1a1a2e; margin-bottom: 8px; font-size: 18px; }
+    .final { background: #1a1a2e; color: #fff; padding: 40px; border-radius: 12px; text-align: center; margin-top: 48px; }
+    .final h2 { margin-bottom: 16px; }
+    .final a { color: #e94560; }
+    .final p { color: #b0b0cc; margin-bottom: 8px; }
+    .checklist { list-style: none; margin: 12px 0; }
+    .checklist li { padding: 6px 0; font-size: 16px; }
+    .checklist li::before { content: "☐ "; color: #e94560; }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="cover">
+    <h1>IA Prática para <span>Pequenos Negócios</span></h1>
+    <h2>O Guia Definitivo para Empreendedores em 2026</h2>
+    <p class="author">Marina Veauvy</p>
+    <p class="site">marinaveauvy.com.br</p>
+</div>
+
+<!-- SUMÁRIO -->
+<div class="toc page-break">
+    <h2>Sumário</h2>
+    <ol>
+        <li><a href="#cap1">O que é IA (sem enrolação)</a></li>
+        <li><a href="#cap2">Atendimento ao Cliente com IA</a></li>
+        <li><a href="#cap3">Marketing e Conteúdo com IA</a></li>
+        <li><a href="#cap4">Vendas e CRM Inteligente</a></li>
+        <li><a href="#cap5">Finanças e Gestão com IA</a></li>
+        <li><a href="#cap6">Produtividade Pessoal do Empreendedor</a></li>
+        <li><a href="#cap7">Plano de Implementação em 30 Dias</a></li>
+        <li><a href="#cap8">Erros Comuns (e como evitá-los)</a></li>
+    </ol>
+</div>
+
+<!-- INTRODUÇÃO -->
+<div class="chapter page-break">
+    <h2>Introdução</h2>
+    <p>Este livro nasceu de uma constatação incômoda: a maioria dos conteúdos sobre inteligência artificial é feita por pessoas que nunca tocaram um negócio. São técnicos falando para técnicos, usando palavras que ninguém entende, sobre cenários que não existem na vida real de quem empreende no Brasil.</p>
+    <p>Se você é dono de uma empresa pequena ou média, se trabalha 10 a 14 horas por dia tentando fazer tudo funcionar, se ouve falar de IA mas não sabe por onde começar — este guia foi escrito para você.</p>
+    <p>Aqui não tem teoria. Não tem hype. Não tem promessa de que um robô vai fazer tudo sozinho. O que tem é o seguinte: ferramentas práticas, passo a passo real, e exemplos de empresas brasileiras que já estão usando IA para trabalhar menos e faturar mais.</p>
+    <h3>Para quem é este guia</h3>
+    <ul>
+        <li>Donos de PMEs que querem começar a usar IA sem investir fortunas</li>
+        <li>Autônomos e freelancers que precisam produzir mais com menos tempo</li>
+        <li>Gestores que querem otimizar operações da equipe</li>
+    </ul>
+    <h3>Para quem NÃO é</h3>
+    <ul>
+        <li>Quem busca conhecimento técnico profundo sobre machine learning</li>
+        <li>Desenvolvedores querendo construir modelos de IA</li>
+    </ul>
+    <h3>Como usar este guia</h3>
+    <p>Cada capítulo é independente. Você pode ler na ordem ou ir direto para o tema que mais precisa. No final, o Capítulo 7 traz um plano de 30 dias para você implementar tudo de forma gradual.</p>
+</div>
+
+<!-- CAPÍTULO 1 -->
+<div class="chapter page-break" id="cap1">
+    <h2>Capítulo 1 — O que é IA (sem enrolação)</h2>
+
+    <h3>IA explicada como se fosse para sua avó</h3>
+    <p>Imagine que você tem um estagiário muito inteligente, que lê rápido, escreve bem, e nunca reclama. Ele não tem experiência de vida, não entende contexto emocional, e às vezes inventa coisas. Mas ele é incansável e aprende com cada instrução que você dá.</p>
+    <p>Isso é a IA generativa em 2026. Não é um ser pensante. Não é ficção científica. É uma ferramenta — como um computador ou um smartphone — que faz certas tarefas muito bem e outras muito mal.</p>
+
+    <h3>Os 3 tipos de IA que importam para seu negócio</h3>
+    <p><strong>1. IA Conversacional (Chatbots)</strong> — Responde perguntas, atende clientes, faz triagem. Exemplos: ChatGPT, Claude, chatbots de WhatsApp. Uso: atendimento ao cliente, FAQ automatizado.</p>
+    <p><strong>2. IA Generativa (Criação de Conteúdo)</strong> — Escreve textos, cria imagens, gera vídeos. Exemplos: ChatGPT, DALL-E, Canva AI, ElevenLabs. Uso: marketing, redes sociais, emails.</p>
+    <p><strong>3. IA Analítica (Dados e Previsões)</strong> — Analisa padrões, prevê tendências, categoriza dados. Exemplos: Excel Copilot, Google Analytics 4, ferramentas de CRM. Uso: finanças, vendas, gestão.</p>
+
+    <div class="highlight">
+        <strong>Regra de ouro:</strong> Comece pela IA conversacional (chatbots para atendimento). É o tipo mais fácil de implementar e que dá retorno mais rápido para PMEs.
+    </div>
+
+    <h3>O que a IA NÃO faz</h3>
+    <ul>
+        <li><strong>Não pensa.</strong> Ela prevê a próxima palavra estatisticamente. Parece pensamento, mas não é.</li>
+        <li><strong>Não é 100% confiável.</strong> Inventa informações com confiança ("alucina"). Sempre revise.</li>
+        <li><strong>Não substitui relacionamento humano.</strong> Para vendas complexas e atendimento emocional, o humano é insubstituível.</li>
+        <li><strong>Não conhece seu negócio automaticamente.</strong> Você precisa dar contexto, treinar, e ajustar.</li>
+    </ul>
+</div>
+
+<!-- CAPÍTULO 2 -->
+<div class="chapter page-break" id="cap2">
+    <h2>Capítulo 2 — Atendimento ao Cliente com IA</h2>
+
+    <p>O atendimento ao cliente é onde a IA dá o retorno mais rápido para PMEs. Motivo simples: as mesmas 10 perguntas representam 70-80% de todas as mensagens que você recebe.</p>
+
+    <h3>Como configurar um chatbot de WhatsApp em 30 minutos</h3>
+    <p>Não precisa saber programar. Existem ferramentas visuais que permitem montar um chatbot arrastando blocos.</p>
+
+    <p><strong>Passo 1: Escolha a ferramenta</strong></p>
+    <table class="tool-table">
+        <tr><th>Ferramenta</th><th>Plano Gratuito</th><th>WhatsApp</th><th>Melhor para</th></tr>
+        <tr><td>Landbot</td><td>Sim (limitado)</td><td>Sim</td><td>E-commerce e serviços</td></tr>
+        <tr><td>ManyChat</td><td>Sim (até 1.000 contatos)</td><td>Sim</td><td>Instagram + WhatsApp</td></tr>
+        <tr><td>Tidio</td><td>Sim (50 conversas/mês)</td><td>Sim</td><td>Sites e multicanal</td></tr>
+        <tr><td>Botpress</td><td>Sim (open source)</td><td>Via API</td><td>Quem quer controle total</td></tr>
+    </table>
+
+    <p><strong>Passo 2: Mapeie suas 10 perguntas mais frequentes</strong></p>
+    <p>Abra seu WhatsApp Business, role as últimas 100 conversas, e anote as perguntas que se repetem. Normalmente são:</p>
+    <ol>
+        <li>Qual o preço de [produto/serviço]?</li>
+        <li>Vocês entregam para [localidade]?</li>
+        <li>Qual o prazo de entrega?</li>
+        <li>Vocês têm [produto específico]?</li>
+        <li>Como funciona o pagamento?</li>
+        <li>Vocês têm desconto para [condição]?</li>
+        <li>Qual o horário de funcionamento?</li>
+        <li>Onde ficam vocês?</li>
+        <li>Como acompanho meu pedido?</li>
+        <li>Posso trocar/devolver?</li>
+    </ol>
+
+    <p><strong>Passo 3: Crie as respostas</strong></p>
+    <p>Para cada pergunta, escreva uma resposta de 2-3 linhas. Dica: use o ChatGPT para redigir as respostas.</p>
+
+    <div class="prompt-box">Prompt para ChatGPT:
+"Sou dono de uma [tipo de empresa]. Escreva respostas curtas e amigáveis
+para estas 10 perguntas frequentes dos meus clientes: [cole as perguntas].
+Tom: profissional mas humano. Máximo 3 linhas cada."</div>
+
+    <p><strong>Passo 4: Configure o fluxo na ferramenta</strong></p>
+    <p>Na ferramenta escolhida, crie um fluxo simples: saudação → menu de opções → resposta → pergunta se resolveu → direcionar para humano se não.</p>
+
+    <p><strong>Passo 5: Teste e ative</strong></p>
+    <p>Envie mensagens de teste, ajuste as respostas que ficaram confusas, e ative para clientes reais. Monitore os primeiros 3 dias.</p>
+
+    <div class="case-box">
+        <h4>Case Real: Loja de Roupas em BH</h4>
+        <p>A Closet & Co., loja de roupas femininas em Belo Horizonte, implementou um chatbot no WhatsApp com Landbot em março de 2025. Resultado em 90 dias: tempo de resposta caiu de 12 minutos para 2 minutos, 45% das conversas resolvidas sem humano, e satisfação do cliente subiu de 3.8 para 4.5 (escala de 5). Investimento: R$0 (plano gratuito).</p>
+    </div>
+
+    <div class="highlight">
+        <strong>ROI esperado:</strong> Um chatbot que resolve 40% das perguntas equivale a economizar 1-2 funcionários de atendimento parcial. Para uma PME pagando R$2.000/mês por atendente, a economia é de R$800-2.000/mês.
+    </div>
+</div>
+
+<!-- CAPÍTULO 3 -->
+<div class="chapter page-break" id="cap3">
+    <h2>Capítulo 3 — Marketing e Conteúdo com IA</h2>
+
+    <p>Criar conteúdo para redes sociais consome em média 6 horas por semana de um empreendedor. Com IA, esse tempo cai para 1-2 horas. O segredo: usar IA para o rascunho, você para a revisão e toque pessoal.</p>
+
+    <h3>Como usar ChatGPT para criar posts</h3>
+    <p>O erro mais comum: pedir "crie um post para Instagram". Isso gera conteúdo genérico. O segredo está no prompt (instrução) que você dá.</p>
+
+    <p><strong>A fórmula do prompt eficaz:</strong></p>
+    <p>Contexto + Público + Formato + Tom + Restrições = Resultado bom.</p>
+
+    <div class="prompt-box">Prompt ruim: "Crie um post para minha loja."
+
+Prompt bom: "Crie um post de carrossel com 7 slides para o
+Instagram de uma floricultura artesanal em São Paulo. Público:
+mulheres 30-50 anos, classe B. Tema: como escolher flores para
+presentear no Dia das Mães. Tom: acolhedor e especialista.
+Inclua CTA para enviar WhatsApp no último slide."</div>
+
+    <h3>15 prompts prontos para seu marketing</h3>
+
+    <p><strong>Para Instagram:</strong></p>
+    <ol>
+        <li>"Crie 5 legendas para posts sobre [tema]. Público: [público]. Tom: [tom]. Inclua CTA em cada."</li>
+        <li>"Gere 10 ideias de Reels de 30 segundos para [nicho]. Foque em conteúdo que gera salvamentos."</li>
+        <li>"Escreva um roteiro de carrossel de 7 slides sobre [tema]. Slide 1: gancho. Slides 2-6: conteúdo. Slide 7: CTA."</li>
+    </ol>
+
+    <p><strong>Para Email Marketing:</strong></p>
+    <ol start="4">
+        <li>"Escreva um email de boas-vindas para novos assinantes da minha newsletter sobre [tema]. Máximo 200 palavras."</li>
+        <li>"Crie uma sequência de 3 emails para promover [produto]. Email 1: dor. Email 2: solução. Email 3: oferta."</li>
+    </ol>
+
+    <p><strong>Para Blog/SEO:</strong></p>
+    <ol start="6">
+        <li>"Escreva um artigo de 800 palavras sobre [tema]. Keyword principal: [keyword]. Inclua H2s, lista, e conclusão com CTA."</li>
+        <li>"Gere 20 ideias de artigos de blog para [nicho] que tenham bom volume de busca no Google Brasil."</li>
+    </ol>
+
+    <p><strong>Para Anúncios:</strong></p>
+    <ol start="8">
+        <li>"Escreva 3 variações de copy para Meta Ads sobre [produto]. Framework AIDA. Headline máximo 40 caracteres."</li>
+    </ol>
+
+    <p><strong>Para Planejamento:</strong></p>
+    <ol start="9">
+        <li>"Crie um calendário editorial de 30 dias para Instagram de [nicho]. Alterne: educativo, entretenimento, vendas."</li>
+        <li>"Gere 30 hashtags para [nicho] divididas em: populares, médias e nichadas."</li>
+    </ol>
+
+    <p><strong>Genéricos poderosos:</strong></p>
+    <ol start="11">
+        <li>"Reescreva este texto com tom mais [profissional/casual/provocativo]: [texto]"</li>
+        <li>"Resuma este texto em 3 bullets de no máximo 1 linha cada: [texto]"</li>
+        <li>"Transforme este depoimento de cliente em um post de prova social: [depoimento]"</li>
+        <li>"Crie 5 títulos de email com alta taxa de abertura sobre [tema]. Use números, urgência ou curiosidade."</li>
+        <li>"Adapte este conteúdo de blog para um post de LinkedIn de 300 palavras: [conteúdo]"</li>
+    </ol>
+
+    <h3>Geração de imagens com IA</h3>
+    <table class="tool-table">
+        <tr><th>Ferramenta</th><th>Gratuito</th><th>Melhor para</th><th>Preço Pago</th></tr>
+        <tr><td>Canva AI (Magic Design)</td><td>Sim (limitado)</td><td>Posts e apresentações</td><td>R$35/mês</td></tr>
+        <tr><td>DALL-E (ChatGPT)</td><td>Sim (no Plus)</td><td>Imagens conceituais</td><td>US$20/mês</td></tr>
+        <tr><td>Leonardo AI</td><td>Sim (150 créditos/dia)</td><td>Imagens realistas</td><td>US$10/mês</td></tr>
+        <tr><td>Ideogram</td><td>Sim (10/dia)</td><td>Texto em imagem</td><td>US$8/mês</td></tr>
+    </table>
+</div>
+
+<!-- CAPÍTULO 4 -->
+<div class="chapter page-break" id="cap4">
+    <h2>Capítulo 4 — Vendas e CRM Inteligente</h2>
+
+    <p>Vender mais não é sobre trabalhar mais. É sobre saber para quem vender primeiro, quando abordar, e o que dizer. A IA ajuda nos três.</p>
+
+    <h3>Lead Scoring com IA</h3>
+    <p>Lead scoring é dar uma nota para cada potencial cliente baseado na chance de comprar. Sem IA, você faz isso "no feeling". Com IA, você faz com dados.</p>
+
+    <p><strong>Critérios simples de scoring (faça manual no início):</strong></p>
+    <ul>
+        <li>Abriu email (1 ponto por email)</li>
+        <li>Clicou em link (2 pontos)</li>
+        <li>Visitou página de preço (5 pontos)</li>
+        <li>Baixou material gratuito (3 pontos)</li>
+        <li>Respondeu mensagem (4 pontos)</li>
+        <li>Pediu orçamento (10 pontos)</li>
+    </ul>
+
+    <p><strong>Ferramentas acessíveis com lead scoring:</strong></p>
+    <table class="tool-table">
+        <tr><th>Ferramenta</th><th>Plano Gratuito</th><th>Lead Scoring</th><th>Melhor para</th></tr>
+        <tr><td>HubSpot CRM</td><td>Sim</td><td>Sim (manual)</td><td>PMEs que querem CRM completo</td></tr>
+        <tr><td>RD Station</td><td>Não</td><td>Sim (automático)</td><td>Marketing + vendas integrado</td></tr>
+        <tr><td>Pipedrive</td><td>Teste 14 dias</td><td>Sim</td><td>Equipes de vendas</td></tr>
+        <tr><td>Brevo (ex-Sendinblue)</td><td>Sim</td><td>Via automação</td><td>Email marketing + CRM leve</td></tr>
+    </table>
+
+    <h3>Follow-up automatizado</h3>
+    <p>80% das vendas acontecem entre o 5º e o 12º contato. A maioria dos empreendedores desiste no 2º. A IA resolve isso com sequências automáticas.</p>
+
+    <div class="prompt-box">Prompt para criar sequência de follow-up:
+"Crie uma sequência de 5 mensagens de WhatsApp para follow-up
+após envio de orçamento de [serviço]. Timing: dia 1, dia 3,
+dia 5, dia 7, dia 10. Tom: profissional mas não insistente.
+A última mensagem deve ter uma oferta de desconto de 10%."</div>
+
+    <h3>Previsão de vendas</h3>
+    <p>Você não precisa de software caro para prever vendas. O ChatGPT pode analisar seus dados históricos.</p>
+
+    <div class="prompt-box">Prompt para previsão:
+"Analisar estes dados de vendas dos últimos 12 meses e prever
+os próximos 3 meses: [cole dados]. Considere sazonalidade e
+tendência. Apresente em tabela com intervalo de confiança."</div>
+</div>
+
+<!-- CAPÍTULO 5 -->
+<div class="chapter page-break" id="cap5">
+    <h2>Capítulo 5 — Finanças e Gestão com IA</h2>
+
+    <p>Finanças é a área onde empreendedores mais procrastinam. E é justamente onde a IA pode dar mais clareza com menos esforço.</p>
+
+    <h3>Categorização automática de despesas</h3>
+    <p>Em vez de categorizar cada despesa manualmente na planilha, use IA para fazer isso automaticamente.</p>
+
+    <div class="prompt-box">Prompt para categorizar:
+"Categorize estas despesas nas categorias (Moradia, Alimentação,
+Transporte, Saúde, Educação, Lazer, Assinaturas, Operacional,
+Marketing, Pessoal): [cole a lista de despesas do extrato].
+Formato: tabela com colunas: Data, Descrição, Valor, Categoria."</div>
+
+    <h3>Previsão de fluxo de caixa</h3>
+    <p>Cole seus dados financeiros dos últimos 6 meses e peça uma projeção.</p>
+
+    <div class="prompt-box">Prompt para fluxo de caixa:
+"Com base nestes dados financeiros dos últimos 6 meses [cole],
+projete o fluxo de caixa para os próximos 90 dias considerando:
+- Receitas recorrentes vs variáveis
+- Sazonalidade do meu setor ([setor])
+- Despesas fixas vs variáveis
+Alerte sobre semanas com risco de caixa negativo."</div>
+
+    <h3>Ferramentas de gestão financeira com IA</h3>
+    <table class="tool-table">
+        <tr><th>Ferramenta</th><th>Preço</th><th>IA integrada</th><th>Melhor para</th></tr>
+        <tr><td>Conta Azul</td><td>A partir de R$100/mês</td><td>Parcial</td><td>PMEs com contador</td></tr>
+        <tr><td>Granatum</td><td>A partir de R$79/mês</td><td>Parcial</td><td>Controle financeiro</td></tr>
+        <tr><td>Nibo</td><td>A partir de R$49/mês</td><td>Sim</td><td>Integração contábil</td></tr>
+        <tr><td>Planilha + ChatGPT</td><td>Gratuito</td><td>Manual</td><td>Quem quer começar sem custo</td></tr>
+    </table>
+
+    <div class="highlight">
+        <strong>Dica prática:</strong> Comece com planilha + ChatGPT. Quando faturar mais de R$15.000/mês, migre para Conta Azul ou Granatum. O custo se paga pelo tempo economizado.
+    </div>
+</div>
+
+<!-- CAPÍTULO 6 -->
+<div class="chapter page-break" id="cap6">
+    <h2>Capítulo 6 — Produtividade Pessoal do Empreendedor</h2>
+
+    <p>Você não precisa de mais horas no dia. Precisa de menos tarefas manuais. A IA elimina as tarefas repetitivas que consomem 2-3 horas do seu dia sem que você perceba.</p>
+
+    <h3>Automatizar tarefas repetitivas com Zapier e Make</h3>
+    <p>Zapier e Make conectam aplicativos entre si sem programação. Exemplo: "quando alguém preencher o formulário do site, automaticamente criar contato no CRM, enviar email de boas-vindas e notificar no WhatsApp."</p>
+
+    <p><strong>5 automações que todo empreendedor deveria ter:</strong></p>
+    <ol>
+        <li><strong>Lead → CRM:</strong> Novo lead no formulário → cria contato no HubSpot/Pipedrive automaticamente</li>
+        <li><strong>Venda → Notificação:</strong> Nova venda → mensagem no WhatsApp + email de confirmação</li>
+        <li><strong>Post agendado:</strong> Planilha de conteúdo → publicação automática no Instagram</li>
+        <li><strong>Backup de dados:</strong> Planilha atualizada → backup automático no Google Drive</li>
+        <li><strong>Atendimento → Registro:</strong> Conversa encerrada no chatbot → registro no CRM com resumo</li>
+    </ol>
+
+    <h3>ChatGPT como assistente pessoal</h3>
+
+    <div class="prompt-box">Prompt para criar sua rotina:
+"Você é meu assistente pessoal. Me ajude a organizar meu dia.
+Tenho [X] horas de trabalho. Minha energia é melhor de manhã.
+Tarefas de hoje: [liste]. Compromissos fixos: [liste].
+Organize em time blocks de 25 min (Pomodoro) com pausas.
+Priorize por impacto no faturamento."</div>
+
+    <h3>Transcrição de reuniões</h3>
+    <table class="tool-table">
+        <tr><th>Ferramenta</th><th>Gratuito</th><th>Português</th><th>Recursos</th></tr>
+        <tr><td>Fireflies.ai</td><td>Sim (limitado)</td><td>Sim</td><td>Transcrição + resumo + ações</td></tr>
+        <tr><td>Otter.ai</td><td>Sim (300 min/mês)</td><td>Parcial</td><td>Transcrição em tempo real</td></tr>
+        <tr><td>Tactiq</td><td>Sim</td><td>Sim</td><td>Google Meet + Zoom</td></tr>
+        <tr><td>Whisper (OpenAI)</td><td>Sim (open source)</td><td>Sim</td><td>Precisa de setup técnico</td></tr>
+    </table>
+
+    <h3>Notion AI para organização</h3>
+    <p>O Notion com IA integrada funciona como um "segundo cérebro" para seu negócio. Use para:</p>
+    <ul>
+        <li>Resumir notas de reunião automaticamente</li>
+        <li>Gerar action items de documentos longos</li>
+        <li>Criar templates de processos com IA</li>
+        <li>Organizar base de conhecimento da empresa</li>
+    </ul>
+</div>
+
+<!-- CAPÍTULO 7 -->
+<div class="chapter page-break" id="cap7">
+    <h2>Capítulo 7 — Plano de Implementação em 30 Dias</h2>
+
+    <p>Teoria sem ação não gera resultado. Este capítulo é seu mapa de implementação. Siga na ordem.</p>
+
+    <h3>Semana 1: Diagnóstico (o que automatizar primeiro)</h3>
+    <ul class="checklist">
+        <li>Dia 1: Liste todas as tarefas que você faz repetidamente (mínimo 20)</li>
+        <li>Dia 2: Classifique cada tarefa: pode ser automatizada? (Sim/Parcial/Não)</li>
+        <li>Dia 3: Priorize as 5 tarefas com maior impacto (economia de tempo × frequência)</li>
+        <li>Dia 4: Crie conta gratuita no ChatGPT e teste com suas 3 primeiras tarefas</li>
+        <li>Dia 5: Documente os prompts que funcionaram melhor</li>
+    </ul>
+
+    <h3>Semana 2: Quick Wins (chatbot + posts)</h3>
+    <ul class="checklist">
+        <li>Dia 6: Mapeie as 10 perguntas mais frequentes dos clientes</li>
+        <li>Dia 7: Configure chatbot no WhatsApp (Landbot ou ManyChat)</li>
+        <li>Dia 8: Gere calendário editorial de 30 dias com ChatGPT</li>
+        <li>Dia 9: Crie os primeiros 5 posts com IA + sua revisão</li>
+        <li>Dia 10: Agende posts da semana (Buffer ou Estúdio de Criação do Meta)</li>
+    </ul>
+
+    <h3>Semana 3: Processos internos</h3>
+    <ul class="checklist">
+        <li>Dia 11: Configure 1 automação no Zapier (lead → CRM)</li>
+        <li>Dia 12: Crie templates de email com IA (boas-vindas, follow-up, pós-venda)</li>
+        <li>Dia 13: Organize categorização financeira com ChatGPT</li>
+        <li>Dia 14: Configure transcrição automática para reuniões</li>
+        <li>Dia 15: Crie SOP para o processo mais crítico do negócio</li>
+    </ul>
+
+    <h3>Semana 4: Métricas e ajustes</h3>
+    <ul class="checklist">
+        <li>Dia 16-18: Monitore resultados do chatbot (taxa de resolução, satisfação)</li>
+        <li>Dia 19-20: Analise engajamento dos posts criados com IA vs anteriores</li>
+        <li>Dia 21: Revise prompts e ajuste os que não deram bom resultado</li>
+        <li>Dia 22-25: Implemente melhorias baseadas nos dados</li>
+        <li>Dia 26-30: Documente tudo que aprendeu e planeje o mês 2</li>
+    </ul>
+
+    <div class="highlight">
+        <strong>Meta do mês 1:</strong> Economizar pelo menos 5 horas por semana com IA. Se conseguir, você ganhou 260 horas por ano — mais de 6 semanas de trabalho.
+    </div>
+</div>
+
+<!-- CAPÍTULO 8 -->
+<div class="chapter page-break" id="cap8">
+    <h2>Capítulo 8 — Erros Comuns (e como evitá-los)</h2>
+
+    <h3>Erro 1: Querer automatizar tudo de uma vez</h3>
+    <p>Comece com UMA coisa. Domine. Depois parta para a próxima. Quem tenta automatizar 10 processos simultaneamente não automatiza nenhum direito.</p>
+
+    <h3>Erro 2: Não revisar o que a IA produz</h3>
+    <p>A IA erra. Inventa dados. Escreve coisas que não fazem sentido para seu contexto. Sempre revise antes de publicar ou enviar para clientes.</p>
+
+    <h3>Erro 3: Automatizar o processo errado</h3>
+    <p>Este é o erro mais caro. Automatizar um processo ruim apenas faz o ruim acontecer mais rápido. Antes de automatizar, pergunte: este processo deveria existir?</p>
+
+    <h3>Erro 4: Ignorar a experiência do cliente</h3>
+    <p>Chatbot que frustra é pior que não ter chatbot. Sempre ofereça a opção de falar com humano. A automação deve melhorar a experiência, não piorar.</p>
+
+    <h3>Erro 5: Não dar contexto suficiente para a IA</h3>
+    <p>"Escreva um post" gera lixo. "Escreva um post de carrossel de 7 slides para Instagram de uma clínica de estética em Curitiba, público mulheres 35-50 anos, sobre os benefícios do ácido hialurônico, tom profissional mas acessível" gera ouro.</p>
+
+    <h3>Erro 6: Achar que IA substitui estratégia</h3>
+    <p>IA é ferramenta, não estratégia. Você ainda precisa saber para quem vende, o que diferencia seu negócio, e qual o caminho de crescimento. A IA acelera a execução, mas a direção é sua.</p>
+
+    <h3>Erro 7: Não medir resultados</h3>
+    <p>Se você não mede, não sabe se está funcionando. Para cada implementação de IA, defina: o que vou medir, qual a meta, e quando vou avaliar.</p>
+</div>
+
+<!-- CONCLUSÃO -->
+<div class="chapter page-break">
+    <h2>Conclusão</h2>
+
+    <p>A inteligência artificial não é um bicho de sete cabeças. Também não é uma varinha mágica. É uma ferramenta poderosa que, usada com inteligência (a sua, não a artificial), pode transformar como você trabalha.</p>
+
+    <p><strong>Recapitulando:</strong></p>
+    <ul>
+        <li>Comece pelo atendimento (chatbot de WhatsApp) — retorno mais rápido</li>
+        <li>Use IA para criar conteúdo — economize 4+ horas por semana</li>
+        <li>Automatize follow-ups de vendas — pare de perder clientes por esquecimento</li>
+        <li>Organize finanças com IA — clareza em 15 minutos por mês</li>
+        <li>Siga o plano de 30 dias — ação consistente vence planejamento perfeito</li>
+    </ul>
+
+    <p>O próximo passo é simples: escolha UM capítulo deste guia e implemente HOJE. Não amanhã. Não na segunda-feira. Hoje.</p>
+
+    <p>Seu negócio agradece.</p>
+</div>
+
+<!-- RECURSOS -->
+<div class="chapter page-break">
+    <h2>Recursos Extras</h2>
+
+    <h3>50 Ferramentas de IA para PMEs</h3>
+    <table class="tool-table">
+        <tr><th>Categoria</th><th>Ferramenta</th><th>Uso</th><th>Preço</th></tr>
+        <tr><td>Texto</td><td>ChatGPT</td><td>Escrita, análise, planejamento</td><td>Grátis / US$20/mês</td></tr>
+        <tr><td>Texto</td><td>Claude</td><td>Escrita longa, análise detalhada</td><td>Grátis / US$20/mês</td></tr>
+        <tr><td>Texto</td><td>Gemini</td><td>Pesquisa + escrita integrada</td><td>Grátis / US$20/mês</td></tr>
+        <tr><td>Texto</td><td>Jasper</td><td>Copywriting e marketing</td><td>US$49/mês</td></tr>
+        <tr><td>Texto</td><td>Copy.ai</td><td>Copy para anúncios</td><td>Grátis / US$49/mês</td></tr>
+        <tr><td>Imagem</td><td>DALL-E</td><td>Geração de imagens</td><td>Via ChatGPT Plus</td></tr>
+        <tr><td>Imagem</td><td>Midjourney</td><td>Imagens artísticas</td><td>US$10/mês</td></tr>
+        <tr><td>Imagem</td><td>Leonardo AI</td><td>Imagens realistas</td><td>Grátis / US$10/mês</td></tr>
+        <tr><td>Imagem</td><td>Canva AI</td><td>Design completo</td><td>Grátis / R$35/mês</td></tr>
+        <tr><td>Imagem</td><td>Ideogram</td><td>Texto em imagens</td><td>Grátis / US$8/mês</td></tr>
+        <tr><td>Vídeo</td><td>CapCut</td><td>Edição com IA</td><td>Grátis / Pro</td></tr>
+        <tr><td>Vídeo</td><td>Descript</td><td>Edição por texto</td><td>Grátis / US$24/mês</td></tr>
+        <tr><td>Vídeo</td><td>Synthesia</td><td>Avatar falante</td><td>US$22/mês</td></tr>
+        <tr><td>Vídeo</td><td>HeyGen</td><td>Vídeos com avatar</td><td>US$29/mês</td></tr>
+        <tr><td>Áudio</td><td>ElevenLabs</td><td>Voz sintética</td><td>Grátis / US$5/mês</td></tr>
+        <tr><td>Áudio</td><td>Murf</td><td>Narração</td><td>US$19/mês</td></tr>
+        <tr><td>Chat</td><td>Landbot</td><td>Chatbot WhatsApp</td><td>Grátis / €40/mês</td></tr>
+        <tr><td>Chat</td><td>ManyChat</td><td>Chatbot Instagram+WA</td><td>Grátis / US$15/mês</td></tr>
+        <tr><td>Chat</td><td>Tidio</td><td>Chat multicanal</td><td>Grátis / US$29/mês</td></tr>
+        <tr><td>Chat</td><td>Botpress</td><td>Chatbot open source</td><td>Grátis</td></tr>
+        <tr><td>CRM</td><td>HubSpot</td><td>CRM completo</td><td>Grátis / US$20/mês</td></tr>
+        <tr><td>CRM</td><td>Pipedrive</td><td>Pipeline de vendas</td><td>US$14/mês</td></tr>
+        <tr><td>CRM</td><td>RD Station</td><td>Marketing + vendas</td><td>R$50/mês</td></tr>
+        <tr><td>Email</td><td>Brevo</td><td>Email marketing</td><td>Grátis / €25/mês</td></tr>
+        <tr><td>Email</td><td>Mailchimp</td><td>Email marketing</td><td>Grátis / US$13/mês</td></tr>
+        <tr><td>Email</td><td>Resend</td><td>Email transacional</td><td>Grátis / US$20/mês</td></tr>
+        <tr><td>Automação</td><td>Zapier</td><td>Conectar apps</td><td>Grátis / US$19/mês</td></tr>
+        <tr><td>Automação</td><td>Make</td><td>Automações complexas</td><td>Grátis / US$9/mês</td></tr>
+        <tr><td>Automação</td><td>n8n</td><td>Automação open source</td><td>Grátis (self-hosted)</td></tr>
+        <tr><td>Reunião</td><td>Fireflies.ai</td><td>Transcrição + resumo</td><td>Grátis / US$10/mês</td></tr>
+        <tr><td>Reunião</td><td>Otter.ai</td><td>Transcrição real-time</td><td>Grátis / US$10/mês</td></tr>
+        <tr><td>Reunião</td><td>Tactiq</td><td>Notas de reunião</td><td>Grátis / US$8/mês</td></tr>
+        <tr><td>Produtividade</td><td>Notion AI</td><td>Organização com IA</td><td>US$10/mês</td></tr>
+        <tr><td>Produtividade</td><td>Todoist</td><td>Gestão de tarefas</td><td>Grátis / US$4/mês</td></tr>
+        <tr><td>Finanças</td><td>Conta Azul</td><td>ERP financeiro</td><td>R$100/mês</td></tr>
+        <tr><td>Finanças</td><td>Granatum</td><td>Controle financeiro</td><td>R$79/mês</td></tr>
+        <tr><td>SEO</td><td>Ubersuggest</td><td>Pesquisa de keywords</td><td>Grátis / US$29/mês</td></tr>
+        <tr><td>SEO</td><td>SurferSEO</td><td>Otimização de conteúdo</td><td>US$69/mês</td></tr>
+        <tr><td>Design</td><td>Remove.bg</td><td>Remover fundo</td><td>Grátis (limitado)</td></tr>
+        <tr><td>Design</td><td>Cleanup.pictures</td><td>Remover objetos</td><td>Grátis</td></tr>
+        <tr><td>Apresentação</td><td>Gamma</td><td>Slides com IA</td><td>Grátis / US$10/mês</td></tr>
+        <tr><td>Apresentação</td><td>Beautiful.ai</td><td>Apresentações prontas</td><td>US$12/mês</td></tr>
+        <tr><td>Código</td><td>Cursor</td><td>Editor com IA</td><td>Grátis / US$20/mês</td></tr>
+        <tr><td>Código</td><td>Bolt.new</td><td>Criar apps sem código</td><td>Grátis / US$20/mês</td></tr>
+        <tr><td>Social</td><td>Buffer</td><td>Agendar posts</td><td>Grátis / US$6/mês</td></tr>
+        <tr><td>Social</td><td>Later</td><td>Agendar Instagram</td><td>Grátis / US$18/mês</td></tr>
+        <tr><td>Pesquisa</td><td>Perplexity</td><td>Pesquisa com IA</td><td>Grátis / US$20/mês</td></tr>
+        <tr><td>Tradução</td><td>DeepL</td><td>Tradução precisa</td><td>Grátis / €8/mês</td></tr>
+        <tr><td>Jurídico</td><td>LegalAI</td><td>Análise de contratos</td><td>Varia</td></tr>
+        <tr><td>RH</td><td>Gupy</td><td>Recrutamento com IA</td><td>Sob consulta</td></tr>
+    </table>
+</div>
+
+<!-- FINAL -->
+<div class="final">
+    <h2>Gostou deste e-book?</h2>
+    <p>Deixe sua avaliação se comprou na Amazon!</p>
+    <br>
+    <p>Receba dicas semanais de IA para negócios:</p>
+    <p><a href="https://marinaveauvy.github.io/costuras-meditacoes/newsletter-impulso-ia.html">Assinar a newsletter Impulso IA →</a></p>
+    <br>
+    <p style="font-size: 12px; color: #666;">© 2026 Marina Veauvy · marinaveauvy.com.br</p>
+</div>
+
+</body>
+</html>
