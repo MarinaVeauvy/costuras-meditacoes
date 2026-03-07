@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renda Extra Report — 1 ideia validada por semana</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background-color: #1a1a2e;
+            padding: 60px 20px 80px;
+            text-align: center;
+            position: relative;
+        }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: #1a1a2e;
+            clip-path: ellipse(55% 100% at 50% 0%);
+        }
+        .badge {
+            display: inline-block;
+            background-color: #e94560;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        .header h1 span {
+            color: #e94560;
+        }
+        .header p.tagline {
+            color: #b0b0cc;
+            font-size: 20px;
+            font-weight: 500;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+            position: relative;
+            z-index: 2;
+        }
+        .form-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+        .form-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .form-card p.form-desc {
+            font-size: 15px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .form-card form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .form-card input[type="text"],
+        .form-card input[type="email"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+        .form-card input[type="text"]:focus,
+        .form-card input[type="email"]:focus {
+            border-color: #e94560;
+        }
+        .form-card button {
+            width: 100%;
+            padding: 16px;
+            background-color: #e94560;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 4px;
+        }
+        .form-card button:hover {
+            background-color: #d13350;
+            transform: translateY(-1px);
+        }
+        .form-card button:active {
+            transform: translateY(0);
+        }
+        .form-card .privacy {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            margin-top: 8px;
+        }
+        .description {
+            background: #fff;
+            border-radius: 16px;
+            padding: 40px 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+        .description p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+        .description h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+        .benefits {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 15px;
+            color: #444;
+        }
+        .benefits li .icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(233, 69, 96, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .benefits li .icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: #e94560;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .benefits li strong {
+            color: #1a1a2e;
+        }
+        .weekly-format {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4e 100%);
+            border-radius: 16px;
+            padding: 36px 32px;
+            margin-bottom: 40px;
+        }
+        .weekly-format h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #e94560;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .weekly-items {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .weekly-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .weekly-item .step {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            background-color: rgba(233, 69, 96, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e94560;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .weekly-item .text {
+            color: #ccc;
+            font-size: 15px;
+        }
+        .weekly-item .text strong {
+            color: #fff;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            color: #999;
+        }
+        @media (max-width: 600px) {
+            .header {
+                padding: 40px 16px 60px;
+            }
+            .header h1 {
+                font-size: 28px;
+            }
+            .header p.tagline {
+                font-size: 17px;
+            }
+            .form-card, .description, .weekly-format {
+                padding: 28px 20px;
+            }
+            .container {
+                padding: 40px 16px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="badge">Newsletter Gratuita</div>
+        <h1>Renda Extra <span>Report</span></h1>
+        <p class="tagline">1 ideia validada por semana para criar renda extra. Todo sabado.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="form-card">
+            <h2>Receba na sua caixa de entrada</h2>
+            <p class="form-desc">Cases reais, ideias validadas e um plano de 7 dias. Gratis.</p>
+            <form action="https://costuras-meditacoes.vercel.app/api/newsletter/subscribe" method="POST">
+                <input type="hidden" name="newsletter_id" value="renda-extra">
+                <input type="text" name="name" placeholder="Seu nome" required>
+                <input type="email" name="email" placeholder="Seu melhor email" required>
+                <button type="submit">Quero receber</button>
+            </form>
+            <p class="privacy">Seus dados estao seguros. Cancele quando quiser.</p>
+        </div>
+
+        <div class="description">
+            <p>Toda semana voce recebe 1 case real de brasileiro que criou renda extra (com numeros abertos), 1 ideia de negocio para testar, 1 ferramenta para acelerar e 1 plano de 7 dias para comecar.</p>
+
+            <h3>O que voce vai receber</h3>
+            <ul class="benefits">
+                <li>
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                    </div>
+                    <div><strong>Cases reais com numeros abertos</strong> — quanto investiu, quanto faturou, quanto tempo levou</div>
+                </li>
+                <li>
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <div><strong>Ideias validadas para testar esta semana</strong> — nao teoria, ideias que ja funcionam</div>
+                </li>
+                <li>
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <div><strong>Ferramentas e IA para acelerar</strong> — recursos que multiplicam seus resultados</div>
+                </li>
+                <li>
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <div><strong>Plano de 7 dias pronto para executar</strong> — dia a dia do que fazer para comecar</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="weekly-format">
+            <h3>Formato de cada edicao</h3>
+            <div class="weekly-items">
+                <div class="weekly-item">
+                    <div class="step">1</div>
+                    <div class="text"><strong>Case da semana</strong> — historia real com numeros</div>
+                </div>
+                <div class="weekly-item">
+                    <div class="step">2</div>
+                    <div class="text"><strong>Ideia para testar</strong> — validada e com potencial</div>
+                </div>
+                <div class="weekly-item">
+                    <div class="step">3</div>
+                    <div class="text"><strong>Ferramenta</strong> — para acelerar a execucao</div>
+                </div>
+                <div class="weekly-item">
+                    <div class="step">4</div>
+                    <div class="text"><strong>Plano de 7 dias</strong> — passo a passo para comecar</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Renda Extra Report — Ideias que funcionam, numeros que comprovam.
+        </div>
+
+    </div>
+
+</body>
+</html>
