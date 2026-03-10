@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusão de Dados — Marina Veauvy</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0D0D0D; color: #F5F0E8; line-height: 1.7; padding: 40px 20px; }
+.container { max-width: 800px; margin: 0 auto; }
+h1 { font-size: 28px; color: #C9A84C; margin-bottom: 8px; }
+.update { font-size: 14px; color: #A89F8C; margin-bottom: 40px; }
+h2 { font-size: 20px; color: #C9A84C; margin: 32px 0 12px; }
+p, li { font-size: 16px; color: #ccc; margin-bottom: 12px; }
+ul { padding-left: 24px; }
+a { color: #C9A84C; }
+form { margin-top: 24px; }
+label { display: block; font-size: 15px; color: #A89F8C; margin-bottom: 6px; }
+input, textarea { width: 100%; padding: 12px 16px; background: #1a1a1a; border: 1px solid #333; color: #F5F0E8; font-size: 16px; border-radius: 4px; margin-bottom: 20px; font-family: inherit; }
+input:focus, textarea:focus { outline: none; border-color: #C9A84C; }
+textarea { height: 100px; resize: vertical; }
+button { background: #C9A84C; color: #0D0D0D; border: none; padding: 14px 32px; font-size: 16px; font-weight: 600; cursor: pointer; border-radius: 4px; }
+button:hover { background: #d4b35a; }
+.success { display: none; background: #1a2e1a; border: 1px solid #2d5a2d; padding: 20px; border-radius: 4px; margin-top: 20px; }
+.success p { color: #8bc48b; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Solicitação de Exclusão de Dados</h1>
+<p class="update">Conforme a LGPD (Lei 13.709/2018) e as políticas do Meta</p>
+
+<p>Você tem o direito de solicitar a exclusão de todos os seus dados pessoais armazenados por nós. Ao enviar este formulário, processaremos sua solicitação em até 15 dias úteis.</p>
+
+<h2>O que será excluído</h2>
+<ul>
+<li>Seus dados de contato (nome, e-mail, telefone) de nossas listas.</li>
+<li>Resultados de quizzes e formulários que você preencheu.</li>
+<li>Dados de interação coletados pelo Meta Pixel vinculados ao seu perfil.</li>
+<li>Histórico de comunicações (e-mails, mensagens WhatsApp).</li>
+</ul>
+
+<h2>Solicitar exclusão</h2>
+
+<form id="deleteForm">
+<label for="nome">Nome completo</label>
+<input type="text" id="nome" name="nome" required placeholder="Seu nome">
+
+<label for="email">E-mail cadastrado</label>
+<input type="email" id="email" name="email" required placeholder="email@exemplo.com">
+
+<label for="telefone">Telefone (opcional)</label>
+<input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+
+<label for="detalhes">Detalhes adicionais (opcional)</label>
+<textarea id="detalhes" name="detalhes" placeholder="Informe detalhes adicionais sobre sua solicitação, se necessário."></textarea>
+
+<button type="submit">Solicitar Exclusão dos Meus Dados</button>
+</form>
+
+<div class="success" id="successMsg">
+<p><strong>Solicitação recebida.</strong></p>
+<p>Sua solicitação de exclusão de dados foi enviada com sucesso. Processaremos em até 15 dias úteis e você receberá uma confirmação por e-mail.</p>
+<p>Protocolo: <strong id="protocolo"></strong></p>
+</div>
+
+<h2>Contato alternativo</h2>
+<p>Se preferir, envie sua solicitação diretamente para: <a href="mailto:contato@marinaveauvy.com.br">contato@marinaveauvy.com.br</a> com o assunto "Exclusão de Dados".</p>
+</div>
+
+<script>
+document.getElementById('deleteForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var nome = document.getElementById('nome').value;
+  var email = document.getElementById('email').value;
+  var telefone = document.getElementById('telefone').value;
+  var detalhes = document.getElementById('detalhes').value;
+  var protocolo = 'EXC-' + Date.now().toString(36).toUpperCase();
+
+  var subject = encodeURIComponent('Solicitação de Exclusão de Dados - ' + protocolo);
+  var body = encodeURIComponent(
+    'Protocolo: ' + protocolo + '\n' +
+    'Nome: ' + nome + '\n' +
+    'E-mail: ' + email + '\n' +
+    'Telefone: ' + (telefone || 'Não informado') + '\n' +
+    'Detalhes: ' + (detalhes || 'Nenhum') + '\n\n' +
+    'Solicito a exclusão de todos os meus dados pessoais conforme a LGPD.'
+  );
+
+  window.open('mailto:contato@marinaveauvy.com.br?subject=' + subject + '&body=' + body, '_blank');
+
+  document.getElementById('deleteForm').style.display = 'none';
+  document.getElementById('protocolo').textContent = protocolo;
+  document.getElementById('successMsg').style.display = 'block';
+});
+</script>
+</body>
+</html>
