@@ -321,7 +321,7 @@
   <div class="screen active" id="screen-welcome">
     <div class="welcome">
       <h1>Raio-X Sistêmico Financeiro</h1>
-      <p>15 perguntas que revelam qual padrão inconsciente governa sua relação com dinheiro.</p>
+      <p>15 perguntas que revelam qual dinâmica do seu sistema familiar governa sua relação com dinheiro.</p>
       <p style="color: var(--text-secondary); font-size: 0.9rem;">Tempo estimado: 5 minutos. Responda com honestidade — não existe resposta certa ou errada.</p>
       <br>
       <button class="btn-primary" onclick="startQuiz()">Começar Meu Raio-X</button>
@@ -356,7 +356,7 @@
 
       <div class="result-cta">
         <h2>Quer resolver na raiz?</h2>
-        <p>O Raio-X mostra o padrão. A <strong style="color: var(--gold-light);">Constelação Financeira</strong> resolve. Uma sessão individual de 90 minutos onde vamos à origem sistêmica e destravamos o fluxo.</p>
+        <p>O Raio-X mostra o padrão. A <strong style="color: var(--gold-light);">Constelação Financeira</strong> resolve na raiz. Uma sessão individual de 90 minutos onde vamos à origem no sistema familiar e destravamos o fluxo.</p>
         <a href="constelacao-financeira.html" class="cta-btn" onclick="fbq('track','Lead',{content_name:'CTA Constelacao via RaioX'})">Conhecer a Constelação — R$497</a>
       </div>
 
@@ -373,7 +373,7 @@
 const QUESTIONS = [
   // --- BLOCO 1: MERECIMENTO (5) ---
   {
-    category: 'Merecimento',
+    category: 'Pertencimento',
     text: 'Quando você recebe mais dinheiro do que esperava — um bônus, um presente, uma oportunidade — qual é sua primeira reação interna?',
     options: [
       { text: 'Desconforto. Uma parte de mim acha que não deveria estar recebendo isso.', score: 'M' },
@@ -382,7 +382,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Merecimento',
+    category: 'Pertencimento',
     text: 'Sobre cobrar pelo seu trabalho ou pedir aumento, o que melhor descreve você?',
     options: [
       { text: 'Tendo a cobrar menos do que vale. Sinto que preciso "provar" mais antes de cobrar mais.', score: 'M' },
@@ -391,7 +391,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Merecimento',
+    category: 'Pertencimento',
     text: 'Quando você vê mulheres da sua idade com patrimônio significativamente maior, o que sente?',
     options: [
       { text: '"Elas têm algo que eu não tenho. Talvez eu não seja feita para isso."', score: 'M' },
@@ -400,7 +400,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Merecimento',
+    category: 'Pertencimento',
     text: 'Sobre investir em você mesma (cursos, mentorias, saúde, experiências), como você funciona?',
     options: [
       { text: 'Sinto culpa de gastar comigo. Sempre priorizo os outros ou o "necessário".', score: 'M' },
@@ -409,7 +409,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Merecimento',
+    category: 'Pertencimento',
     text: 'Complete a frase que mais ressoa: "Eu mereço..."',
     options: [
       { text: '"...ter mais, mas uma parte de mim não acredita nisso de verdade."', score: 'M' },
@@ -420,7 +420,7 @@ const QUESTIONS = [
 
   // --- BLOCO 2: TRANSMUTAÇÃO (5) ---
   {
-    category: 'Transmutação',
+    category: 'Ordem',
     text: 'Como era a relação da sua família de origem com dinheiro?',
     options: [
       { text: 'Nunca era suficiente. Havia uma sensação de escassez constante.', score: 'M' },
@@ -429,7 +429,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Transmutação',
+    category: 'Ordem',
     text: 'Quando pensa nos padrões financeiros da sua família (pais, avós), o que percebe?',
     options: [
       { text: 'Percebo que repito o padrão de "trabalhar muito e ter pouco".', score: 'M' },
@@ -438,7 +438,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Transmutação',
+    category: 'Ordem',
     text: 'Sobre conversas de dinheiro com seu parceiro(a) ou família atual:',
     options: [
       { text: 'Evito. Tenho medo de parecer gananciosa ou materialista.', score: 'M' },
@@ -447,7 +447,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Transmutação',
+    category: 'Ordem',
     text: 'Quando você perde dinheiro inesperadamente (golpe, mau negócio, emergência), o que acontece dentro de você?',
     options: [
       { text: '"Eu sabia que não ia durar. Não era para eu ter."', score: 'M' },
@@ -456,7 +456,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Transmutação',
+    category: 'Ordem',
     text: 'Na sua linhagem familiar, dinheiro esteve ligado a:',
     options: [
       { text: 'Sacrifício. Quem tinha dinheiro trabalhou demais e sofreu por isso.', score: 'M' },
@@ -467,7 +467,7 @@ const QUESTIONS = [
 
   // --- BLOCO 3: DISSOLUÇÃO (5) ---
   {
-    category: 'Dissolução',
+    category: 'Equilíbrio',
     text: 'Quando sobra dinheiro no final do mês, o que acontece?',
     options: [
       { text: 'Raramente sobra. E quando sobra, parece que "não deveria".', score: 'M' },
@@ -476,7 +476,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Dissolução',
+    category: 'Equilíbrio',
     text: 'Sobre planejar seu futuro financeiro (aposentadoria, patrimônio, investimentos):',
     options: [
       { text: 'Acho importante, mas sinto que não sou capaz de construir algo grande.', score: 'M' },
@@ -485,7 +485,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Dissolução',
+    category: 'Equilíbrio',
     text: 'Quando você tenta poupar ou investir consistentemente:',
     options: [
       { text: 'Sinto que estou "tirando" de alguém — dos filhos, do parceiro, de quem precisa mais.', score: 'M' },
@@ -494,7 +494,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Dissolução',
+    category: 'Equilíbrio',
     text: 'O que acontece quando você está prestes a dar um grande salto financeiro (negócio novo, investimento, promoção)?',
     options: [
       { text: 'Recuo. Encontro razões para não arriscar. Melhor ficar onde estou.', score: 'M' },
@@ -503,7 +503,7 @@ const QUESTIONS = [
     ]
   },
   {
-    category: 'Dissolução',
+    category: 'Equilíbrio',
     text: 'Se pudesse descrever sua relação com dinheiro em uma frase, seria:',
     options: [
       { text: '"Eu não mereço ter mais do que tenho."', score: 'M' },
@@ -516,71 +516,71 @@ const QUESTIONS = [
 // ============ PROFILES ============
 const PROFILES = {
   M: {
-    name: 'Merecimento',
-    subtitle: 'A Ferida do Valor',
+    name: 'Pertencimento',
+    subtitle: 'A Exclusão do Receber',
     color: '#F59E0B',
-    tagline: 'Você não tem um problema de dinheiro. Você tem um problema de permissão.',
-    description: 'Seu padrão dominante está no eixo do <strong>Merecimento</strong> (Casa 2↔6 na astrologia sistêmica). Isso significa que a raiz do que trava seu patrimônio está na sua relação com o próprio valor — com o quanto você se permite receber, cobrar e acumular.',
-    howItWorks: 'Esse padrão se manifesta como uma espécie de "teto invisível". Você pode até ganhar mais, mas seu sistema interno trabalha para devolver ao nível que considera "seguro" ou "merecido". Você subcobra, recusa oportunidades, sente culpa ao prosperar e prioriza os outros antes de si mesma.',
-    origin: 'Geralmente se forma na infância, quando a criança aprende — direta ou indiretamente — que pedir, querer ou ter é errado. Famílias onde se valorizava o sacrifício, a humildade ou o "não ter" como virtude plantam essa semente.',
+    tagline: 'Você não tem um problema de dinheiro. Você tem um problema de permissão no sistema.',
+    description: 'Seu padrão dominante está ligado à <strong>lei do Pertencimento</strong> no sistema familiar. Na constelação sistêmica, quando alguém da família foi excluído, julgado ou impedido de prosperar, os descendentes carregam uma lealdade inconsciente que os impede de receber plenamente.',
+    howItWorks: 'Esse padrão se manifesta como um "teto invisível". Você pode até ganhar mais, mas seu sistema interno trabalha para devolver ao nível que considera "seguro" — o nível do sistema familiar. Você subcobra, recusa oportunidades, sente culpa ao prosperar e prioriza os outros antes de si mesma. É como se receber mais fosse uma traição ao sistema.',
+    origin: 'Na visão sistêmica, esse padrão aparece quando existe uma exclusão no sistema familiar: alguém que não pôde ter, que foi julgado por querer, ou que sofreu por prosperar. A criança absorve a mensagem de que "pedir, querer ou ter é perigoso" e limita inconscientemente o próprio recebimento para manter o pertencimento ao grupo familiar.',
     practices: [
       {
-        title: 'Exercício de Ancoragem de Valor',
-        desc: 'Todos os dias, antes de dormir, escreva 3 coisas que você fez naquele dia que tiveram valor real para alguém. Não importa o tamanho. O objetivo é treinar seu sistema nervoso a reconhecer que você gera valor — e merece receber por isso.'
+        title: 'Exercício de Reconhecimento Sistêmico',
+        desc: 'Fique em pé, feche os olhos e diga em voz alta: "Queridos que vieram antes de mim, eu vejo que alguns de vocês não puderam ter. Eu honro a dor de vocês. E agora, com amor e respeito, eu me permito receber." Repita por 7 dias e observe o que muda no corpo.'
       },
       {
-        title: 'Mapa de Crenças sobre Merecimento',
-        desc: 'Pegue uma folha e divida em duas colunas: "O que minha família acreditava sobre merecer" e "O que eu escolho acreditar". Escreva pelo menos 5 itens em cada. Leia a segunda coluna em voz alta toda manhã por 21 dias.'
+        title: 'Mapa de Exclusões Financeiras',
+        desc: 'Desenhe sua árvore familiar (3 gerações). Ao lado de cada pessoa, escreva: ela pôde prosperar livremente? Alguém foi julgado por ter dinheiro? Alguém foi impedido de receber? As exclusões que você encontrar são a raiz do seu padrão.'
       },
       {
-        title: 'Ritual de Recebimento',
-        desc: 'Na próxima vez que alguém te oferecer algo — elogio, presente, ajuda, dinheiro — apenas diga "obrigada" e receba. Sem devolver, sem minimizar, sem justificar. Observe o desconforto. Ele é o padrão se mostrando.'
+        title: 'Prática do Receber Consciente',
+        desc: 'Na próxima vez que alguém te oferecer algo — elogio, presente, ajuda, dinheiro — apenas diga "obrigada, eu recebo" e sinta no corpo. Sem devolver, sem minimizar. O desconforto que surgir é o sistema mostrando onde está a trava.'
       }
     ]
   },
   T: {
-    name: 'Transmutação',
-    subtitle: 'A Herança Invisível',
+    name: 'Ordem',
+    subtitle: 'A Lealdade Invisível',
     color: '#8B5CF6',
     tagline: 'O padrão não é seu. Mas enquanto estiver ativo, governa seu patrimônio.',
-    description: 'Seu padrão dominante está no eixo da <strong>Transmutação</strong> (Casa 2↔8 na astrologia sistêmica). Isso significa que você carrega padrões financeiros herdados da sua linhagem familiar — ciclos de prosperidade e perda, lealdades invisíveis e dinâmicas de poder ligadas ao dinheiro.',
-    howItWorks: 'Esse padrão opera como uma "lealdade inconsciente". Você repete ciclos financeiros que não são seus — dívidas que aparecem, prosperidade que não dura, decisões que parecem suas mas seguem um roteiro familiar. Quando o dinheiro começa a acumular, algo acontece para devolvê-lo ao padrão.',
-    origin: 'Vem de dinâmicas familiares intergeracionais. Pode ser uma avó que perdeu tudo, um pai que associava dinheiro a poder/controle, segredos financeiros na família, ou a posição de ser "a primeira a prosperar" na linhagem — o que gera culpa inconsciente por ultrapassar quem veio antes.',
+    description: 'Seu padrão dominante está ligado à <strong>lei da Ordem</strong> (hierarquia) no sistema familiar. Na constelação sistêmica, quando os filhos carregam destinos que pertencem aos pais ou ancestrais — dívidas, perdas, conflitos com dinheiro — eles repetem esses padrões como forma de lealdade inconsciente.',
+    howItWorks: 'Esse padrão opera como um "emaranhamento sistêmico". Você repete ciclos financeiros que não começaram em você — dívidas que aparecem do nada, prosperidade que não dura, decisões que parecem suas mas seguem o roteiro de outro membro da família. É como se o seu sistema financeiro estivesse a serviço de uma história que não é sua.',
+    origin: 'Vem de emaranhamentos com destinos de ancestrais. Uma avó que perdeu tudo e nunca se recuperou. Um pai que associava dinheiro a poder e destruição. Segredos financeiros na família — falências escondidas, heranças disputadas. Ou a posição de ser "a primeira a prosperar" na linhagem, o que gera culpa por ultrapassar quem veio antes e quebrar a ordem do sistema.',
     practices: [
       {
-        title: 'Árvore Financeira Familiar',
-        desc: 'Desenhe 3 gerações da sua família (avós, pais, você). Ao lado de cada pessoa, escreva: qual era a relação dela com dinheiro? O que aconteceu com o patrimônio? Quem prosperou e quem não? Procure os padrões que se repetem.'
+        title: 'Árvore Financeira — Mapa de Emaranhamentos',
+        desc: 'Desenhe 3 gerações da sua família. Ao lado de cada pessoa, escreva: qual era a relação dela com dinheiro? Quem perdeu? Quem foi traído financeiramente? Quem prosperou e pagou um preço? Os emaranhamentos que você carregar são os padrões que repete.'
       },
       {
-        title: 'Frase de Corte Sistêmico',
-        desc: 'Fique em pé, feche os olhos, e diga em voz alta: "Querida mãe/pai, eu honro o que vocês viveram com dinheiro. E agora, com amor, eu escolho um caminho diferente." Repita por 7 dias. Observe o que surge.'
+        title: 'Frase Sistêmica de Devolução',
+        desc: 'Fique em pé, feche os olhos, e diga: "Querida mãe/pai, eu vejo o que vocês viveram com dinheiro. Isso pertence a vocês. Com todo amor, eu devolvo o que é de vocês e fico apenas com o que é meu." Repita por 7 dias. Observe o que se move.'
       },
       {
-        title: 'Diário de Ciclos',
-        desc: 'Por 30 dias, anote toda decisão financeira que você tomar. No final do mês, releia e pergunte: "Essa decisão foi minha ou é um padrão que eu herdei?" Circule as que parecem repetições. Essa consciência é o primeiro passo da transmutação.'
+        title: 'Diário de Repetições',
+        desc: 'Por 30 dias, anote toda decisão financeira. No final, releia e pergunte: "Essa decisão foi minha ou é uma repetição do que vi na minha família?" Circule as repetições. Consciência é o primeiro passo para sair do emaranhamento.'
       }
     ]
   },
   D: {
-    name: 'Dissolução',
-    subtitle: 'O Sabotador Oculto',
+    name: 'Equilíbrio',
+    subtitle: 'A Interrupção do Fluxo',
     color: '#06B6D4',
-    tagline: 'Algo em você trabalha contra seu patrimônio — e você nem percebe.',
-    description: 'Seu padrão dominante está no eixo da <strong>Dissolução</strong> (Casa 2↔12 na astrologia sistêmica). Isso significa que existe um mecanismo inconsciente que dissolve seu patrimônio antes que ele se consolide — como se houvesse um "vazamento" invisível entre o que você ganha e o que acumula.',
-    howItWorks: 'Esse é o padrão mais sutil dos três. Diferente do Merecimento (que bloqueia a entrada) e da Transmutação (que cria ciclos), a Dissolução age silenciosamente: o dinheiro entra, mas se evapora. Gastos que você não lembra, decisões que você adia, oportunidades que passam sem você perceber. Não é falta de disciplina — é um padrão operando abaixo do radar.',
-    origin: 'Frequentemente ligado a experiências onde o dinheiro estava associado a perigo, caos ou falta de controle. Famílias com altos e baixos extremos, onde a instabilidade era a norma. O sistema aprende que "não ter" é mais seguro do que "ter e perder".',
+    tagline: 'O fluxo de dar e receber está interrompido no seu sistema — e o dinheiro reflete isso.',
+    description: 'Seu padrão dominante está ligado à <strong>lei do Equilíbrio</strong> (troca) no sistema familiar. Na constelação sistêmica, quando o fluxo de dar e receber foi interrompido na família — por trauma, abandono, caos ou falta de segurança — o descendente perde a capacidade de reter e acumular.',
+    howItWorks: 'Esse é o padrão mais sutil dos três. Enquanto o Pertencimento bloqueia a entrada e a Ordem cria repetições, a interrupção do Equilíbrio age silenciosamente: o dinheiro entra, mas se evapora. Gastos que você não lembra, decisões que adia, oportunidades que passam despercebidas. Não é falta de disciplina — é o sistema operando para manter um equilíbrio disfuncional onde "não ter" é mais seguro do que "ter e perder".',
+    origin: 'Na visão sistêmica, aparece quando o ambiente familiar era caótico ou imprevisível em relação a dinheiro. Famílias com altos e baixos extremos, onde a instabilidade era a norma. O sistema nervoso aprende que acumular é perigoso — porque toda vez que houve acúmulo, algo ruim aconteceu. Então o corpo dissolve o patrimônio antes que a perda possa doer.',
     practices: [
       {
-        title: 'Rastreamento Consciente por 7 Dias',
-        desc: 'Anote TUDO que gastar — cada café, cada Uber, cada compra. Não julgue. Apenas registre. No dia 8, some tudo e observe: para onde foi o dinheiro que "sumiu"? Esse exercício traz para a consciência o que a Dissolução esconde.'
+        title: 'Rastreamento Consciente — 7 Dias',
+        desc: 'Anote TUDO que gastar — cada café, cada Uber, cada compra. Sem julgamento. No dia 8, some e observe: para onde foi o dinheiro que "sumiu"? Esse exercício traz para a consciência o que o desequilíbrio sistêmico mantém no escuro.'
       },
       {
-        title: 'Meditação do Contêiner',
-        desc: 'Sente-se em silêncio por 5 minutos. Visualize um contêiner dourado no centro do seu peito. A cada respiração, imagine o contêiner ficando mais sólido, mais forte. Diga internamente: "Eu consigo conter abundância. É seguro ter." Pratique diariamente.'
+        title: 'Exercício de Contenção Sistêmica',
+        desc: 'Sente-se em silêncio por 5 minutos. Coloque as mãos sobre o peito e diga internamente: "É seguro ter. É seguro acumular. Eu posso conter abundância sem que algo ruim aconteça." Sinta o que o corpo responde. Pratique diariamente por 21 dias.'
       },
       {
-        title: 'Regra das 24 Horas',
-        desc: 'Para qualquer gasto acima de R$100 que não seja essencial, espere 24 horas antes de comprar. Anote o impulso e espere. Se depois de 24 horas ainda fizer sentido, compre. Você vai se surpreender com quantos impulsos se dissolvem sozinhos.'
+        title: 'Pausa de 24 Horas',
+        desc: 'Para qualquer gasto acima de R$100 que não seja essencial, espere 24 horas. Anote o impulso e espere. Se depois de 24h ainda fizer sentido, compre. Essa pausa interrompe o automatismo da dissolução e devolve a escolha para você.'
       }
     ]
   }
@@ -734,11 +734,11 @@ function showResult() {
       <h3>Seu Mapa Sistêmico</h3>
       <p>Seus scores nos 3 eixos revelam como os padrões interagem:</p>
       <ul>
-        <li><strong style="color: #F59E0B;">Merecimento (${Math.round(scores.M/total*100)}%)</strong> — Relação com seu valor e permissão para receber</li>
-        <li><strong style="color: #8B5CF6;">Transmutação (${Math.round(scores.T/total*100)}%)</strong> — Padrões herdados e lealdades familiares</li>
-        <li><strong style="color: #06B6D4;">Dissolução (${Math.round(scores.D/total*100)}%)</strong> — Mecanismos inconscientes de sabotagem</li>
+        <li><strong style="color: #F59E0B;">Pertencimento (${Math.round(scores.M/total*100)}%)</strong> — Permissão para receber dentro do sistema familiar</li>
+        <li><strong style="color: #8B5CF6;">Ordem (${Math.round(scores.T/total*100)}%)</strong> — Lealdades invisíveis e emaranhamentos herdados</li>
+        <li><strong style="color: #06B6D4;">Equilíbrio (${Math.round(scores.D/total*100)}%)</strong> — Fluxo de dar e receber no sistema</li>
       </ul>
-      <p style="margin-top: 12px;">Nenhum eixo opera sozinho. Porém, seu eixo dominante (<strong style="color: ${profile.color};">${profile.name}</strong>) é onde o trabalho precisa começar para destravar os outros.</p>
+      <p style="margin-top: 12px;">As três leis operam juntas no sistema. Porém, a lei dominante no seu campo (<strong style="color: ${profile.color};">${profile.name}</strong>) é onde a constelação precisa começar para destravar as outras.</p>
     </div>
   `;
   document.getElementById('reportContent').innerHTML = report;
