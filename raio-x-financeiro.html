@@ -337,7 +337,22 @@
       <p class="price-original">De R$ 97</p>
       <p class="price-value"><small>R$</small> 47</p>
       <p class="price-note">Pagamento único — acesso imediato</p>
-      <a href="#" class="cta-btn" id="btn-comprar" onclick="handleCompra()">Quero Meu Raio-X</a>
+
+      <form id="formCompra" onsubmit="handleCompra(event)" style="margin-top: 20px; text-align: left;">
+        <div style="margin-bottom: 12px;">
+          <input type="text" id="inputNome" placeholder="Seu nome" required
+            style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(124,58,237,0.2);background:rgba(124,58,237,0.06);color:var(--text-primary);font-family:'Lato',sans-serif;font-size:1rem;outline:none;">
+        </div>
+        <div style="margin-bottom: 12px;">
+          <input type="email" id="inputEmail" placeholder="Seu melhor email" required
+            style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(124,58,237,0.2);background:rgba(124,58,237,0.06);color:var(--text-primary);font-family:'Lato',sans-serif;font-size:1rem;outline:none;">
+        </div>
+        <div style="margin-bottom: 16px;">
+          <input type="tel" id="inputWhatsapp" placeholder="WhatsApp (opcional)"
+            style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(124,58,237,0.2);background:rgba(124,58,237,0.06);color:var(--text-primary);font-family:'Lato',sans-serif;font-size:1rem;outline:none;">
+        </div>
+        <button type="submit" class="cta-btn" style="width:100%;text-align:center;border:none;cursor:pointer;">Quero Meu Raio-X</button>
+      </form>
 
       <div class="guarantee">
         <p><strong>&#128274; Garantia de 7 dias.</strong> Se o relatório não fizer sentido para você, devolvemos 100% do valor. Sem perguntas.</p>
@@ -375,7 +390,7 @@
 
     <details>
       <summary>Como recebo o acesso?</summary>
-      <div class="faq-content">Após o pagamento, você é redirecionada automaticamente para o quiz. Também recebe o link por WhatsApp e email.</div>
+      <div class="faq-content">Após o pagamento, você recebe o link do quiz por email em poucos minutos. O link é pessoal e fica disponível para você acessar quando quiser.</div>
     </details>
 
     <details>
@@ -391,7 +406,7 @@
 
   <!-- Final CTA -->
   <section class="pricing reveal" style="padding-bottom: 20px;">
-    <a href="#" class="cta-btn" onclick="handleCompra()">Fazer Meu Raio-X — R$47</a>
+    <a href="#comprar" class="cta-btn" style="text-decoration:none;">Fazer Meu Raio-X — R$47</a>
     <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.85rem;">&#128274; Pagamento seguro via Asaas · Garantia de 7 dias</p>
   </section>
 
@@ -402,15 +417,47 @@
 
 <!-- Floating CTA (mobile) -->
 <div class="floating-cta" id="floatingCta">
-  <a href="#" class="cta-btn" onclick="handleCompra()">Quero Meu Raio-X — R$47</a>
+  <a href="#comprar" class="cta-btn" style="text-decoration:none;">Quero Meu Raio-X — R$47</a>
 </div>
 
 <script>
-  // ASAAS_CHECKOUT_URL — Marina precisa criar o produto no Asaas e colocar o link aqui
   const ASAAS_CHECKOUT_URL = 'https://www.asaas.com/c/qkdm3ypzidywumns';
+  const WEBHOOK_URL = 'https://webhook-pa.vercel.app/api/webhook/raio-x';
 
-  function handleCompra() {
+  async function handleCompra(e) {
+    e.preventDefault();
+    const nome = document.getElementById('inputNome').value.trim();
+    const email = document.getElementById('inputEmail').value.trim().toLowerCase();
+    const whatsapp = document.getElementById('inputWhatsapp').value.trim();
+
+    if (!nome || !email) return;
+
+    // Disable button
+    const btn = document.querySelector('#formCompra button');
+    btn.textContent = 'Redirecionando...';
+    btn.disabled = true;
+
+    // Track
     fbq('track', 'InitiateCheckout', { value: 47, currency: 'BRL', content_name: 'Raio-X Financeiro' });
+
+    // Save lead to Brevo via webhook (fire and forget)
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          nome: nome,
+          whatsapp: whatsapp,
+          costura: '',
+          scoreM: 0, scoreT: 0, scoreD: 0,
+          dominant: '',
+          pre_purchase: true,
+        }),
+      });
+    } catch (_) {}
+
+    // Redirect to Asaas
     window.location.href = ASAAS_CHECKOUT_URL;
   }
 
