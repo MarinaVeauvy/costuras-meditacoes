@@ -8,13 +8,12 @@
  */
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const ADMIN_KEY = process.env.ADMIN_KEY || 'pa-admin-a3f7c9e1b2d4';
+const ADMIN_KEY = process.env.ADMIN_KEY;
 
 const ALLOWED_ORIGINS = [
   'https://marinaveauvy.github.io',
   'https://marinaveauvy.com.br',
   'https://www.marinaveauvy.com.br',
-  'http://localhost:3000',
 ];
 
 const NEWSLETTERS = {

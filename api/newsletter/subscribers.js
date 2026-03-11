@@ -7,13 +7,12 @@
  */
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const ADMIN_KEY = process.env.ADMIN_KEY || 'pa-admin-a3f7c9e1b2d4';
+const ADMIN_KEY = process.env.ADMIN_KEY;
 
 const ALLOWED_ORIGINS = [
   'https://marinaveauvy.github.io',
   'https://marinaveauvy.com.br',
   'https://www.marinaveauvy.com.br',
-  'http://localhost:3000',
 ];
 
 const NEWSLETTERS = {
@@ -149,7 +148,7 @@ module.exports = async function handler(req, res) {
         <body>
           <div class="card">
             <h1>Inscricao cancelada</h1>
-            <p>O email <strong>${email}</strong> foi removido das nossas newsletters.</p>
+            <p>O email <strong>${email.replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]))}</strong> foi removido das nossas newsletters.</p>
             <p style="margin-top:1rem;font-size:0.9rem;">Se isso foi um engano, voce pode se inscrever novamente nas nossas paginas.</p>
           </div>
         </body>

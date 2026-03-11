@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raio-X Financeiro Sistêmico — Descubra o Padrão que Trava seu Patrimônio</title>
+  <meta name="description" content="Descubra qual padrão inconsciente está travando seu patrimônio. Quiz personalizado + relatório completo com práticas específicas para o seu perfil.">
+  <meta property="og:title" content="Raio-X Financeiro Sistêmico — R$47">
+  <meta property="og:description" content="Descubra o padrão que trava seu patrimônio e receba um plano personalizado para destravar.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Meta Pixel -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','754010884230693');fbq('track','PageView');</script>
+  <style>
+    :root {
+      --purple: #7C3AED;
+      --purple-light: #A78BFA;
+      --purple-dark: #5B21B6;
+      --gold: #D4AF37;
+      --gold-light: #F0D78C;
+      --bg-deep: #0B0A12;
+      --bg-card: rgba(124, 58, 237, 0.08);
+      --text-primary: #F0ECF7;
+      --text-secondary: #A09BB5;
+      --purple-glow: rgba(124, 58, 237, 0.3);
+      --gold-glow: rgba(212, 175, 55, 0.3);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.08), transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.05), transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(124,58,237,0.06), transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+    .ornament { text-align: center; color: var(--gold); font-size: 1.2rem; letter-spacing: 12px; margin: 2rem 0; opacity: 0.6; }
+
+    /* Hero */
+    .hero { padding: 80px 0 40px; text-align: center; }
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--bg-deep);
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text-primary), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Problem Section */
+    .section { padding: 40px 0; }
+    .section h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 1.5rem;
+      color: var(--gold-light);
+    }
+    .pain-list { list-style: none; padding: 0; }
+    .pain-list li {
+      padding: 14px 0 14px 36px;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+    }
+    .pain-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    /* What You Get */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 16px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      color: var(--gold-light);
+      margin-bottom: 0.6rem;
+    }
+    .card p { color: var(--text-secondary); font-size: 0.95rem; }
+    .card-number {
+      display: inline-block;
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      color: var(--gold-light);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 32px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    /* Pricing */
+    .pricing {
+      text-align: center;
+      padding: 60px 0;
+    }
+    .price-box {
+      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(212,175,55,0.08));
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 20px;
+      padding: 40px 32px;
+      max-width: 480px;
+      margin: 0 auto;
+      box-shadow: 0 0 40px var(--purple-glow);
+    }
+    .price-box h3 {
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .price-original {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      text-decoration: line-through;
+      margin-bottom: 0.3rem;
+    }
+    .price-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+    .price-value small { font-size: 1.2rem; -webkit-text-fill-color: var(--gold); }
+    .price-note {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-top: 0.5rem;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #E8C84A);
+      color: var(--bg-deep);
+      font-family: 'Lato', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 18px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 24px;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px var(--gold-glow);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--gold-glow), 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    /* Guarantee */
+    .guarantee {
+      text-align: center;
+      padding: 24px;
+      border: 1px dashed rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      margin-top: 32px;
+    }
+    .guarantee p { color: var(--text-secondary); font-size: 0.95rem; }
+    .guarantee strong { color: var(--gold-light); }
+
+    /* About */
+    .about { text-align: center; padding: 40px 0; }
+    .about p { color: var(--text-secondary); max-width: 560px; margin: 0 auto 1rem; }
+    .about strong { color: var(--text-primary); }
+
+    /* FAQ */
+    details {
+      background: var(--bg-card);
+      border: 1px solid rgba(124, 58, 237, 0.1);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    summary {
+      padding: 16px 20px;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; float: right; color: var(--gold); font-size: 1.4rem; }
+    details[open] summary::after { content: '−'; }
+    details .faq-content { padding: 0 20px 16px; color: var(--text-secondary); font-size: 0.95rem; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(124, 58, 237, 0.1);
+      margin-top: 40px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* Mobile floating CTA */
+    .floating-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(11, 10, 18, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      z-index: 100;
+      text-align: center;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .floating-cta .cta-btn { padding: 14px 32px; font-size: 0.95rem; margin: 0; width: 100%; }
+
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 60px 0 32px; }
+      .price-box { padding: 32px 24px; }
+      .floating-cta { display: block; }
+      body { padding-bottom: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">Produto Digital — Acesso Imediato</div>
+    <h1>Descubra o Padrão Invisível que Trava seu Patrimônio</h1>
+    <p>Um quiz de 15 perguntas que revela qual ferida financeira sistêmica está ativa na sua vida — e o que fazer para destravar.</p>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- Problem -->
+  <section class="section reveal">
+    <h2>Você se reconhece?</h2>
+    <ul class="pain-list">
+      <li>Ganha bem, mas o dinheiro nunca acumula de verdade</li>
+      <li>Já tentou planilhas, apps, assessor — e nada mudou o padrão</li>
+      <li>Sente que algo invisível trabalha contra o seu patrimônio</li>
+      <li>Toda vez que começa a juntar, aparece um gasto inesperado</li>
+      <li>Tem dificuldade de cobrar o que vale ou receber com tranquilidade</li>
+      <li>Repete padrões financeiros que viu na sua família</li>
+    </ul>
+    <p style="margin-top: 1.5rem; color: var(--text-secondary);">
+      Isso não é falta de disciplina. É um <strong style="color: var(--gold-light);">padrão sistêmico</strong> — e ele tem nome, raiz e solução.
+    </p>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- What You Get -->
+  <section class="section reveal">
+    <h2>O que você recebe</h2>
+
+    <div class="card">
+      <span class="card-number">1</span>
+      <h3>Quiz Diagnóstico — 15 Perguntas</h3>
+      <p>Mapeamento profundo dos seus padrões financeiros inconscientes. Cada resposta revela como Merecimento, Herança e Sabotagem operam na sua relação com dinheiro.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-number">2</span>
+      <h3>Relatório Personalizado do seu Perfil</h3>
+      <p>Análise detalhada do seu padrão dominante, com visualização dos 3 eixos e explicação de como esse padrão se manifesta nas suas decisões financeiras.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-number">3</span>
+      <h3>3 Práticas Específicas para seu Perfil</h3>
+      <p>Exercícios práticos calibrados para o padrão que apareceu no seu quiz. Não é genérico — é o que funciona para a sua ferida específica.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-number">4</span>
+      <h3>Mapa Sistêmico dos 3 Eixos</h3>
+      <p>Visualização clara de como Merecimento (Casa 2↔6), Transmutação (Casa 2↔8) e Dissolução (Casa 2↔12) interagem no seu campo financeiro.</p>
+    </div>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- Pricing -->
+  <section class="pricing reveal" id="comprar">
+    <div class="price-box">
+      <h3>Raio-X Financeiro Sistêmico</h3>
+      <p class="price-original">De R$ 97</p>
+      <p class="price-value"><small>R$</small> 47</p>
+      <p class="price-note">Pagamento único — acesso imediato</p>
+      <a href="#" class="cta-btn" id="btn-comprar" onclick="handleCompra()">Quero Meu Raio-X</a>
+
+      <div class="guarantee">
+        <p><strong>&#128274; Garantia de 7 dias.</strong> Se o relatório não fizer sentido para você, devolvemos 100% do valor. Sem perguntas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about reveal">
+    <h2 style="color: var(--gold-light); margin-bottom: 1rem;">Quem criou</h2>
+    <p><strong>Marina Veauvy</strong> é terapeuta sistêmica especializada em padrões financeiros inconscientes. Criadora do framework <strong>Costuras da Abundância</strong>, que mapeia as 3 feridas que travam o patrimônio: Merecimento, Transmutação e Dissolução.</p>
+    <p>Autora do livro <em>Costuras da Abundância</em> (Amazon) e facilitadora do programa Prosperidade Alquímica.</p>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- FAQ -->
+  <section class="section reveal">
+    <h2>Perguntas frequentes</h2>
+
+    <details>
+      <summary>Como funciona o quiz?</summary>
+      <div class="faq-content">São 15 perguntas sobre sua relação com dinheiro, família e padrões de comportamento financeiro. Leva cerca de 5 minutos. Ao final, você recebe seu relatório personalizado na tela — sem esperar.</div>
+    </details>
+
+    <details>
+      <summary>O resultado é genérico?</summary>
+      <div class="faq-content">Não. O quiz cruza suas respostas nos 3 eixos sistêmicos (Merecimento, Transmutação e Dissolução) e gera um relatório específico para o seu padrão dominante, com práticas calibradas para a sua situação.</div>
+    </details>
+
+    <details>
+      <summary>Preciso de conhecimento prévio?</summary>
+      <div class="faq-content">Nenhum. As perguntas são sobre situações reais do seu dia a dia financeiro. Responda com honestidade — o quiz faz o resto.</div>
+    </details>
+
+    <details>
+      <summary>Como recebo o acesso?</summary>
+      <div class="faq-content">Após o pagamento, você é redirecionada automaticamente para o quiz. Também recebe o link por WhatsApp e email.</div>
+    </details>
+
+    <details>
+      <summary>Posso refazer o quiz?</summary>
+      <div class="faq-content">Sim. O link fica disponível para você. É interessante refazer após 3 meses para ver sua evolução.</div>
+    </details>
+
+    <details>
+      <summary>E se eu quiser ir mais fundo?</summary>
+      <div class="faq-content">No relatório, você encontra o próximo passo: a Constelação Financeira — uma sessão individual onde trabalhamos na raiz do padrão que apareceu no seu quiz.</div>
+    </details>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="pricing reveal" style="padding-bottom: 20px;">
+    <a href="#" class="cta-btn" onclick="handleCompra()">Fazer Meu Raio-X — R$47</a>
+    <p style="margin-top: 12px; color: var(--text-secondary); font-size: 0.85rem;">&#128274; Pagamento seguro via Asaas · Garantia de 7 dias</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Marina Veauvy · <a href="privacidade.html">Política de Privacidade</a></p>
+  </footer>
+</div>
+
+<!-- Floating CTA (mobile) -->
+<div class="floating-cta" id="floatingCta">
+  <a href="#" class="cta-btn" onclick="handleCompra()">Quero Meu Raio-X — R$47</a>
+</div>
+
+<script>
+  // ASAAS_CHECKOUT_URL — Marina precisa criar o produto no Asaas e colocar o link aqui
+  const ASAAS_CHECKOUT_URL = 'https://asaas.com/c/PLACEHOLDER_RAIO_X';
+
+  function handleCompra() {
+    fbq('track', 'InitiateCheckout', { value: 47, currency: 'BRL', content_name: 'Raio-X Financeiro' });
+    window.location.href = ASAAS_CHECKOUT_URL;
+  }
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Floating CTA visibility
+  const hero = document.querySelector('.hero');
+  const pricing = document.querySelector('.pricing');
+  const floating = document.getElementById('floatingCta');
+  if (floating && window.innerWidth <= 768) {
+    const floatObs = new IntersectionObserver((entries) => {
+      const heroVisible = entries.find(e => e.target === hero)?.isIntersecting;
+      const pricingVisible = entries.find(e => e.target === pricing)?.isIntersecting;
+      if (heroVisible || pricingVisible) {
+        floating.style.display = 'none';
+      } else {
+        floating.style.display = 'block';
+      }
+    }, { threshold: 0.1 });
+    floatObs.observe(hero);
+    floatObs.observe(pricing);
+  }
+</script>
+
+<!-- noscript pixel -->
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=754010884230693&ev=PageView&noscript=1"/></noscript>
+</body>
+</html>

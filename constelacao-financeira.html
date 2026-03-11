@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constelação Financeira — Sessão Individual com Marina Veauvy</title>
+  <meta name="description" content="Sessão individual de Constelação Financeira Sistêmica. Resolva na raiz o padrão que trava seu patrimônio.">
+  <meta property="og:title" content="Constelação Financeira — R$497">
+  <meta property="og:description" content="Sessão individual que resolve na raiz o padrão que trava seu patrimônio.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Meta Pixel -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','754010884230693');fbq('track','PageView');</script>
+  <style>
+    :root {
+      --purple: #7C3AED;
+      --purple-light: #A78BFA;
+      --purple-dark: #5B21B6;
+      --gold: #D4AF37;
+      --gold-light: #F0D78C;
+      --bg-deep: #0B0A12;
+      --bg-card: rgba(124, 58, 237, 0.08);
+      --text-primary: #F0ECF7;
+      --text-secondary: #A09BB5;
+      --purple-glow: rgba(124, 58, 237, 0.3);
+      --gold-glow: rgba(212, 175, 55, 0.3);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.08), transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.05), transparent 50%);
+      pointer-events: none; z-index: 0;
+    }
+    .container { max-width: 720px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+    .ornament { text-align: center; color: var(--gold); font-size: 1.2rem; letter-spacing: 12px; margin: 2rem 0; opacity: 0.6; }
+
+    /* Hero */
+    .hero { padding: 80px 0 40px; text-align: center; }
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      color: var(--gold-light);
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text-primary), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p { font-size: 1.15rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto; }
+
+    .section { padding: 40px 0; }
+    .section h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1.5rem; color: var(--gold-light); }
+
+    /* Steps */
+    .steps { counter-reset: step; }
+    .step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+      border: 2px solid var(--gold);
+      color: var(--gold-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 700;
+    }
+    .step-content h3 { font-size: 1.2rem; color: var(--text-primary); margin-bottom: 4px; }
+    .step-content p { color: var(--text-secondary); font-size: 0.95rem; }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 16px;
+      backdrop-filter: blur(8px);
+    }
+    .card h3 { font-size: 1.2rem; color: var(--gold-light); margin-bottom: 0.5rem; }
+    .card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+    /* Comparison */
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    .comp-col { padding: 20px; border-radius: 12px; }
+    .comp-col.without { background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.2); }
+    .comp-col.with { background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.2); }
+    .comp-col h3 { font-size: 1rem; margin-bottom: 12px; }
+    .comp-col.without h3 { color: #FCA5A5; }
+    .comp-col.with h3 { color: #86EFAC; }
+    .comp-col ul { list-style: none; padding: 0; }
+    .comp-col ul li { padding: 6px 0; font-size: 0.9rem; color: var(--text-secondary); }
+    .comp-col.without ul li::before { content: '✗ '; color: #FCA5A5; }
+    .comp-col.with ul li::before { content: '✓ '; color: #86EFAC; }
+
+    /* Pricing */
+    .pricing { text-align: center; padding: 60px 0; }
+    .price-box {
+      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(212,175,55,0.08));
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 20px;
+      padding: 40px 32px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 0 40px var(--purple-glow);
+    }
+    .price-includes { text-align: left; margin: 20px 0; }
+    .price-includes li {
+      list-style: none;
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .price-includes li::before { content: '✦'; position: absolute; left: 0; color: var(--gold); }
+    .price-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+    }
+    .price-value small { font-size: 1.2rem; -webkit-text-fill-color: var(--gold); }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), #E8C84A);
+      color: var(--bg-deep);
+      font-family: 'Lato', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 18px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 24px;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px var(--gold-glow);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--gold-glow), 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    /* Testimonials placeholder */
+    .testimonial {
+      background: var(--bg-card);
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 16px;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+    .testimonial .name { font-style: normal; color: var(--gold-light); font-size: 0.9rem; margin-top: 8px; }
+
+    /* FAQ */
+    details {
+      background: var(--bg-card);
+      border: 1px solid rgba(124, 58, 237, 0.1);
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    summary {
+      padding: 16px 20px;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '+'; float: right; color: var(--gold); font-size: 1.4rem; }
+    details[open] summary::after { content: '−'; }
+    details .faq-content { padding: 0 20px 16px; color: var(--text-secondary); font-size: 0.95rem; }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(124, 58, 237, 0.1);
+      margin-top: 40px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    .floating-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(11, 10, 18, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      z-index: 100;
+      text-align: center;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .floating-cta .cta-btn { padding: 14px 32px; font-size: 0.95rem; margin: 0; width: 100%; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .hero { padding: 60px 0 32px; }
+      .comparison { grid-template-columns: 1fr; }
+      .floating-cta { display: block; }
+      body { padding-bottom: 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <section class="hero">
+    <div class="hero-badge">Sessão Individual</div>
+    <h1>Constelação Financeira Sistêmica</h1>
+    <p>Uma sessão individual onde vamos à raiz do padrão que trava seu patrimônio — e resolvemos no campo sistêmico.</p>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- What is it -->
+  <section class="section reveal">
+    <h2>O que é a Constelação Financeira</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 1rem;">A Constelação Financeira Sistêmica é uma sessão individual onde mapeamos e resolvemos os padrões inconscientes que governam sua relação com dinheiro.</p>
+    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Diferente de terapia convencional ou coaching financeiro, a constelação trabalha no <strong style="color: var(--gold-light);">campo sistêmico</strong> — onde os padrões herdados da sua família e linhagem estão armazenados.</p>
+    <p style="color: var(--text-secondary);">É uma sessão. Não é um processo de meses. O padrão é visto, nomeado e movido em uma única sessão de 90 minutos.</p>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- How it works -->
+  <section class="section reveal">
+    <h2>Como funciona</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Pré-sessão</h3>
+          <p>Você responde um questionário sobre sua história financeira e familiar. Isso prepara o campo para a sessão ser precisa.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Sessão ao Vivo — 90 minutos</h3>
+          <p>Sessão individual online (Google Meet) onde montamos a constelação do seu campo financeiro. Identificamos lealdades invisíveis, exclusões e padrões herdados.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Movimentos de Solução</h3>
+          <p>Trabalhamos os movimentos necessários para destravar o fluxo. Cada constelação termina com frases de solução e um novo posicionamento no campo.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Relatório + Acompanhamento</h3>
+          <p>Após a sessão, você recebe um relatório com os padrões encontrados, os movimentos realizados e práticas para os próximos 21 dias.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- Comparison -->
+  <section class="section reveal">
+    <h2>Sem constelação vs. com constelação</h2>
+    <div class="comparison">
+      <div class="comp-col without">
+        <h3>Sem resolver o padrão</h3>
+        <ul>
+          <li>O dinheiro entra e sai no mesmo ritmo</li>
+          <li>Repete decisões financeiras da família</li>
+          <li>Sente culpa ao prosperar</li>
+          <li>Sabota sem perceber</li>
+          <li>Mais conhecimento não muda o resultado</li>
+        </ul>
+      </div>
+      <div class="comp-col with">
+        <h3>Após a constelação</h3>
+        <ul>
+          <li>O dinheiro começa a acumular</li>
+          <li>Cobra o que vale com tranquilidade</li>
+          <li>A relação com dinheiro fica leve</li>
+          <li>Decisões financeiras fluem</li>
+          <li>O patrimônio reflete o esforço</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- Who is it for -->
+  <section class="section reveal">
+    <h2>Para quem é</h2>
+    <div class="card">
+      <p>&#10004; Mulheres empreendedoras que ganham bem mas o patrimônio não reflete o esforço</p>
+    </div>
+    <div class="card">
+      <p>&#10004; Quem já tentou educação financeira, coaching, terapia — e o padrão continua</p>
+    </div>
+    <div class="card">
+      <p>&#10004; Quem sente que carrega padrões financeiros da família</p>
+    </div>
+    <div class="card">
+      <p>&#10004; Quem fez o Raio-X Financeiro e quer resolver na raiz o que apareceu</p>
+    </div>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- About Marina -->
+  <section class="section reveal" style="text-align: center;">
+    <h2>Sobre Marina Veauvy</h2>
+    <p style="color: var(--text-secondary); max-width: 560px; margin: 0 auto 1rem;">Terapeuta sistêmica com formação em Constelação Familiar, Florais Alquímicos e 7Healings. Criadora do framework <strong style="color: var(--gold-light);">Costuras da Abundância</strong> e do programa Prosperidade Alquímica.</p>
+    <p style="color: var(--text-secondary); max-width: 560px; margin: 0 auto;">Especializada em padrões financeiros inconscientes, Marina combina a visão sistêmica com ferramentas práticas para destravar o patrimônio de mulheres empreendedoras.</p>
+  </section>
+
+  <div class="ornament">&#9674; &#9674; &#9674;</div>
+
+  <!-- Pricing -->
+  <section class="pricing reveal" id="agendar">
+    <div class="price-box">
+      <h3 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 16px;">Constelação Financeira Individual</h3>
+
+      <ul class="price-includes">
+        <li>Questionário pré-sessão detalhado</li>
+        <li>Sessão individual de 90 minutos (online)</li>
+        <li>Movimentos de solução no campo sistêmico</li>
+        <li>Relatório pós-sessão com padrões e práticas</li>
+        <li>Acompanhamento por 21 dias via WhatsApp</li>
+      </ul>
+
+      <p class="price-value"><small>R$</small> 497</p>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">ou 3x de R$165,67</p>
+
+      <a href="#" class="cta-btn" id="btn-agendar" onclick="handleAgendar()">Quero Minha Constelação</a>
+
+      <p style="margin-top: 16px; color: var(--text-secondary); font-size: 0.85rem;">&#128274; Pagamento seguro via Asaas</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section reveal">
+    <h2>Perguntas frequentes</h2>
+
+    <details>
+      <summary>A sessão é online?</summary>
+      <div class="faq-content">Sim. A sessão é por Google Meet, com câmera ligada. Funciona perfeitamente à distância — o campo sistêmico não depende de presença física.</div>
+    </details>
+
+    <details>
+      <summary>Quanto tempo dura?</summary>
+      <div class="faq-content">A sessão dura em média 90 minutos. Pode ser um pouco mais ou menos, dependendo do que o campo mostrar.</div>
+    </details>
+
+    <details>
+      <summary>Preciso ter feito o Raio-X antes?</summary>
+      <div class="faq-content">Não é obrigatório, mas recomendado. O Raio-X ajuda a identificar seu padrão dominante antes da sessão, o que torna a constelação mais precisa e profunda.</div>
+    </details>
+
+    <details>
+      <summary>Funciona mesmo online?</summary>
+      <div class="faq-content">Sim. A constelação sistêmica trabalha com o campo morfogenético, que não depende de localização. Mais de 90% das minhas sessões são online com excelentes resultados.</div>
+    </details>
+
+    <details>
+      <summary>Uma sessão é suficiente?</summary>
+      <div class="faq-content">Na maioria dos casos, sim. A constelação move o padrão em uma única sessão. O acompanhamento de 21 dias garante a integração. Se necessário, podemos agendar sessões complementares.</div>
+    </details>
+
+    <details>
+      <summary>E se eu quiser continuar o trabalho?</summary>
+      <div class="faq-content">Para quem quer um acompanhamento contínuo e aprofundado, existe o Prosperidade Alquímica — um programa anual que combina constelação, florais e outras ferramentas sistêmicas.</div>
+    </details>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Marina Veauvy · <a href="privacidade.html">Política de Privacidade</a></p>
+  </footer>
+</div>
+
+<!-- Floating CTA mobile -->
+<div class="floating-cta" id="floatingCta">
+  <a href="#" class="cta-btn" onclick="handleAgendar()">Agendar Constelação — R$497</a>
+</div>
+
+<script>
+  // ASAAS_CHECKOUT_URL — Marina precisa criar o produto no Asaas
+  const ASAAS_CHECKOUT_URL = 'https://asaas.com/c/PLACEHOLDER_CONSTELACAO';
+
+  function handleAgendar() {
+    fbq('track', 'InitiateCheckout', { value: 497, currency: 'BRL', content_name: 'Constelação Financeira' });
+    window.location.href = ASAAS_CHECKOUT_URL;
+  }
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Floating CTA
+  if (window.innerWidth <= 768) {
+    const hero = document.querySelector('.hero');
+    const pricing = document.querySelector('.pricing');
+    const floating = document.getElementById('floatingCta');
+    const obs = new IntersectionObserver((entries) => {
+      const anyVisible = entries.some(e => e.isIntersecting);
+      floating.style.display = anyVisible ? 'none' : 'block';
+    }, { threshold: 0.1 });
+    obs.observe(hero);
+    obs.observe(pricing);
+  }
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=754010884230693&ev=PageView&noscript=1"/></noscript>
+</body>
+</html>
