@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz — Você Está Pronta Para Construir Patrimônio Real?</title>
+  <meta name="description" content="6 perguntas para descobrir onde você está e o que é possível para alguém com o seu perfil. Quiz por Marina Veauvy.">
+  <meta property="og:title" content="Quiz — Você Está Pronta Para Construir Patrimônio Real?">
+  <meta property="og:description" content="6 perguntas para descobrir onde você está e o que é possível para alguém com o seu perfil.">
+  <meta property="og:type" content="website">
+  <!-- Meta Domain Verification — substituir pelo código real do Business Manager -->
+  <meta name="facebook-domain-verification" content="zhwp0qx1kn50c626qy4bf5tjwumfnc" />
+  <!-- Preload fonts for faster rendering -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=DM+Sans:wght@400;500&display=swap" as="style">
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '754010884230693');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=754010884230693&ev=PageView&noscript=1"/></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-main: #0D0D0D;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --text-main: #F5F0E8;
+      --text-secondary: #A89F8C;
+      --surface: #1A1A1A;
+      --border: #2A2A2A;
+      --gold-glow: rgba(201, 168, 76, 0.15);
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Noise texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Alchemy watermark */
+    body::after {
+      content: '⊙';
+      position: fixed;
+      bottom: 5vh;
+      right: 5vw;
+      font-size: clamp(80px, 15vw, 200px);
+      color: rgba(201, 168, 76, 0.04);
+      font-family: 'Cormorant Garamond', serif;
+      pointer-events: none;
+      z-index: 0;
+      line-height: 1;
+    }
+
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      box-shadow: 0 0 12px var(--gold-glow);
+    }
+
+    /* Screen container */
+    .screen {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      overflow-y: auto;
+    }
+
+    .screen.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .screen-inner {
+      max-width: 640px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      line-height: 1.25;
+    }
+
+    /* Opening screen */
+    .opening h1 {
+      font-size: clamp(28px, 5.5vw, 44px);
+      text-align: center;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .opening h1 span {
+      color: var(--gold);
+    }
+
+    .opening p {
+      font-size: clamp(15px, 2.5vw, 18px);
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    /* Primary button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 40px;
+      min-height: 52px;
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+
+    .btn-primary:hover {
+      color: var(--bg-main);
+    }
+
+    .btn-primary:hover::before {
+      transform: scaleX(1);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .btn-primary:disabled:hover {
+      color: var(--gold);
+    }
+
+    .btn-primary:disabled:hover::before {
+      transform: scaleX(0);
+    }
+
+    /* Question screen */
+    .question-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .educational-text {
+      font-size: clamp(14px, 2.2vw, 15px);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      text-align: left;
+      margin-bottom: 28px;
+      padding: 20px 24px;
+      border-left: 2px solid var(--gold);
+      background: rgba(201, 168, 76, 0.03);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .question-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 500;
+      color: var(--text-main);
+      text-align: left;
+      margin-bottom: 28px;
+      width: 100%;
+      line-height: 1.3;
+    }
+
+    /* Options */
+    .options {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      padding: 16px 20px;
+      min-height: 52px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text-main);
+    }
+
+    .option:hover {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    .option.selected {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.08);
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.08);
+    }
+
+    .option-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-right: 14px;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+      margin-top: 1px;
+    }
+
+    .option.selected .option-letter {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: var(--bg-main);
+    }
+
+    .btn-next-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    /* Capture screen */
+    .capture-screen h2 {
+      font-size: clamp(24px, 4.5vw, 36px);
+      text-align: center;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .capture-screen p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 16px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 18px;
+      min-height: 52px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-main);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      transition: border-color 0.25s ease;
+      outline: none;
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+
+    .form-group input:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group input.error {
+      border-color: #8B4040;
+    }
+
+    .capture-submit {
+      max-width: 400px;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .privacy-note {
+      font-size: 13px;
+      color: var(--text-secondary);
+      opacity: 0.6;
+      margin-top: 16px;
+    }
+
+    /* Result screen */
+    .result-screen .screen-inner {
+      text-align: left;
+    }
+
+    .result-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .result-screen h2 {
+      font-size: clamp(26px, 5vw, 40px);
+      text-align: left;
+      margin-bottom: 28px;
+      line-height: 1.2;
+    }
+
+    .result-screen h2 span {
+      color: var(--gold);
+    }
+
+    .result-body p {
+      font-size: clamp(15px, 2.5vw, 17px);
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .result-body p strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .result-body .highlight-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(18px, 3vw, 22px);
+      color: var(--gold-light);
+      margin: 28px 0;
+      padding-left: 20px;
+      border-left: 2px solid var(--gold);
+      line-height: 1.4;
+    }
+
+    .result-cta {
+      margin-top: 36px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .result-cta .btn-primary {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    /* Scrollable result */
+    .result-screen {
+      justify-content: flex-start;
+      padding-top: 48px;
+      padding-bottom: 48px;
+      overflow-y: auto;
+    }
+
+    /* Mobile adjustments */
+    @media (max-height: 700px) {
+      .screen {
+        justify-content: flex-start;
+        padding-top: 32px;
+        overflow-y: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .screen {
+        padding: 20px 16px;
+      }
+
+      .educational-text {
+        padding: 16px 18px;
+        font-size: 14px;
+      }
+
+      .option {
+        padding: 14px 16px;
+      }
+
+      .btn-primary {
+        padding: 14px 32px;
+        font-size: 15px;
+      }
+    }
+
+    /* Screen transition */
+    .screen.exiting {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+
+  <!-- Screen 0: Opening -->
+  <div class="screen active" id="screen-opening">
+    <div class="screen-inner opening">
+      <h1>Você está pronta para construir <span>patrimônio real</span> — ou ainda tem algo travando tudo?</h1>
+      <p>6 perguntas para descobrir onde você está e o que é possível para alguém com o seu perfil.</p>
+      <button class="btn-primary" onclick="startQuiz()">Descobrir meu perfil</button>
+    </div>
+  </div>
+
+  <!-- Screen 1: Question 1 -->
+  <div class="screen" id="screen-q1">
+    <div class="screen-inner">
+      <div class="question-number">Pergunta 1 de 6</div>
+      <div class="educational-text">
+        Muitas mulheres com imóvel quitado não sabem que ele pode gerar liquidez imediata — sem vender e sem precisar de inquilino — para financiar a compra de novos ativos. Esse mecanismo se chama retropatrimônio.
+      </div>
+      <div class="question-text">Como você usa seus imóveis hoje?</div>
+      <div class="options" data-question="1">
+        <div class="option" onclick="selectOption(this, 1, 'A')">
+          <span class="option-letter">A</span>
+          <span>Tenho imóvel quitado mas ele está parado, sem gerar nada</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 1, 'B')">
+          <span class="option-letter">B</span>
+          <span>Tenho imóvel alugado mas a rentabilidade é baixa</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 1, 'C')">
+          <span class="option-letter">C</span>
+          <span>Não tenho imóvel ainda — tenho reserva financeira</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 1, 'D')">
+          <span class="option-letter">D</span>
+          <span>Tenho imóveis mas nunca pensei em usá-los como alavanca</span>
+        </div>
+      </div>
+      <div class="btn-next-wrapper">
+        <button class="btn-primary" id="btn-q1" disabled onclick="nextScreen('screen-q1', 'screen-q2', 2)">Próxima</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 2: Question 2 -->
+  <div class="screen" id="screen-q2">
+    <div class="screen-inner">
+      <div class="question-number">Pergunta 2 de 6</div>
+      <div class="educational-text">
+        Existe uma estratégia usada por investidores que consiste em usar o dinheiro e o crédito de terceiros — bancos, incorporadoras, inquilinos — para construir patrimônio. Na prática: seu inquilino paga seu imóvel, o banco financia sua usina solar, a incorporadora financia a construção de uma casa para venda. Você entra com pouco. O ativo se paga.
+      </div>
+      <div class="question-text">O que te impede de começar a construir patrimônio hoje?</div>
+      <div class="options" data-question="2">
+        <div class="option" onclick="selectOption(this, 2, 'A')">
+          <span class="option-letter">A</span>
+          <span>Acho que não tenho capital suficiente para investir de verdade</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 2, 'B')">
+          <span class="option-letter">B</span>
+          <span>Tenho capital mas não sei em que confiar</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 2, 'C')">
+          <span class="option-letter">C</span>
+          <span>Já tentei mas os retornos foram decepcionantes</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 2, 'D')">
+          <span class="option-letter">D</span>
+          <span>Sei que tenho o suficiente — mas algo em mim trava antes de agir</span>
+        </div>
+      </div>
+      <div class="btn-next-wrapper">
+        <button class="btn-primary" id="btn-q2" disabled onclick="nextScreen('screen-q2', 'screen-q3', 3)">Próxima</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 3: Question 3 -->
+  <div class="screen" id="screen-q3">
+    <div class="screen-inner">
+      <div class="question-number">Pergunta 3 de 6</div>
+      <div class="educational-text">
+        Usinas de energia solar são ativos que se autopagam — você compra uma fração de uma usina, a receita gerada pela venda de energia paga as parcelas e ainda sobra renda mensal. Duas médicas do grupo de investimentos que trabalho fizeram isso. Hoje recebem renda passiva mensalmente sem ter vendido nada e sem ter inquilino.
+      </div>
+      <div class="question-text">Você já conhecia esse tipo de ativo?</div>
+      <div class="options" data-question="3">
+        <div class="option" onclick="selectOption(this, 3, 'A')">
+          <span class="option-letter">A</span>
+          <span>Nunca ouvi falar — achei que renda passiva era só aluguel ou dividendos</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 3, 'B')">
+          <span class="option-letter">B</span>
+          <span>Já ouvi mas nunca soube como acessar</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 3, 'C')">
+          <span class="option-letter">C</span>
+          <span>Conheço mas não sabia que era acessível para mim</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 3, 'D')">
+          <span class="option-letter">D</span>
+          <span>Conheço e já considerei — mas ainda não implementei</span>
+        </div>
+      </div>
+      <div class="btn-next-wrapper">
+        <button class="btn-primary" id="btn-q3" disabled onclick="nextScreen('screen-q3', 'screen-q4', 4)">Próxima</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 4: Question 4 -->
+  <div class="screen" id="screen-q4">
+    <div class="screen-inner">
+      <div class="question-number">Pergunta 4 de 6</div>
+      <div class="educational-text">
+        Nos Estados Unidos é possível assumir financiamentos que já existem — sem obter um novo crédito — e colocar o imóvel para alugar. O inquilino paga a parcela. Você entra com menos de 10% do valor do imóvel e constrói patrimônio em dólar. Isso não é para milionários — é uma estratégia acessível para quem tem renda consistente no Brasil.
+      </div>
+      <div class="question-text">Como você reage a essa informação?</div>
+      <div class="options" data-question="4">
+        <div class="option" onclick="selectOption(this, 4, 'A')">
+          <span class="option-letter">A</span>
+          <span>Nunca imaginei que isso fosse possível para mim</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 4, 'B')">
+          <span class="option-letter">B</span>
+          <span>Já ouvi mas parece arriscado ou complicado demais</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 4, 'C')">
+          <span class="option-letter">C</span>
+          <span>Me interessa mas não sei por onde começar</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 4, 'D')">
+          <span class="option-letter">D</span>
+          <span>Já pensei nisso mas nunca tive alguém de confiança para orientar</span>
+        </div>
+      </div>
+      <div class="btn-next-wrapper">
+        <button class="btn-primary" id="btn-q4" disabled onclick="nextScreen('screen-q4', 'screen-q5', 5)">Próxima</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 5: Question 5 -->
+  <div class="screen" id="screen-q5">
+    <div class="screen-inner">
+      <div class="question-number">Pergunta 5 de 6</div>
+      <div class="educational-text">
+        O principal fator que separa quem constrói patrimônio de quem não constrói não é o conhecimento nem o capital — é o comportamento diante do dinheiro. Padrões invisíveis herdados da família, culpa ao prosperar acima do que os pais tiveram, sabotagem na hora de decidir. Esses padrões operam antes de qualquer estratégia.
+      </div>
+      <div class="question-text">Você se reconhece em alguma dessas situações?</div>
+      <div class="options" data-question="5">
+        <div class="option" onclick="selectOption(this, 5, 'A')">
+          <span class="option-letter">A</span>
+          <span>Ganho bem mas no fim do mês pouco sobra — sem saber explicar onde foi</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 5, 'B')">
+          <span class="option-letter">B</span>
+          <span>Sei que deveria investir mas sempre adio ou travo na hora de agir</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 5, 'C')">
+          <span class="option-letter">C</span>
+          <span>Quando ganho mais do que o esperado, aparece sempre uma despesa grande</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 5, 'D')">
+          <span class="option-letter">D</span>
+          <span>Sinto que prosperar demais seria uma espécie de traição à minha família</span>
+        </div>
+      </div>
+      <div class="btn-next-wrapper">
+        <button class="btn-primary" id="btn-q5" disabled onclick="nextScreen('screen-q5', 'screen-q6', 6)">Próxima</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 6: Question 6 -->
+  <div class="screen" id="screen-q6">
+    <div class="screen-inner">
+      <div class="question-number">Pergunta 6 de 6</div>
+      <div class="educational-text">
+        Existe um caminho estruturado que combina o trabalho do padrão emocional com a implementação patrimonial real. Mulheres com renda acima de R$20k, reserva acima de R$100k ou imóvel quitado acima de R$400k têm o perfil para construir patrimônio real em 4 a 7 anos.
+      </div>
+      <div class="question-text">Onde você se encaixa hoje?</div>
+      <div class="options" data-question="6">
+        <div class="option" onclick="selectOption(this, 6, 'A')">
+          <span class="option-letter">A</span>
+          <span>Tenho renda acima de R$20k/mês</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 6, 'B')">
+          <span class="option-letter">B</span>
+          <span>Tenho reserva acima de R$100k</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 6, 'C')">
+          <span class="option-letter">C</span>
+          <span>Tenho imóvel quitado acima de R$400k</span>
+        </div>
+        <div class="option" onclick="selectOption(this, 6, 'D')">
+          <span class="option-letter">D</span>
+          <span>Ainda não tenho esse perfil — mas estou construindo</span>
+        </div>
+      </div>
+      <div class="btn-next-wrapper">
+        <button class="btn-primary" id="btn-q6" disabled onclick="nextScreen('screen-q6', 'screen-capture', 7)">Ver meu resultado</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 7: Capture -->
+  <div class="screen capture-screen" id="screen-capture">
+    <div class="screen-inner" style="align-items: center;">
+      <h2>Quase lá.</h2>
+      <p>Para onde enviamos seu diagnóstico?</p>
+      <div class="form-group">
+        <input type="text" id="inputName" placeholder="Seu nome" autocomplete="given-name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="inputEmail" placeholder="Seu melhor email" autocomplete="email" required>
+      </div>
+      <button class="btn-primary capture-submit" onclick="submitCapture()">Ver meu resultado</button>
+      <div class="privacy-note">Seus dados são privados. Sem spam.</div>
+    </div>
+  </div>
+
+  <!-- Screen 8: Result A -->
+  <div class="screen result-screen" id="screen-result-A">
+    <div class="screen-inner">
+      <div class="result-label">Seu resultado</div>
+      <h2>Você tem o perfil. O que falta é o que <span>ninguém te contou.</span></h2>
+      <div class="result-body">
+        <p>Você tem renda, tem histórico de tentativas, tem intenção.</p>
+        <p>E ainda assim o patrimônio não apareceu.</p>
+        <p>Não é falta de disciplina. Não é falta de informação. É que os caminhos que você tentou foram construídos para outro perfil de pessoa. Não para quem ganha bem e quer construir patrimônio real em poucos anos.</p>
+        <p>Existe um caminho que usa o que você já tem de forma diferente. Seu imóvel quitado pode virar liquidez amanhã. Sua renda pode financiar uma usina solar que se autopaga. Seu perfil de crédito pode comprar um imóvel nos EUA com menos de 10% de entrada.</p>
+        <p class="highlight-text">Você tem o perfil para construir patrimônio real em 4 a 7 anos.</p>
+        <p>O próximo passo é uma sessão de diagnóstico de 45 minutos — para mapear exatamente quais estratégias fazem sentido para a sua situação hoje.</p>
+      </div>
+      <div class="result-cta">
+        <a href="https://marinaveauvy.github.io/costuras-meditacoes/webinario.html" class="btn-primary" target="_blank" rel="noopener">Participar da Masterclass Gratuita</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 9: Result B -->
+  <div class="screen result-screen" id="screen-result-B">
+    <div class="screen-inner">
+      <div class="result-label">Seu resultado</div>
+      <h2>Você sabe o que precisa fazer. Algo invisível <span>está segurando.</span></h2>
+      <div class="result-body">
+        <p>Você já estudou. Já tentou. Já chegou perto.</p>
+        <p>E sempre aparece algo — uma despesa inesperada, uma dúvida que paralisa, uma decisão que fica para o mês que vem.</p>
+        <p>Isso tem nome. E não é falta de coragem nem de disciplina.</p>
+        <p>Mulheres que são a primeira geração da família a prosperar acima do que viram em casa carregam um padrão invisível — uma lealdade inconsciente que cobra um preço toda vez que o patrimônio começa a se formar de verdade. É histórico. É reversível. E quando esse padrão se dissolve, a implementação acontece naturalmente.</p>
+        <p>Retropatrimônio, usinas solares, imóveis no exterior — essas estratégias só funcionam de verdade quando o que trava internamente foi resolvido primeiro.</p>
+        <p class="highlight-text">Você está a uma decisão de distância de mudar isso.</p>
+        <p>O próximo passo é entender o padrão que está operando por baixo — e descobrir o caminho mais curto para o seu patrimônio começar a existir de verdade.</p>
+      </div>
+      <div class="result-cta">
+        <a href="https://marinaveauvy.github.io/costuras-meditacoes/webinario.html" class="btn-primary" target="_blank" rel="noopener">Participar da Masterclass Gratuita</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen 10: Result C -->
+  <div class="screen result-screen" id="screen-result-C">
+    <div class="screen-inner">
+      <div class="result-label">Seu resultado</div>
+      <h2>Você ainda está construindo a base — e já pode <span>começar diferente.</span></h2>
+      <div class="result-body">
+        <p>Você ainda não tem o perfil completo para as estratégias mais avançadas de construção patrimonial.</p>
+        <p>Mas você está mais perto do que imagina.</p>
+        <p>A maioria das mulheres nesse estágio comete o mesmo erro: continua acumulando da forma errada — renda fixa, poupança, controle de gastos — esperando chegar num número mágico para então começar de verdade.</p>
+        <p>O problema é que esse número nunca chega. Porque o que está travando não é o saldo. É o padrão que governa o que você faz com o dinheiro antes de ele acumular.</p>
+        <p>Resolver isso agora — antes de ter o capital — é o que separa quem chega ao perfil de construção patrimonial em 2 anos de quem fica esperando por 10.</p>
+        <p class="highlight-text">O próximo passo é entender onde você está e o que precisa acontecer primeiro.</p>
+      </div>
+      <div class="result-cta">
+        <a href="https://marinaveauvy.github.io/costuras-meditacoes/webinario.html" class="btn-primary" target="_blank" rel="noopener">Participar da Masterclass Gratuita</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State
+    const answers = {};
+    const scores = { A: 0, B: 0, C: 0 };
+    let forcedResult = null;
+
+    function selectOption(el, question, answer) {
+      // Remove selection from siblings
+      const options = el.parentElement.querySelectorAll('.option');
+      options.forEach(o => o.classList.remove('selected'));
+
+      // Select this option
+      el.classList.add('selected');
+      answers[question] = answer;
+
+      // Enable next button
+      const btn = document.getElementById('btn-q' + question);
+      if (btn) btn.disabled = false;
+    }
+
+    function startQuiz() {
+      nextScreen('screen-opening', 'screen-q1', 1);
+    }
+
+    function nextScreen(fromId, toId, step) {
+      const from = document.getElementById(fromId);
+      const to = document.getElementById(toId);
+
+      // Update progress bar (8 total steps: opening + 6 questions + capture)
+      const progress = (step / 8) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+
+      // Animate out
+      from.classList.add('exiting');
+      from.classList.remove('active');
+
+      // Animate in
+      setTimeout(function() {
+        from.classList.remove('exiting');
+        to.classList.add('active');
+        to.scrollTop = 0;
+      }, 300);
+    }
+
+    function calculateResult() {
+      // Reset scores
+      scores.A = 0;
+      scores.B = 0;
+      scores.C = 0;
+      forcedResult = null;
+
+      // P1: A, B, D → +1 A | C → +1 C
+      if (['A', 'B', 'D'].includes(answers[1])) scores.A++;
+      if (answers[1] === 'C') scores.C++;
+
+      // P2: B, C → +1 A | D → +2 B | A → +1 C
+      if (['B', 'C'].includes(answers[2])) scores.A++;
+      if (answers[2] === 'D') scores.B += 2;
+      if (answers[2] === 'A') scores.C++;
+
+      // P3: C, D → +1 A
+      if (['C', 'D'].includes(answers[3])) scores.A++;
+
+      // P4: C, D → +1 A | A → +1 B
+      if (['C', 'D'].includes(answers[4])) scores.A++;
+      if (answers[4] === 'A') scores.B++;
+
+      // P5: B → +1 A | A, C, D → +1 B
+      if (answers[5] === 'B') scores.A++;
+      if (['A', 'C', 'D'].includes(answers[5])) scores.B++;
+
+      // P6: A, B, C → forced A | D → forced C
+      if (['A', 'B', 'C'].includes(answers[6])) {
+        forcedResult = 'A';
+      }
+      if (answers[6] === 'D') {
+        forcedResult = 'C';
+      }
+
+      // Determine result
+      if (forcedResult) return forcedResult;
+
+      // Tiebreaker: B > A > C
+      if (scores.B >= scores.A && scores.B >= scores.C) return 'B';
+      if (scores.A >= scores.C) return 'A';
+      return 'C';
+    }
+
+    function submitCapture() {
+      const name = document.getElementById('inputName').value.trim();
+      const email = document.getElementById('inputEmail').value.trim();
+
+      // Validate
+      let valid = true;
+      if (!name) {
+        document.getElementById('inputName').classList.add('error');
+        valid = false;
+      } else {
+        document.getElementById('inputName').classList.remove('error');
+      }
+
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        document.getElementById('inputEmail').classList.add('error');
+        valid = false;
+      } else {
+        document.getElementById('inputEmail').classList.remove('error');
+      }
+
+      if (!valid) return;
+
+      // Save to localStorage
+      const result = calculateResult();
+      const quizData = {
+        name: name,
+        email: email,
+        answers: answers,
+        scores: scores,
+        result: result,
+        timestamp: new Date().toISOString()
+      };
+      localStorage.setItem('quiz_patrimonio_data', JSON.stringify(quizData));
+
+      // Fire Meta Pixel Lead event
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'quiz-patrimonio-resultado-' + result,
+          content_category: 'quiz-patrimonio'
+        });
+      }
+
+      // Webhook Central — Brevo + AizyFlow
+      fetch('https://webhook-pa.vercel.app/api/webhook/quiz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: name,
+          email: email,
+          costura: 'Patrimônio-' + result,
+          scoreA: scores.A,
+          scoreB: scores.B,
+          scoreC: scores.C,
+          source: 'quiz-patrimonio'
+        })
+      }).catch(function(err) {
+        console.warn('Webhook error:', err);
+      });
+
+      // Fallback — FormSubmit (email para Marina)
+      var formData = new FormData();
+      formData.append('_subject', 'Quiz Patrimônio — ' + name + ' — Resultado ' + result);
+      formData.append('_template', 'table');
+      formData.append('_captcha', 'false');
+      formData.append('Nome', name);
+      formData.append('Email', email);
+      formData.append('Resultado', result);
+      formData.append('Score A', scores.A);
+      formData.append('Score B', scores.B);
+      formData.append('Score C', scores.C);
+      formData.append('Respostas', JSON.stringify(answers));
+      fetch('https://formsubmit.co/ajax/macmarina@gmail.com', {
+        method: 'POST',
+        body: formData
+      }).catch(function() {});
+
+      // Show result
+      const resultScreenId = 'screen-result-' + result;
+      document.getElementById('progressBar').style.width = '100%';
+
+      const from = document.getElementById('screen-capture');
+      const to = document.getElementById(resultScreenId);
+
+      from.classList.add('exiting');
+      from.classList.remove('active');
+
+      setTimeout(function() {
+        from.classList.remove('exiting');
+        to.classList.add('active');
+        to.scrollTop = 0;
+      }, 300);
+    }
+
+    // Enter key support for capture form
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        var capture = document.getElementById('screen-capture');
+        if (capture && capture.classList.contains('active')) {
+          submitCapture();
+        }
+      }
+    });
+
+    // Confirm Pixel loaded — fallback tracking via webhook if Pixel fails
+    window.addEventListener('load', function() {
+      var pixelLoaded = typeof fbq === 'function';
+      // Notify webhook of page view (server-side backup for Pixel)
+      fetch('https://webhook-pa.vercel.app/api/webhook/quiz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event: 'pageview',
+          source: 'quiz-patrimonio',
+          pixel_loaded: pixelLoaded,
+          referrer: document.referrer || 'direct',
+          timestamp: new Date().toISOString()
+        })
+      }).catch(function() {});
+    });
+  </script>
+
+</body>
+</html>
