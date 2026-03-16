@@ -126,12 +126,36 @@
     }
 
     /* === PROGRESS BAR === */
-    .progress-bar {
+    .progress-wrapper {
       position: sticky;
       top: 0;
       z-index: 100;
-      height: 3px;
       background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .progress-label {
+      display: none;
+      text-align: center;
+      padding: 0.5rem 0 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .progress-label.visible {
+      display: block;
+    }
+
+    .progress-label span {
+      color: var(--gold);
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: rgba(255,255,255,0.06);
     }
 
     .progress-fill {
@@ -576,6 +600,101 @@
       background: var(--gold-soft);
     }
 
+    /* === PARTIAL RESULT (teaser before capture) === */
+    .partial-result-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .partial-result-header .result-badge span {
+      background: var(--gold-soft);
+      color: var(--gold);
+      border-color: rgba(212,175,55,0.25);
+    }
+
+    .partial-teaser {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .locked-preview {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      margin-bottom: 2rem;
+    }
+
+    .locked-content {
+      filter: blur(6px);
+      opacity: 0.4;
+      pointer-events: none;
+      user-select: none;
+      padding: 1.4rem;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+    }
+
+    .locked-content h4 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--purple-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .locked-content p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .lock-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(11,10,18,0.5);
+      border-radius: 14px;
+    }
+
+    .lock-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 0 10px var(--gold-glow));
+    }
+
+    .lock-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      text-align: center;
+    }
+
+    .capture-divider {
+      text-align: center;
+      margin: 1.5rem 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+
+    .capture-divider::before,
+    .capture-divider::after {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      vertical-align: middle;
+      margin: 0 0.8rem;
+    }
+
     /* === BUTTONS === */
     .btn-primary {
       display: inline-block;
@@ -683,8 +802,11 @@
   </section>
 
   <!-- PROGRESS -->
-  <div class="progress-bar">
-    <div class="progress-fill" id="progressFill"></div>
+  <div class="progress-wrapper">
+    <div class="progress-label" id="progressLabel">Pergunta <span id="progressStep">1</span> de 10 — <span id="progressPct">10%</span></div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
   </div>
 
   <!-- QUIZ CONTAINER -->
@@ -722,17 +844,37 @@
       <div class="options" id="optionsContainer"></div>
     </div>
 
-    <!-- SCREEN 11: CAPTURE -->
+    <!-- SCREEN 11: PARTIAL RESULT + CAPTURE -->
     <div class="screen" id="screen-capture">
-      <div class="capture-icon">&#10024;</div>
-      <div class="capture-text">
-        <h3>Seu resultado está pronto</h3>
-        <p>
-          Para receber seu resultado completo &mdash; incluindo uma explicação
-          detalhada e uma meditação guiada personalizada &mdash; preencha abaixo:
-        </p>
+      <!-- Partial result teaser -->
+      <div class="partial-result-header">
+        <div class="result-badge"><span>Seu resultado</span></div>
+        <div class="result-title"><h3 id="partialResultTitle"></h3></div>
+        <div class="result-subtitle" id="partialResultSubtitle"></div>
+        <div class="result-scores" id="partialScores"></div>
       </div>
 
+      <p class="partial-teaser" id="partialTeaser"></p>
+
+      <!-- Locked preview of full analysis -->
+      <div class="locked-preview">
+        <div class="locked-content">
+          <h4>3 sinais desse padrão:</h4>
+          <p>1. Primeiro sinal importante do seu padrão financeiro ancestral que precisa de atenção.</p>
+          <p>2. Segundo sinal que aparece no dia a dia e que você talvez não perceba.</p>
+          <p>3. Terceiro sinal que conecta emoção e dinheiro de forma silenciosa.</p>
+          <h4 style="margin-top:1rem;">Micro-ação para começar:</h4>
+          <p>Um exercício prático e personalizado para iniciar sua transformação hoje mesmo.</p>
+        </div>
+        <div class="lock-overlay">
+          <div class="lock-icon">&#128274;</div>
+          <div class="lock-text">Preencha abaixo para desbloquear<br>sua análise completa</div>
+        </div>
+      </div>
+
+      <div class="capture-divider">desbloquear resultado</div>
+
+      <!-- Capture form -->
       <div class="capture-card">
         <form id="captureForm" onsubmit="return submitCapture(event)">
           <div class="field">
@@ -757,7 +899,7 @@
             Seus dados estão seguros e não serão compartilhados com terceiros.
           </p>
           <div style="text-align:center; margin-top:1.5rem;">
-            <button type="submit" class="btn-primary">Ver Meu Resultado</button>
+            <button type="submit" class="btn-gold">Desbloquear Minha Análise Completa</button>
           </div>
         </form>
       </div>
@@ -1047,9 +1189,36 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // Teaser texts for partial result reveal
+    var teaserData = {
+      M: {
+        title: 'Costura do Merecimento',
+        subtitle: '\u201cEu mereço ser bem paga pelo que faço?\u201d',
+        teaser: 'A Costura do Merecimento conecta o seu autovalor ao seu trabalho diário. Quando ela está ativa, você vive numa tensão silenciosa entre o que entrega e o que cobra \u2014 e quase sempre cobra menos.'
+      },
+      T: {
+        title: 'Costura da Transmutação',
+        subtitle: '\u201cO que eu herdei da minha família sobre dinheiro?\u201d',
+        teaser: 'A Costura da Transmutação conecta o seu dinheiro ao dinheiro da sua família \u2014 não só o que foi herdado materialmente, mas os padrões emocionais, as histórias não contadas, as lealdades invisíveis.'
+      },
+      D: {
+        title: 'Costura da Dissolução',
+        subtitle: '\u201cO que eu não consigo ver que está me impedindo?\u201d',
+        teaser: 'A Costura da Dissolução é a mais profunda das três \u2014 e a mais difícil de reconhecer. Ela conecta o que é visível na sua vida financeira com o que é invisível: os padrões que operam por baixo da sua consciência.'
+      }
+    };
+
     function updateProgress(step) {
       var pct = Math.round((step / 12) * 100);
       document.getElementById('progressFill').style.width = pct + '%';
+      var label = document.getElementById('progressLabel');
+      if (step >= 1 && step <= 10) {
+        label.classList.add('visible');
+        document.getElementById('progressStep').textContent = step;
+        document.getElementById('progressPct').textContent = (step * 10) + '%';
+      } else {
+        label.classList.remove('visible');
+      }
     }
 
     function renderDots() {
@@ -1128,6 +1297,13 @@
           showScreen('screen-question');
           updateProgress(currentQuestion + 1);
         } else {
+          // Show partial result before capture
+          var result = getResult();
+          var data = teaserData[result];
+          document.getElementById('partialResultTitle').textContent = data.title;
+          document.getElementById('partialResultSubtitle').innerHTML = data.subtitle;
+          document.getElementById('partialTeaser').textContent = data.teaser;
+          renderScoreRings('partialScores', result);
           showScreen('screen-capture');
           updateProgress(11);
         }
