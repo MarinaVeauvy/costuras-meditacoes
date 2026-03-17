@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>Carrossel Educativo — 5 Passos para Usar IA no Seu Negócio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; }
+
+  .carousel {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    width: max-content;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════
+     SLIDE 1 — COVER
+     Estilo: Soft Editorial + Infographic
+  ═══════════════════════════════════════ */
+  .slide-cover {
+    background: #0B0A12;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 70px;
+  }
+
+  .slide-cover .badge {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .slide-cover .badge::before {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: #D4AF37;
+  }
+
+  .slide-cover .headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-bottom: 28px;
+    max-width: 900px;
+  }
+
+  .slide-cover .headline .gold {
+    color: #D4AF37;
+  }
+
+  .slide-cover .sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    margin-bottom: 50px;
+    max-width: 750px;
+  }
+
+  .slide-cover .swipe {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(212,175,55,0.15);
+    color: #D4AF37;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 30px;
+  }
+
+  .slide-cover .counter {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.3);
+    position: absolute;
+    bottom: 40px;
+    right: 70px;
+  }
+
+  .slide-cover .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: rgba(212,175,55,0.4);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 40px;
+    left: 70px;
+  }
+
+  /* ═══════════════════════════════════════
+     SLIDES 2-6 — CONTENT (steps)
+     Estilo: Infographic Minimal
+  ═══════════════════════════════════════ */
+  .slide-step {
+    background: #0B0A12;
+    display: flex;
+    flex-direction: column;
+    padding: 70px;
+  }
+
+  .slide-step .step-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .slide-step .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 700;
+    color: #D4AF37;
+    line-height: 1;
+  }
+
+  .slide-step .step-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .slide-step .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 30px;
+  }
+
+  .slide-step .gold-line {
+    width: 60px;
+    height: 2px;
+    background: #D4AF37;
+    margin-bottom: 30px;
+  }
+
+  .slide-step .step-body {
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.65;
+    margin-bottom: 40px;
+    max-width: 860px;
+  }
+
+  .slide-step .tip-card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 28px 32px;
+    border-left: 4px solid #D4AF37;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .slide-step .tip-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 12px;
+  }
+
+  .slide-step .tip-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  .slide-step .counter {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.3);
+    position: absolute;
+    bottom: 40px;
+    right: 70px;
+  }
+
+  /* Progress dots */
+  .progress {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    top: 40px;
+    right: 70px;
+  }
+
+  .progress .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .progress .dot.active {
+    background: #D4AF37;
+  }
+
+  /* ═══════════════════════════════════════
+     SLIDE 7 — CTA
+     Estilo: Soft Editorial warm
+  ═══════════════════════════════════════ */
+  .slide-cta {
+    background: #F5EDE3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 70px;
+    text-align: center;
+  }
+
+  .slide-cta .cta-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    font-weight: 700;
+    color: #2C1810;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    max-width: 800px;
+  }
+
+  .slide-cta .cta-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: rgba(44,24,16,0.65);
+    line-height: 1.5;
+    margin-bottom: 50px;
+    max-width: 700px;
+  }
+
+  .slide-cta .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #2C1810;
+    color: #D4AF37;
+    font-family: 'Lato', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 22px 52px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+  }
+
+  .slide-cta .cta-context {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    color: rgba(44,24,16,0.45);
+  }
+
+  .slide-cta .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: rgba(44,24,16,0.35);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 40px;
+  }
+
+  .slide-cta .hashtags {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: rgba(44,24,16,0.3);
+    position: absolute;
+    bottom: 70px;
+  }
+</style>
+</head>
+<body>
+<div class="carousel">
+
+  <!-- SLIDE 1: COVER -->
+  <div class="slide slide-cover">
+    <div class="badge">Guia Prático</div>
+    <h1 class="headline"><span class="gold">5 Passos</span> para Usar IA no Seu Negócio em 2026</h1>
+    <p class="sub">O caminho mais curto entre você e a inteligência artificial que realmente funciona.</p>
+    <div class="swipe">Deslize para aprender &rarr;</div>
+    <div class="brand">Marina Veauvy</div>
+    <div class="counter">1/7</div>
+  </div>
+
+  <!-- SLIDE 2: STEP 1 -->
+  <div class="slide slide-step" style="position:relative;">
+    <div class="progress">
+      <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <div class="step-header">
+      <div class="step-number">01</div>
+      <div class="step-label">Passo 1 de 5</div>
+    </div>
+    <h2 class="step-title">Identifique as Tarefas Repetitivas</h2>
+    <div class="gold-line"></div>
+    <p class="step-body">Liste tudo que você faz mais de 3x por semana e que segue um padrão. Atendimento, respostas, relatórios, agendamentos — essas são suas candidatas a automação.</p>
+    <div class="tip-card">
+      <div class="tip-label">Dica prática</div>
+      <div class="tip-text">Anote durante 1 semana tudo que te faz pensar "de novo isso". Essa lista é seu mapa da mina.</div>
+    </div>
+    <div class="counter">2/7</div>
+  </div>
+
+  <!-- SLIDE 3: STEP 2 -->
+  <div class="slide slide-step" style="position:relative;">
+    <div class="progress">
+      <span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <div class="step-header">
+      <div class="step-number">02</div>
+      <div class="step-label">Passo 2 de 5</div>
+    </div>
+    <h2 class="step-title">Escolha Uma Ferramenta de IA</h2>
+    <div class="gold-line"></div>
+    <p class="step-body">Não tente usar 10 ferramentas de uma vez. Comece com o ChatGPT para textos ou o Canva IA para design. Domine uma antes de adicionar outras.</p>
+    <div class="tip-card">
+      <div class="tip-label">Ferramentas gratuitas</div>
+      <div class="tip-text">ChatGPT (textos), Canva IA (design), Notion IA (organização), Gamma (apresentações).</div>
+    </div>
+    <div class="counter">3/7</div>
+  </div>
+
+  <!-- SLIDE 4: STEP 3 -->
+  <div class="slide slide-step" style="position:relative;">
+    <div class="progress">
+      <span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+    </div>
+    <div class="step-header">
+      <div class="step-number">03</div>
+      <div class="step-label">Passo 3 de 5</div>
+    </div>
+    <h2 class="step-title">Crie Seus Prompts Base</h2>
+    <div class="gold-line"></div>
+    <p class="step-body">Escreva 5-10 prompts para as tarefas que mais consome seu tempo. Um bom prompt tem: contexto, tarefa específica e formato de resposta desejado.</p>
+    <div class="tip-card">
+      <div class="tip-label">Template de prompt</div>
+      <div class="tip-text">"Aja como [papel]. Crie [tarefa] sobre [tema] no formato [formato]. Tom: [tom]."</div>
+    </div>
+    <div class="counter">4/7</div>
+  </div>
+
+  <!-- SLIDE 5: STEP 4 -->
+  <div class="slide slide-step" style="position:relative;">
+    <div class="progress">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span><span class="dot"></span>
+    </div>
+    <div class="step-header">
+      <div class="step-number">04</div>
+      <div class="step-label">Passo 4 de 5</div>
+    </div>
+    <h2 class="step-title">Automatize com Rotina</h2>
+    <div class="gold-line"></div>
+    <p class="step-body">Separe 30 minutos toda segunda-feira para gerar conteúdo da semana inteira com IA. Batch processing economiza até 10h por semana.</p>
+    <div class="tip-card">
+      <div class="tip-label">Rotina sugerida</div>
+      <div class="tip-text">Segunda: gere conteúdo. Terça-sexta: revise e publique. Sábado: analise métricas.</div>
+    </div>
+    <div class="counter">5/7</div>
+  </div>
+
+  <!-- SLIDE 6: STEP 5 -->
+  <div class="slide slide-step" style="position:relative;">
+    <div class="progress">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot active"></span>
+    </div>
+    <div class="step-header">
+      <div class="step-number">05</div>
+      <div class="step-label">Passo 5 de 5</div>
+    </div>
+    <h2 class="step-title">Meça e Escale</h2>
+    <div class="gold-line"></div>
+    <p class="step-body">Compare: quanto tempo levava antes vs agora? Se economizou mais de 2h/semana, adicione a próxima ferramenta. Se não, refine seus prompts primeiro.</p>
+    <div class="tip-card">
+      <div class="tip-label">Métrica chave</div>
+      <div class="tip-text">Tempo economizado por semana. Meta mínima: 5h. Meta ideal: 10h+.</div>
+    </div>
+    <div class="counter">6/7</div>
+  </div>
+
+  <!-- SLIDE 7: CTA -->
+  <div class="slide slide-cta" style="position:relative;">
+    <div class="hashtags">#IA #Empreendedorismo #ChatGPT #ProsperidadeAlquimica</div>
+    <h2 class="cta-headline">Quer o Pack Completo de Prompts Prontos?</h2>
+    <p class="cta-sub">50+ prompts testados para marketing, vendas, atendimento e conteúdo. Download gratuito.</p>
+    <div class="cta-pill">Baixe Grátis <span>&rarr;</span></div>
+    <div class="cta-context">Link na bio</div>
+    <div class="brand">Marina Veauvy</div>
+  </div>
+
+</div>
+</body>
+</html>
