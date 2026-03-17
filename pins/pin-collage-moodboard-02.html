@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1000">
+<title>Pin — Gerador de Prompts para ChatGPT</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .pin {
+    width: 1000px;
+    height: 1500px;
+    background: #FAF7F2;
+    position: relative;
+    overflow: hidden;
+    padding: 60px;
+  }
+
+  .pin::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .top-block {
+    background: #1C1410;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .top-block .label {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 16px;
+  }
+
+  .top-block .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #F5EDE3;
+    line-height: 1.15;
+  }
+
+  .mid-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card {
+    flex: 1;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card-terra {
+    background: #C4956A;
+  }
+
+  .card-cream {
+    background: rgba(44, 24, 16, 0.06);
+    border: 1px solid rgba(44, 24, 16, 0.1);
+  }
+
+  .card .icon {
+    font-size: 40px;
+    margin-bottom: 4px;
+  }
+
+  .card .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .card-terra .card-title { color: #FFFFFF; }
+  .card-cream .card-title { color: #2C1810; }
+
+  .card .card-desc {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .card-terra .card-desc { color: rgba(255,255,255,0.8); }
+  .card-cream .card-desc { color: rgba(44,24,16,0.7); }
+
+  .tag {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #2C1810;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .body {
+    font-family: 'Lato', sans-serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: rgba(44, 24, 16, 0.75);
+    line-height: 1.55;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2C1810;
+    color: #F5EDE3;
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 30px;
+  }
+
+  .footer {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: rgba(44, 24, 16, 0.4);
+  }
+</style>
+</head>
+<body>
+<div class="pin">
+  <div class="top-block">
+    <div class="label">Ferramenta Online Grátis</div>
+    <div class="title">Gerador de Prompts para ChatGPT</div>
+  </div>
+
+  <div class="mid-row">
+    <div class="card card-terra">
+      <div class="icon">&#9998;</div>
+      <div class="card-title">Marketing</div>
+      <div class="card-desc">Posts, legendas, e-mails e anúncios</div>
+    </div>
+    <div class="card card-cream">
+      <div class="icon">&#9881;</div>
+      <div class="card-title">Vendas</div>
+      <div class="card-desc">Scripts, objeções e follow-ups</div>
+    </div>
+    <div class="card card-terra">
+      <div class="icon">&#9733;</div>
+      <div class="card-title">Conteúdo</div>
+      <div class="card-desc">Blog, newsletter e carrosséis</div>
+    </div>
+  </div>
+
+  <div class="tag">IA Prática</div>
+  <h1 class="headline">Prompts Perfeitos em Segundos</h1>
+  <p class="body">Escolha o contexto, ajuste os parâmetros e copie o prompt pronto. Sem cadastro, sem complicação.</p>
+
+  <div class="cta-row">
+    <div class="cta-pill">Use Agora <span>&rarr;</span></div>
+    <span class="footer">marinaveauvy.com.br</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1000">
+<title>Pin — Quiz: Qual Seu Perfil Financeiro?</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .pin {
+    width: 1000px;
+    height: 1500px;
+    background: #FAF7F2;
+    position: relative;
+    overflow: hidden;
+    padding: 60px;
+  }
+
+  /* Subtle paper texture */
+  .pin::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .top-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .photo-cutout {
+    width: 380px;
+    height: 340px;
+    background: #C4956A;
+    border-radius: 20px 60px 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 96px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .block-terracotta {
+    flex: 1;
+    background: #C4956A;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .block-terracotta .label {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+  }
+
+  .block-terracotta .text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+  }
+
+  .tag {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: #2C1810;
+    line-height: 1.15;
+    margin-bottom: 30px;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .block-dark {
+    background: #1C1410;
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .block-dark .item {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .block-dark .item:last-child {
+    margin-bottom: 0;
+  }
+
+  .block-dark .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #D4AF37;
+    min-width: 50px;
+  }
+
+  .block-dark .text {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #F5EDE3;
+    line-height: 1.4;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #C4956A;
+  }
+
+  .footer {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: rgba(44, 24, 16, 0.4);
+  }
+</style>
+</head>
+<body>
+<div class="pin">
+  <div class="top-row">
+    <div class="photo-cutout">?</div>
+    <div class="block-terracotta">
+      <div class="label">Quiz Gratuito</div>
+      <div class="text">Descubra sua relação oculta com o dinheiro</div>
+    </div>
+  </div>
+
+  <div class="tag">Framework Costuras</div>
+  <h1 class="headline">Qual é o Seu Perfil Financeiro?</h1>
+
+  <div class="block-dark">
+    <div class="item">
+      <span class="number">01</span>
+      <span class="text">Merecimento — você trabalha demais e ganha de menos?</span>
+    </div>
+    <div class="item">
+      <span class="number">02</span>
+      <span class="text">Transmutação — herdou padrões que não são seus?</span>
+    </div>
+    <div class="item">
+      <span class="number">03</span>
+      <span class="text">Dissolução — sabota quando começa a prosperar?</span>
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <span class="cta-text">Faça o quiz &rarr;</span>
+    <span class="footer">marinaveauvy.com.br</span>
+  </div>
+</div>
+</body>
+</html>

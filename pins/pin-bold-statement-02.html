@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1000">
+<title>Pin — Economize R$3.000 por Ano</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .pin {
+    width: 1000px;
+    height: 1500px;
+    background: #0B0A12;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 100px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Big decorative background number */
+  .bg-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 400px;
+    font-weight: 700;
+    color: rgba(212, 175, 55, 0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .big-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    font-weight: 700;
+    color: #D4AF37;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .number-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+  }
+
+  .gold-line {
+    width: 30%;
+    height: 2px;
+    background: #D4AF37;
+    margin-bottom: 30px;
+  }
+
+  .body {
+    font-family: 'Lato', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 60px;
+    max-width: 720px;
+  }
+
+  .cta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #e94560;
+    color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 20px 48px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+  }
+
+  .sub-cta {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .footer {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: rgba(212, 175, 55, 0.4);
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+  }
+</style>
+</head>
+<body>
+<div class="pin">
+  <div class="bg-number">3000</div>
+  <div class="content">
+    <div class="big-number">R$3.000</div>
+    <div class="number-label">por ano em gastos que você nem percebe</div>
+    <div class="gold-line"></div>
+    <p class="body">A maioria das pessoas perde mais de R$250 por mês em assinaturas esquecidas, taxas invisíveis e compras por impulso. Uma auditoria de 15 minutos muda tudo.</p>
+    <div class="cta-pill">Baixe a Planilha Grátis <span>&rarr;</span></div>
+    <div class="sub-cta">Download imediato, sem cadastro</div>
+  </div>
+  <div class="footer">@marinaveauvy</div>
+</div>
+</body>
+</html>
