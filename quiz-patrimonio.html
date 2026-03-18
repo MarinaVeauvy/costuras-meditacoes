@@ -47,7 +47,12 @@
       --gold-glow: rgba(201, 168, 76, 0.15);
     }
 
-    html, body {
+    html {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
       height: 100%;
       overflow: hidden;
       font-family: 'DM Sans', sans-serif;
@@ -55,6 +60,18 @@
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Mobile keyboard fix: allow scroll when input is focused */
+    body.keyboard-open,
+    body.keyboard-open html {
+      overflow: auto;
+      height: auto;
+      min-height: 100%;
+    }
+    body.keyboard-open .screen.active {
+      position: relative;
+      min-height: 100vh;
     }
 
     /* Noise texture overlay */
@@ -686,6 +703,9 @@
       <div class="form-group">
         <input type="email" id="inputEmail" placeholder="Seu melhor email" autocomplete="email" required>
       </div>
+      <div class="form-group">
+        <input type="tel" id="inputWhatsapp" placeholder="WhatsApp (11) 99999-0000" autocomplete="tel">
+      </div>
       <button class="btn-primary capture-submit" onclick="submitCapture()">Ver meu resultado</button>
       <div class="privacy-note">Seus dados são privados. Sem spam.</div>
     </div>
@@ -837,12 +857,38 @@
       return 'C';
     }
 
+    // WhatsApp mask
+    document.getElementById('inputWhatsapp').addEventListener('input', function(e) {
+      var v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 6) v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+      else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+      e.target.value = v;
+    });
+
+    // Mobile keyboard fix — detect focus on inputs in capture screen
+    var captureInputs = document.querySelectorAll('#screen-capture input');
+    captureInputs.forEach(function(input) {
+      input.addEventListener('focus', function() {
+        document.body.classList.add('keyboard-open');
+        setTimeout(function() { input.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 300);
+      });
+      input.addEventListener('blur', function() {
+        setTimeout(function() {
+          if (!document.activeElement || document.activeElement.tagName !== 'INPUT') {
+            document.body.classList.remove('keyboard-open');
+          }
+        }, 100);
+      });
+    });
+
     function submitCapture() {
-      const name = document.getElementById('inputName').value.trim();
-      const email = document.getElementById('inputEmail').value.trim();
+      var name = document.getElementById('inputName').value.trim();
+      var email = document.getElementById('inputEmail').value.trim();
+      var whatsapp = document.getElementById('inputWhatsapp').value.trim();
 
       // Validate
-      let valid = true;
+      var valid = true;
       if (!name) {
         document.getElementById('inputName').classList.add('error');
         valid = false;
@@ -859,11 +905,15 @@
 
       if (!valid) return;
 
+      // Remove keyboard-open class
+      document.body.classList.remove('keyboard-open');
+
       // Save to localStorage
-      const result = calculateResult();
-      const quizData = {
+      var result = calculateResult();
+      var quizData = {
         name: name,
         email: email,
+        whatsapp: whatsapp,
         answers: answers,
         scores: scores,
         result: result,
@@ -879,18 +929,15 @@
         });
       }
 
-      // Webhook Central — Brevo + AizyFlow
-      fetch('https://webhook-pa.vercel.app/api/webhook/quiz', {
+      // Webhook Central — quiz-patrimonio handler (Brevo + AizyFlow + WhatsApp follow-up)
+      fetch('https://webhook-pa.vercel.app/api/webhook/quiz-patrimonio', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           nome: name,
           email: email,
-          costura: 'Patrimônio-' + result,
-          scoreA: scores.A,
-          scoreB: scores.B,
-          scoreC: scores.C,
-          source: 'quiz-patrimonio'
+          whatsapp: whatsapp.replace(/\D/g, ''),
+          perfil: result
         })
       }).catch(function(err) {
         console.warn('Webhook error:', err);
@@ -903,6 +950,7 @@
       formData.append('_captcha', 'false');
       formData.append('Nome', name);
       formData.append('Email', email);
+      formData.append('WhatsApp', whatsapp);
       formData.append('Resultado', result);
       formData.append('Score A', scores.A);
       formData.append('Score B', scores.B);
@@ -914,11 +962,11 @@
       }).catch(function() {});
 
       // Show result
-      const resultScreenId = 'screen-result-' + result;
+      var resultScreenId = 'screen-result-' + result;
       document.getElementById('progressBar').style.width = '100%';
 
-      const from = document.getElementById('screen-capture');
-      const to = document.getElementById(resultScreenId);
+      var from = document.getElementById('screen-capture');
+      var to = document.getElementById(resultScreenId);
 
       from.classList.add('exiting');
       from.classList.remove('active');
@@ -938,23 +986,6 @@
           submitCapture();
         }
       }
-    });
-
-    // Confirm Pixel loaded — fallback tracking via webhook if Pixel fails
-    window.addEventListener('load', function() {
-      var pixelLoaded = typeof fbq === 'function';
-      // Notify webhook of page view (server-side backup for Pixel)
-      fetch('https://webhook-pa.vercel.app/api/webhook/quiz', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          event: 'pageview',
-          source: 'quiz-patrimonio',
-          pixel_loaded: pixelLoaded,
-          referrer: document.referrer || 'direct',
-          timestamp: new Date().toISOString()
-        })
-      }).catch(function() {});
     });
   </script>
 
