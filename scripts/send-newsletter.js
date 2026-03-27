@@ -88,8 +88,23 @@ Responda APENAS o JSON.`;
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw new Error('Gemini empty: ' + JSON.stringify(data).substring(0, 200));
 
-  const cleaned = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
-  return JSON.parse(cleaned);
+  let cleaned = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+  cleaned = cleaned.replace(/[\x00-\x1f\x7f]/g, m => m === '\n' || m === '\r' || m === '\t' ? m : '');
+  cleaned = cleaned.replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/\t/g, '\\t');
+  cleaned = cleaned.replace(/\\n\s*"/g, '\n"').replace(/\\n\s*\}/g, '\n}').replace(/\{\\n/g, '{\n');
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    const subjectMatch = text.match(/"subject"\s*:\s*"([^"]+)"/);
+    const htmlMatch = text.match(/"html"\s*:\s*"([\s\S]+?)"\s*\}/);
+    if (subjectMatch && htmlMatch) {
+      return {
+        subject: subjectMatch[1],
+        html: htmlMatch[1].replace(/\\n/g, '\n').replace(/\\"/g, '"'),
+      };
+    }
+    throw new Error('JSON parse failed');
+  }
 }
 
 async function sendNewsletter(config, content) {
