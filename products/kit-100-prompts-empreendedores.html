@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit 100 Prompts para Empreendedores</title>
+<style>
+    @media print { .page-break { page-break-before: always; } .no-print { display: none; } }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #fff; color: #333; line-height: 1.7; max-width: 800px; margin: 0 auto; padding: 20px; }
+    .cover { background: #1a1a2e; color: #fff; text-align: center; padding: 80px 40px; border-radius: 12px; margin-bottom: 40px; }
+    .cover h1 { font-size: 36px; margin-bottom: 12px; letter-spacing: -1px; }
+    .cover h1 span { color: #e94560; }
+    .cover h2 { font-size: 20px; font-weight: 400; color: #b0b0cc; margin-bottom: 32px; }
+    .cover .author { font-size: 16px; color: #e8d5b7; }
+    .cover .site { font-size: 14px; color: #888; margin-top: 8px; }
+    .intro { background: #f8f8f8; padding: 32px; border-radius: 12px; margin-bottom: 40px; }
+    .intro h2 { color: #1a1a2e; font-size: 24px; margin-bottom: 16px; }
+    .intro p { margin-bottom: 12px; }
+    .intro .tip { background: #e94560; color: #fff; padding: 16px; border-radius: 8px; margin-top: 16px; }
+    .toc { background: #f8f8f8; padding: 32px; border-radius: 12px; margin-bottom: 40px; }
+    .toc h2 { color: #1a1a2e; font-size: 24px; margin-bottom: 16px; }
+    .toc ul { list-style: none; }
+    .toc li { padding: 8px 0; border-bottom: 1px solid #e0e0e0; font-size: 16px; }
+    .toc li:last-child { border-bottom: none; }
+    .toc .cat-count { color: #e94560; font-weight: bold; }
+    .category { margin-bottom: 48px; }
+    .category h2 { color: #1a1a2e; font-size: 28px; border-bottom: 3px solid #e94560; padding-bottom: 12px; margin-bottom: 24px; }
+    .prompt-card { background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 10px; padding: 24px; margin-bottom: 20px; }
+    .prompt-card .number { display: inline-block; background: #1a1a2e; color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-size: 13px; font-weight: bold; margin-right: 8px; }
+    .prompt-card h3 { display: inline; color: #1a1a2e; font-size: 17px; }
+    .prompt-card .prompt-text { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin: 14px 0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.6; white-space: pre-wrap; }
+    .prompt-card .prompt-text .var { color: #e94560; font-weight: bold; }
+    .prompt-card .result { font-size: 13px; color: #666; font-style: italic; }
+    .prompt-card .result strong { color: #1a1a2e; font-style: normal; }
+    .final { background: #1a1a2e; color: #fff; padding: 40px; border-radius: 12px; text-align: center; margin-top: 48px; }
+    .final h2 { margin-bottom: 16px; }
+    .final a { color: #e94560; }
+    .final p { color: #b0b0cc; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+    <h1>100 Prompts de IA para <span>Empreendedores</span></h1>
+    <h2>O Kit Definitivo para Turbinar seu Negocio com Inteligencia Artificial</h2>
+    <p class="author">Marina Veauvy</p>
+    <p class="site">marinaveauvy.com.br</p>
+</div>
+
+<div class="intro">
+    <h2>Como usar este kit</h2>
+    <p>Este kit contem 100 prompts organizados em 6 categorias praticas. Cada prompt foi testado e otimizado para gerar resultados reais para o seu negocio.</p>
+    <p>Basta copiar o prompt, substituir os campos <strong style="color:#e94560">[ENTRE COLCHETES]</strong> pelos dados do seu negocio, e colar na IA de sua preferencia.</p>
+    <p><strong>Funciona com:</strong> ChatGPT, Claude, Gemini, Copilot e outros assistentes de IA.</p>
+    <div class="tip"><strong>Dica Pro:</strong> Quanto mais contexto voce der nos campos personalizaveis, melhor sera o resultado. Seja especifico sobre seu nicho, publico e objetivos!</div>
+</div>
+
+<div class="toc">
+    <h2>Indice de Categorias</h2>
+    <ul>
+        <li>1. Marketing e Redes Sociais <span class="cat-count">(20 prompts)</span></li>
+        <li>2. Vendas e Conversao <span class="cat-count">(18 prompts)</span></li>
+        <li>3. Financas e Gestao <span class="cat-count">(16 prompts)</span></li>
+        <li>4. Produtividade e Organizacao <span class="cat-count">(16 prompts)</span></li>
+        <li>5. Atendimento ao Cliente <span class="cat-count">(15 prompts)</span></li>
+        <li>6. RH e Gestao de Pessoas <span class="cat-count">(15 prompts)</span></li>
+    </ul>
+</div>
+
+<!-- CATEGORIA 1: MARKETING -->
+<div class="category page-break">
+<h2>1. Marketing e Redes Sociais (20 prompts)</h2>
+
+<div class="prompt-card">
+    <span class="number">1</span><h3>Calendario Editorial de 30 Dias</h3>
+    <div class="prompt-text">Crie um calendario editorial de 30 dias para o Instagram de uma empresa de <span class="var">[NICHO]</span>. Publico-alvo: <span class="var">[DESCRICAO DO PUBLICO]</span>. Inclua: data, tipo de post (carrossel, reels, stories, estatico), tema, legenda com CTA e hashtags. Alterne entre conteudo educativo (40%), entretenimento (30%) e vendas (30%). Tom: <span class="var">[TOM DESEJADO]</span>.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Tabela completa com 30 posts planejados, prontos para producao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">2</span><h3>15 Legendas com Ganchos Virais</h3>
+    <div class="prompt-text">Escreva 15 legendas para posts do Instagram sobre <span class="var">[TEMA]</span> para uma empresa de <span class="var">[NICHO]</span>. Cada legenda deve comecar com um gancho irresistivel na primeira linha, ter corpo com valor pratico e CTA no final. Varie entre: pergunta provocativa, dado estatistico, historia pessoal, contraintuitivo e lista. Maximo 300 palavras cada.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 15 legendas prontas com ganchos testados para alto engajamento.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">3</span><h3>Bio Profissional para Instagram</h3>
+    <div class="prompt-text">Crie 8 versoes de bio para o Instagram de <span class="var">[NOME DO NEGOCIO]</span>, segmento <span class="var">[NICHO]</span>. Diferencial: <span class="var">[DIFERENCIAL]</span>. Publico: <span class="var">[PUBLICO]</span>. Cada bio com maximo 150 caracteres, emoji estrategico e CTA. Inclua sugestao de link na bio para cada versao.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 8 bios otimizadas para conversao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">4</span><h3>Roteiro de Reels de 60 Segundos</h3>
+    <div class="prompt-text">Crie 10 roteiros de Reels de 60 segundos sobre <span class="var">[TEMA]</span> para <span class="var">[NICHO]</span>. Cada roteiro com: gancho dos primeiros 3 segundos (essencial), desenvolvimento com valor, CTA final, texto na tela sugerido e descricao do audio. Foque em formatos que geram salvamentos.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 10 roteiros completos prontos para gravar.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">5</span><h3>Copy para Meta Ads (3 Frameworks)</h3>
+    <div class="prompt-text">Escreva 3 anuncios para Meta Ads promovendo <span class="var">[PRODUTO/SERVICO]</span> a <span class="var">[PRECO]</span>. Publico: <span class="var">[PUBLICO-ALVO]</span>. Use os frameworks AIDA, PAS e BAB. Para cada: headline (40 chars), texto principal (125 chars), descricao e CTA. Inclua 2 variacoes de headline para teste A/B.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 3 anuncios em frameworks diferentes, prontos para teste A/B.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">6</span><h3>Estrategia de Hashtags por Nivel</h3>
+    <div class="prompt-text">Crie uma estrategia de hashtags para o Instagram de <span class="var">[NICHO]</span>. Monte 4 conjuntos de 30 hashtags: (1) Alcance amplo (500k+ posts), (2) Medio (50k-500k), (3) Nicho (5k-50k), (4) Marca propria. Explique quando usar cada conjunto. Todas em portugues do Brasil.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 120 hashtags organizadas por estrategia de alcance.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">7</span><h3>Sequencia de 15 Stories para Lancamento</h3>
+    <div class="prompt-text">Crie uma sequencia de 15 stories para lancar <span class="var">[PRODUTO/SERVICO]</span>. Estrutura: stories 1-4 (curiosidade e problema), 5-8 (solucao e prova social), 9-12 (oferta com urgencia), 13-15 (CTA final com escassez). Inclua texto do story, sugestao visual, sticker recomendado e enquete onde aplicavel.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Roteiro completo de 15 stories com direcoes visuais.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">8</span><h3>10 Headlines para Landing Page</h3>
+    <div class="prompt-text">Crie 10 headlines para a landing page de <span class="var">[PRODUTO/SERVICO]</span>. Beneficio principal: <span class="var">[BENEFICIO]</span>. Publico: <span class="var">[PUBLICO]</span>. Inclua: 3 com numeros, 2 com perguntas, 2 com urgencia, 2 com prova social e 1 contraintuitiva. Maximo 12 palavras cada.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 10 headlines para teste A/B na landing page.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">9</span><h3>Artigo de Blog Otimizado para SEO</h3>
+    <div class="prompt-text">Escreva um artigo de blog de 1.500 palavras sobre <span class="var">[TEMA]</span> para <span class="var">[NICHO]</span>. Keyword principal: <span class="var">[KEYWORD]</span>. Inclua: titulo H1 com keyword, meta description (155 chars), 5-7 subtitulos H2, introducao com gancho, conclusao com CTA, e links internos sugeridos. Tom: informativo e acessivel.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Artigo completo otimizado para SEO, pronto para publicar.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">10</span><h3>Script de Video para YouTube</h3>
+    <div class="prompt-text">Crie um script de video de 8-10 minutos sobre <span class="var">[TEMA]</span> para o canal de <span class="var">[NICHO]</span>. Estrutura: gancho (30s), intro (30s), 3-5 pontos principais com transicoes, CTA meio do video, conclusao com CTA final. Inclua sugestoes de B-roll e graficos na tela. Tom: <span class="var">[TOM]</span>.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Script completo com marcacoes de tempo e direcoes visuais.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">11</span><h3>Thread para LinkedIn/Twitter</h3>
+    <div class="prompt-text">Escreva uma thread de 10 posts para LinkedIn sobre <span class="var">[TEMA]</span>. Post 1: gancho irresistivel com promessa. Posts 2-8: valor pratico com exemplos. Post 9: resumo. Post 10: CTA. Cada post com maximo 280 caracteres (Twitter) ou 300 palavras (LinkedIn). Inclua emojis estrategicos.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Thread viral com 10 posts conectados e valor real.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">12</span><h3>Email de Newsletter Semanal</h3>
+    <div class="prompt-text">Escreva um email de newsletter sobre <span class="var">[TEMA DA SEMANA]</span> para assinantes de <span class="var">[NICHO]</span>. Estrutura: assunto (max 50 chars, curiosidade), preview text, saudacao pessoal, 1 insight valioso, 1 dica pratica, 1 recurso recomendado e CTA. Tom: conversa entre amigos. Max 400 palavras.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Email completo com assunto otimizado para abertura.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">13</span><h3>Descricao de Produto para E-commerce</h3>
+    <div class="prompt-text">Escreva a descricao de <span class="var">[PRODUTO]</span> para vender em <span class="var">[PLATAFORMA: Shopify/Mercado Livre/etc]</span>. Preco: <span class="var">[PRECO]</span>. Inclua: titulo SEO, bullet points de beneficios (nao caracteristicas), descricao longa com storytelling, FAQ com 5 perguntas e especificacoes tecnicas.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Ficha de produto completa otimizada para conversao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">14</span><h3>Plano de Conteudo para TikTok</h3>
+    <div class="prompt-text">Crie um plano de 20 videos TikTok para <span class="var">[NICHO]</span>. Para cada: titulo, formato (tutorial, POV, trend, storytime, antes/depois), gancho dos 2 primeiros segundos, duracao ideal, hashtags e som sugerido. Foque em formatos com alto potencial de viralizar. Publico: <span class="var">[PUBLICO]</span>.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 20 ideias de TikTok com roteiros resumidos.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">15</span><h3>Press Release para Lancamento</h3>
+    <div class="prompt-text">Escreva um press release profissional para o lancamento de <span class="var">[PRODUTO/SERVICO/EVENTO]</span> da empresa <span class="var">[NOME]</span>. Inclua: titulo chamativo, subtitulo, lead com 5W2H, 3 paragrafos de corpo, citacao do porta-voz, dados relevantes e boilerplate da empresa. Formato jornalistico padrao.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Press release profissional pronto para enviar a imprensa.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">16</span><h3>Carrossel Educativo de 10 Slides</h3>
+    <div class="prompt-text">Crie o conteudo de um carrossel de 10 slides sobre <span class="var">[TEMA]</span> para <span class="var">[NICHO]</span>. Slide 1: capa com gancho. Slides 2-8: conteudo educativo (1 ideia por slide). Slide 9: resumo. Slide 10: CTA. Inclua texto principal, texto de apoio e sugestao visual para cada slide. Max 30 palavras por slide.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Conteudo de 10 slides pronto para design no Canva.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">17</span><h3>Textos para Google Ads</h3>
+    <div class="prompt-text">Crie 5 anuncios de texto para Google Ads para <span class="var">[PRODUTO/SERVICO]</span>. Keyword: <span class="var">[KEYWORD]</span>. Para cada: 3 titulos (30 chars), 2 descricoes (90 chars), extensoes de sitelink sugeridas. Foque em intencao de compra e urgencia. Inclua versoes com e sem preco.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 5 anuncios completos prontos para subir no Google Ads.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">18</span><h3>Roteiro de Podcast de 30 Minutos</h3>
+    <div class="prompt-text">Crie um roteiro de episodio de podcast de 30 minutos sobre <span class="var">[TEMA]</span>. Formato: <span class="var">[solo/entrevista/debate]</span>. Estrutura: abertura com gancho (2min), contexto (3min), 3-4 blocos de conteudo (5min cada), perguntas do publico (3min), fechamento com CTA (2min). Inclua perguntas para entrevistado se aplicavel.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Roteiro com tempos e topicos prontos para gravar.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">19</span><h3>Copy de Pagina de Vendas</h3>
+    <div class="prompt-text">Escreva a copy completa de uma pagina de vendas para <span class="var">[PRODUTO/SERVICO]</span> a <span class="var">[PRECO]</span>. Estrutura: headline + subheadline, problema (3 dores), solucao, beneficios (7), como funciona (3 passos), depoimentos (3 ficticios para modelo), garantia, FAQ (5), CTA final com urgencia. Publico: <span class="var">[PUBLICO]</span>.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Copy de pagina de vendas completa e persuasiva.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">20</span><h3>Calendario de Datas Comemorativas</h3>
+    <div class="prompt-text">Crie um calendario de datas comemorativas relevantes para <span class="var">[NICHO]</span> nos proximos 6 meses. Para cada data: nome, data exata, ideia de post, formato sugerido (reels, carrossel, estatico), legenda resumida e hashtags. Inclua datas oficiais e datas criativas do nicho.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Calendario editorial baseado em datas comemorativas.</p>
+</div>
+</div>
+
+<!-- CATEGORIA 2: VENDAS -->
+<div class="category page-break">
+<h2>2. Vendas e Conversao (18 prompts)</h2>
+
+<div class="prompt-card">
+    <span class="number">21</span><h3>Script de Vendas por WhatsApp</h3>
+    <div class="prompt-text">Crie um script de vendas por WhatsApp para <span class="var">[PRODUTO/SERVICO]</span> a <span class="var">[PRECO]</span>. Inclua: mensagem de abertura, qualificacao (3 perguntas), apresentacao da solucao, tratamento de 5 objecoes comuns, fechamento e follow-up para quem nao respondeu. Tom: profissional mas amigavel.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Fluxo completo de vendas por WhatsApp com respostas para objecoes.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">22</span><h3>Sequencia de 7 Emails de Venda</h3>
+    <div class="prompt-text">Crie uma sequencia de 7 emails de venda para <span class="var">[PRODUTO/SERVICO]</span>. Dia 1: historia + dor. Dia 2: agitacao do problema. Dia 3: solucao + beneficios. Dia 4: prova social. Dia 5: objecoes respondidas. Dia 6: urgencia. Dia 7: ultima chance. Para cada: assunto, preview text e corpo (max 300 palavras).</div>
+    <p class="result"><strong>Resultado esperado:</strong> Funil de email completo de 7 dias para converter leads em clientes.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">23</span><h3>Proposta Comercial Profissional</h3>
+    <div class="prompt-text">Escreva uma proposta comercial para <span class="var">[SERVICO]</span> no valor de <span class="var">[PRECO]</span> para o cliente <span class="var">[TIPO DE CLIENTE]</span>. Inclua: capa, sobre a empresa, diagnostico do problema, solucao proposta, escopo detalhado, cronograma, investimento (com ancoragem), garantia, proximos passos e termos.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Proposta profissional pronta para enviar ao cliente.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">24</span><h3>Tratamento de 15 Objecoes de Venda</h3>
+    <div class="prompt-text">Liste as 15 objecoes mais comuns na venda de <span class="var">[PRODUTO/SERVICO]</span> a <span class="var">[PRECO]</span> e crie respostas persuasivas para cada uma. Use as tecnicas: espelhamento, reframe, prova social e ancoragem de valor. Para cada objecao: o que o cliente diz, o que ele realmente pensa, e a resposta ideal.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Manual de objecoes com 15 respostas testadas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">25</span><h3>Script de Ligacao de Vendas</h3>
+    <div class="prompt-text">Crie um script de ligacao de vendas (cold call) para vender <span class="var">[PRODUTO/SERVICO]</span> para <span class="var">[TIPO DE EMPRESA]</span>. Estrutura: abertura (15s), qualificacao (2min), pitch (3min), tratamento de objecoes, fechamento. Inclua 3 variantes de abertura e respostas para "manda por email" e "nao tenho tempo".</div>
+    <p class="result"><strong>Resultado esperado:</strong> Script de cold call completo com variantes e respostas a objecoes.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">26</span><h3>Estrategia de Upsell e Cross-sell</h3>
+    <div class="prompt-text">Crie uma estrategia de upsell e cross-sell para <span class="var">[PRODUTO/SERVICO PRINCIPAL]</span>. Defina: 3 opcoes de upsell com justificativa, 5 produtos complementares para cross-sell, momento ideal para oferecer cada um, script de oferta para WhatsApp e email, e metricas de sucesso.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Estrategia completa para aumentar ticket medio.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">27</span><h3>Mensagens de Follow-up (5 Toques)</h3>
+    <div class="prompt-text">Crie uma sequencia de 5 mensagens de follow-up por WhatsApp/email para leads que demonstraram interesse em <span class="var">[PRODUTO/SERVICO]</span> mas nao compraram. Espacamento: dia 1, dia 3, dia 7, dia 14, dia 30. Cada mensagem com abordagem diferente: valor, urgencia, caso de sucesso, exclusividade, ultima oportunidade.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 5 mensagens de follow-up com timing e abordagem definidos.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">28</span><h3>Apresentacao de Vendas (10 Slides)</h3>
+    <div class="prompt-text">Crie o conteudo de uma apresentacao de vendas de 10 slides para <span class="var">[PRODUTO/SERVICO]</span>. Slide 1: capa impactante. Slide 2: problema. Slide 3: dados do mercado. Slide 4: solucao. Slides 5-7: beneficios com prova. Slide 8: como funciona. Slide 9: investimento. Slide 10: CTA. Max 20 palavras por slide + notas do apresentador.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Apresentacao de vendas com conteudo e notas do orador.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">29</span><h3>Calculadora de ROI para Cliente</h3>
+    <div class="prompt-text">Crie uma calculadora de ROI em formato texto para demonstrar o retorno de investir em <span class="var">[PRODUTO/SERVICO]</span> a <span class="var">[PRECO]</span>. Inclua: cenario conservador, realista e otimista. Metricas: economia de tempo, aumento de receita, reducao de custos. Mostre payback em meses. Use numeros especificos de <span class="var">[SETOR]</span>.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Tabela de ROI persuasiva com 3 cenarios para apresentar ao cliente.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">30</span><h3>Script de Webinar de Vendas</h3>
+    <div class="prompt-text">Crie um roteiro de webinar de vendas de 60 minutos para vender <span class="var">[PRODUTO/SERVICO]</span>. Estrutura: abertura engajadora (5min), conteudo de valor (25min com 3 insights), transicao para oferta (5min), apresentacao da oferta (15min com stack de valor), Q&A (10min). Inclua pontos de interacao e slides sugeridos.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Roteiro de webinar com timing, slides e pontos de interacao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">31</span><h3>Depoimentos e Cases de Sucesso</h3>
+    <div class="prompt-text">Crie 5 modelos de depoimentos (para usar como template quando clientes reais derem feedback) para <span class="var">[PRODUTO/SERVICO]</span>. Cada depoimento com: situacao antes, desafio, solucao encontrada, resultado concreto com numeros e recomendacao. Varie os perfis: iniciante, experiente, cetico, ocupado e analista.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 5 templates de depoimento para guiar coleta de prova social.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">32</span><h3>Pagina de FAQ para Vendas</h3>
+    <div class="prompt-text">Crie 20 perguntas e respostas para a pagina de FAQ de <span class="var">[PRODUTO/SERVICO]</span>. Organize em: sobre o produto (5), pagamento (4), entrega/acesso (3), garantia (3), suporte (3), diferencial (2). Cada resposta deve eliminar objecoes e incluir CTA sutil. Max 100 palavras por resposta.</div>
+    <p class="result"><strong>Resultado esperado:</strong> FAQ completo que funciona como ferramenta de vendas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">33</span><h3>Email de Carrinho Abandonado</h3>
+    <div class="prompt-text">Crie 3 emails de recuperacao de carrinho abandonado para <span class="var">[PRODUTO/SERVICO]</span>. Email 1 (1h apos): lembrete amigavel. Email 2 (24h): beneficios + prova social. Email 3 (72h): urgencia + desconto. Para cada: assunto (3 opcoes), preview text e corpo. Inclua CTA de retorno ao carrinho.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 3 emails de recuperacao prontos para automacao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">34</span><h3>Script de Demonstracao de Produto</h3>
+    <div class="prompt-text">Crie um script de demonstracao (demo) de 20 minutos para <span class="var">[PRODUTO/SERVICO]</span>. Estrutura: contextualizacao do problema (3min), visao geral da solucao (2min), demonstracao de 5 funcionalidades-chave (10min), diferencial competitivo (2min), proximos passos (3min). Inclua perguntas de qualificacao durante a demo.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Script de demo com fluxo e perguntas estrategicas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">35</span><h3>Tabela Comparativa com Concorrentes</h3>
+    <div class="prompt-text">Crie uma tabela comparativa profissional entre <span class="var">[SEU PRODUTO]</span> e 3 concorrentes do mercado de <span class="var">[NICHO]</span>. Criterios: preco, funcionalidades (liste 10), suporte, facilidade de uso, integracao, garantia. Destaque seus diferenciais. Inclua versao para landing page e versao para apresentacao de vendas.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Tabela comparativa persuasiva em dois formatos.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">36</span><h3>Mensagem de Pos-Venda e Onboarding</h3>
+    <div class="prompt-text">Crie uma sequencia de 5 mensagens de pos-venda para compradores de <span class="var">[PRODUTO/SERVICO]</span>. Msg 1 (imediato): boas-vindas + acesso. Msg 2 (dia 1): como comecar. Msg 3 (dia 3): dica avancada. Msg 4 (dia 7): pedir feedback. Msg 5 (dia 14): upsell sutil. Para WhatsApp e email.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Fluxo de onboarding que reduz cancelamento e gera upsell.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">37</span><h3>Estrategia de Precificacao</h3>
+    <div class="prompt-text">Analise e sugira uma estrategia de precificacao para <span class="var">[PRODUTO/SERVICO]</span> no mercado de <span class="var">[NICHO]</span>. Custo: <span class="var">[CUSTO]</span>. Concorrentes cobram: <span class="var">[FAIXA DE PRECO]</span>. Defina: preco sugerido, justificativa, ancoragem de valor, opcoes de parcelamento, trial/freemium, e estrategia de desconto sem desvalorizar.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Estrategia de precificacao com justificativa e taticas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">38</span><h3>Lead Magnet Irresistivel</h3>
+    <div class="prompt-text">Sugira 10 ideias de lead magnet para <span class="var">[NICHO]</span> que atraiam <span class="var">[PUBLICO-ALVO]</span>. Para cada: titulo, formato (ebook, checklist, template, quiz, mini-curso), descricao em 1 frase, estimativa de conversao e nivel de esforco para criar. Classifique por potencial de conversao (alto/medio/baixo).</div>
+    <p class="result"><strong>Resultado esperado:</strong> 10 ideias priorizadas de lead magnet com descricao.</p>
+</div>
+</div>
+
+<!-- CATEGORIA 3: FINANCAS -->
+<div class="category page-break">
+<h2>3. Financas e Gestao (16 prompts)</h2>
+
+<div class="prompt-card">
+    <span class="number">39</span><h3>Plano de Orcamento Anual</h3>
+    <div class="prompt-text">Crie um modelo de orcamento anual para uma empresa de <span class="var">[NICHO]</span> com faturamento de <span class="var">[FATURAMENTO]</span>. Categorias: receita (3 fontes), custos fixos, custos variaveis, marketing (% do faturamento), pessoal, impostos, reserva. Inclua projecao mensal e KPIs financeiros. Formato tabela.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Orcamento anual completo com projecao mes a mes.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">40</span><h3>Analise de Fluxo de Caixa</h3>
+    <div class="prompt-text">Crie um modelo de analise de fluxo de caixa para <span class="var">[TIPO DE NEGOCIO]</span>. Inclua: entradas (vendas a vista, recorrencia, parcelados), saidas (fixas e variaveis), projecao de 12 meses, ponto de equilibrio, reserva de emergencia ideal e alertas de risco. Explique cada linha.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Template de fluxo de caixa com explicacoes e alertas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">41</span><h3>Relatorio Financeiro Mensal</h3>
+    <div class="prompt-text">Crie o template de um relatorio financeiro mensal para apresentar a <span class="var">[socios/investidores/diretoria]</span> de uma empresa de <span class="var">[NICHO]</span>. Secoes: resumo executivo, receita vs meta, despesas por categoria, margem de lucro, comparativo com mes anterior, top 5 clientes, inadimplencia, projecao proximo mes.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Template de relatorio financeiro profissional.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">42</span><h3>Precificacao de Servico por Hora</h3>
+    <div class="prompt-text">Me ajude a calcular o preco por hora ideal para meus servicos de <span class="var">[SERVICO]</span>. Considere: custo de vida mensal (<span class="var">[VALOR]</span>), horas produtivas por mes (considere 60%), impostos (<span class="var">[REGIME TRIBUTARIO]</span>), margem de lucro desejada, valor percebido no mercado de <span class="var">[NICHO]</span>. Mostre o calculo passo a passo.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Calculo detalhado de precificacao com formula e justificativa.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">43</span><h3>Reducao de Custos Operacionais</h3>
+    <div class="prompt-text">Analise as categorias de custo de uma empresa de <span class="var">[NICHO]</span> com <span class="var">[NUMERO]</span> funcionarios e sugira 15 formas de reduzir custos operacionais sem perder qualidade. Para cada: area afetada, acao especifica, economia estimada (% ou valor), prazo de implementacao e risco. Priorize por impacto.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 15 acoes de reducao de custos priorizadas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">44</span><h3>Modelo de DRE Simplificado</h3>
+    <div class="prompt-text">Crie um modelo de DRE (Demonstracao do Resultado do Exercicio) simplificado para <span class="var">[TIPO DE NEGOCIO]</span>. Inclua: receita bruta, deducoes, receita liquida, CPV/CSP, lucro bruto, despesas operacionais (detalhadas), EBITDA, lucro antes de IR, lucro liquido. Explique cada linha em linguagem simples.</div>
+    <p class="result"><strong>Resultado esperado:</strong> DRE com explicacao acessivel para nao-contadores.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">45</span><h3>Planejamento Tributario Simples</h3>
+    <div class="prompt-text">Compare os regimes tributarios (Simples Nacional, Lucro Presumido, Lucro Real) para uma empresa de <span class="var">[ATIVIDADE]</span> com faturamento de <span class="var">[FATURAMENTO ANUAL]</span>. Calcule a carga tributaria estimada em cada regime, vantagens, desvantagens e recomendacao. Nota: isso e educativo, consultar contador para decisao final.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Comparativo tributario com recomendacao fundamentada.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">46</span><h3>Metas Financeiras SMART</h3>
+    <div class="prompt-text">Defina 5 metas financeiras SMART para uma empresa de <span class="var">[NICHO]</span> que fatura <span class="var">[FATURAMENTO]</span>. Para cada meta: descricao SMART completa, KPIs de acompanhamento, milestones trimestrais, acoes praticas para alcancar e riscos. Horizonte: 12 meses. Inclua metas de receita, margem, reduzir custos, reserva e investimento.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 5 metas financeiras com plano de acao e KPIs.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">47</span><h3>Analise de Viabilidade de Projeto</h3>
+    <div class="prompt-text">Faca uma analise de viabilidade financeira para <span class="var">[PROJETO/PRODUTO]</span>. Investimento inicial: <span class="var">[VALOR]</span>. Calcule: VPL, TIR, payback, ponto de equilibrio e margem de contribuicao. Considere cenarios otimista, realista e pessimista. Inclua premissas e riscos. Conclusao: investir ou nao?</div>
+    <p class="result"><strong>Resultado esperado:</strong> Estudo de viabilidade com indicadores e recomendacao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">48</span><h3>Controle de Inadimplencia</h3>
+    <div class="prompt-text">Crie uma estrategia de controle de inadimplencia para <span class="var">[TIPO DE NEGOCIO]</span>. Inclua: politica de credito (criterios), regras de cobranca (timing e tom), 5 mensagens de cobranca (amigavel a firme), acoes para cada faixa de atraso (30/60/90+ dias), indicadores de acompanhamento e acoes preventivas.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Sistema completo de gestao de inadimplencia.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">49</span><h3>Projecao de Receita para 12 Meses</h3>
+    <div class="prompt-text">Crie uma projecao de receita para os proximos 12 meses de <span class="var">[NEGOCIO]</span>. Receita atual: <span class="var">[VALOR/MES]</span>. Fontes: <span class="var">[LISTAR FONTES]</span>. Considere: sazonalidade do setor, taxa de crescimento historica, investimento em marketing planejado, novos produtos/servicos. Formato: tabela mensal com 3 cenarios.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Projecao de 12 meses com cenarios e premissas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">50</span><h3>Dashboard de KPIs Financeiros</h3>
+    <div class="prompt-text">Defina os 12 KPIs financeiros mais importantes para uma empresa de <span class="var">[NICHO]</span> com faturamento de <span class="var">[FATURAMENTO]</span>. Para cada: nome, formula de calculo, frequencia de medicao, meta ideal para o setor, semaforo (verde/amarelo/vermelho) e acao corretiva. Organize por: liquidez, rentabilidade, eficiencia e crescimento.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Painel de KPIs financeiros com metas e acoes.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">51</span><h3>Plano de Investimento para PME</h3>
+    <div class="prompt-text">Crie um plano de investimento para os lucros de uma PME de <span class="var">[NICHO]</span> que gera <span class="var">[LUCRO MENSAL]</span>. Distribua entre: reserva de emergencia (quantos meses), capital de giro, reinvestimento no negocio, diversificacao (renda fixa, variavel). Considere perfil <span class="var">[conservador/moderado/arrojado]</span> e horizonte de <span class="var">[PRAZO]</span>.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Plano de alocacao de lucros com percentuais e justificativas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">52</span><h3>Negociacao com Fornecedores</h3>
+    <div class="prompt-text">Crie um script de negociacao com fornecedores para conseguir melhores condicoes em <span class="var">[PRODUTO/SERVICO]</span>. Tecnicas: ancoragem, BATNA, volume, pagamento antecipado, contrato longo. Inclua: preparacao (dados a levantar), 3 aberturas diferentes, respostas para 5 objecoes do fornecedor e limite minimo aceitavel.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Roteiro de negociacao com tecnicas e limites definidos.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">53</span><h3>Gestao de Assinaturas e SaaS</h3>
+    <div class="prompt-text">Me ajude a auditar e otimizar as assinaturas de software da minha empresa. Temos: <span class="var">[LISTAR FERRAMENTAS E PRECOS]</span>. Para cada: avaliar se ha alternativa mais barata ou gratuita, se esta sendo usada no potencial maximo, se pode ser substituida por IA, e se o plano atual e adequado. Sugira o corte ideal.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Auditoria de SaaS com sugestao de economia.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">54</span><h3>Pitch para Investidores</h3>
+    <div class="prompt-text">Crie o conteudo de um pitch deck de 12 slides para apresentar <span class="var">[STARTUP/NEGOCIO]</span> a investidores. Slides: problema, solucao, mercado (TAM/SAM/SOM), modelo de negocio, tracao, equipe, competicao, go-to-market, financeiro (5 anos), ask, uso dos recursos, visao. Inclua dados e metricas para cada slide.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Pitch deck com conteudo persuasivo e dados.</p>
+</div>
+</div>
+
+<!-- CATEGORIA 4: PRODUTIVIDADE -->
+<div class="category page-break">
+<h2>4. Produtividade e Organizacao (16 prompts)</h2>
+
+<div class="prompt-card">
+    <span class="number">55</span><h3>Rotina Matinal de CEO</h3>
+    <div class="prompt-text">Crie uma rotina matinal otimizada para o CEO de uma empresa de <span class="var">[NICHO]</span>. Horario: <span class="var">[HORA DE ACORDAR]</span>. Inclua: blocos de tempo (5-15min cada), atividades de cada bloco, ferramentas/apps sugeridos, o que evitar, e como adaptar para dias de reuniao. Objetivo: comecar o dia com foco maximo em 90 minutos.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Rotina matinal detalhada com horarios e atividades.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">56</span><h3>Sistema de Gestao de Tarefas</h3>
+    <div class="prompt-text">Crie um sistema completo de gestao de tarefas para uma equipe de <span class="var">[TAMANHO]</span> pessoas em <span class="var">[NICHO]</span>. Inclua: categorias de tarefas, niveis de prioridade (com criterios), fluxo de status, regras de delegacao, reunioes de acompanhamento e metricas. Sugira ferramenta ideal (Notion, Trello, Asana, ClickUp) e como configurar.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Sistema de tarefas completo com regras e ferramenta.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">57</span><h3>Template de Reuniao Produtiva</h3>
+    <div class="prompt-text">Crie templates para 5 tipos de reuniao: (1) daily standup (15min), (2) planejamento semanal (30min), (3) revisao mensal (60min), (4) brainstorm (45min), (5) one-on-one (30min). Para cada: pauta, participantes, regras, perguntas-chave, formato de atas e follow-up. Objetivo: eliminar reunioes improdutivas.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 5 templates de reuniao com pauta e regras.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">58</span><h3>Automacao de Tarefas Repetitivas</h3>
+    <div class="prompt-text">Identifique 20 tarefas repetitivas em uma empresa de <span class="var">[NICHO]</span> que podem ser automatizadas. Para cada: descricao da tarefa, tempo gasto atualmente, ferramenta de automacao (Zapier, Make, n8n, IA), como configurar (passo a passo resumido), e economia de tempo estimada por semana.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Lista de 20 automacoes com economia de tempo.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">59</span><h3>Planejamento Trimestral com OKRs</h3>
+    <div class="prompt-text">Crie OKRs para o proximo trimestre de uma empresa de <span class="var">[NICHO]</span>. Defina 3-5 objetivos com 3 resultados-chave cada. Areas: crescimento, produto, operacoes, equipe. Para cada KR: metrica, valor atual, meta, responsavel e iniciativas. Inclua check-in semanal e criterios de scoring (0-1).</div>
+    <p class="result"><strong>Resultado esperado:</strong> OKRs trimestrais completos com metricas e responsaveis.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">60</span><h3>SOP (Procedimento Operacional Padrao)</h3>
+    <div class="prompt-text">Crie um SOP detalhado para o processo de <span class="var">[PROCESSO]</span> na empresa de <span class="var">[NICHO]</span>. Inclua: titulo, objetivo, escopo, responsavel, pre-requisitos, passo a passo detalhado (com screenshots sugeridos), checklist de verificacao, tratamento de erros, metricas de qualidade e historico de revisoes.</div>
+    <p class="result"><strong>Resultado esperado:</strong> SOP profissional pronto para treinar equipe.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">61</span><h3>Organizacao de Pastas e Arquivos</h3>
+    <div class="prompt-text">Crie uma estrutura de pastas no Google Drive para uma empresa de <span class="var">[NICHO]</span> com <span class="var">[AREAS/DEPARTAMENTOS]</span>. Inclua: hierarquia completa (3 niveis), convencao de nomes, permissoes sugeridas por pasta, templates de documentos mais usados e regras de organizacao. Objetivo: qualquer pessoa encontrar qualquer arquivo em 30 segundos.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Estrutura de pastas completa com regras de uso.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">62</span><h3>Checklist de Lancamento de Projeto</h3>
+    <div class="prompt-text">Crie um checklist completo para lancamento de <span class="var">[TIPO DE PROJETO]</span> em <span class="var">[NICHO]</span>. Fases: planejamento (2 semanas), preparacao (2 semanas), pre-lancamento (1 semana), lancamento (dia D), pos-lancamento (1 semana). Para cada item: tarefa, responsavel, prazo, status e dependencias.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Checklist de lancamento completo com cronograma.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">63</span><h3>Email Zero — Sistema de Gestao</h3>
+    <div class="prompt-text">Crie um sistema de gestao de emails para atingir "inbox zero" em <span class="var">[PLATAFORMA: Gmail/Outlook]</span>. Inclua: sistema de labels/pastas, filtros automaticos (10 regras), horarios de checagem, templates de resposta rapida (5), regra dos 2 minutos, delegacao e follow-up. Objetivo: gastar max 30min/dia com email.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Sistema completo de gestao de email com filtros e templates.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">64</span><h3>Plano de Delegacao Efetiva</h3>
+    <div class="prompt-text">Me ajude a delegar melhor. Sou <span class="var">[CARGO]</span> de <span class="var">[EMPRESA]</span> e faco tudo sozinho. Liste: 20 tarefas que devo parar de fazer, quem pode assumir cada uma (perfil/cargo), como treinar em 30 minutos, metricas de acompanhamento e nivel de autonomia (total, parcial, supervisao). Use a matriz de Eisenhower.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Plano de delegacao com 20 tarefas e perfil ideal.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">65</span><h3>Batching de Conteudo Semanal</h3>
+    <div class="prompt-text">Crie um sistema de batching de conteudo para produzir 1 semana de posts em <span class="var">[HORAS]</span> horas. Nicho: <span class="var">[NICHO]</span>. Plataformas: <span class="var">[INSTAGRAM/TIKTOK/LINKEDIN]</span>. Inclua: etapas do batch (pesquisa, roteiro, gravacao, edicao, agendamento), ferramentas para cada etapa, templates reutilizaveis e cronograma minuto a minuto.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Sistema de batching com cronograma e ferramentas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">66</span><h3>Analise SWOT do Negocio</h3>
+    <div class="prompt-text">Faca uma analise SWOT completa para <span class="var">[NOME DO NEGOCIO]</span> no setor de <span class="var">[NICHO]</span>. Contexto: <span class="var">[BREVE DESCRICAO]</span>. Para cada quadrante: liste 5-7 itens especificos (nao genericos). Depois: crie estrategias cruzadas (SO, WO, ST, WT) com acoes praticas para os proximos 90 dias.</div>
+    <p class="result"><strong>Resultado esperado:</strong> SWOT detalhado com estrategias cruzadas e acoes.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">67</span><h3>Dashboard de KPIs do Negocio</h3>
+    <div class="prompt-text">Defina os 10 KPIs mais importantes para acompanhar semanalmente em <span class="var">[TIPO DE NEGOCIO]</span>. Para cada: nome, formula, fonte de dados, frequencia, meta, semaforo (verde/amarelo/vermelho). Organize em: marketing (3), vendas (3), financeiro (2), operacoes (2). Sugira como montar o dashboard no Google Sheets.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Lista de KPIs com formulas e metas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">68</span><h3>Onboarding de Novo Colaborador</h3>
+    <div class="prompt-text">Crie um plano de onboarding de 30 dias para um novo <span class="var">[CARGO]</span> em <span class="var">[EMPRESA/NICHO]</span>. Semana 1: ambientacao. Semana 2: treinamento. Semana 3: pratica supervisionada. Semana 4: autonomia. Para cada dia: atividades, responsavel pelo treinamento, materiais e check de aprendizado.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Plano de onboarding dia a dia por 30 dias.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">69</span><h3>Retrospectiva de Projeto</h3>
+    <div class="prompt-text">Crie um template de retrospectiva para o projeto <span class="var">[NOME]</span>. Secoes: resumo do projeto, o que foi bem (5+), o que pode melhorar (5+), licoes aprendidas, acoes para o proximo projeto, reconhecimentos da equipe. Inclua 10 perguntas facilitadoras para conduzir a reuniao e formato de documentacao final.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Template de retrospectiva com perguntas e formato.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">70</span><h3>Plano de Contingencia</h3>
+    <div class="prompt-text">Crie um plano de contingencia para <span class="var">[TIPO DE NEGOCIO]</span>. Cenarios: queda de 50% nas vendas, perda de cliente principal, saida de funcionario-chave, problema tecnico grave, crise de reputacao. Para cada: sinais de alerta, acoes imediatas (24h), acoes de medio prazo (30 dias), responsavel e comunicacao.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Plano de contingencia com 5 cenarios e acoes.</p>
+</div>
+</div>
+
+<!-- CATEGORIA 5: ATENDIMENTO -->
+<div class="category page-break">
+<h2>5. Atendimento ao Cliente (15 prompts)</h2>
+
+<div class="prompt-card">
+    <span class="number">71</span><h3>Script de Atendimento ao Cliente</h3>
+    <div class="prompt-text">Crie um script de atendimento ao cliente por WhatsApp para <span class="var">[TIPO DE NEGOCIO]</span>. Cenarios: primeira mensagem, duvida sobre produto, reclamacao, troca/devolucao, elogio. Para cada: saudacao, resposta padrao, variacoes de tom (formal/informal), tempo maximo de resposta e escalonamento. Tom: <span class="var">[TOM]</span>.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Manual de atendimento com scripts para 5 cenarios.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">72</span><h3>Respostas para Reclamacoes (10 Tipos)</h3>
+    <div class="prompt-text">Crie respostas profissionais para 10 tipos de reclamacao em <span class="var">[TIPO DE NEGOCIO]</span>: atraso na entrega, produto com defeito, cobranca indevida, atendimento ruim, produto diferente da foto, nao consegue acessar, quer reembolso, insatisfeito com resultado, vai para o Reclame Aqui, ameaca juridica. Cada resposta com empatia, solucao e compensacao.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 10 respostas prontas para situacoes criticas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">73</span><h3>FAQ Completo para Atendimento</h3>
+    <div class="prompt-text">Crie um FAQ de 25 perguntas para a equipe de atendimento de <span class="var">[TIPO DE NEGOCIO]</span>. Categorias: pre-venda (5), pagamento (5), entrega/acesso (5), uso do produto (5), pos-venda (5). Cada resposta: max 100 palavras, tom <span class="var">[TOM]</span>, inclua link/acao sugerida quando aplicavel.</div>
+    <p class="result"><strong>Resultado esperado:</strong> FAQ de 25 perguntas organizado para atendimento.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">74</span><h3>Pesquisa de Satisfacao (NPS)</h3>
+    <div class="prompt-text">Crie uma pesquisa de satisfacao completa para clientes de <span class="var">[PRODUTO/SERVICO]</span>. Inclua: pergunta NPS (0-10), 5 perguntas de satisfacao por area, 3 perguntas abertas, escala de esforco do cliente (CES). Para cada resposta possivel (promotor/neutro/detrator): acao de follow-up automatica. Formato: WhatsApp + formulario.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Pesquisa NPS com acoes automatizadas por score.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">75</span><h3>Chatbot de Atendimento (Fluxo)</h3>
+    <div class="prompt-text">Crie o fluxo de um chatbot de atendimento para <span class="var">[TIPO DE NEGOCIO]</span>. Menu inicial com 5 opcoes. Para cada opcao: 3 niveis de profundidade, respostas automaticas, momento de transferir para humano, mensagem de encerramento. Inclua fluxo para horario comercial e fora dele. Formato: arvore de decisao.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Fluxograma de chatbot com respostas e escalonamento.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">76</span><h3>Email de Boas-Vindas (Onboarding Cliente)</h3>
+    <div class="prompt-text">Crie uma sequencia de 5 emails de onboarding para novos clientes de <span class="var">[PRODUTO/SERVICO]</span>. Email 1 (imediato): boas-vindas + acesso. Email 2 (dia 1): primeiros passos. Email 3 (dia 3): dica avancada + video. Email 4 (dia 7): case de sucesso. Email 5 (dia 14): pedir avaliacao + surpresa. Tom: acolhedor e util.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 5 emails de onboarding que reduzem churn.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">77</span><h3>Gestao de Crise nas Redes Sociais</h3>
+    <div class="prompt-text">Crie um protocolo de gestao de crise para as redes sociais de <span class="var">[MARCA]</span>. Cenarios: comentario negativo viral, avaliacao 1 estrela, fake news sobre a marca, vazamento de dados, erro de comunicacao. Para cada: resposta publica (em ate 1h), resposta privada, comunicado oficial e acoes preventivas.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Protocolo de crise com respostas para 5 cenarios.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">78</span><h3>Programa de Fidelizacao</h3>
+    <div class="prompt-text">Crie um programa de fidelizacao para clientes de <span class="var">[TIPO DE NEGOCIO]</span>. Estrutura: niveis (3-4), criterios de progressao, beneficios por nivel, sistema de pontos, recompensas, como comunicar, custo estimado e ROI esperado. Inclua mecanica de gamificacao e como implementar com ferramentas simples (planilha ou app).</div>
+    <p class="result"><strong>Resultado esperado:</strong> Programa de fidelizacao completo com mecanica e custos.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">79</span><h3>Recuperacao de Cliente Inativo</h3>
+    <div class="prompt-text">Crie uma campanha de reativacao para clientes inativos de <span class="var">[TIPO DE NEGOCIO]</span>. Defina: criterio de inatividade, segmentacao (30/60/90+ dias), sequencia de 4 mensagens (WhatsApp + email), oferta especial de retorno, prazo de validade e metricas de sucesso. Tom: "sentimos sua falta" sem ser invasivo.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Campanha de reativacao com 4 toques e oferta.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">80</span><h3>Treinamento de Atendimento (Guia)</h3>
+    <div class="prompt-text">Crie um guia de treinamento de atendimento ao cliente para a equipe de <span class="var">[TIPO DE NEGOCIO]</span>. Topicos: comunicacao empatica, escuta ativa, linguagem positiva (lista de frases proibidas vs recomendadas), gestao de conflitos, tempo de resposta, tom de voz da marca. Inclua 5 simulacoes de situacoes reais.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Manual de treinamento com tecnicas e simulacoes.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">81</span><h3>Respostas para Avaliacoes Online</h3>
+    <div class="prompt-text">Crie 15 modelos de resposta para avaliacoes no Google Meu Negocio de <span class="var">[TIPO DE NEGOCIO]</span>. 5 para avaliacoes 5 estrelas (variadas, nao genericas), 3 para 4 estrelas, 3 para 3 estrelas, 2 para 2 estrelas, 2 para 1 estrela. Cada resposta: personalizada, profissional, com convite de retorno. Max 150 palavras.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 15 respostas prontas para diferentes avaliacoes.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">82</span><h3>SLA de Atendimento</h3>
+    <div class="prompt-text">Defina um SLA (Acordo de Nivel de Servico) de atendimento para <span class="var">[TIPO DE NEGOCIO]</span>. Canais: WhatsApp, email, telefone, redes sociais, chat. Para cada canal: tempo de primeira resposta, tempo de resolucao, horario de atendimento, escalonamento, excepcoes. Inclua metricas de monitoramento e consequencias de descumprimento.</div>
+    <p class="result"><strong>Resultado esperado:</strong> SLA completo com tempos e regras por canal.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">83</span><h3>Mensagens de WhatsApp Business</h3>
+    <div class="prompt-text">Crie 10 mensagens automaticas para WhatsApp Business de <span class="var">[TIPO DE NEGOCIO]</span>: saudacao (horario comercial), ausencia (fora do horario), agradecimento apos compra, confirmacao de pedido, atualizacao de status, lembrete de agendamento, pesquisa pos-atendimento, aniversario do cliente, promocao sazonal e reativacao.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 10 mensagens automaticas prontas para configurar.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">84</span><h3>Indicadores de Atendimento</h3>
+    <div class="prompt-text">Defina 8 metricas de atendimento ao cliente para <span class="var">[TIPO DE NEGOCIO]</span>: CSAT, NPS, CES, tempo medio de resposta, taxa de resolucao no primeiro contato, tempo de resolucao, taxa de recontato, satisfacao por canal. Para cada: como medir, ferramenta, frequencia, benchmark do setor e meta. Sugira dashboard no Google Sheets.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 8 metricas com formulas e metas de atendimento.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">85</span><h3>Politica de Trocas e Devolucoes</h3>
+    <div class="prompt-text">Escreva uma politica de trocas e devolucoes para <span class="var">[TIPO DE NEGOCIO/E-COMMERCE]</span>. Inclua: prazo (CDC + diferencial), condicoes, processo passo a passo, quem paga o frete, reembolso vs credito, excecoes, produtos digitais, garantia estendida. Linguagem clara e amigavel (nao juridica). Formato para site e para enviar por WhatsApp.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Politica de trocas em linguagem acessivel, 2 formatos.</p>
+</div>
+</div>
+
+<!-- CATEGORIA 6: RH -->
+<div class="category page-break">
+<h2>6. RH e Gestao de Pessoas (15 prompts)</h2>
+
+<div class="prompt-card">
+    <span class="number">86</span><h3>Descricao de Vaga Atraente</h3>
+    <div class="prompt-text">Escreva uma descricao de vaga para <span class="var">[CARGO]</span> em <span class="var">[EMPRESA/NICHO]</span>. Inclua: titulo atraente (nao corporativo), sobre a empresa (cultura), o que a pessoa vai fazer (dia a dia real), requisitos (obrigatorios vs desejaveis), beneficios, faixa salarial e como se candidatar. Tom: humano e transparente. Otimize para LinkedIn.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Vaga atraente que atrai candidatos qualificados.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">87</span><h3>Roteiro de Entrevista Estruturada</h3>
+    <div class="prompt-text">Crie um roteiro de entrevista para a vaga de <span class="var">[CARGO]</span>. Estrutura: quebra-gelo (5min), experiencia (10min), competencias tecnicas (10min), competencias comportamentais (10min), cultura (5min), perguntas do candidato (5min). Inclua 3 perguntas por bloco + como avaliar cada resposta (escala 1-5) + red flags.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Roteiro com perguntas e criterios de avaliacao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">88</span><h3>Feedback Construtivo (5 Situacoes)</h3>
+    <div class="prompt-text">Crie scripts de feedback construtivo para 5 situacoes comuns: (1) atraso recorrente, (2) qualidade do trabalho abaixo, (3) conflito com colega, (4) meta nao atingida, (5) comportamento inadequado. Para cada: contexto, como iniciar, modelo SBI (Situacao-Comportamento-Impacto), plano de acao e follow-up. Tom: firme mas respeitoso.</div>
+    <p class="result"><strong>Resultado esperado:</strong> 5 scripts de feedback com modelo SBI.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">89</span><h3>Avaliacao de Desempenho</h3>
+    <div class="prompt-text">Crie um formulario de avaliacao de desempenho para <span class="var">[CARGO]</span> em <span class="var">[TIPO DE EMPRESA]</span>. Competencias: tecnicas (5), comportamentais (5), lideranca (3 se aplicavel). Escala: 1-5 com descricao de cada nivel. Inclua: autoavaliacao, avaliacao do gestor, metas do proximo periodo e PDI (Plano de Desenvolvimento Individual).</div>
+    <p class="result"><strong>Resultado esperado:</strong> Formulario de avaliacao completo com criterios e PDI.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">90</span><h3>Plano de Cargos e Salarios</h3>
+    <div class="prompt-text">Crie uma estrutura de cargos e salarios para uma empresa de <span class="var">[NICHO]</span> com <span class="var">[NUMERO]</span> funcionarios. Defina: niveis (junior, pleno, senior, lider, gerente), faixa salarial por nivel (pesquise mercado de <span class="var">[CIDADE]</span>), criterios de promocao, beneficios por nivel e politica de reajuste. Formato tabela.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Tabela de cargos e salarios com criterios de progressao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">91</span><h3>Cultura Organizacional</h3>
+    <div class="prompt-text">Me ajude a definir a cultura organizacional de <span class="var">[EMPRESA]</span>. Contexto: <span class="var">[DESCRICAO DO NEGOCIO]</span>. Defina: missao (1 frase poderosa), visao (ambiciosa e mensuravel), 5 valores (com comportamentos observaveis para cada), tom de voz interno, rituais da equipe (5), e como avaliar fit cultural na entrevista.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Cultura organizacional definida com valores praticos.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">92</span><h3>Pesquisa de Clima Organizacional</h3>
+    <div class="prompt-text">Crie uma pesquisa de clima organizacional com 30 perguntas para <span class="var">[TIPO DE EMPRESA]</span>. Dimensoes: lideranca (5), comunicacao (5), reconhecimento (4), desenvolvimento (4), ambiente (4), remuneracao (4), proposito (4). Escala Likert 1-5. Inclua 3 perguntas abertas e como interpretar os resultados.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Pesquisa de clima completa com 30 perguntas e guia de interpretacao.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">93</span><h3>Plano de Desenvolvimento Individual (PDI)</h3>
+    <div class="prompt-text">Crie um template de PDI para <span class="var">[CARGO]</span> que quer evoluir para <span class="var">[PROXIMO CARGO]</span>. Inclua: competencias a desenvolver (tecnicas e comportamentais), gap analysis, acoes de desenvolvimento (cursos, mentorias, projetos), cronograma de 6 meses, marcos de verificacao e criterios de sucesso.</div>
+    <p class="result"><strong>Resultado esperado:</strong> PDI completo com cronograma e acoes praticas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">94</span><h3>Processo de Desligamento Humanizado</h3>
+    <div class="prompt-text">Crie um protocolo de desligamento humanizado para <span class="var">[TIPO DE EMPRESA]</span>. Inclua: checklist pre-demissao, script da conversa (3 cenarios: sem justa causa, pedido, acordo), documentacao necessaria, comunicacao para equipe, entrevista de desligamento (10 perguntas), transferencia de conhecimento e suporte ao ex-colaborador.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Protocolo de desligamento com scripts e checklists.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">95</span><h3>Programa de Reconhecimento</h3>
+    <div class="prompt-text">Crie um programa de reconhecimento de colaboradores para <span class="var">[TIPO DE EMPRESA]</span> com <span class="var">[NUMERO]</span> pessoas. Inclua: criterios de reconhecimento, frequencia (diario, semanal, mensal), tipos (publico, privado, financeiro, experiencia), orcamento sugerido, como implementar e metricas de impacto. Deve funcionar sem grande orcamento.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Programa de reconhecimento acessivel e efetivo.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">96</span><h3>Politica de Home Office</h3>
+    <div class="prompt-text">Escreva uma politica de trabalho remoto/hibrido para <span class="var">[TIPO DE EMPRESA]</span>. Inclua: modelo (100% remoto, hibrido X dias, flexivel), elegibilidade por cargo, equipamentos fornecidos, horario (rigido vs flexivel), comunicacao (ferramentas, disponibilidade), reunioes presenciais, seguranca da informacao e KPIs de produtividade.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Politica de home office completa e profissional.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">97</span><h3>Plano de Treinamento da Equipe</h3>
+    <div class="prompt-text">Crie um plano de treinamento semestral para a equipe de <span class="var">[DEPARTAMENTO]</span> de <span class="var">[EMPRESA]</span>. Passo 1: levantamento de necessidades (como fazer). Passo 2: priorizacao. Passo 3: calendario de treinamentos (1-2 por mes). Para cada: tema, objetivo, formato (workshop, curso, mentoria), duracao, investimento e como medir resultado.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Plano semestral de treinamento com calendario e metricas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">98</span><h3>Job Description para Freelancer/VA</h3>
+    <div class="prompt-text">Crie uma descricao de projeto para contratar um freelancer/assistente virtual para <span class="var">[TAREFA]</span>. Inclua: escopo detalhado, entregaveis, prazo, orcamento estimado, ferramentas que deve dominar, criterios de selecao, teste pratico para aplicar, e template de contrato de prestacao de servicos (clausulas essenciais).</div>
+    <p class="result"><strong>Resultado esperado:</strong> Brief completo para contratar freelancer com teste e contrato.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">99</span><h3>One-on-One Efetivo</h3>
+    <div class="prompt-text">Crie um guia para conduzir reunioes one-on-one efetivas com a equipe. Inclua: frequencia ideal, duracao, pauta sugerida (10 perguntas poderosas), como anotar e acompanhar, sinais de alerta para observar, como dar feedback no momento, e template de registro. Diferencie para: onboarding (primeiros 90 dias), rotina mensal e performance review.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Guia de one-on-one com 3 formatos e perguntas.</p>
+</div>
+
+<div class="prompt-card">
+    <span class="number">100</span><h3>Employer Branding nas Redes</h3>
+    <div class="prompt-text">Crie uma estrategia de employer branding para <span class="var">[EMPRESA]</span> nas redes sociais. Inclua: 10 tipos de conteudo (dia a dia, bastidores, depoimentos, vagas, cultura), calendario de 1 mes, tom de voz, hashtags, metricas de sucesso e como envolver a equipe na producao de conteudo. Plataformas: LinkedIn e Instagram.</div>
+    <p class="result"><strong>Resultado esperado:</strong> Estrategia de employer branding com 1 mes de conteudo.</p>
+</div>
+</div>
+
+<div class="final">
+    <h2>Parabens! Voce tem 100 prompts prontos para usar.</h2>
+    <p>Comece pelos prompts mais relevantes para o momento do seu negocio.</p>
+    <p>Dica: salve esta pagina nos favoritos para consultar sempre que precisar.</p>
+    <p style="margin-top: 24px;">Quer mais dicas de IA para negocios? Assine gratis:</p>
+    <p><a href="https://marinaveauvy.github.io/costuras-meditacoes/newsletter-impulso-ia.html">Newsletter Impulso IA — toda terca-feira</a></p>
+    <p style="margin-top: 16px; color: #666; font-size: 13px;">Marina Veauvy &middot; marinaveauvy.com.br</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist Automacao de Negocio Digital</title>
+<style>
+    @media print { .page-break { page-break-before: always; } .check { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #fff; color: #333; line-height: 1.7; max-width: 800px; margin: 0 auto; padding: 20px; }
+    .cover { background: #1a1a2e; color: #fff; text-align: center; padding: 80px 40px; border-radius: 12px; margin-bottom: 40px; }
+    .cover h1 { font-size: 36px; margin-bottom: 12px; letter-spacing: -1px; }
+    .cover h1 span { color: #e94560; }
+    .cover h2 { font-size: 20px; font-weight: 400; color: #b0b0cc; margin-bottom: 32px; }
+    .cover .author { font-size: 16px; color: #e8d5b7; }
+    .cover .site { font-size: 14px; color: #888; margin-top: 8px; }
+    .intro { background: #f8f8f8; padding: 32px; border-radius: 12px; margin-bottom: 40px; }
+    .intro h2 { color: #1a1a2e; font-size: 24px; margin-bottom: 16px; }
+    .intro p { margin-bottom: 12px; }
+    .intro .tip { background: #e94560; color: #fff; padding: 16px; border-radius: 8px; margin-top: 16px; }
+    .area { margin-bottom: 48px; }
+    .area h2 { color: #1a1a2e; font-size: 26px; border-bottom: 3px solid #e94560; padding-bottom: 12px; margin-bottom: 24px; }
+    .area-intro { background: #f8f8f8; padding: 16px; border-radius: 8px; margin-bottom: 20px; font-size: 15px; }
+    .check-group { margin-bottom: 24px; }
+    .check-group h3 { color: #1a1a2e; font-size: 18px; margin-bottom: 12px; padding-left: 4px; }
+    .check-item { display: flex; gap: 12px; padding: 12px 16px; border: 1px solid #e0e0e0; border-radius: 8px; margin-bottom: 8px; background: #fff; align-items: flex-start; }
+    .check-item .checkbox { width: 20px; height: 20px; border: 2px solid #1a1a2e; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+    .check-item .content { flex: 1; }
+    .check-item .content strong { color: #1a1a2e; font-size: 15px; display: block; margin-bottom: 4px; }
+    .check-item .content p { font-size: 13px; color: #666; margin: 0; }
+    .check-item .meta-info { display: flex; gap: 12px; margin-top: 6px; font-size: 12px; }
+    .check-item .meta-info .priority-high { color: #ef4444; font-weight: bold; }
+    .check-item .meta-info .priority-med { color: #f59e0b; font-weight: bold; }
+    .check-item .meta-info .priority-low { color: #22c55e; font-weight: bold; }
+    .check-item .meta-info .time { color: #888; }
+    .tool-box { background: #f0f0f0; padding: 12px 16px; border-radius: 8px; margin: 12px 0; font-size: 13px; }
+    .tool-box strong { color: #e94560; }
+    .workflow-box { background: #1a1a2e; color: #fff; padding: 20px; border-radius: 10px; margin: 16px 0; font-size: 14px; }
+    .workflow-box h4 { color: #e94560; margin-bottom: 8px; }
+    .workflow-box code { background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 13px; }
+    .summary-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+    .summary-table th { background: #1a1a2e; color: #fff; padding: 10px; text-align: left; font-size: 14px; }
+    .summary-table td { padding: 8px 10px; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+    .summary-table tr:nth-child(even) { background: #f8f8f8; }
+    .final { background: #1a1a2e; color: #fff; padding: 40px; border-radius: 12px; text-align: center; margin-top: 48px; }
+    .final h2 { margin-bottom: 16px; }
+    .final a { color: #e94560; }
+    .final p { color: #b0b0cc; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+    <h1>Checklist <span>Automacao</span> de Negocio Digital</h1>
+    <h2>Passo a Passo para Automatizar Marketing, Vendas, Atendimento e Operacoes</h2>
+    <p class="author">Marina Veauvy</p>
+    <p class="site">marinaveauvy.com.br</p>
+</div>
+
+<div class="intro">
+    <h2>Como Usar Este Checklist</h2>
+    <p>Este checklist cobre <strong>8 areas</strong> do seu negocio digital com <strong>64 itens de automacao</strong>. Cada item inclui prioridade, tempo de implementacao e ferramentas recomendadas.</p>
+    <p><strong>Comece pelas prioridades ALTA</strong> — sao as automacoes com maior impacto no menor tempo.</p>
+    <p>Imprima este documento e marque cada item conforme implementar.</p>
+    <div class="tip"><strong>Meta realista:</strong> Implemente 2-3 automacoes por semana. Em 2 meses, seu negocio roda no piloto automatico.</div>
+</div>
+
+<!-- AREA 1 -->
+<div class="area page-break">
+<h2>1. Marketing Digital (8 itens)</h2>
+<div class="area-intro">Automatize a geracao de leads, publicacao de conteudo e nurturing. Economia estimada: 8-10 horas/semana.</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Agendamento automatico de posts nas redes sociais</strong>
+        <p>Configure Buffer, Later ou Meta Business Suite para agendar 1-2 semanas de posts de uma so vez.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">30min para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Sequencia de boas-vindas por email (automatica)</strong>
+        <p>Crie 3-5 emails que disparam automaticamente quando alguem se inscreve. Funciona 24/7 sem voce.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">2h para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Captura automatica de leads (pop-up + landing page)</strong>
+        <p>Configure formularios de captura que adicionam contatos automaticamente a sua lista de email.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Pixel de rastreamento instalado (Meta + Google)</strong>
+        <p>Instale pixels em todas as paginas para retargeting e medicao de conversao.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">30min para instalar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Blog com SEO automatizado</strong>
+        <p>Use IA para gerar rascunhos de artigos. Configure Yoast/RankMath para SEO on-page automatico.</p>
+        <div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">3h para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>UTM tracking em todos os links</strong>
+        <p>Padronize UTMs para rastrear de onde vem cada lead. Use Google Campaign URL Builder.</p>
+        <div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">1h para padronizar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Repost automatico de conteudo evergreen</strong>
+        <p>Configure Publer ou Missinglettr para republicar seus melhores posts automaticamente a cada 90 dias.</p>
+        <div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">1h para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Dashboard de marketing automatizado</strong>
+        <p>Conecte Google Analytics + redes sociais + email em um dashboard unico (Google Looker Studio gratuito).</p>
+        <div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">2h para configurar</span></div>
+    </div>
+</div>
+
+<div class="tool-box"><strong>Ferramentas recomendadas:</strong> Buffer (gratis ate 3 canais), Brevo (gratis ate 300 emails/dia), Google Tag Manager (gratis), Canva AI (design), ChatGPT (conteudo)</div>
+</div>
+
+<!-- AREA 2 -->
+<div class="area page-break">
+<h2>2. Vendas (8 itens)</h2>
+<div class="area-intro">Automatize o processo de qualificacao, follow-up e fechamento. Economia estimada: 5-8 horas/semana.</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>CRM configurado com pipeline de vendas</strong>
+        <p>Configure um CRM com etapas claras: lead > qualificado > proposta > negociacao > fechado. Mova cards manualmente ou automaticamente.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">2h para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Follow-up automatico por email/WhatsApp</strong>
+        <p>Configure lembretes e mensagens automaticas para leads que nao responderam em 3, 7 e 14 dias.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Proposta comercial com template automatico</strong>
+        <p>Crie templates de proposta no Google Docs/Canva. Duplique e personalize em 10 minutos ao inves de 1 hora.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">2h para criar templates</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Agendamento automatico de reunioes</strong>
+        <p>Use Cal.com ou Calendly para que clientes agendem direto na sua agenda. Zero ping-pong de horarios.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">30min para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Pagamento online automatico (link de pagamento)</strong>
+        <p>Configure gateway de pagamento (Asaas, Stripe, PagSeguro) com link de pagamento e cobranca recorrente.</p>
+        <div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Nota fiscal automatica apos pagamento</strong>
+        <p>Integre gateway de pagamento com emissor de NF (eNotas, NFe.io). NF emitida automaticamente.</p>
+        <div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">2h para integrar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Lead scoring automatico</strong>
+        <p>Configure pontuacao automatica de leads baseada em: abriu email (+1), clicou (+2), visitou pagina de vendas (+5), agendou reuniao (+10).</p>
+        <div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">1h para configurar</span></div>
+    </div>
+</div>
+
+<div class="check-item">
+    <div class="checkbox"></div>
+    <div class="content">
+        <strong>Contrato digital com assinatura eletronica</strong>
+        <p>Use DocuSign, Clicksign ou PandaDoc para envio e assinatura de contratos online. Sem impressora.</p>
+        <div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">1h para configurar</span></div>
+    </div>
+</div>
+
+<div class="tool-box"><strong>Ferramentas recomendadas:</strong> HubSpot CRM (gratis), Cal.com (gratis), Asaas (pagamentos), Zapier (integracoes), Clicksign (contratos)</div>
+</div>
+
+<!-- AREA 3 -->
+<div class="area page-break">
+<h2>3. Email Marketing (8 itens)</h2>
+<div class="area-intro">Automatize comunicacao, nurturing e conversao por email. Economia estimada: 4-6 horas/semana.</div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Lista segmentada por interesse/origem</strong><p>Separe contatos por: lead magnet baixado, produto de interesse, estagio do funil. Segmentacao = relevancia.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para organizar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Automacao de nurturing (sequencia educativa)</strong><p>Crie uma sequencia de 5-7 emails educativos que disparam automaticamente apos captura do lead.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">3h para criar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Automacao de carrinho abandonado</strong><p>3 emails automaticos: 1h (lembrete), 24h (beneficios) e 72h (desconto) apos abandono.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Email de aniversario/data especial</strong><p>Colete data de nascimento e envie email automatico com oferta especial. Personalizacao que converte.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Re-engajamento automatico de inativos</strong><p>Configure trigger para enviar email de reativacao quando contato nao abre emails ha 60 dias.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Limpeza automatica de lista</strong><p>Configure remocao automatica de hard bounces e contatos inativos ha 90+ dias. Lista limpa = melhor entregabilidade.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">15min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>A/B test automatico de assuntos</strong><p>Configure teste A/B automatico: envie 2 assuntos para 20% da lista, o vencedor vai para os 80% restantes.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">15min por envio</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Relatorio automatico de performance</strong><p>Configure relatorio semanal automatico com: taxa de abertura, cliques, conversoes e crescimento da lista.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="tool-box"><strong>Ferramentas recomendadas:</strong> Brevo (gratis ate 300/dia), Mailchimp (gratis ate 500 contatos), ActiveCampaign (avancado), ConvertKit (criadores)</div>
+</div>
+
+<!-- AREA 4 -->
+<div class="area page-break">
+<h2>4. Redes Sociais (8 itens)</h2>
+<div class="area-intro">Automatize publicacao, engajamento e analise. Economia estimada: 5-7 horas/semana.</div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Calendario editorial com agendamento</strong><p>Planeje 1 mes de conteudo e agende tudo em 1 sessao de batching. Use Buffer ou Meta Business Suite.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">3h/mes para planejar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Templates de posts reutilizaveis no Canva</strong><p>Crie 5-10 templates base no Canva. Duplique e adapte para cada post. Consistencia visual automatica.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">2h para criar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Respostas automaticas em DMs e comentarios</strong><p>Configure respostas automaticas para perguntas frequentes no Instagram (palavras-chave) e ManyChat para DMs.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Hashtags salvas por categoria</strong><p>Crie 4-5 conjuntos de 30 hashtags e salve no Notes/Notion. Copie e cole ao publicar.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">30min para organizar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Cross-posting automatico entre plataformas</strong><p>Configure Publer ou IFTTT para republicar conteudo do Instagram no Facebook, LinkedIn e Pinterest automaticamente.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Monitoramento de mencoes automatico</strong><p>Use Google Alerts (gratis) ou Mention para ser notificado quando sua marca for mencionada online.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">15min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Relatorio semanal de metricas</strong><p>Configure export automatico de metricas ou use Metricool para dashboard unificado de todas as redes.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Banco de conteudo organizado</strong><p>Crie pasta no Google Drive/Notion com: ideias, roteiros, legendas, imagens, videos. Tudo acessivel e organizado.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">2h para organizar</span></div></div></div>
+
+<div class="tool-box"><strong>Ferramentas recomendadas:</strong> Buffer (gratis), ManyChat (DMs), Canva (design), Metricool (analytics), Publer (cross-posting)</div>
+</div>
+
+<!-- AREA 5 -->
+<div class="area page-break">
+<h2>5. Atendimento ao Cliente (8 itens)</h2>
+<div class="area-intro">Automatize respostas, triagem e satisfacao. Economia estimada: 4-6 horas/semana.</div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Respostas rapidas no WhatsApp Business</strong><p>Configure 10+ respostas rapidas para perguntas frequentes. Use atalhos (ex: /preco, /horario, /link).</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Mensagem de ausencia automatica</strong><p>Configure mensagem automatica fora do horario comercial com prazo de retorno e FAQ basico.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">10min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Chatbot de triagem no site/WhatsApp</strong><p>Configure chatbot que identifica a necessidade do cliente antes de transferir para humano. Reduz 40% das interacoes manuais.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">2h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>FAQ publicado no site e WhatsApp</strong><p>Crie pagina de FAQ com as 20 perguntas mais frequentes. Link no perfil do WhatsApp Business.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para criar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Pesquisa de satisfacao automatica (NPS)</strong><p>Envie pesquisa NPS automatica 7 dias apos compra/servico. Use Typeform ou Google Forms + Zapier.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Tickets de suporte organizados</strong><p>Use Freshdesk (gratis) ou Notion para organizar tickets por status, prioridade e responsavel.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Base de conhecimento interna</strong><p>Documente solucoes para problemas comuns em Notion/Google Docs. Equipe consulta antes de escalar.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">3h para documentar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Pedido automatico de avaliacao no Google</strong><p>Envie mensagem/email automatico pedindo avaliacao 3 dias apos entrega/conclusao do servico.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="tool-box"><strong>Ferramentas recomendadas:</strong> WhatsApp Business (gratis), ManyChat (chatbot), Typeform (pesquisas), Freshdesk (tickets gratis), Notion (base de conhecimento)</div>
+</div>
+
+<!-- AREA 6 -->
+<div class="area page-break">
+<h2>6. Financeiro (8 itens)</h2>
+<div class="area-intro">Automatize cobrancias, relatorios e controle. Economia estimada: 3-5 horas/semana.</div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Cobranca recorrente automatica</strong><p>Configure cobranca automatica por cartao ou boleto para clientes recorrentes. Zero inadimplencia por esquecimento.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Lembrete automatico de pagamento</strong><p>Configure emails/WhatsApp automaticos: 3 dias antes, no dia e 1 dia apos vencimento.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Emissao automatica de nota fiscal</strong><p>Integre sistema de pagamento com emissor de NF. NF emitida e enviada automaticamente apos pagamento.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">2h para integrar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Conciliacao bancaria automatica</strong><p>Conecte conta bancaria ao sistema financeiro para importar lancamentos automaticamente.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Relatorio financeiro mensal automatico</strong><p>Configure planilha ou sistema para gerar relatorio automatico no dia 1 de cada mes.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">2h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Alerta de contas a pagar</strong><p>Configure lembretes automaticos 5 dias antes do vencimento de cada conta fixa.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Categorizacao automatica de despesas</strong><p>Configure regras para categorizar gastos automaticamente por descricao ou fornecedor.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Backup automatico de dados financeiros</strong><p>Configure backup semanal automatico da planilha/sistema financeiro no Google Drive.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">15min para configurar</span></div></div></div>
+
+<div class="tool-box"><strong>Ferramentas recomendadas:</strong> Asaas (cobrancias), eNotas (NF automatica), Granatum (gestao financeira gratis), Google Sheets (controle), Zapier (integracoes)</div>
+</div>
+
+<!-- AREA 7 -->
+<div class="area">
+<h2>7. Operacoes (8 itens)</h2>
+<div class="area-intro">Automatize processos internos e gestao de equipe. Economia estimada: 3-5 horas/semana.</div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Onboarding automatico de clientes</strong><p>Crie sequencia automatica: email de boas-vindas > acesso > tutorial > check-in. Funciona sem intervencao.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">2h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Gestao de tarefas centralizada</strong><p>Configure Trello/Notion/ClickUp com fluxo padrao de tarefas. Toda a equipe no mesmo lugar.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">2h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>SOPs documentados para processos-chave</strong><p>Documente os 5-10 processos mais importantes em formato passo a passo. Qualquer pessoa executa.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h por SOP</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Notificacoes automaticas entre equipe</strong><p>Configure Slack/Discord com notificacoes automaticas: nova venda, novo lead, tarefa atrasada, etc.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Backup automatico de arquivos</strong><p>Configure sync automatico de pastas importantes com Google Drive, Dropbox ou OneDrive.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Entrega automatica de produto digital</strong><p>Configure entrega automatica apos pagamento: email com link, acesso a area de membros, etc.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Reunioes com pauta automatica</strong><p>Configure template de reuniao no Notion/Google Docs que gera pauta automatica baseada em tarefas pendentes.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Time tracking automatico</strong><p>Use Toggl ou Clockify para rastrear tempo gasto em cada projeto/cliente. Essencial para precificacao.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">15min para configurar</span></div></div></div>
+
+<div class="tool-box"><strong>Ferramentas recomendadas:</strong> Notion (gestao gratis), Trello (tarefas gratis), Slack (comunicacao gratis), Toggl (time tracking gratis), Loom (tutoriais em video)</div>
+</div>
+
+<!-- AREA 8 -->
+<div class="area page-break">
+<h2>8. Analytics e Dados (8 itens)</h2>
+<div class="area-intro">Automatize coleta e visualizacao de dados para decisoes baseadas em numeros. Economia estimada: 2-3 horas/semana.</div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Google Analytics 4 configurado corretamente</strong><p>Instale GA4, configure eventos de conversao (compra, lead, agendamento) e conecte ao Google Ads.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Dashboard unificado de metricas</strong><p>Crie dashboard no Google Looker Studio conectando: Analytics, redes sociais, email, vendas. Visao 360 graus.</p><div class="meta-info"><span class="priority-high">ALTA</span><span class="time">3h para criar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Relatorio semanal automatico por email</strong><p>Configure envio automatico de relatorio toda segunda com metricas-chave da semana anterior.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">1h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Tracking de conversao end-to-end</strong><p>Rastreie toda a jornada: clique no anuncio > pagina > lead > qualificado > venda. Saiba o CAC real.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">2h para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Alertas automaticos para anomalias</strong><p>Configure alertas no GA4 para: queda de trafego > 30%, pico de bounce rate, queda de conversao.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">30min para configurar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Heatmap no site principal</strong><p>Instale Hotjar ou Microsoft Clarity (gratis) para ver onde visitantes clicam, scrollam e abandonam.</p><div class="meta-info"><span class="priority-med">MEDIA</span><span class="time">15min para instalar</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>A/B testing automatizado</strong><p>Configure Google Optimize ou VWO para testar variacoes de paginas automaticamente. Dados > opinioes.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">1h por teste</span></div></div></div>
+
+<div class="check-item"><div class="checkbox"></div><div class="content"><strong>Atribuicao de receita por canal</strong><p>Configure modelo de atribuicao para saber quanto cada canal (organico, pago, email, social) gera de receita.</p><div class="meta-info"><span class="priority-low">BAIXA</span><span class="time">2h para configurar</span></div></div></div>
+
+<div class="tool-box"><strong>Ferramentas recomendadas:</strong> Google Analytics 4 (gratis), Looker Studio (gratis), Microsoft Clarity (gratis), Hotjar (gratis ate 35 sessoes/dia)</div>
+</div>
+
+<!-- RESUMO -->
+<div class="area page-break">
+<h2>Resumo de Impacto</h2>
+
+<table class="summary-table">
+    <tr><th>Area</th><th>Itens</th><th>Economia Semanal</th><th>Itens Alta Prioridade</th></tr>
+    <tr><td>Marketing Digital</td><td>8</td><td>8-10 horas</td><td>4</td></tr>
+    <tr><td>Vendas</td><td>8</td><td>5-8 horas</td><td>5</td></tr>
+    <tr><td>Email Marketing</td><td>8</td><td>4-6 horas</td><td>3</td></tr>
+    <tr><td>Redes Sociais</td><td>8</td><td>5-7 horas</td><td>3</td></tr>
+    <tr><td>Atendimento</td><td>8</td><td>4-6 horas</td><td>4</td></tr>
+    <tr><td>Financeiro</td><td>8</td><td>3-5 horas</td><td>3</td></tr>
+    <tr><td>Operacoes</td><td>8</td><td>3-5 horas</td><td>4</td></tr>
+    <tr><td>Analytics</td><td>8</td><td>2-3 horas</td><td>2</td></tr>
+    <tr><td><strong>TOTAL</strong></td><td><strong>64</strong></td><td><strong>34-50 horas</strong></td><td><strong>28</strong></td></tr>
+</table>
+
+<div class="workflow-box">
+    <h4>Workflow de Implementacao Recomendado</h4>
+    <p>Semana 1-2: Itens ALTA prioridade de Marketing + Vendas<br>
+    Semana 3-4: Itens ALTA prioridade de Email + Atendimento<br>
+    Semana 5-6: Itens ALTA prioridade de Financeiro + Operacoes<br>
+    Semana 7-8: Itens MEDIA prioridade (todas as areas)<br>
+    Mes 3+: Itens BAIXA prioridade e otimizacoes</p>
+</div>
+</div>
+
+<div class="final">
+    <h2>64 Automacoes. Ate 50 Horas Economizadas por Semana.</h2>
+    <p>Comece pelas prioridades ALTA. 2-3 por semana.</p>
+    <p>Em 2 meses, seu negocio funciona no piloto automatico.</p>
+    <p style="margin-top: 24px;">Quer aprender mais sobre automacao e IA para negocios?</p>
+    <p><a href="https://marinaveauvy.github.io/costuras-meditacoes/newsletter-impulso-ia.html">Newsletter Impulso IA — toda terca-feira</a></p>
+    <p style="margin-top: 16px; color: #666; font-size: 13px;">Marina Veauvy &middot; marinaveauvy.com.br</p>
+</div>
+
+</body>
+</html>

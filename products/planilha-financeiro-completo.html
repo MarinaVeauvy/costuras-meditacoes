@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planilha Controle Financeiro Completo — Guia de Uso</title>
+<style>
+    @media print { .page-break { page-break-before: always; } }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Georgia, 'Times New Roman', serif; background: #fff; color: #333; line-height: 1.7; max-width: 800px; margin: 0 auto; padding: 20px; }
+    .cover { background: #1a1a2e; color: #fff; text-align: center; padding: 80px 40px; border-radius: 12px; margin-bottom: 40px; }
+    .cover h1 { font-size: 36px; margin-bottom: 12px; letter-spacing: -1px; }
+    .cover h1 span { color: #e94560; }
+    .cover h2 { font-size: 20px; font-weight: 400; color: #b0b0cc; margin-bottom: 32px; }
+    .cover .author { font-size: 16px; color: #e8d5b7; }
+    .cover .site { font-size: 14px; color: #888; margin-top: 8px; }
+    .section { margin-bottom: 48px; }
+    .section h2 { color: #1a1a2e; font-size: 28px; border-bottom: 3px solid #e94560; padding-bottom: 12px; margin-bottom: 24px; }
+    .section h3 { color: #1a1a2e; font-size: 20px; margin: 24px 0 12px; }
+    .section p { margin-bottom: 12px; }
+    .highlight { background: #f8f8f8; padding: 24px; border-radius: 10px; margin: 16px 0; border-left: 4px solid #e94560; }
+    .highlight strong { color: #e94560; }
+    .step { background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+    .step .number { display: inline-block; background: #1a1a2e; color: #fff; width: 32px; height: 32px; border-radius: 50%; text-align: center; line-height: 32px; font-size: 14px; font-weight: bold; margin-right: 12px; }
+    .step h3 { display: inline; font-size: 18px; }
+    .step p { margin-top: 12px; }
+    .tab-card { background: #fff; border: 2px solid #e0e0e0; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+    .tab-card h3 { color: #e94560; font-size: 20px; margin-bottom: 12px; }
+    .tab-card ul { margin-left: 20px; margin-top: 8px; }
+    .tab-card li { margin-bottom: 6px; }
+    .tip-box { background: #e94560; color: #fff; padding: 20px; border-radius: 10px; margin: 20px 0; }
+    .tip-box strong { color: #fff; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th { background: #1a1a2e; color: #fff; padding: 12px; text-align: left; font-size: 14px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+    tr:nth-child(even) { background: #f8f8f8; }
+    .final { background: #1a1a2e; color: #fff; padding: 40px; border-radius: 12px; text-align: center; margin-top: 48px; }
+    .final h2 { margin-bottom: 16px; }
+    .final a { color: #e94560; }
+    .final p { color: #b0b0cc; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+    <h1>Planilha <span>Controle Financeiro</span> Completo</h1>
+    <h2>Guia de Uso — Dashboard de Gastos, Receitas, Investimentos e Metas</h2>
+    <p class="author">Marina Veauvy</p>
+    <p class="site">marinaveauvy.com.br</p>
+</div>
+
+<div class="section">
+    <h2>Visao Geral da Planilha</h2>
+    <p>Sua planilha de Controle Financeiro Completo possui <strong>7 abas</strong> interligadas que formam um dashboard financeiro profissional. Todas as formulas ja estao configuradas — voce so precisa preencher seus dados.</p>
+
+    <div class="highlight">
+        <strong>Acesso:</strong> A planilha esta no Google Sheets. Ao abrir o link, clique em <strong>Arquivo > Fazer uma copia</strong> para ter sua versao editavel. Nunca edite o template original.
+    </div>
+</div>
+
+<div class="section">
+    <h2>As 7 Abas da Planilha</h2>
+
+    <div class="tab-card">
+        <h3>Aba 1: Dashboard</h3>
+        <p>Visao geral automatica de toda sua situacao financeira. Atualiza sozinha conforme voce preenche as outras abas.</p>
+        <ul>
+            <li><strong>Saldo atual:</strong> Receitas menos despesas do mes</li>
+            <li><strong>Grafico de pizza:</strong> Distribuicao de gastos por categoria</li>
+            <li><strong>Grafico de barras:</strong> Comparativo receita vs despesa (12 meses)</li>
+            <li><strong>Indicador de saude:</strong> Verde (superavit), Amarelo (equilibrio), Vermelho (deficit)</li>
+            <li><strong>Top 5 gastos:</strong> Suas maiores despesas do mes</li>
+        </ul>
+    </div>
+
+    <div class="tab-card">
+        <h3>Aba 2: Receitas</h3>
+        <p>Registre todas as suas fontes de renda mensais.</p>
+        <ul>
+            <li><strong>Colunas:</strong> Data, Descricao, Categoria, Valor, Recorrente (Sim/Nao)</li>
+            <li><strong>Categorias pre-configuradas:</strong> Salario, Freelance, Investimentos, Vendas, Aluguel, Outros</li>
+            <li><strong>Total automatico:</strong> Soma por categoria e total geral</li>
+            <li><strong>Comparativo:</strong> Receita atual vs mes anterior (variacao %)</li>
+        </ul>
+    </div>
+
+    <div class="tab-card">
+        <h3>Aba 3: Despesas</h3>
+        <p>Registre todos os seus gastos organizados por categoria.</p>
+        <ul>
+            <li><strong>Colunas:</strong> Data, Descricao, Categoria, Subcategoria, Valor, Forma de Pagamento</li>
+            <li><strong>12 categorias:</strong> Moradia, Transporte, Alimentacao, Saude, Educacao, Lazer, Vestuario, Assinaturas, Impostos, Seguros, Dividas, Outros</li>
+            <li><strong>Alerta automatico:</strong> Destaca em vermelho gastos acima do orcamento da categoria</li>
+            <li><strong>Filtros:</strong> Filtre por periodo, categoria ou forma de pagamento</li>
+        </ul>
+    </div>
+
+    <div class="tab-card">
+        <h3>Aba 4: Orcamento</h3>
+        <p>Defina limites de gastos por categoria e acompanhe em tempo real.</p>
+        <ul>
+            <li><strong>Orcamento por categoria:</strong> Defina o valor maximo mensal para cada categoria</li>
+            <li><strong>Barra de progresso:</strong> Visualize quanto ja gastou vs o limite</li>
+            <li><strong>Regra 50-30-20:</strong> Sugestao automatica baseada na sua renda (Necessidades 50%, Desejos 30%, Poupanca 20%)</li>
+            <li><strong>Alerta de estouro:</strong> Notificacao quando ultrapassar 80% do orcamento</li>
+        </ul>
+    </div>
+
+    <div class="tab-card">
+        <h3>Aba 5: Investimentos</h3>
+        <p>Acompanhe todos os seus investimentos em um so lugar.</p>
+        <ul>
+            <li><strong>Colunas:</strong> Ativo, Tipo (Renda Fixa/Variavel), Data da Compra, Valor Investido, Valor Atual, Rendimento</li>
+            <li><strong>Tipos:</strong> Tesouro Direto, CDB, LCI/LCA, Fundos, Acoes, FIIs, Cripto, Poupanca</li>
+            <li><strong>Rendimento automatico:</strong> Calcule ganho em R$ e percentual</li>
+            <li><strong>Diversificacao:</strong> Grafico de pizza com distribuicao por tipo de ativo</li>
+        </ul>
+    </div>
+
+    <div class="tab-card">
+        <h3>Aba 6: Metas</h3>
+        <p>Defina e acompanhe suas metas financeiras.</p>
+        <ul>
+            <li><strong>Colunas:</strong> Meta, Valor Total, Valor Poupado, Prazo, Aporte Mensal Necessario</li>
+            <li><strong>Barra de progresso:</strong> Percentual atingido de cada meta</li>
+            <li><strong>Calculo automatico:</strong> Quanto precisa poupar por mes para atingir no prazo</li>
+            <li><strong>Exemplos:</strong> Reserva de emergencia, Viagem, Carro, Casa, Aposentadoria</li>
+        </ul>
+    </div>
+
+    <div class="tab-card">
+        <h3>Aba 7: Relatorio Anual</h3>
+        <p>Visao consolidada dos 12 meses do ano.</p>
+        <ul>
+            <li><strong>Tabela mensal:</strong> Receita, Despesa e Saldo de cada mes</li>
+            <li><strong>Graficos:</strong> Evolucao patrimonial ao longo do ano</li>
+            <li><strong>Medias:</strong> Gasto medio por categoria, receita media mensal</li>
+            <li><strong>Projecao:</strong> Estimativa de patrimonio para o final do ano</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section page-break">
+    <h2>Como Comecar (Passo a Passo)</h2>
+
+    <div class="step">
+        <span class="number">1</span><h3>Faca uma Copia da Planilha</h3>
+        <p>Abra o link que voce recebeu. Clique em <strong>Arquivo > Fazer uma copia</strong>. Renomeie com seu nome (ex: "Financeiro 2026 - Joao"). A planilha ficara salva no seu Google Drive.</p>
+    </div>
+
+    <div class="step">
+        <span class="number">2</span><h3>Preencha a Aba de Orcamento</h3>
+        <p>Comece pela aba Orcamento. Insira sua renda mensal total. O sistema vai sugerir automaticamente a distribuicao 50-30-20. Ajuste os limites por categoria conforme sua realidade.</p>
+    </div>
+
+    <div class="step">
+        <span class="number">3</span><h3>Registre as Receitas do Mes</h3>
+        <p>Va para a aba Receitas e registre todas as suas fontes de renda. Marque as recorrentes para que aparecam automaticamente nos proximos meses.</p>
+    </div>
+
+    <div class="step">
+        <span class="number">4</span><h3>Registre as Despesas Diariamente</h3>
+        <p>A aba Despesas e onde voce vai mais usar. Registre cada gasto com data, categoria e valor. <strong>Dica:</strong> registre no momento da compra pelo celular (Google Sheets tem app).</p>
+    </div>
+
+    <div class="step">
+        <span class="number">5</span><h3>Cadastre seus Investimentos</h3>
+        <p>Na aba Investimentos, registre todos os seus ativos. Atualize o valor atual mensalmente para acompanhar o rendimento.</p>
+    </div>
+
+    <div class="step">
+        <span class="number">6</span><h3>Defina suas Metas</h3>
+        <p>Na aba Metas, crie 3-5 metas financeiras com prazo. O sistema calcula automaticamente quanto voce precisa poupar por mes.</p>
+    </div>
+
+    <div class="step">
+        <span class="number">7</span><h3>Analise o Dashboard Semanalmente</h3>
+        <p>Volte ao Dashboard toda semana para ver sua situacao. O indicador de saude financeira mostra se voce esta no caminho certo.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Categorias Pre-Configuradas</h2>
+
+    <table>
+        <tr><th>Categoria</th><th>Exemplos</th><th>% Sugerido da Renda</th></tr>
+        <tr><td>Moradia</td><td>Aluguel, condominio, IPTU, luz, agua, gas, internet</td><td>30%</td></tr>
+        <tr><td>Transporte</td><td>Combustivel, uber, onibus, manutencao, estacionamento</td><td>10%</td></tr>
+        <tr><td>Alimentacao</td><td>Supermercado, restaurante, delivery, padaria</td><td>15%</td></tr>
+        <tr><td>Saude</td><td>Plano de saude, farmacia, academia, consultas</td><td>5%</td></tr>
+        <tr><td>Educacao</td><td>Cursos, livros, faculdade, mentorias</td><td>5%</td></tr>
+        <tr><td>Lazer</td><td>Streaming, shows, viagens, hobbies</td><td>5%</td></tr>
+        <tr><td>Vestuario</td><td>Roupas, calcados, acessorios</td><td>3%</td></tr>
+        <tr><td>Assinaturas</td><td>Apps, softwares, clubes, revistas</td><td>2%</td></tr>
+        <tr><td>Impostos</td><td>IR, INSS, DAS (se PJ)</td><td>Variavel</td></tr>
+        <tr><td>Seguros</td><td>Vida, auto, residencial</td><td>2%</td></tr>
+        <tr><td>Dividas</td><td>Emprestimos, financiamentos, cartao</td><td>0% (meta)</td></tr>
+        <tr><td>Poupanca</td><td>Reserva de emergencia, investimentos, metas</td><td>20%</td></tr>
+    </table>
+</div>
+
+<div class="section">
+    <h2>Dicas para Manter o Controle</h2>
+
+    <div class="tip-box">
+        <strong>Regra de Ouro:</strong> Registre todo gasto no mesmo dia. Nao deixe acumular — 5 minutos por dia evitam surpresas no final do mes.
+    </div>
+
+    <div class="highlight">
+        <strong>Dica 1:</strong> Use o app do Google Sheets no celular para registrar gastos em tempo real.
+    </div>
+    <div class="highlight">
+        <strong>Dica 2:</strong> Faca uma "reuniao financeira" consigo mesmo todo domingo — 15 minutos para revisar a semana.
+    </div>
+    <div class="highlight">
+        <strong>Dica 3:</strong> No inicio, nao tente cortar gastos. Apenas registre tudo por 30 dias. O simples ato de registrar ja reduz gastos em 10-15%.
+    </div>
+    <div class="highlight">
+        <strong>Dica 4:</strong> Priorize a reserva de emergencia: 6 meses de despesas fixas em investimento de liquidez diaria.
+    </div>
+    <div class="highlight">
+        <strong>Dica 5:</strong> Revise suas assinaturas trimestralmente. A maioria das pessoas paga por servicos que nao usa.
+    </div>
+</div>
+
+<div class="final">
+    <h2>Comece Agora!</h2>
+    <p>Abra a planilha, faca sua copia e comece a registrar hoje.</p>
+    <p>Em 30 dias voce tera uma visao completa das suas financas.</p>
+    <p style="margin-top: 24px;">Quer mais dicas de financas praticas? Assine gratis:</p>
+    <p><a href="https://marinaveauvy.github.io/costuras-meditacoes/newsletter-dinheiro-simples.html">Newsletter Dinheiro Simples — toda quinta-feira</a></p>
+    <p style="margin-top: 16px; color: #666; font-size: 13px;">Marina Veauvy &middot; marinaveauvy.com.br</p>
+</div>
+
+</body>
+</html>
