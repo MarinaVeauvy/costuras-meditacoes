@@ -73,38 +73,27 @@ Responda APENAS o JSON, sem markdown, sem code blocks.`;
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: { temperature: 0.8, maxOutputTokens: 4096 },
+      generationConfig: {
+        temperature: 0.8,
+        maxOutputTokens: 8192,
+        responseMimeType: 'application/json',
+        responseSchema: {
+          type: 'object',
+          properties: {
+            title: { type: 'string' },
+            excerpt: { type: 'string' },
+            content: { type: 'string' },
+          },
+          required: ['title', 'excerpt', 'content'],
+        },
+      },
     }),
   });
 
   const data = await res.json();
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw new Error('Gemini returned empty: ' + JSON.stringify(data).substring(0, 200));
-
-  // Parse JSON from response (handle markdown code blocks + control chars)
-  let cleaned = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
-  // Remove control characters that break JSON.parse
-  cleaned = cleaned.replace(/[\x00-\x1f\x7f]/g, m => m === '\n' || m === '\r' || m === '\t' ? m : '');
-  // Fix unescaped newlines inside strings
-  cleaned = cleaned.replace(/\n/g, '\\n').replace(/\r/g, '\\r').replace(/\t/g, '\\t');
-  // Restore structural newlines (between JSON keys)
-  cleaned = cleaned.replace(/\\n\s*"/g, '\n"').replace(/\\n\s*\}/g, '\n}').replace(/\{\\n/g, '{\n');
-  try {
-    return JSON.parse(cleaned);
-  } catch {
-    // Fallback: extract fields manually
-    const titleMatch = text.match(/"title"\s*:\s*"([^"]+)"/);
-    const excerptMatch = text.match(/"excerpt"\s*:\s*"([^"]+)"/);
-    const contentMatch = text.match(/"content"\s*:\s*"([\s\S]+?)"\s*\}/);
-    if (titleMatch && contentMatch) {
-      return {
-        title: titleMatch[1],
-        excerpt: excerptMatch ? excerptMatch[1] : titleMatch[1],
-        content: contentMatch[1].replace(/\\n/g, '\n').replace(/\\"/g, '"'),
-      };
-    }
-    throw new Error('JSON parse failed and manual extraction failed');
-  }
+  return JSON.parse(text);
 }
 
 async function publishArticle(article) {
