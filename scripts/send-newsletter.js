@@ -102,16 +102,15 @@ Responda APENAS o JSON.`;
   return JSON.parse(text);
 }
 
-async function sendNewsletter(config, content) {
+async function sendNewsletter(name, config, content) {
   const res = await fetch(SEND_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       admin_key: ADMIN_KEY,
-      from: config.from,
-      audienceId: config.audienceId,
+      newsletter_id: name,
       subject: content.subject,
-      html: content.html,
+      html_content: content.html,
     }),
   });
 
@@ -156,7 +155,7 @@ async function main() {
       const content = await generateNewsletter(name, config, articles);
       console.log(`Subject: "${content.subject}"`);
 
-      const result = await sendNewsletter(config, content);
+      const result = await sendNewsletter(name, config, content);
       console.log(`✅ Enviada! ${JSON.stringify(result)}`);
     } catch (err) {
       console.error(`❌ Erro em ${name}: ${err.message}`);
