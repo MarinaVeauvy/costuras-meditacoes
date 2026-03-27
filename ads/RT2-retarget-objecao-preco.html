@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>RT2 — Retarget Ponte</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; background: #FDF8F0; }
+  .card {
+    width: 1080px; height: 1080px; background: #FDF8F0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; padding: 80px 100px;
+  }
+  .card::before {
+    content: ''; position: absolute;
+    top: 30px; right: 30px; bottom: 30px; left: 30px;
+    border: 1px solid #C5A55A; opacity: 0.25; pointer-events: none;
+  }
+  .headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 54px; line-height: 1.3;
+    color: #3E2C1C; text-align: center; max-width: 800px; margin-bottom: 35px;
+  }
+  .highlight { color: #2D6B4F; }
+  .gold-line { width: 80px; height: 2px; background: #C5A55A; margin-bottom: 35px; }
+  .comparison {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 28px;
+    line-height: 1.8; color: #5C4033; text-align: center; max-width: 750px;
+    margin-bottom: 40px;
+  }
+  .comparison strong { color: #3E2C1C; }
+  .price-tag {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 80px; color: #2D6B4F; margin-bottom: 25px;
+  }
+  .cta {
+    background: #2D6B4F; color: #fff;
+    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 24px;
+    padding: 18px 45px; border-radius: 8px; margin-bottom: 12px;
+  }
+  .details {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 18px; color: #8B7340;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="headline">
+    Esse padrão te custa<br>
+    <span class="highlight">milhares por mês.</span><br>
+    Nomeá-lo custa:
+  </div>
+  <div class="price-tag">R$47</div>
+  <div class="gold-line"></div>
+  <div class="comparison">
+    A planilha mostra <strong>onde</strong> o dinheiro vai.<br>
+    O Raio-X mostra <strong>por que</strong> ele vai.
+  </div>
+  <div class="cta">Fazer meu Raio-X agora</div>
+  <div class="details">Resultado na hora · Garantia 7 dias</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!-- wp:html -->
+<div id="gerador-prompts-ia" style="font-family:'Segoe UI',system-ui,-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:20px;">
+<style>
+#gerador-prompts-ia *{box-sizing:border-box;margin:0;padding:0}
+#gerador-prompts-ia{color:#e0e0e0}
+#gerador-prompts-ia .gp-container{background:#1a1a2e;border-radius:16px;padding:32px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+#gerador-prompts-ia h2.gp-title{color:#fff;font-size:28px;font-weight:700;text-align:center;margin-bottom:8px;line-height:1.3}
+#gerador-prompts-ia .gp-subtitle{color:#a0a0b8;text-align:center;font-size:15px;margin-bottom:32px}
+#gerador-prompts-ia .gp-steps{display:flex;gap:8px;margin-bottom:28px;justify-content:center;flex-wrap:wrap}
+#gerador-prompts-ia .gp-step-indicator{background:#16213e;color:#a0a0b8;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:600;transition:all .3s}
+#gerador-prompts-ia .gp-step-indicator.active{background:#e94560;color:#fff}
+#gerador-prompts-ia .gp-step-indicator.completed{background:#2d6a4f;color:#fff}
+#gerador-prompts-ia .gp-section{margin-bottom:24px}
+#gerador-prompts-ia .gp-label{color:#e94560;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:block}
+#gerador-prompts-ia .gp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+#gerador-prompts-ia .gp-card{background:#16213e;border:2px solid transparent;border-radius:10px;padding:14px 16px;cursor:pointer;transition:all .25s;text-align:center;font-size:14px;color:#c8c8e0;font-weight:500}
+#gerador-prompts-ia .gp-card:hover{border-color:#e94560;transform:translateY(-2px);box-shadow:0 4px 12px rgba(233,69,96,0.2)}
+#gerador-prompts-ia .gp-card.selected{border-color:#e94560;background:#e9456015;color:#fff}
+#gerador-prompts-ia .gp-customization{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#gerador-prompts-ia .gp-input-group{display:flex;flex-direction:column;gap:4px}
+#gerador-prompts-ia .gp-input-group.full-width{grid-column:1/-1}
+#gerador-prompts-ia .gp-input-label{color:#a0a0b8;font-size:12px;font-weight:500}
+#gerador-prompts-ia .gp-input{background:#16213e;border:1px solid #2a2a4a;border-radius:8px;padding:10px 14px;color:#e0e0e0;font-size:14px;font-family:inherit;width:100%;transition:border-color .2s}
+#gerador-prompts-ia .gp-input:focus{outline:none;border-color:#e94560}
+#gerador-prompts-ia select.gp-input{cursor:pointer;appearance:auto}
+#gerador-prompts-ia .gp-btn{background:linear-gradient(135deg,#e94560,#c81d45);color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:16px;font-weight:700;cursor:pointer;width:100%;transition:all .3s;font-family:inherit;letter-spacing:.5px}
+#gerador-prompts-ia .gp-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(233,69,96,0.4)}
+#gerador-prompts-ia .gp-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none}
+#gerador-prompts-ia .gp-btn-secondary{background:#16213e;border:2px solid #e94560;color:#e94560;border-radius:10px;padding:12px 24px;font-size:14px;font-weight:600;cursor:pointer;width:100%;transition:all .3s;font-family:inherit;margin-top:10px}
+#gerador-prompts-ia .gp-btn-secondary:hover{background:#e94560;color:#fff}
+#gerador-prompts-ia .gp-result-area{margin-top:24px;display:none}
+#gerador-prompts-ia .gp-result-card{background:#0f0f23;border:1px solid #2a2a4a;border-radius:12px;padding:20px;margin-bottom:16px;position:relative}
+#gerador-prompts-ia .gp-result-badge{display:inline-block;background:#e94560;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+#gerador-prompts-ia .gp-result-text{color:#d0d0e8;font-size:14px;line-height:1.7;white-space:pre-wrap;word-wrap:break-word}
+#gerador-prompts-ia .gp-copy-btn{position:absolute;top:16px;right:16px;background:#16213e;border:1px solid #e94560;color:#e94560;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+#gerador-prompts-ia .gp-copy-btn:hover{background:#e94560;color:#fff}
+#gerador-prompts-ia .gp-copy-btn.copied{background:#2d6a4f;border-color:#2d6a4f;color:#fff}
+#gerador-prompts-ia .gp-divider{height:1px;background:#2a2a4a;margin:28px 0}
+#gerador-prompts-ia .gp-cta{background:linear-gradient(135deg,#16213e,#1a1a2e);border:1px solid #2a2a4a;border-radius:12px;padding:24px;text-align:center;margin-top:28px}
+#gerador-prompts-ia .gp-cta h3{color:#fff;font-size:18px;margin-bottom:8px}
+#gerador-prompts-ia .gp-cta p{color:#a0a0b8;font-size:14px;margin-bottom:16px;line-height:1.5}
+#gerador-prompts-ia .gp-cta-form{display:flex;gap:8px;max-width:420px;margin:0 auto}
+#gerador-prompts-ia .gp-cta-input{flex:1;background:#0f0f23;border:1px solid #2a2a4a;border-radius:8px;padding:10px 14px;color:#e0e0e0;font-size:14px;font-family:inherit}
+#gerador-prompts-ia .gp-cta-input:focus{outline:none;border-color:#e94560}
+#gerador-prompts-ia .gp-cta-btn{background:#e94560;color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;font-family:inherit;transition:background .2s}
+#gerador-prompts-ia .gp-cta-btn:hover{background:#c81d45}
+#gerador-prompts-ia .gp-cta-success{color:#2d6a4f;font-size:14px;font-weight:500;display:none;margin-top:8px}
+@media(max-width:600px){
+#gerador-prompts-ia .gp-container{padding:20px 16px}
+#gerador-prompts-ia h2.gp-title{font-size:22px}
+#gerador-prompts-ia .gp-grid{grid-template-columns:1fr}
+#gerador-prompts-ia .gp-customization{grid-template-columns:1fr}
+#gerador-prompts-ia .gp-cta-form{flex-direction:column}
+#gerador-prompts-ia .gp-steps{gap:6px}
+#gerador-prompts-ia .gp-step-indicator{padding:6px 12px;font-size:11px}
+}
+</style>
+
+<div class="gp-container">
+<h2 class="gp-title">Gerador de Prompts para IA</h2>
+<p class="gp-subtitle">Crie prompts profissionais em segundos. Selecione, personalize e copie.</p>
+
+<div class="gp-steps">
+<span class="gp-step-indicator active" id="gp-ind-1">1. Categoria</span>
+<span class="gp-step-indicator" id="gp-ind-2">2. Tarefa</span>
+<span class="gp-step-indicator" id="gp-ind-3">3. Personalizar</span>
+</div>
+
+<div class="gp-section" id="gp-step1">
+<span class="gp-label">Escolha a categoria</span>
+<div class="gp-grid" id="gp-categories"></div>
+</div>
+
+<div class="gp-section" id="gp-step2" style="display:none">
+<span class="gp-label">Escolha a tarefa</span>
+<div class="gp-grid" id="gp-tasks"></div>
+</div>
+
+<div class="gp-section" id="gp-step3" style="display:none">
+<span class="gp-label">Personalize (opcional)</span>
+<div class="gp-customization">
+<div class="gp-input-group">
+<span class="gp-input-label">Nome da empresa</span>
+<input type="text" class="gp-input" id="gp-empresa" placeholder="Ex: Minha Empresa">
+</div>
+<div class="gp-input-group">
+<span class="gp-input-label">Setor / Nicho</span>
+<input type="text" class="gp-input" id="gp-setor" placeholder="Ex: Moda feminina">
+</div>
+<div class="gp-input-group">
+<span class="gp-input-label">Tom de voz</span>
+<select class="gp-input" id="gp-tom">
+<option value="">Selecione...</option>
+<option value="formal">Formal e corporativo</option>
+<option value="casual">Casual e acessivel</option>
+<option value="tecnico">Tecnico e especializado</option>
+</select>
+</div>
+<div class="gp-input-group">
+<span class="gp-input-label">Publico-alvo</span>
+<input type="text" class="gp-input" id="gp-publico" placeholder="Ex: Mulheres 25-40 anos">
+</div>
+</div>
+</div>
+
+<button class="gp-btn" id="gp-generate" disabled>Gerar Prompts</button>
+
+<div class="gp-result-area" id="gp-results">
+<div class="gp-divider"></div>
+<span class="gp-label">Seus prompts prontos para usar</span>
+<div id="gp-results-list"></div>
+<button class="gp-btn-secondary" id="gp-more">Gerar mais variantes</button>
+</div>
+
+<div class="gp-cta">
+<h3>Receba prompts exclusivos toda semana</h3>
+<p>Assine a newsletter Impulso IA e receba modelos prontos, dicas de automacao e estrategias para usar inteligencia artificial no seu negocio.</p>
+<div class="gp-cta-form">
+<input type="email" class="gp-cta-input" id="gp-cta-email" placeholder="Seu melhor e-mail">
+<button class="gp-cta-btn" id="gp-cta-submit">Assinar gratis</button>
+</div>
+<p class="gp-cta-success" id="gp-cta-ok">Inscricao realizada com sucesso! Verifique seu e-mail.</p>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+var DATA={
+"Marketing e Vendas":{
+tasks:["Criar post para Instagram","Escrever e-mail de venda","Analisar concorrente","Criar anuncio pago","Montar calendario editorial"],
+prompts:{
+"Criar post para Instagram":[
+"Voce e um especialista em marketing digital e social media{TOM}. Crie um post para Instagram{EMPRESA}{SETOR}. O post deve conter: 1) Uma frase de abertura com gancho forte (primeira linha que aparece no feed) que gere curiosidade; 2) Corpo do texto com 3 a 5 paragrafos curtos, usando quebras de linha para facilitar a leitura; 3) Uma chamada para acao clara no final; 4) 5 hashtags relevantes e estrategicas. O conteudo deve ser direcionado{PUBLICO}. Entregue o texto pronto para copiar e colar.",
+"Atue como um copywriter especializado em redes sociais{TOM}. Preciso de um carrossel para Instagram com 7 slides{EMPRESA}{SETOR}. Estruture assim: Slide 1 - Capa com titulo impactante que gere cliques; Slides 2 a 6 - Conteudo de valor com uma ideia por slide, frases curtas e diretas; Slide 7 - CTA pedindo para salvar, compartilhar e seguir. Inclua sugestao de legenda para acompanhar o carrossel{PUBLICO}. Entregue cada slide separadamente.",
+"Voce e um social media manager com experiencia em engajamento organico{TOM}. Crie 3 versoes diferentes de post para Instagram{EMPRESA}{SETOR}: uma versao educativa, uma versao inspiracional e uma versao com prova social. Cada versao deve ter no maximo 150 palavras, incluir emojis estrategicos e um CTA{PUBLICO}. Indique qual formato (imagem unica, carrossel ou reels) funciona melhor para cada versao.",
+"Atue como estrategista de conteudo para Instagram{TOM}. Crie um post no formato 'mito vs realidade'{EMPRESA}{SETOR}. Apresente 5 mitos comuns do setor, desmentindo cada um com dados ou argumentos solidos. O tom deve ser confiante mas nao arrogante. Inclua legenda completa com gancho, desenvolvimento e CTA{PUBLICO}. Adicione 5 hashtags relevantes.",
+"Voce e um especialista em storytelling para redes sociais{TOM}. Crie um post de Instagram no formato de historia pessoal ou caso de estudo{EMPRESA}{SETOR}. A narrativa deve: comecar com uma situacao-problema que o publico se identifique; mostrar a transformacao; terminar com a licao aprendida e um CTA{PUBLICO}. Maximo de 200 palavras."
+],
+"Escrever e-mail de venda":[
+"Voce e um copywriter especializado em e-mail marketing{TOM}. Escreva um e-mail de vendas completo{EMPRESA}{SETOR} seguindo a estrutura AIDA (Atencao, Interesse, Desejo, Acao). O e-mail deve conter: linha de assunto com alta taxa de abertura (maximo 50 caracteres); preview text; corpo do e-mail com no maximo 300 palavras; botao de CTA com texto persuasivo; P.S. com urgencia ou escassez{PUBLICO}. Entregue pronto para disparar.",
+"Atue como especialista em funis de e-mail{TOM}. Crie uma sequencia de 3 e-mails de venda{EMPRESA}{SETOR}: E-mail 1 - Apresentacao do problema e conexao emocional; E-mail 2 - Apresentacao da solucao com prova social; E-mail 3 - Oferta direta com urgencia e bonus. Cada e-mail deve ter linha de assunto, corpo e CTA{PUBLICO}. Inclua o intervalo ideal entre cada envio.",
+"Voce e um expert em conversao por e-mail{TOM}. Escreva um e-mail de recuperacao de carrinho abandonado{EMPRESA}{SETOR}. Use tom empativo, relembre os beneficios do produto, inclua um elemento de urgencia sutil e oferca suporte para duvidas{PUBLICO}. Inclua 2 versoes de linha de assunto para teste A/B.",
+"Atue como copywriter de resposta direta{TOM}. Crie um e-mail de lancamento de produto ou servico{EMPRESA}{SETOR}. O e-mail deve gerar antecipacao, apresentar o produto com clareza, incluir 3 beneficios principais, prova social e uma oferta de lancamento com prazo{PUBLICO}. Entregue com linha de assunto e preview text.",
+"Voce e um especialista em nutriacao de leads via e-mail{TOM}. Crie um e-mail educativo que venda sem vender diretamente{EMPRESA}{SETOR}. O e-mail deve entregar valor genuino (dica, framework ou dado relevante), posicionar a marca como autoridade e terminar com um soft CTA{PUBLICO}. Maximo 250 palavras."
+],
+"Analisar concorrente":[
+"Voce e um analista de inteligencia competitiva{TOM}. Crie um roteiro detalhado para analise de concorrente{EMPRESA}{SETOR}. O roteiro deve cobrir: 1) Posicionamento de marca e proposta de valor; 2) Estrategia de precos; 3) Presenca digital (site, redes sociais, SEO); 4) Pontos fortes e fracos; 5) Oportunidades que estao sendo ignoradas. Para cada item, inclua perguntas-chave a responder e fontes de dados sugeridas{PUBLICO}. Entregue em formato de checklist acionavel.",
+"Atue como consultor estrategico{TOM}. Faca uma analise SWOT comparativa{EMPRESA}{SETOR}. Identifique: Forcas e Fraquezas internas; Oportunidades e Ameacas do mercado. Em seguida, sugira 3 acoes estrategicas concretas baseadas na analise{PUBLICO}. Apresente em formato de tabela.",
+"Voce e um estrategista de marketing digital{TOM}. Crie um template de analise de concorrentes digitais{EMPRESA}{SETOR}. Analise os seguintes pontos: performance do site (velocidade, UX); estrategia de conteudo; presenca em redes sociais; estrategia de anuncios pagos; avaliacao de clientes. Entregue com metricas sugeridas para cada ponto e ferramentas gratuitas para coleta{PUBLICO}.",
+"Atue como pesquisador de mercado{TOM}. Crie um framework para monitoramento continuo de concorrentes{EMPRESA}{SETOR}. Defina: quais concorrentes acompanhar (diretos e indiretos); quais metricas monitorar; com qual frequencia; quais ferramentas usar; como documentar e agir sobre os insights{PUBLICO}. Entregue em formato de processo passo a passo.",
+"Voce e um analista de mercado{TOM}. Faca um benchmarking de comunicacao e posicionamento{EMPRESA}{SETOR}. Compare: tom de voz; temas de conteudo mais abordados; formatos preferidos; frequencia de publicacao; nivel de engajamento. Identifique lacunas e oportunidades de diferenciacao{PUBLICO}. Apresente com exemplos praticos."
+],
+"Criar anuncio pago":[
+"Voce e um gestor de trafego pago especializado em Meta Ads{TOM}. Crie um anuncio completo para Facebook e Instagram{EMPRESA}{SETOR}. Entregue: 3 opcoes de titulo (maximo 40 caracteres cada); texto principal com gancho, beneficios e CTA (maximo 125 palavras); descricao do link; sugestao de imagem ou criativo; segmentacao sugerida de publico{PUBLICO}. Otimize para conversao.",
+"Atue como especialista em Google Ads{TOM}. Crie um grupo de anuncios de pesquisa{EMPRESA}{SETOR} contendo: 5 palavras-chave principais; 3 palavras-chave negativas; 3 titulos responsivos (maximo 30 caracteres cada); 2 descricoes (maximo 90 caracteres cada); extensoes de anuncio sugeridas{PUBLICO}. Foque em intencao de compra.",
+"Voce e um copywriter de performance{TOM}. Crie 3 variacoes de anuncio para teste A/B{EMPRESA}{SETOR}. Variacao A - foco em dor/problema; Variacao B - foco em beneficio/transformacao; Variacao C - foco em prova social/autoridade. Cada variacao deve ter titulo, texto e CTA distintos{PUBLICO}. Indique hipotese de teste para cada uma.",
+"Atue como estrategista de midia paga{TOM}. Crie um anuncio de remarketing{EMPRESA}{SETOR} para pessoas que visitaram o site mas nao converteram. O anuncio deve: abordar possiveis objecoes; reforcar beneficios; incluir elemento de urgencia; ter CTA direto{PUBLICO}. Entregue versoes para feed e stories.",
+"Voce e um especialista em copy para anuncios{TOM}. Crie um anuncio no formato problema-agitacao-solucao (PAS){EMPRESA}{SETOR}. Identifique a dor principal do publico, amplifique as consequencias de nao resolver e apresente a solucao de forma irresistivel{PUBLICO}. Inclua titulo, texto e CTA. Maximo 100 palavras no texto principal."
+],
+"Montar calendario editorial":[
+"Voce e um estrategista de conteudo{TOM}. Crie um calendario editorial de 30 dias para redes sociais{EMPRESA}{SETOR}. Para cada dia, defina: pilar de conteudo (educativo, inspiracional, vendas, bastidores, engajamento); tema especifico; formato sugerido (post, carrossel, reels, stories); breve descricao do conteudo. Distribua os pilares de forma equilibrada{PUBLICO}. Apresente em formato de tabela.",
+"Atue como gerente de conteudo digital{TOM}. Monte um calendario editorial semanal recorrente{EMPRESA}{SETOR} com a seguinte distribuicao: Segunda - conteudo educativo; Terca - bastidores ou humanizacao; Quarta - conteudo de valor (dica pratica); Quinta - prova social ou caso de sucesso; Sexta - conteudo de engajamento ou entretenimento. Para cada dia, dê 4 sugestoes de temas{PUBLICO}.",
+"Voce e um planejador de conteudo{TOM}. Crie um calendario editorial mensal baseado em pilares de conteudo{EMPRESA}{SETOR}. Defina 4 pilares estrategicos, justifique cada um, distribua 5 ideias de conteudo por pilar com formato e objetivo (alcance, engajamento, conversao){PUBLICO}. Inclua datas comemorativas relevantes do mes.",
+"Atue como social media manager{TOM}. Monte um plano de conteudo de 15 dias focado em lancamento{EMPRESA}{SETOR}. Fase 1 (dias 1-5): aquecimento e curiosidade; Fase 2 (dias 6-10): educacao e autoridade; Fase 3 (dias 11-15): oferta e conversao. Para cada dia, entregue tema, formato e breve roteiro{PUBLICO}.",
+"Voce e um consultor de marketing de conteudo{TOM}. Crie uma estrategia editorial trimestral{EMPRESA}{SETOR}. Defina: objetivo principal de cada mes; 3 campanhas temáticas; mix de formatos ideal; KPIs de acompanhamento; temas evergreen vs sazonais{PUBLICO}. Apresente de forma visual e organizada."
+]
+},
+"Atendimento ao Cliente":{
+tasks:["Responder reclamacao","Criar FAQ","Script de vendas","Mensagem de follow-up","Pesquisa de satisfacao"],
+prompts:{
+"Responder reclamacao":[
+"Voce e um especialista em atendimento ao cliente{TOM}. Crie um modelo de resposta para reclamacao de cliente insatisfeito{EMPRESA}{SETOR}. A resposta deve: 1) Demonstrar empatia genuina; 2) Reconhecer o problema sem se esquivar; 3) Apresentar uma solucao concreta com prazo; 4) Oferecer compensacao quando aplicavel; 5) Reforcar o compromisso com a qualidade{PUBLICO}. Crie 3 versoes: para redes sociais, e-mail e WhatsApp.",
+"Atue como gestor de experiencia do cliente{TOM}. Crie um protocolo de resposta a reclamacoes{EMPRESA}{SETOR} com scripts para 5 situacoes: atraso na entrega; produto com defeito; cobranca indevida; mau atendimento anterior; expectativa nao atendida. Cada script deve seguir a tecnica LEARN (Listen, Empathize, Apologize, React, Notify){PUBLICO}.",
+"Voce e um mediador de conflitos corporativos{TOM}. Escreva uma resposta para uma avaliacao negativa publica (Google ou Reclame Aqui){EMPRESA}{SETOR}. A resposta deve ser profissional, demonstrar que a empresa se importa, mover a conversa para o privado e mostrar aos demais leitores que a empresa resolve problemas{PUBLICO}. Maximo 150 palavras.",
+"Atue como supervisor de atendimento{TOM}. Crie um fluxograma de escalonamento de reclamacoes{EMPRESA}{SETOR}: Nivel 1 - Atendente resolve em ate 24h; Nivel 2 - Supervisor resolve em ate 48h; Nivel 3 - Gerente resolve em ate 72h. Para cada nivel, defina scripts de comunicacao, acoes permitidas e criterios de escalonamento{PUBLICO}.",
+"Voce e especialista em retencao de clientes{TOM}. Crie uma mensagem de recuperacao para cliente que cancelou ou pediu reembolso{EMPRESA}{SETOR}. A mensagem deve: entender o motivo real (com perguntas); oferecer alternativas ao cancelamento; apresentar um beneficio exclusivo de retencao; manter a porta aberta{PUBLICO}. Entregue versoes para e-mail e WhatsApp."
+],
+"Criar FAQ":[
+"Voce e um especialista em experiencia do cliente{TOM}. Crie um FAQ completo com 15 perguntas e respostas{EMPRESA}{SETOR}. Organize em categorias: Sobre o produto/servico (5); Pagamentos e precos (3); Entregas e prazos (3); Trocas e devolucoes (2); Suporte e contato (2). Cada resposta deve ser clara, objetiva e ter no maximo 80 palavras{PUBLICO}.",
+"Atue como UX writer{TOM}. Crie uma pagina de FAQ estrategica{EMPRESA}{SETOR} que reduza o volume de chamados no suporte. Identifique as 10 duvidas mais comuns baseadas em padroes do setor, escreva respostas que antecipem sub-perguntas e inclua CTAs internos quando relevante{PUBLICO}. Otimize as perguntas para SEO.",
+"Voce e um consultor de atendimento digital{TOM}. Crie um FAQ para WhatsApp Business{EMPRESA}{SETOR} com respostas rapidas. Limite cada resposta a 3 linhas. Crie 10 perguntas frequentes com respostas prontas para configurar como mensagens automaticas{PUBLICO}. Inclua saudacao inicial e mensagem de ausencia.",
+"Atue como analista de suporte{TOM}. Crie um FAQ interno para a equipe de atendimento{EMPRESA}{SETOR}. Para cada uma de 10 situacoes recorrentes, forneca: pergunta do cliente; resposta padrao; acoes a tomar no sistema; quando escalonar; informacoes que devem ser coletadas{PUBLICO}.",
+"Voce e um estrategista de conteudo de suporte{TOM}. Crie um FAQ dinamico{EMPRESA}{SETOR} organizado por jornada do cliente: pre-compra (5 perguntas), durante a compra (3 perguntas), pos-compra (5 perguntas). Cada resposta deve reduzir friccao e aproximar o cliente da conversao ou fidelizacao{PUBLICO}."
+],
+"Script de vendas":[
+"Voce e um especialista em vendas consultivas{TOM}. Crie um script de vendas completo por telefone{EMPRESA}{SETOR}. Estruture em etapas: abertura (rapport em 30 segundos); sondagem (5 perguntas de descoberta); apresentacao da solucao; tratamento de 5 objecoes comuns; fechamento com 3 tecnicas diferentes; pos-venda{PUBLICO}. Inclua frases exatas para cada etapa.",
+"Atue como trainer de vendas{TOM}. Crie um script de vendas por WhatsApp{EMPRESA}{SETOR} com fluxo de conversa natural. Inclua: mensagem de primeiro contato; perguntas de qualificacao; apresentacao da oferta; respostas para 'esta caro', 'vou pensar', 'preciso ver com alguem'; tecnica de fechamento; follow-up para quem nao respondeu{PUBLICO}.",
+"Voce e um consultor de vendas B2B{TOM}. Crie um script de apresentacao comercial de 15 minutos{EMPRESA}{SETOR}. Estrutura: 1) Contexto do mercado (2 min); 2) Problema que resolvemos (3 min); 3) Nossa solucao (5 min); 4) Resultados comprovados (3 min); 5) Proximos passos (2 min){PUBLICO}. Inclua perguntas de transicao entre blocos.",
+"Atue como especialista em inside sales{TOM}. Crie um script de qualificacao de leads (discovery call){EMPRESA}{SETOR}. Use o framework BANT (Budget, Authority, Need, Timeline) adaptado. Para cada criterio, forneca 3 perguntas abertas e criterios de classificacao (quente, morno, frio){PUBLICO}. Inclua encerramento para cada classificacao.",
+"Voce e um coach de vendas{TOM}. Crie um playbook de tratamento de objecoes{EMPRESA}{SETOR} com 10 objecoes mais comuns. Para cada objecao: por que o cliente diz isso; resposta usando a tecnica 'sinta, sentiram, descobriram'; pergunta de reconducao; exemplo pratico{PUBLICO}. Organize da mais frequente para a menos frequente."
+],
+"Mensagem de follow-up":[
+"Voce e um especialista em relacionamento com clientes{TOM}. Crie uma sequencia de 5 mensagens de follow-up por WhatsApp{EMPRESA}{SETOR}. Espacamento: dia 1, dia 3, dia 7, dia 14, dia 30. Cada mensagem deve ter um motivo legitimo de contato (nao apenas 'estou cobrando'), ser breve (maximo 3 linhas) e ter um CTA sutil{PUBLICO}. Inclua horarios ideais de envio.",
+"Atue como gestor comercial{TOM}. Crie e-mails de follow-up para 3 situacoes{EMPRESA}{SETOR}: pos-reuniao comercial; pos-envio de proposta; reativacao de lead frio (60+ dias sem contato). Cada e-mail deve ter linha de assunto com alta abertura, ser breve e ter proximo passo claro{PUBLICO}.",
+"Voce e um especialista em pos-venda{TOM}. Crie uma sequencia de mensagens de acompanhamento pos-compra{EMPRESA}{SETOR}: confirmacao e boas-vindas (dia 0); verificacao de recebimento (dia 3); pedido de feedback (dia 7); indicacao de uso avancado (dia 15); oferta de upsell (dia 30){PUBLICO}. Entregue para WhatsApp e e-mail.",
+"Atue como customer success manager{TOM}. Crie templates de mensagens de follow-up para diferentes momentos{EMPRESA}{SETOR}: onboarding; marco de 30 dias; renovacao proxima; cliente em risco de churn; reativacao. Cada template deve ser personalizavel e focado em valor{PUBLICO}.",
+"Voce e um estrategista de retencao{TOM}. Crie mensagens de follow-up para clientes inativos{EMPRESA}{SETOR}. Sequencia de 3 mensagens com abordagens diferentes: curiosidade (novidades), valor (conteudo exclusivo), urgencia (oferta limitada). Inclua assunto de e-mail e texto de WhatsApp para cada{PUBLICO}."
+],
+"Pesquisa de satisfacao":[
+"Voce e um especialista em customer experience{TOM}. Crie uma pesquisa de satisfacao completa{EMPRESA}{SETOR} com 10 perguntas. Inclua: 2 perguntas NPS (nota 0-10); 3 perguntas de escala Likert (concordancia); 3 perguntas de multipla escolha; 2 perguntas abertas. Organize em blocos logicos e escreva uma introducao motivadora{PUBLICO}. Entregue pronta para Google Forms.",
+"Atue como analista de qualidade{TOM}. Crie uma pesquisa de satisfacao rapida (maximo 3 minutos){EMPRESA}{SETOR} para enviar por WhatsApp. Maximo 5 perguntas, formato que funcione via mensagem de texto. Inclua: mensagem de envio, as perguntas, e mensagem de agradecimento{PUBLICO}.",
+"Voce e consultor de CX{TOM}. Crie uma pesquisa CSAT (Customer Satisfaction Score){EMPRESA}{SETOR} focada na jornada de compra. Avalie: processo de compra, atendimento recebido, qualidade do produto/servico, entrega/implementacao, probabilidade de recomendacao. Use escalas claras e inclua campos de comentario{PUBLICO}.",
+"Atue como pesquisador de mercado{TOM}. Crie uma pesquisa de satisfacao anual{EMPRESA}{SETOR} com 15 perguntas cobrindo: satisfacao geral, qualidade percebida, atendimento, preco vs valor, comparacao com concorrentes, sugestoes de melhoria. Inclua logica de pulos condicionais{PUBLICO}. Escreva e-mail de convite com incentivo.",
+"Voce e um designer de pesquisas{TOM}. Crie uma pesquisa pos-atendimento{EMPRESA}{SETOR} com 5 perguntas focadas em: resolucao do problema, tempo de resposta, cordialidade, clareza da comunicacao, nota geral. Formato otimizado para mobile. Inclua script de envio automatico e alerta para notas baixas{PUBLICO}."
+]
+}
+},
+"Criacao de Conteudo":{
+tasks:["Escrever artigo para blog","Criar roteiro de video","Legendas para Instagram","Newsletter","Descricao de produto"],
+prompts:{
+"Escrever artigo para blog":[
+"Voce e um redator de SEO com experiencia em marketing de conteudo{TOM}. Escreva um artigo completo para blog{EMPRESA}{SETOR}. O artigo deve ter: titulo otimizado para SEO; meta description (155 caracteres); introducao com gancho; minimo 5 subtitulos H2; listas e bullet points para escaneabilidade; conclusao com CTA; sugestao de 5 palavras-chave relacionadas{PUBLICO}. Entre 1.500 e 2.000 palavras.",
+"Atue como content strategist{TOM}. Crie um outline completo de artigo para blog{EMPRESA}{SETOR} sobre [TEMA]. Estruture: angulo unico de abordagem; titulo principal + 3 alternativas; estrutura de H2s e H3s; pontos-chave de cada secao; dados ou estatisticas a incluir; links internos sugeridos; CTA final{PUBLICO}. Justifique cada escolha estrategica.",
+"Voce e um ghostwriter especializado em conteudo B2B{TOM}. Escreva um artigo de lideranca de pensamento (thought leadership){EMPRESA}{SETOR}. O artigo deve posicionar a empresa como autoridade, apresentar uma perspectiva original sobre uma tendencia do setor, incluir dados e exemplos concretos{PUBLICO}. Tom autoritativo mas acessivel. 1.200 palavras.",
+"Atue como jornalista de negocios{TOM}. Crie um artigo no formato 'guia definitivo'{EMPRESA}{SETOR}. Cubra o tema de forma abrangente com: contexto e importancia; passo a passo detalhado; erros comuns a evitar; ferramentas recomendadas; checklist final{PUBLICO}. Otimize para featured snippet do Google.",
+"Voce e um criador de conteudo evergreen{TOM}. Escreva um artigo no formato listicle (lista){EMPRESA}{SETOR}: 'X dicas/estrategias/ferramentas para [OBJETIVO]'. Cada item deve ter titulo, explicacao de 100 palavras e exemplo pratico. Inclua introducao contextualizada e conclusao com proximo passo{PUBLICO}."
+],
+"Criar roteiro de video":[
+"Voce e um roteirista de conteudo digital{TOM}. Crie um roteiro completo de video para YouTube/Reels{EMPRESA}{SETOR}. Estrutura: GANCHO (primeiros 3 segundos - frase que prende); INTRODUCAO (15 segundos - contexto e promessa); CONTEUDO (3-5 pontos principais com transicoes); CTA (inscricao, like, comentario); ENCERRAMENTO. Inclua indicacoes de corte, texto na tela e B-roll{PUBLICO}. Duracao: 5-8 minutos.",
+"Atue como produtor de conteudo audiovisual{TOM}. Crie um roteiro de Reels/TikTok de 30-60 segundos{EMPRESA}{SETOR}. Formato: gancho visual e verbal nos primeiros 2 segundos; desenvolvimento rapido com cortes dinamicos; punchline ou revelacao final; CTA no texto da tela e na legenda. Inclua sugestao de audio trending{PUBLICO}. Entregue 3 versoes de roteiro.",
+"Voce e um especialista em video marketing{TOM}. Crie um roteiro de video de vendas (VSL){EMPRESA}{SETOR}. Estrutura classica: identificacao do problema; agitacao emocional; apresentacao da solucao; beneficios e diferenciais; prova social; oferta e garantia; CTA com urgencia{PUBLICO}. Duracao: 10-15 minutos. Inclua indicacoes de tom de voz e ritmo.",
+"Atue como social media creator{TOM}. Crie um roteiro de video no formato 'dia na vida' ou bastidores{EMPRESA}{SETOR}. O video deve humanizar a marca, mostrar processos reais e gerar conexao emocional. Inclua: cenas sugeridas; falas naturais (nao roboticas); momentos de humor ou vulnerabilidade; CTA organico{PUBLICO}. Para Stories e Reels.",
+"Voce e um roteirista educacional{TOM}. Crie um roteiro de video tutorial passo a passo{EMPRESA}{SETOR}. Estrutura: introducao do que sera ensinado; pre-requisitos; passo 1, 2, 3... (com explicacao clara de cada); erros comuns e como evitar; recapitulacao; proximo passo/CTA{PUBLICO}. Inclua indicacoes de screencast e demonstracoes."
+],
+"Legendas para Instagram":[
+"Voce e um social media copywriter{TOM}. Crie 5 legendas prontas para Instagram{EMPRESA}{SETOR}. Cada legenda deve ter: primeira linha com gancho irresistivel; corpo com valor ou storytelling (maximo 150 palavras); CTA de engajamento (pergunta, enquete, acao); 5 hashtags estrategicas. Temas: 1 educativo, 1 bastidores, 1 inspiracional, 1 venda sutil, 1 engajamento puro{PUBLICO}.",
+"Atue como criador de conteudo{TOM}. Escreva 3 legendas no formato storytelling{EMPRESA}{SETOR}. Cada historia deve ter inicio (situacao), meio (conflito/desafio), fim (resolucao/aprendizado). Conecte cada historia a um produto, servico ou valor da marca. Inclua CTA e hashtags{PUBLICO}. Tom pessoal e autentico.",
+"Voce e um especialista em copywriting para redes sociais{TOM}. Crie legendas com tecnicas de persuasao{EMPRESA}{SETOR}: 1) Legenda com prova social (depoimento adaptado); 2) Legenda com escassez/urgencia; 3) Legenda com autoridade (dados/pesquisas); 4) Legenda com reciprocidade (entrega valor gratis). Cada uma com gancho, corpo e CTA{PUBLICO}.",
+"Atue como gestor de comunidade{TOM}. Crie 5 legendas focadas em engajamento maximo{EMPRESA}{SETOR}. Formatos: 'isso ou aquilo'; 'complete a frase'; 'mito ou verdade'; 'concorda ou discorda'; 'marque quem'. Cada legenda deve gerar comentarios organicamente{PUBLICO}. Inclua contexto do post e hashtags.",
+"Voce e um copywriter de alta conversao{TOM}. Crie 3 legendas de venda para Instagram{EMPRESA}{SETOR} sem parecer vendedor. Use as tecnicas: 1) PAS (Problem-Agitate-Solve); 2) Before-After-Bridge; 3) Feature-Advantage-Benefit. Cada legenda com gancho, desenvolvimento e CTA de compra{PUBLICO}. Maximo 200 palavras cada."
+],
+"Newsletter":[
+"Voce e um editor de newsletter{TOM}. Crie uma edicao completa de newsletter semanal{EMPRESA}{SETOR}. Estrutura: linha de assunto com alta taxa de abertura; saudacao personalizada; secao principal (artigo curto de 200 palavras); 3 links curados com resumo de uma linha; dica rapida da semana; CTA para produto/servico; rodape com redes sociais{PUBLICO}.",
+"Atue como estrategista de e-mail marketing{TOM}. Crie um plano de newsletter mensal com 4 edicoes{EMPRESA}{SETOR}. Semana 1: conteudo educativo; Semana 2: curadoria do setor; Semana 3: case de sucesso; Semana 4: oferta exclusiva para assinantes. Para cada edicao, entregue: assunto, estrutura e rascunho do conteudo{PUBLICO}.",
+"Voce e um newsletter creator{TOM}. Crie uma newsletter no formato 'top 5 da semana'{EMPRESA}{SETOR}. Selecione 5 temas relevantes do setor, escreva um paragrafo de analise para cada (maximo 80 palavras), adicione sua perspectiva unica e finalize com uma reflexao provocativa{PUBLICO}. Inclua linha de assunto e preview text.",
+"Atue como content curator{TOM}. Crie uma newsletter no formato 'bastidores'{EMPRESA}{SETOR}. Compartilhe: uma decisao recente da empresa e o raciocinio; um erro e o que aprenderam; uma metrica real (anonimizada); uma ferramenta que estao usando; um pedido de feedback{PUBLICO}. Tom transparente e humano.",
+"Voce e um especialista em crescimento de lista{TOM}. Crie a primeira edicao de uma newsletter{EMPRESA}{SETOR} que faca os leitores quererem receber a proxima. Inclua: boas-vindas memoravel; o que esperar (frequencia, temas); conteudo de alto valor imediato; elemento surpresa (bonus, desconto, recurso gratuito); CTA para encaminhar a amigos{PUBLICO}."
+],
+"Descricao de produto":[
+"Voce e um copywriter de e-commerce{TOM}. Crie uma descricao de produto completa{EMPRESA}{SETOR}. Estrutura: titulo otimizado para SEO; subtitulo emocional; descricao curta (50 palavras para catalogo); descricao longa (200 palavras com storytelling); 5 bullet points de beneficios (nao caracteristicas); especificacoes tecnicas; FAQ do produto (3 perguntas){PUBLICO}.",
+"Atue como UX writer para marketplace{TOM}. Crie descricoes de produto otimizadas para Mercado Livre e Shopee{EMPRESA}{SETOR}. Para cada plataforma: titulo com palavras-chave; descricao seguindo as boas praticas da plataforma; bullet points; perguntas frequentes pre-preenchidas. Foque em SEO interno do marketplace{PUBLICO}.",
+"Voce e um redator persuasivo{TOM}. Crie uma descricao de produto usando a formula FAB (Features, Advantages, Benefits){EMPRESA}{SETOR}. Para cada caracteristica, mostre a vantagem e traduza no beneficio para o cliente. Inclua prova social (avaliacao ficticia ilustrativa), garantia e CTA de compra{PUBLICO}. Tom que gere desejo.",
+"Atue como especialista em conversao de e-commerce{TOM}. Crie 3 versoes de descricao para o mesmo produto{EMPRESA}{SETOR}: versao emocional (storytelling e lifestyle); versao racional (dados, comparativos, ROI); versao social (depoimentos, 'mais vendido', comunidade). Cada versao completa com titulo e CTA{PUBLICO}. Para teste A/B.",
+"Voce e um content strategist de produto{TOM}. Crie uma pagina de produto completa{EMPRESA}{SETOR} com: headline principal; sub-headline; hero description (acima da dobra); secao 'para quem e'; secao 'como funciona' (3 passos); secao de beneficios (icones + texto); depoimentos sugeridos; FAQ; CTA final com garantia{PUBLICO}."
+]
+}
+},
+"Gestao Financeira":{
+tasks:["Analise de custos","Previsao de receita","Relatorio mensal","Precificacao","Orcamento"],
+prompts:{
+"Analise de custos":[
+"Voce e um analista financeiro{TOM}. Crie um modelo de analise de custos detalhado{EMPRESA}{SETOR}. Inclua: categorias de custos fixos e variaveis; template de planilha com formulas sugeridas; metricas-chave (margem de contribuicao, ponto de equilibrio, custo unitario); indicadores de alerta; recomendacoes de reducao de custos sem perder qualidade{PUBLICO}. Entregue em formato estruturado.",
+"Atue como controller financeiro{TOM}. Crie um framework de analise de custos operacionais{EMPRESA}{SETOR}. Mapeie: custos diretos vs indiretos; centro de custos por departamento; analise de Pareto (80/20) para identificar maiores gastadores; benchmark do setor; plano de acao para otimizacao com metas trimestrais{PUBLICO}.",
+"Voce e um consultor de eficiencia financeira{TOM}. Crie uma analise comparativa de custos (make vs buy){EMPRESA}{SETOR}. Para uma decisao de internalizar vs terceirizar, apresente: criterios de avaliacao; tabela comparativa com custos diretos, indiretos e ocultos; riscos de cada opcao; recomendacao fundamentada{PUBLICO}.",
+"Atue como analista de custos{TOM}. Crie um template de analise de viabilidade financeira para novo projeto{EMPRESA}{SETOR}. Inclua: investimento inicial; custos operacionais mensais (12 meses); projecao de receita; payback; ROI; VPL simplificado; analise de cenarios (otimista, realista, pessimista){PUBLICO}.",
+"Voce e um CFO interino{TOM}. Crie um diagnostico financeiro rapido{EMPRESA}{SETOR}. Analise: estrutura de custos atual; margem bruta e liquida; tendencia dos ultimos 6 meses; comparacao com benchmarks do setor; top 5 oportunidades de economia; top 3 riscos financeiros{PUBLICO}. Apresente em formato executivo de 1 pagina."
+],
+"Previsao de receita":[
+"Voce e um analista de planejamento financeiro{TOM}. Crie um modelo de previsao de receita para 12 meses{EMPRESA}{SETOR}. Inclua: premissas de crescimento (conservadora, moderada, agressiva); sazonalidade do setor; fontes de receita separadas; modelo de calculo (bottom-up: leads x conversao x ticket medio); apresentacao em tabela mensal{PUBLICO}.",
+"Atue como FP&A analyst{TOM}. Crie uma previsao de receita baseada em pipeline{EMPRESA}{SETOR}. Modelo: leads no topo do funil x taxa de conversao por etapa x ticket medio x ciclo de venda. Inclua analise de sensibilidade e cenarios. Apresente dashboard sugerido com KPIs de acompanhamento{PUBLICO}.",
+"Voce e um consultor financeiro{TOM}. Crie uma projecao de fluxo de caixa mensal para 6 meses{EMPRESA}{SETOR}. Inclua: receitas projetadas por linha de produto/servico; custos fixos e variaveis; investimentos planejados; saldo acumulado; indicadores de liquidez; alertas de caixa negativo com plano de contingencia{PUBLICO}.",
+"Atue como estrategista financeiro{TOM}. Crie um modelo de receita recorrente (MRR/ARR){EMPRESA}{SETOR}. Calcule: MRR atual; taxa de churn; expansao de receita (upsell/cross-sell); net revenue retention; projecao de crescimento composto; meta de ARR para 12 meses{PUBLICO}. Inclua acoes para melhorar cada metrica.",
+"Voce e um planejador financeiro{TOM}. Crie um orcamento de receita anual{EMPRESA}{SETOR} com metas mensais. Defina: meta global e por canal/produto; distribuicao mensal considerando sazonalidade; gatilhos de revisao (variacao > 15%); plano B para meses abaixo da meta; bonus por superacao{PUBLICO}."
+],
+"Relatorio mensal":[
+"Voce e um controller financeiro{TOM}. Crie um template de relatorio financeiro mensal{EMPRESA}{SETOR}. Estrutura: resumo executivo (5 linhas); DRE simplificado; fluxo de caixa realizado; comparativo orcado vs realizado com analise de desvios; indicadores-chave (margem, liquidez, endividamento); acoes recomendadas para o proximo mes{PUBLICO}.",
+"Atue como analista de gestao{TOM}. Crie um relatorio mensal de performance{EMPRESA}{SETOR} integrando financeiro e operacional. Secoes: faturamento e margem; custos por categoria; clientes (novos, ativos, churn); vendas por canal; comparativo com mes anterior e mesmo mes ano anterior; ranking de produtos/servicos{PUBLICO}.",
+"Voce e um consultor de BI{TOM}. Crie um dashboard mensal em formato de relatorio{EMPRESA}{SETOR}. Defina 12 KPIs essenciais organizados em 4 perspectivas (BSC): Financeira, Clientes, Processos, Aprendizado. Para cada KPI: meta, realizado, status (verde/amarelo/vermelho), tendencia{PUBLICO}. Inclua template visual.",
+"Atue como CFO{TOM}. Crie um relatorio financeiro mensal para apresentacao ao conselho/socios{EMPRESA}{SETOR}. Formato: 1 slide de resumo executivo; 1 slide de DRE; 1 slide de fluxo de caixa; 1 slide de indicadores; 1 slide de riscos e oportunidades; 1 slide de plano de acao{PUBLICO}. Linguagem executiva e objetiva.",
+"Voce e um gestor financeiro{TOM}. Crie um relatorio mensal simplificado para pequena empresa{EMPRESA}{SETOR}. Inclua apenas o essencial: receita total; custos totais; lucro liquido; contas a receber; contas a pagar; saldo em caixa; grafico de evolucao dos ultimos 6 meses; 3 observacoes importantes{PUBLICO}. Maximo 1 pagina."
+],
+"Precificacao":[
+"Voce e um estrategista de pricing{TOM}. Crie uma analise de precificacao completa{EMPRESA}{SETOR}. Aborde: calculo de custo total (fixo + variavel + margem); pesquisa de precos da concorrencia; analise de valor percebido pelo cliente; estrategia de pricing recomendada (penetracao, skimming, valor); tabela de precos final com justificativa{PUBLICO}.",
+"Atue como consultor de precificacao{TOM}. Crie um modelo de precificacao baseado em valor{EMPRESA}{SETOR}. Etapas: identificar os beneficios e resultados que o cliente obtem; quantificar o valor gerado; definir preco como percentual do valor entregue; criar ancoragem de preco; estruturar pacotes/planos (basico, profissional, premium){PUBLICO}.",
+"Voce e um analista de pricing{TOM}. Crie uma estrategia de precificacao com pacotes e planos{EMPRESA}{SETOR}. Defina 3 opcoes: Essencial (entrada), Profissional (recomendado), Enterprise (premium). Para cada: nome, preco, recursos incluidos, limitacoes, CTA. Use ancoragem psicologica e destaque o plano intermediario{PUBLICO}.",
+"Atue como economista comportamental{TOM}. Crie uma estrategia de precificacao usando principios de psicologia de precos{EMPRESA}{SETOR}. Tecnicas a aplicar: ancoragem; preco charm (R$97 vs R$100); bundle/pacote; preco por referencia; efeito isca (decoy); framing de preco (R$X por dia vs R$Y por mes){PUBLICO}. Exemplos praticos para cada tecnica.",
+"Voce e um consultor financeiro{TOM}. Crie uma calculadora de precificacao{EMPRESA}{SETOR}. Formato de passo a passo: 1) Liste todos os custos; 2) Defina margem minima; 3) Calcule ponto de equilibrio; 4) Pesquise concorrencia; 5) Ajuste por valor percebido; 6) Teste e valide. Inclua formulas e exemplo numerico{PUBLICO}."
+],
+"Orcamento":[
+"Voce e um planejador financeiro{TOM}. Crie um orcamento empresarial anual completo{EMPRESA}{SETOR}. Categorias: receitas por linha; custos de mercadorias/servicos; despesas operacionais (pessoal, marketing, tecnologia, administrativo); investimentos (CAPEX); reservas. Inclua distribuicao mensal e premissas utilizadas{PUBLICO}. Formato de planilha.",
+"Atue como controller{TOM}. Crie um orcamento base zero (OBZ){EMPRESA}{SETOR}. Para cada centro de custo: justificativa de existencia; orcamento minimo necessario; orcamento ideal; ROI esperado de cada gasto. Inclua criterios de priorizacao e processo de aprovacao{PUBLICO}.",
+"Voce e um consultor de gestao{TOM}. Crie um orcamento de marketing{EMPRESA}{SETOR} detalhado para 12 meses. Distribua entre: trafego pago (Meta, Google); conteudo organico; ferramentas e software; influenciadores/parcerias; eventos; branding. Para cada canal: investimento, meta de resultado, ROI esperado{PUBLICO}.",
+"Atue como gestor financeiro{TOM}. Crie um orcamento para lancamento de novo projeto{EMPRESA}{SETOR}. Fases: pre-lancamento (3 meses), lancamento (1 mes), pos-lancamento (2 meses). Para cada fase: investimentos necessarios, custos operacionais, receita esperada, fluxo de caixa acumulado, ponto de equilibrio{PUBLICO}.",
+"Voce e um assessor financeiro{TOM}. Crie um orcamento pessoal/empresarial usando o metodo 50-30-20 adaptado para negocios{EMPRESA}{SETOR}. 50% operacoes essenciais; 30% crescimento e investimento; 20% reserva e contingencia. Detalhe cada categoria com subcategorias e limites. Inclua template mensal de acompanhamento{PUBLICO}."
+]
+}
+},
+"Recursos Humanos":{
+tasks:["Descricao de vaga","Roteiro de entrevista","Feedback de desempenho","Onboarding","Politica interna"],
+prompts:{
+"Descricao de vaga":[
+"Voce e um especialista em recrutamento{TOM}. Crie uma descricao de vaga atrativa e inclusiva{EMPRESA}{SETOR}. Estrutura: titulo da vaga otimizado para busca; sobre a empresa (4 linhas); desafio da posicao (o que torna essa vaga empolgante); responsabilidades (6-8 itens); requisitos obrigatorios (4-5); diferenciais (3-4); beneficios detalhados; informacoes sobre o processo seletivo{PUBLICO}.",
+"Atue como employer branding specialist{TOM}. Crie uma vaga no formato storytelling{EMPRESA}{SETOR}. Comece com uma narrativa sobre o impacto que essa pessoa tera, mostre o dia a dia da funcao, descreva o time e a cultura. Depois liste requisitos e beneficios. A vaga deve atrair talentos, nao apenas preencher uma posicao{PUBLICO}.",
+"Voce e um recruiter tech{TOM}. Crie uma descricao de vaga tecnica{EMPRESA}{SETOR} que seja honesta e transparente. Inclua: stack tecnologico; nivel de senioridade com definicao clara; faixa salarial sugerida; modelo de trabalho (remoto/hibrido/presencial); metodologias usadas; desafios tecnicos reais; plano de carreira{PUBLICO}.",
+"Atue como consultor de RH{TOM}. Crie descricoes de vaga para 3 plataformas diferentes{EMPRESA}{SETOR}: LinkedIn (profissional, 200 palavras); Instagram (casual, visual, 100 palavras); site da empresa (completa, 400 palavras). Adapte tom e formato para cada canal mantendo a essencia{PUBLICO}.",
+"Voce e um headhunter{TOM}. Crie uma mensagem de abordagem ativa (hunting) para candidato passivo{EMPRESA}{SETOR}. A mensagem deve: ser personalizada (com campos para nome e conquista); despertar curiosidade sem revelar tudo; mostrar oportunidade de crescimento; ter CTA claro. Versoes para LinkedIn InMail e e-mail{PUBLICO}."
+],
+"Roteiro de entrevista":[
+"Voce e um especialista em selecao de talentos{TOM}. Crie um roteiro de entrevista estruturada{EMPRESA}{SETOR}. Estrutura: abertura e rapport (5 min); perguntas tecnicas (15 min); perguntas comportamentais STAR (15 min); perguntas sobre cultura e valores (10 min); case pratico ou simulacao (10 min); perguntas do candidato (5 min). Inclua criterios de avaliacao para cada bloco{PUBLICO}.",
+"Atue como psicologo organizacional{TOM}. Crie 10 perguntas comportamentais usando o metodo STAR{EMPRESA}{SETOR}. Para cada pergunta: competencia avaliada; pergunta principal; perguntas de aprofundamento; o que uma resposta excelente inclui; red flags a observar{PUBLICO}. Cubra: lideranca, trabalho em equipe, resolucao de problemas, comunicacao, adaptabilidade.",
+"Voce e um gerente de contratacao{TOM}. Crie um roteiro de entrevista tecnica{EMPRESA}{SETOR}. Inclua: teste de conhecimento especifico (5 perguntas); resolucao de problema real da empresa (case); avaliacao de raciocinio logico; perguntas sobre experiencia com ferramentas do dia a dia; criterios claros de APROVADO/EM DUVIDA/REPROVADO{PUBLICO}.",
+"Atue como consultor de recrutamento{TOM}. Crie um roteiro de entrevista por competencias{EMPRESA}{SETOR}. Defina 5 competencias essenciais para a posicao. Para cada: definicao; pergunta situacional; pergunta de passado; escala de avaliacao (1-5) com descritores; peso na nota final{PUBLICO}. Inclua ficha de avaliacao para o entrevistador.",
+"Voce e um especialista em cultura organizacional{TOM}. Crie um roteiro de 'culture fit interview'{EMPRESA}{SETOR}. Perguntas para avaliar: alinhamento com valores; estilo de trabalho; motivacao intrinseca; expectativas de ambiente; capacidade de adaptacao. Inclua cenarios hipoteticos e perguntas projetivas{PUBLICO}. Diferencie cultura fit de cultura add."
+],
+"Feedback de desempenho":[
+"Voce e um especialista em gestao de pessoas{TOM}. Crie templates de feedback de desempenho{EMPRESA}{SETOR} para 3 situacoes: feedback positivo (reconhecimento); feedback construtivo (melhoria necessaria); feedback de redirecionamento (problema serio). Cada template deve usar o modelo SBI (Situacao, Comportamento, Impacto) e incluir plano de acao{PUBLICO}.",
+"Atue como coach executivo{TOM}. Crie um roteiro de conversa de avaliacao de desempenho semestral{EMPRESA}{SETOR}. Estrutura: retrospectiva do periodo (conquistas e desafios); avaliacao por competencias; feedback 360 consolidado; definicao de metas SMART para proximo periodo; plano de desenvolvimento individual (PDI); registro formal{PUBLICO}.",
+"Voce e um lider de equipe{TOM}. Crie 10 exemplos de feedback escrito{EMPRESA}{SETOR} para diferentes situacoes: superou expectativas; atingiu metas; abaixo do esperado; excelente trabalho em equipe; precisa melhorar comunicacao; demonstrou iniciativa; atrasos recorrentes; crescimento notavel; potencial de lideranca; necessita treinamento{PUBLICO}. Cada feedback com contexto e sugestao.",
+"Atue como consultor de RH{TOM}. Crie um sistema de feedback continuo{EMPRESA}{SETOR}. Defina: frequencia ideal; canais (1:1, escrito, app); modelo de feedback entre pares; modelo de feedback ascendente (equipe para gestor); rituais de reconhecimento; como documentar e acompanhar{PUBLICO}. Inclua guia rapido para gestores.",
+"Voce e um gestor de performance{TOM}. Crie um PIP (Plano de Melhoria de Performance) estruturado{EMPRESA}{SETOR}. Inclua: descricao objetiva do gap de performance; evidencias e dados; metas especificas de melhoria com prazo (30-60-90 dias); recursos e suporte oferecidos; criterios de sucesso; consequencias se nao atingir{PUBLICO}. Tom firme mas respeitoso."
+],
+"Onboarding":[
+"Voce e um especialista em experiencia do colaborador{TOM}. Crie um programa de onboarding de 30 dias{EMPRESA}{SETOR}. Semana 1: boas-vindas, documentacao, apresentacao da empresa e equipe, setup de ferramentas; Semana 2: treinamento da funcao, shadowing, primeiras tarefas assistidas; Semana 3: tarefas independentes, feedback intermediario; Semana 4: autonomia, definicao de metas, avaliacao do onboarding{PUBLICO}. Checklist diario.",
+"Atue como people ops manager{TOM}. Crie um kit de boas-vindas digital{EMPRESA}{SETOR}. Inclua: e-mail de boas-vindas (modelo); guia da empresa (cultura, valores, historia em 1 pagina); quem e quem (organograma com fotos e curiosidades); glossario interno; FAQ do novo colaborador (15 perguntas); lista de ferramentas com tutoriais{PUBLICO}.",
+"Voce e um consultor de integracao{TOM}. Crie um programa de buddy/padrinho{EMPRESA}{SETOR}. Defina: criterios para selecao do buddy; responsabilidades; cronograma de encontros (semanas 1-4); temas de cada encontro; checklist do buddy; avaliacao do programa. O buddy deve facilitar integracao social e cultural, nao tecnica{PUBLICO}.",
+"Atue como designer instrucional{TOM}. Crie um plano de treinamento para onboarding tecnico{EMPRESA}{SETOR}. Modulos: 1) Ferramentas e sistemas; 2) Processos e fluxos de trabalho; 3) Padroes e boas praticas; 4) Projeto pratico supervisionado; 5) Avaliacao de competencias. Cada modulo com objetivo, duracao, metodo e avaliacao{PUBLICO}.",
+"Voce e um HR business partner{TOM}. Crie o processo de onboarding pre-dia-1 (pre-boarding){EMPRESA}{SETOR}. Desde a aceitacao da proposta ate o primeiro dia: comunicacao semanal; documentos a enviar; acessos a providenciar; equipamentos a preparar; agenda do primeiro dia; mensagem de boas-vindas do gestor e da equipe{PUBLICO}. Checklist com responsaveis e prazos."
+],
+"Politica interna":[
+"Voce e um consultor de compliance{TOM}. Crie uma politica de trabalho remoto/hibrido{EMPRESA}{SETOR}. Cubra: elegibilidade; horarios e disponibilidade; equipamentos e ergonomia; comunicacao e reunioes; produtividade e entregas; seguranca da informacao; despesas reembolsaveis; avaliacoes periodicas; excepcoes e aprovacoes{PUBLICO}. Linguagem clara e objetiva.",
+"Atue como especialista em cultura organizacional{TOM}. Crie um codigo de conduta{EMPRESA}{SETOR}. Secoes: principios e valores; comportamentos esperados; diversidade e inclusao; assedio e discriminacao (tolerancia zero); conflito de interesses; uso de recursos da empresa; redes sociais; confidencialidade; canal de denuncias; consequencias{PUBLICO}.",
+"Voce e um gestor de RH{TOM}. Crie uma politica de ferias e ausencias{EMPRESA}{SETOR}. Inclua: direitos legais (CLT); processo de solicitacao e aprovacao; antecedencia minima; periodos de blackout; ferias coletivas; licencas previstas em lei; faltas justificadas e injustificadas; banco de horas; day off de aniversario{PUBLICO}.",
+"Atue como consultor de beneficios{TOM}. Crie uma politica de beneficios{EMPRESA}{SETOR}. Categorias: beneficios obrigatorios (CLT); beneficios padrao (VR/VA, plano de saude, odontologico); beneficios flexiveis (educacao, wellness, home office); beneficios por performance (bonus, PLR); progressao por tempo de casa{PUBLICO}. Inclua tabela resumo.",
+"Voce e um especialista em politicas corporativas{TOM}. Crie uma politica de desenvolvimento e capacitacao{EMPRESA}{SETOR}. Cubra: orcamento anual por colaborador; tipos de capacitacao aprovados; processo de solicitacao; compromisso de permanencia; certificacoes incentivadas; programa de mentoria; trilhas de carreira; avaliacao de ROI do treinamento{PUBLICO}."
+]
+}
+},
+"Produtividade":{
+tasks:["Resumir documento","Organizar tarefas","Ata de reuniao","Plano de projeto","Analise SWOT"],
+prompts:{
+"Resumir documento":[
+"Voce e um especialista em sintese de informacoes{TOM}. Preciso que voce resuma um documento{EMPRESA}{SETOR}. Forneca: resumo executivo (5 linhas); pontos-chave (bullet points, maximo 10); decisoes ou acoes identificadas; dados numericos relevantes; conclusao e proximos passos. O resumo deve permitir que alguem entenda o documento completo em 2 minutos de leitura{PUBLICO}.",
+"Atue como analista de inteligencia{TOM}. Resuma o documento{EMPRESA}{SETOR} em 3 formatos diferentes: 1) Ultra-resumo (tuite - 280 caracteres); 2) Resumo executivo (1 paragrafo, 100 palavras); 3) Resumo detalhado (5 paragrafos com subtitulos). Para cada formato, destaque a informacao mais critica{PUBLICO}.",
+"Voce e um assistente executivo{TOM}. Analise o documento{EMPRESA}{SETOR} e crie um briefing para decisao. Estrutura: contexto (por que esse documento existe); problema ou oportunidade central; opcoes apresentadas com pros e contras; recomendacao do autor; pontos que precisam de atencao; decisao necessaria{PUBLICO}. Maximo 1 pagina.",
+"Atue como curador de conhecimento{TOM}. Extraia os insights acionaveis do documento{EMPRESA}{SETOR}. Para cada insight: o que diz; por que importa; o que fazer com essa informacao; prazo sugerido; responsavel sugerido. Separe insights em categorias: urgente, importante, informativo{PUBLICO}.",
+"Voce e um facilitador de aprendizagem{TOM}. Transforme o documento{EMPRESA}{SETOR} em um formato de aprendizagem rapida. Crie: 5 perguntas que o documento responde; respostas sinteticas para cada; 3 citacoes-chave; 1 diagrama ou framework que resume a essencia; checklist de acoes derivadas{PUBLICO}."
+],
+"Organizar tarefas":[
+"Voce e um especialista em produtividade{TOM}. Crie um sistema de organizacao de tarefas{EMPRESA}{SETOR} usando a Matriz de Eisenhower. Categorize as atividades em: Urgente + Importante (fazer agora); Importante + Nao Urgente (agendar); Urgente + Nao Importante (delegar); Nao Urgente + Nao Importante (eliminar). Inclua template semanal e diario com time blocks{PUBLICO}.",
+"Atue como project manager{TOM}. Crie um quadro Kanban personalizado{EMPRESA}{SETOR} com as colunas: Backlog, Esta Semana, Em Andamento, Em Revisao, Concluido. Para cada coluna: criterios de entrada; limite WIP (work in progress); definicao de pronto. Inclua rituais: planejamento semanal (segunda), review (sexta){PUBLICO}.",
+"Voce e um coach de produtividade{TOM}. Crie uma rotina diaria otimizada{EMPRESA}{SETOR}. Estruture o dia em blocos: Deep Work (tarefas complexas); Shallow Work (emails, mensagens); Reunioes; Planejamento. Inclua: template de planejamento diario; regra dos 3 (3 prioridades do dia); tecnica Pomodoro adaptada; revisao de fim de dia{PUBLICO}.",
+"Atue como consultor de processos{TOM}. Crie um sistema de priorizacao de projetos{EMPRESA}{SETOR} usando scoring. Criterios: impacto no negocio (1-5); esforco necessario (1-5); urgencia (1-5); alinhamento estrategico (1-5). Inclua formula de calculo, template de avaliacao e processo de decisao em equipe{PUBLICO}.",
+"Voce e um especialista em GTD (Getting Things Done){TOM}. Adapte o metodo GTD{EMPRESA}{SETOR}. Crie: lista de captura (inbox); criterios de processamento; contextos personalizados; revisao semanal (checklist); lista 'algum dia/talvez'; sistema de arquivos de referencia. Explique cada passo de forma pratica com exemplos do setor{PUBLICO}."
+],
+"Ata de reuniao":[
+"Voce e um facilitador de reunioes{TOM}. Crie um template de ata de reuniao profissional{EMPRESA}{SETOR}. Estrutura: cabecalho (data, hora, participantes, ausentes); objetivo da reuniao; pauta com topicos numerados; para cada topico: discussao resumida, decisao tomada, acao definida (responsavel + prazo); proximos passos; data da proxima reuniao{PUBLICO}.",
+"Atue como secretario executivo{TOM}. Crie um sistema completo de documentacao de reunioes{EMPRESA}{SETOR}. Inclua: template pre-reuniao (pauta com tempo por topico); template durante (notas rapidas); template pos-reuniao (ata formal); e-mail de follow-up com acoes; tracker de pendencias{PUBLICO}. Foco em eficiencia e rastreabilidade.",
+"Voce e um consultor de eficiencia organizacional{TOM}. Crie um modelo de reuniao produtiva{EMPRESA}{SETOR}. Regras: pauta enviada 24h antes; duracao maxima definida; cada topico tem dono e tempo; ultimos 5 minutos para acoes e responsaveis; ata distribuida em ate 2 horas. Inclua template para reunioes de 15, 30 e 60 minutos{PUBLICO}.",
+"Atue como gestor de projetos{TOM}. Crie um template de ata para reuniao de status de projeto{EMPRESA}{SETOR}. Secoes: status geral (verde/amarelo/vermelho); progresso desde ultima reuniao; impedimentos e riscos; decisoes pendentes; acoes da semana (quem, o que, quando); metricas-chave; proxima reuniao{PUBLICO}.",
+"Voce e um facilitador agil{TOM}. Crie templates para cerimonias ageis{EMPRESA}{SETOR}: Daily (15 min): 3 perguntas + impedimentos; Planning: objetivos do sprint + tarefas; Review: demo + feedback; Retrospectiva: o que funcionou, o que melhorar, acoes. Cada template com estrutura, time-box e resultado esperado{PUBLICO}."
+],
+"Plano de projeto":[
+"Voce e um gerente de projetos PMP{TOM}. Crie um plano de projeto completo{EMPRESA}{SETOR}. Secoes: escopo (objetivo, entregas, exclusoes); cronograma (fases, marcos, dependencias); recursos (equipe, ferramentas, orcamento); riscos (matriz de probabilidade x impacto); comunicacao (stakeholders, frequencia, canais); criterios de sucesso{PUBLICO}. Formato executivo.",
+"Atue como project manager agil{TOM}. Crie um plano de projeto usando Scrum{EMPRESA}{SETOR}. Defina: Product Backlog inicial (user stories priorizadas); roadmap de 3 sprints; definicao de pronto (DoD); papeis e responsabilidades; cerimonias e cadencia; ferramentas sugeridas; metricas de acompanhamento (velocity, burndown){PUBLICO}.",
+"Voce e um consultor de gestao de projetos{TOM}. Crie um plano de projeto simplificado (1 pagina){EMPRESA}{SETOR}. Inclua apenas: objetivo SMART; 5-7 marcos principais com datas; responsaveis-chave; orcamento resumido; 3 maiores riscos com mitigacao; criterio de sucesso; proxima acao imediata{PUBLICO}. Para projetos de ate 3 meses.",
+"Atue como PMO{TOM}. Crie um framework de governanca de projeto{EMPRESA}{SETOR}. Defina: comite de aprovacao; gates de decisao (go/no-go); frequencia de reportes; escalation matrix; gestao de mudancas (change request); aceite formal de entregas; licoes aprendidas{PUBLICO}. Aplicavel a qualquer tamanho de projeto.",
+"Voce e um planejador estrategico{TOM}. Crie um plano de lancamento (go-to-market){EMPRESA}{SETOR}. Fases: 1) Preparacao (4 semanas antes); 2) Pre-lancamento (2 semanas); 3) Lancamento (semana D); 4) Pos-lancamento (4 semanas depois). Para cada fase: tarefas, responsaveis, dependencias, KPIs, plano de contingencia{PUBLICO}."
+],
+"Analise SWOT":[
+"Voce e um consultor estrategico{TOM}. Conduza uma analise SWOT completa{EMPRESA}{SETOR}. Para cada quadrante (Forcas, Fraquezas, Oportunidades, Ameacas): identifique 5 itens relevantes; classifique por impacto (alto/medio/baixo); sugira acoes estrategicas. Ao final, cruze os quadrantes: como usar forcas para aproveitar oportunidades? Como minimizar fraquezas frente as ameacas?{PUBLICO}",
+"Atue como analista de mercado{TOM}. Crie uma analise SWOT com plano de acao{EMPRESA}{SETOR}. Apos a analise SWOT tradicional, derive: 3 estrategias ofensivas (S+O); 3 estrategias defensivas (W+T); 3 estrategias de ajuste (W+O); 3 estrategias de sobrevivencia (S+T). Priorize as acoes por impacto e facilidade de implementacao{PUBLICO}.",
+"Voce e um estrategista de negocios{TOM}. Faca uma analise SWOT competitiva{EMPRESA}{SETOR}. Compare a empresa com os 3 principais concorrentes em cada quadrante. Identifique: vantagens competitivas sustentaveis; gaps criticos a resolver; oportunidades que ninguem esta explorando; ameacas que o mercado esta ignorando{PUBLICO}. Apresente em formato de tabela comparativa.",
+"Atue como mentor de empreendedores{TOM}. Crie uma analise SWOT simplificada e acionavel{EMPRESA}{SETOR}. Limite a 3 itens por quadrante (os mais importantes). Para cada item, responda: 'E o que eu faco com isso?' com uma acao concreta, prazo e resultado esperado{PUBLICO}. Formato visual de 1 pagina.",
+"Voce e um consultor de inovacao{TOM}. Crie uma analise TOWS (SWOT inversa){EMPRESA}{SETOR}. Comece pelas ameacas e oportunidades externas, depois analise forcas e fraquezas internas em relacao ao cenario externo. Foco: identificar a estrategia mais inteligente dado o cenario atual. Conclua com recomendacao estrategica principal{PUBLICO}."
+]
+}
+}
+};
+
+var cats=Object.keys(DATA);
+var selCat=null,selTask=null,promptIdx=0;
+
+function el(id){return document.getElementById(id)}
+
+function renderCats(){
+var g=el('gp-categories');
+g.innerHTML='';
+cats.forEach(function(c){
+var d=document.createElement('div');
+d.className='gp-card';
+d.textContent=c;
+d.onclick=function(){selectCat(c)};
+g.appendChild(d);
+});
+}
+
+function selectCat(c){
+selCat=c;selTask=null;promptIdx=0;
+el('gp-results').style.display='none';
+var cards=el('gp-categories').children;
+for(var i=0;i<cards.length;i++){
+cards[i].className='gp-card'+(cards[i].textContent===c?' selected':'');
+}
+renderTasks();
+el('gp-step2').style.display='block';
+el('gp-step3').style.display='none';
+el('gp-generate').disabled=true;
+el('gp-ind-1').className='gp-step-indicator completed';
+el('gp-ind-2').className='gp-step-indicator active';
+el('gp-ind-3').className='gp-step-indicator';
+}
+
+function renderTasks(){
+var g=el('gp-tasks');
+g.innerHTML='';
+DATA[selCat].tasks.forEach(function(t){
+var d=document.createElement('div');
+d.className='gp-card';
+d.textContent=t;
+d.onclick=function(){selectTask(t)};
+g.appendChild(d);
+});
+}
+
+function selectTask(t){
+selTask=t;promptIdx=0;
+el('gp-results').style.display='none';
+var cards=el('gp-tasks').children;
+for(var i=0;i<cards.length;i++){
+cards[i].className='gp-card'+(cards[i].textContent===t?' selected':'');
+}
+el('gp-step3').style.display='block';
+el('gp-generate').disabled=false;
+el('gp-ind-2').className='gp-step-indicator completed';
+el('gp-ind-3').className='gp-step-indicator active';
+}
+
+function getCustom(){
+var emp=el('gp-empresa').value.trim();
+var set=el('gp-setor').value.trim();
+var tom=el('gp-tom').value;
+var pub=el('gp-publico').value.trim();
+var tomMap={formal:' com tom formal e corporativo',casual:' com tom casual e acessivel',tecnico:' com tom tecnico e especializado'};
+return{
+TOM:tom?tomMap[tom]:'',
+EMPRESA:emp?' para a empresa "'+emp+'"':'',
+SETOR:set?' no setor de '+set:'',
+PUBLICO:pub?' para o publico: '+pub:''
+};
+}
+
+function fillPrompt(tpl,ctx){
+return tpl.replace(/\{TOM\}/g,ctx.TOM).replace(/\{EMPRESA\}/g,ctx.EMPRESA).replace(/\{SETOR\}/g,ctx.SETOR).replace(/\{PUBLICO\}/g,ctx.PUBLICO);
+}
+
+function generate(){
+var prompts=DATA[selCat].prompts[selTask];
+var ctx=getCustom();
+var list=el('gp-results-list');
+list.innerHTML='';
+var count=0;
+for(var i=promptIdx;i<prompts.length&&count<3;i++,count++){
+var filled=fillPrompt(prompts[i],ctx);
+var card=document.createElement('div');
+card.className='gp-result-card';
+card.innerHTML='<span class="gp-result-badge">Prompt '+(i+1)+'</span><button class="gp-copy-btn" onclick="gpCopy(this)">Copiar</button><div class="gp-result-text">'+filled+'</div>';
+list.appendChild(card);
+}
+promptIdx+=count;
+el('gp-results').style.display='block';
+el('gp-more').style.display=promptIdx<prompts.length?'block':'none';
+el('gp-results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+window.gpCopy=function(btn){
+var text=btn.parentElement.querySelector('.gp-result-text').textContent;
+if(navigator.clipboard){
+navigator.clipboard.writeText(text).then(function(){
+btn.textContent='Copiado!';btn.classList.add('copied');
+setTimeout(function(){btn.textContent='Copiar';btn.classList.remove('copied')},2000);
+});
+}else{
+var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+btn.textContent='Copiado!';btn.classList.add('copied');
+setTimeout(function(){btn.textContent='Copiar';btn.classList.remove('copied')},2000);
+}
+};
+
+el('gp-generate').onclick=function(){promptIdx=0;generate()};
+el('gp-more').onclick=generate;
+
+el('gp-cta-submit').onclick=function(){
+var email=el('gp-cta-email').value.trim();
+if(!email||email.indexOf('@')<1){alert('Por favor, insira um e-mail valido.');return}
+el('gp-cta-ok').style.display='block';
+el('gp-cta-email').value='';
+};
+
+renderCats();
+})();
+</script>
+<!-- /wp:html -->

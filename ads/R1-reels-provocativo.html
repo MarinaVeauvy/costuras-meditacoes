@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>R1 — Reels Bisturi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #FDF8F0; }
+  .card {
+    width: 1080px; height: 1920px; background: #FDF8F0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; padding: 140px 80px;
+  }
+  .card::before {
+    content: ''; position: absolute;
+    top: 40px; right: 40px; bottom: 40px; left: 40px;
+    border: 1px solid #C5A55A; opacity: 0.2; pointer-events: none;
+  }
+  .hook {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 66px; line-height: 1.2;
+    color: #3E2C1C; text-align: center; max-width: 850px; margin-bottom: 50px;
+  }
+  .highlight { color: #2D6B4F; }
+  .gold-line { width: 80px; height: 2px; background: #C5A55A; margin-bottom: 50px; }
+  .body-text {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 32px;
+    line-height: 1.7; color: #5C4033; text-align: center; max-width: 800px;
+    margin-bottom: 60px;
+  }
+  .bold-line {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 44px; color: #3E2C1C;
+    text-align: center; margin-bottom: 60px; font-style: italic;
+  }
+  .cta-button {
+    background: #2D6B4F; color: #fff;
+    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 34px;
+    padding: 28px 60px; border-radius: 10px; margin-bottom: 20px;
+  }
+  .price {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 22px; color: #8B7340;
+  }
+  .signature {
+    position: absolute; bottom: 80px; text-align: center;
+  }
+  .sig-line { width: 50px; height: 1px; background: #C5A55A; margin: 0 auto 10px; }
+  .sig-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic; font-size: 24px; color: #2D6B4F;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hook">
+    Ela resolveu a costura<br>
+    do <span class="highlight">merecimento.</span>
+  </div>
+  <div class="gold-line"></div>
+  <div class="body-text">
+    Não mudou de profissão.<br>
+    Não fez MBA.<br>
+    Não trocou de assessor.
+  </div>
+  <div class="bold-line">Mudou o preço.</div>
+  <div class="cta-button">Qual costura trava você? → R$47</div>
+  <div class="price">Quiz de 15 perguntas · Resultado na hora</div>
+  <div class="signature">
+    <div class="sig-line"></div>
+    <div class="sig-name">Marina Veauvy</div>
+  </div>
+</div>
+</body>
+</html>

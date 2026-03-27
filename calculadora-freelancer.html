@@ -1,0 +1,440 @@
+<!-- wp:html -->
+<div id="calc-freelancer-intro" style="max-width:800px;margin:0 auto 40px;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:#333;line-height:1.8;font-size:17px;">
+<p>Se voce trabalha como freelancer ou esta pensando em comecar, a primeira pergunta que surge e: <strong>quanto cobrar freelancer</strong> pelos seus servicos? Definir o preco certo e fundamental para garantir que voce cubra seus custos, tenha qualidade de vida e ainda consiga investir no seu futuro.</p>
+<p>Muitos profissionais autonomos cometem o erro de cobrar valores muito baixos por inseguranca ou falta de referencia de mercado. O resultado? Burnout, frustracao e contas no vermelho. A verdade e que calcular seu valor hora como freelancer nao precisa ser um bicho de sete cabecas.</p>
+<p>Com a <strong>Calculadora Freelancer</strong> abaixo, voce vai descobrir exatamente <strong>quanto cobrar por hora</strong> com base nas suas despesas reais, simular sua renda mensal de acordo com o tipo de servico que oferece e entender quantos clientes precisa para atingir sua meta financeira. Tudo de forma pratica, visual e personalizada para a sua realidade.</p>
+<p>Preencha os campos abaixo e tome decisoes mais inteligentes sobre a sua carreira freelancer.</p>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div id="calc-freelancer" style="font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;">
+<style>
+#calc-freelancer * { box-sizing: border-box; margin: 0; padding: 0; }
+#calc-freelancer { max-width: 800px; margin: 0 auto; color: #e0e0e0; }
+#calc-freelancer .cf-section {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 32px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+#calc-freelancer .cf-section h2 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #e94560;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+#calc-freelancer .cf-section h2 span {
+  background: #e94560;
+  color: #fff;
+  font-size: 13px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+#calc-freelancer .cf-subtitle {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 24px;
+  margin-top: 4px;
+}
+#calc-freelancer .cf-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+@media (max-width: 600px) {
+  #calc-freelancer .cf-grid { grid-template-columns: 1fr; }
+  #calc-freelancer .cf-section { padding: 24px 18px; }
+  #calc-freelancer .cf-section h2 { font-size: 19px; }
+}
+#calc-freelancer .cf-field { display: flex; flex-direction: column; }
+#calc-freelancer .cf-field label {
+  font-size: 13px;
+  color: #bbb;
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+#calc-freelancer .cf-field input,
+#calc-freelancer .cf-field select {
+  background: #16213e;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  width: 100%;
+  -webkit-appearance: none;
+}
+#calc-freelancer .cf-field input:focus,
+#calc-freelancer .cf-field select:focus {
+  outline: none;
+  border-color: #e94560;
+}
+#calc-freelancer .cf-field select { cursor: pointer; }
+#calc-freelancer .cf-btn {
+  background: #e94560;
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+#calc-freelancer .cf-btn:hover { background: #c73e54; }
+#calc-freelancer .cf-btn:active { transform: scale(0.98); }
+#calc-freelancer .cf-result {
+  background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+  border: 2px solid #e94560;
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 20px;
+  text-align: center;
+  display: none;
+}
+#calc-freelancer .cf-result-label {
+  font-size: 14px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+#calc-freelancer .cf-result-value {
+  font-size: 36px;
+  font-weight: 800;
+  color: #e94560;
+}
+#calc-freelancer .cf-result-detail {
+  font-size: 14px;
+  color: #ccc;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+#calc-freelancer .cf-result-sub {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+#calc-freelancer .cf-result-sub div {
+  text-align: center;
+}
+#calc-freelancer .cf-result-sub .cf-sub-val {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+#calc-freelancer .cf-result-sub .cf-sub-lbl {
+  font-size: 12px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+#calc-freelancer .cf-cta-box {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #e94560;
+  border-radius: 12px;
+  padding: 32px 28px;
+  text-align: center;
+  margin-top: 32px;
+}
+#calc-freelancer .cf-cta-box h3 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+#calc-freelancer .cf-cta-box p {
+  color: #bbb;
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+#calc-freelancer .cf-cta-box .cf-cta-link {
+  display: inline-block;
+  background: #e94560;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 36px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+#calc-freelancer .cf-cta-box .cf-cta-link:hover { background: #c73e54; }
+#calc-freelancer .cf-range-info {
+  font-size: 13px;
+  color: #e94560;
+  margin-top: 6px;
+  font-style: italic;
+}
+#calc-freelancer .cf-full { grid-column: 1 / -1; }
+</style>
+
+<!-- SECAO 1 -->
+<div class="cf-section">
+  <h2><span>1</span> Quanto Cobrar por Hora</h2>
+  <p class="cf-subtitle">Calcule seu valor hora minimo com base nas suas despesas reais e disponibilidade.</p>
+  <div class="cf-grid">
+    <div class="cf-field">
+      <label>Moradia (aluguel, condominio, contas)</label>
+      <input type="text" id="cf-moradia" placeholder="Ex: 2.500" inputmode="decimal">
+    </div>
+    <div class="cf-field">
+      <label>Alimentacao</label>
+      <input type="text" id="cf-alimentacao" placeholder="Ex: 1.200" inputmode="decimal">
+    </div>
+    <div class="cf-field">
+      <label>Transporte</label>
+      <input type="text" id="cf-transporte" placeholder="Ex: 400" inputmode="decimal">
+    </div>
+    <div class="cf-field">
+      <label>Saude (plano, remedios, academia)</label>
+      <input type="text" id="cf-saude" placeholder="Ex: 500" inputmode="decimal">
+    </div>
+    <div class="cf-field">
+      <label>Lazer e outros gastos</label>
+      <input type="text" id="cf-lazer" placeholder="Ex: 600" inputmode="decimal">
+    </div>
+    <div class="cf-field">
+      <label>Quanto quer guardar/investir por mes</label>
+      <input type="text" id="cf-investir" placeholder="Ex: 1.000" inputmode="decimal">
+    </div>
+    <div class="cf-field">
+      <label>Horas disponiveis por semana</label>
+      <input type="number" id="cf-horas" placeholder="Ex: 30" min="1" max="80">
+    </div>
+    <div class="cf-field">
+      <label>Semanas de ferias por ano</label>
+      <input type="number" id="cf-ferias" placeholder="Ex: 4" min="0" max="20" value="4">
+    </div>
+  </div>
+  <button class="cf-btn" onclick="calcularHora()">Calcular Meu Valor Hora</button>
+  <div class="cf-result" id="cf-res1">
+    <div class="cf-result-label">Seu valor hora minimo</div>
+    <div class="cf-result-value" id="cf-hora-valor"></div>
+    <div class="cf-result-sub">
+      <div>
+        <div class="cf-sub-val" id="cf-custo-mensal"></div>
+        <div class="cf-sub-lbl">Custo mensal total</div>
+      </div>
+      <div>
+        <div class="cf-sub-val" id="cf-horas-ano"></div>
+        <div class="cf-sub-lbl">Horas trabalhadas/ano</div>
+      </div>
+      <div>
+        <div class="cf-sub-val" id="cf-renda-anual"></div>
+        <div class="cf-sub-lbl">Renda anual necessaria</div>
+      </div>
+    </div>
+    <div class="cf-result-detail" id="cf-res1-detail"></div>
+  </div>
+</div>
+
+<!-- SECAO 2 -->
+<div class="cf-section">
+  <h2><span>2</span> Simulador de Renda por Servico</h2>
+  <p class="cf-subtitle">Selecione seu tipo de servico e veja quanto pode ganhar por mes.</p>
+  <div class="cf-grid">
+    <div class="cf-field cf-full">
+      <label>Tipo de servico</label>
+      <select id="cf-servico" onchange="atualizarFaixa()">
+        <option value="">-- Selecione um servico --</option>
+        <option value="video" data-min="50" data-max="150" data-unit="video" data-label="Editor de Video/Reels">Editor de Video/Reels</option>
+        <option value="social" data-min="800" data-max="2500" data-unit="cliente/mes" data-label="Social Media Manager">Social Media Manager</option>
+        <option value="design" data-min="100" data-max="500" data-unit="peca" data-label="Designer Grafico">Designer Grafico</option>
+        <option value="copy" data-min="100" data-max="500" data-unit="texto (1.000 palavras)" data-label="Copywriter">Copywriter</option>
+        <option value="dev" data-min="2000" data-max="8000" data-unit="projeto" data-label="Desenvolvedor Web">Desenvolvedor Web</option>
+        <option value="foto" data-min="300" data-max="1500" data-unit="ensaio" data-label="Fotografo">Fotografo</option>
+        <option value="tradutor" data-min="100" data-max="300" data-unit="texto (1.000 palavras)" data-label="Tradutor">Tradutor</option>
+        <option value="va" data-min="1500" data-max="3500" data-unit="cliente/mes" data-label="Assistente Virtual">Assistente Virtual</option>
+      </select>
+    </div>
+    <div class="cf-field">
+      <label>Valor que pretende cobrar (R$)</label>
+      <input type="text" id="cf-valor-cobrar" placeholder="Ex: 100" inputmode="decimal">
+      <div class="cf-range-info" id="cf-faixa-info"></div>
+    </div>
+    <div class="cf-field">
+      <label id="cf-qtd-label">Quantidade por mes</label>
+      <input type="number" id="cf-qtd" placeholder="Ex: 10" min="1">
+    </div>
+  </div>
+  <button class="cf-btn" onclick="simularRenda()">Simular Minha Renda</button>
+  <div class="cf-result" id="cf-res2">
+    <div class="cf-result-label">Sua renda mensal estimada</div>
+    <div class="cf-result-value" id="cf-renda-mensal"></div>
+    <div class="cf-result-sub">
+      <div>
+        <div class="cf-sub-val" id="cf-renda-anual2"></div>
+        <div class="cf-sub-lbl">Renda anual estimada</div>
+      </div>
+      <div>
+        <div class="cf-sub-val" id="cf-servico-tipo"></div>
+        <div class="cf-sub-lbl">Servico</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECAO 3 -->
+<div class="cf-section">
+  <h2><span>3</span> Meta de Renda</h2>
+  <p class="cf-subtitle">Descubra quantos clientes ou projetos voce precisa para atingir sua meta.</p>
+  <div class="cf-grid">
+    <div class="cf-field cf-full">
+      <label>Tipo de servico</label>
+      <select id="cf-servico-meta" onchange="atualizarFaixaMeta()">
+        <option value="">-- Selecione um servico --</option>
+        <option value="video" data-min="50" data-max="150" data-unit="videos" data-label="Editor de Video/Reels">Editor de Video/Reels</option>
+        <option value="social" data-min="800" data-max="2500" data-unit="clientes" data-label="Social Media Manager">Social Media Manager</option>
+        <option value="design" data-min="100" data-max="500" data-unit="pecas" data-label="Designer Grafico">Designer Grafico</option>
+        <option value="copy" data-min="100" data-max="500" data-unit="textos (1.000 palavras)" data-label="Copywriter">Copywriter</option>
+        <option value="dev" data-min="2000" data-max="8000" data-unit="projetos" data-label="Desenvolvedor Web">Desenvolvedor Web</option>
+        <option value="foto" data-min="300" data-max="1500" data-unit="ensaios" data-label="Fotografo">Fotografo</option>
+        <option value="tradutor" data-min="100" data-max="300" data-unit="textos (1.000 palavras)" data-label="Tradutor">Tradutor</option>
+        <option value="va" data-min="1500" data-max="3500" data-unit="clientes" data-label="Assistente Virtual">Assistente Virtual</option>
+      </select>
+    </div>
+    <div class="cf-field">
+      <label>Valor cobrado por unidade (R$)</label>
+      <input type="text" id="cf-valor-meta" placeholder="Ex: 150" inputmode="decimal">
+      <div class="cf-range-info" id="cf-faixa-meta-info"></div>
+    </div>
+    <div class="cf-field">
+      <label>Quanto quer ganhar por mes (R$)</label>
+      <input type="text" id="cf-meta" placeholder="Ex: 5.000" inputmode="decimal">
+    </div>
+  </div>
+  <button class="cf-btn" onclick="calcularMeta()">Calcular Minha Meta</button>
+  <div class="cf-result" id="cf-res3">
+    <div class="cf-result-label">Para atingir sua meta</div>
+    <div class="cf-result-value" id="cf-meta-qtd"></div>
+    <div class="cf-result-detail" id="cf-meta-detail"></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cf-cta-box">
+  <h3>Quer mais estrategias para aumentar sua renda?</h3>
+  <p>Receba toda semana dicas praticas sobre freelancing, precificacao e produtividade direto no seu e-mail. Assine a newsletter Renda Extra Report -- 100% gratuita.</p>
+  <a href="https://wp.marinaveauvy.com.br/newsletter" class="cf-cta-link">Quero Receber o Renda Extra Report</a>
+</div>
+
+<script>
+(function(){
+  function parseBRL(val){
+    if(!val) return 0;
+    return parseFloat(val.toString().replace(/\./g,'').replace(',','.')) || 0;
+  }
+  function fmtBRL(n){
+    return 'R$ '+n.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+  }
+  function fmtInt(n){
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+  }
+
+  window.calcularHora = function(){
+    var moradia = parseBRL(document.getElementById('cf-moradia').value);
+    var alimentacao = parseBRL(document.getElementById('cf-alimentacao').value);
+    var transporte = parseBRL(document.getElementById('cf-transporte').value);
+    var saude = parseBRL(document.getElementById('cf-saude').value);
+    var lazer = parseBRL(document.getElementById('cf-lazer').value);
+    var investir = parseBRL(document.getElementById('cf-investir').value);
+    var horas = parseInt(document.getElementById('cf-horas').value) || 0;
+    var ferias = parseInt(document.getElementById('cf-ferias').value) || 0;
+
+    if(horas <= 0){ alert('Informe quantas horas disponiveis por semana.'); return; }
+    if(ferias >= 52){ alert('Semanas de ferias devem ser menores que 52.'); return; }
+
+    var custoMensal = moradia + alimentacao + transporte + saude + lazer + investir;
+    var rendaAnual = custoMensal * 12;
+    var horasAno = horas * (52 - ferias);
+    var valorHora = rendaAnual / horasAno;
+
+    document.getElementById('cf-hora-valor').textContent = fmtBRL(valorHora) + '/hora';
+    document.getElementById('cf-custo-mensal').textContent = fmtBRL(custoMensal);
+    document.getElementById('cf-horas-ano').textContent = fmtInt(horasAno) + 'h';
+    document.getElementById('cf-renda-anual').textContent = fmtBRL(rendaAnual);
+    document.getElementById('cf-res1-detail').textContent =
+      'Trabalhando ' + horas + 'h por semana durante ' + (52-ferias) + ' semanas, voce precisa cobrar no minimo ' + fmtBRL(valorHora) + ' por hora para cobrir todas as suas despesas e metas de investimento.';
+    document.getElementById('cf-res1').style.display = 'block';
+  };
+
+  function getSelectedOption(selId){
+    var sel = document.getElementById(selId);
+    return sel.options[sel.selectedIndex];
+  }
+
+  window.atualizarFaixa = function(){
+    var opt = getSelectedOption('cf-servico');
+    var info = document.getElementById('cf-faixa-info');
+    var lbl = document.getElementById('cf-qtd-label');
+    if(!opt.value){ info.textContent=''; lbl.textContent='Quantidade por mes'; return; }
+    info.textContent = 'Faixa de mercado: ' + fmtBRL(parseFloat(opt.dataset.min)) + ' a ' + fmtBRL(parseFloat(opt.dataset.max)) + ' por ' + opt.dataset.unit;
+    lbl.textContent = 'Quantos(as) ' + opt.dataset.unit + ' por mes';
+  };
+
+  window.atualizarFaixaMeta = function(){
+    var opt = getSelectedOption('cf-servico-meta');
+    var info = document.getElementById('cf-faixa-meta-info');
+    if(!opt.value){ info.textContent=''; return; }
+    info.textContent = 'Faixa de mercado: ' + fmtBRL(parseFloat(opt.dataset.min)) + ' a ' + fmtBRL(parseFloat(opt.dataset.max)) + ' por ' + opt.dataset.unit.replace(/s$/,'');
+  };
+
+  window.simularRenda = function(){
+    var opt = getSelectedOption('cf-servico');
+    if(!opt.value){ alert('Selecione um tipo de servico.'); return; }
+    var valor = parseBRL(document.getElementById('cf-valor-cobrar').value);
+    var qtd = parseInt(document.getElementById('cf-qtd').value) || 0;
+    if(valor <= 0){ alert('Informe o valor que pretende cobrar.'); return; }
+    if(qtd <= 0){ alert('Informe a quantidade por mes.'); return; }
+
+    var rendaMensal = valor * qtd;
+    document.getElementById('cf-renda-mensal').textContent = fmtBRL(rendaMensal) + '/mes';
+    document.getElementById('cf-renda-anual2').textContent = fmtBRL(rendaMensal * 12);
+    document.getElementById('cf-servico-tipo').textContent = opt.dataset.label;
+    document.getElementById('cf-res2').style.display = 'block';
+  };
+
+  window.calcularMeta = function(){
+    var opt = getSelectedOption('cf-servico-meta');
+    if(!opt.value){ alert('Selecione um tipo de servico.'); return; }
+    var valor = parseBRL(document.getElementById('cf-valor-meta').value);
+    var meta = parseBRL(document.getElementById('cf-meta').value);
+    if(valor <= 0){ alert('Informe o valor cobrado por unidade.'); return; }
+    if(meta <= 0){ alert('Informe quanto quer ganhar por mes.'); return; }
+
+    var qtdNecessaria = Math.ceil(meta / valor);
+    document.getElementById('cf-meta-qtd').textContent = qtdNecessaria + ' ' + opt.dataset.unit + '/mes';
+    document.getElementById('cf-meta-detail').textContent =
+      'Para ganhar ' + fmtBRL(meta) + ' por mes como ' + opt.dataset.label + ', cobrando ' + fmtBRL(valor) + ' cada, voce precisa de ' + qtdNecessaria + ' ' + opt.dataset.unit + ' por mes. Isso resulta em ' + fmtBRL(qtdNecessaria * valor) + '/mes (' + fmtBRL(qtdNecessaria * valor * 12) + '/ano).';
+    document.getElementById('cf-res3').style.display = 'block';
+  };
+})();
+</script>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div id="calc-freelancer-conclusao" style="max-width:800px;margin:40px auto 0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:#333;line-height:1.8;font-size:17px;">
+<h2 style="color:#1a1a2e;font-size:24px;margin-bottom:16px;">Proximo Passo: Transforme Numeros em Acao</h2>
+<p>Agora que voce sabe <strong>quanto cobrar como freelancer</strong> e quantos clientes precisa para atingir sua meta, o mais importante e colocar isso em pratica. Lembre-se: seu valor hora nao e apenas um numero -- ele reflete o respeito pelo seu tempo, pela sua experiencia e pela qualidade que voce entrega.</p>
+<p>Se os numeros pareceram altos demais, nao se assuste. O mercado freelancer brasileiro esta em expansao e clientes serios pagam bem por profissionais que entregam resultado. Comece posicionando seus precos de forma justa, comunique seu valor com clareza e ajuste conforme ganha experiencia e reputacao.</p>
+<p>Para receber mais conteudos praticos sobre <strong>renda extra</strong>, precificacao inteligente e estrategias para freelancers, assine o <strong>Renda Extra Report</strong> -- nossa newsletter semanal gratuita com tudo que voce precisa para crescer como profissional autonomo.</p>
+<p style="text-align:center;margin-top:24px;"><a href="https://wp.marinaveauvy.com.br/newsletter" style="display:inline-block;background:#e94560;color:#fff;text-decoration:none;padding:14px 36px;border-radius:8px;font-weight:700;font-size:16px;">Assinar o Renda Extra Report (Gratuito)</a></p>
+</div>
+<!-- /wp:html -->

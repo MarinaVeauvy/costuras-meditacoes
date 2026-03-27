@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=5500">
+<title>F2 — Carrossel 3 Padrões Sistêmicos (5 cards)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { display: flex; gap: 0; background: #e0d8cc; }
+
+  .slide {
+    width: 1080px; height: 1350px; background: #FDF8F0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; padding: 80px 90px; flex-shrink: 0;
+    border-right: 3px solid #E8D5A3;
+  }
+  .slide:last-child { border-right: none; }
+  .slide::before {
+    content: ''; position: absolute;
+    top: 25px; right: 25px; bottom: 25px; left: 25px;
+    border: 1px solid #C5A55A; opacity: 0.2; pointer-events: none;
+  }
+
+  .slide-num {
+    position: absolute; top: 45px; right: 50px;
+    font-family: 'Lato', sans-serif; font-weight: 300; font-size: 18px;
+    color: #8B7340; letter-spacing: 2px;
+  }
+
+  /* Card 1 */
+  .hook-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 66px; line-height: 1.2;
+    color: #3E2C1C; text-align: center; max-width: 800px;
+  }
+  .hook-sub {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 24px;
+    color: #8B7340; text-align: center; margin-top: 40px; letter-spacing: 1px;
+  }
+
+  /* Card 2 */
+  .question {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600; font-size: 54px; line-height: 1.3;
+    color: #3E2C1C; text-align: center; max-width: 800px;
+  }
+  .answer {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 48px; color: #2D6B4F;
+    text-align: center; margin-top: 40px;
+  }
+
+  .gold-line { width: 80px; height: 2px; background: #C5A55A; margin: 30px 0; }
+
+  /* Cards 3-4 */
+  .pattern-number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 90px; color: #E8D5A3; margin-bottom: 5px;
+  }
+  .pattern-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 44px; color: #2D6B4F;
+    text-transform: uppercase; letter-spacing: 3px; margin-bottom: 30px;
+  }
+  .pattern-desc {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 28px;
+    line-height: 1.6; color: #3E2C1C; text-align: center; max-width: 780px;
+  }
+  .pattern-quote {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic; font-size: 26px; color: #5C4033; margin-top: 25px;
+  }
+
+  /* Card 5 */
+  .cta-question {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 56px; color: #3E2C1C;
+    text-align: center; margin-bottom: 40px;
+  }
+  .cta-button {
+    background: #2D6B4F; color: #fff;
+    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 30px;
+    padding: 24px 60px; border-radius: 8px; margin-bottom: 30px;
+  }
+  .cta-details {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 24px;
+    color: #5C4033; text-align: center; line-height: 1.8;
+  }
+  .signature {
+    position: absolute; bottom: 50px; text-align: center;
+  }
+  .sig-line { width: 50px; height: 1px; background: #C5A55A; margin: 0 auto 10px; }
+  .sig-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic; font-size: 22px; color: #2D6B4F;
+  }
+</style>
+</head>
+<body>
+
+<!-- CARD 1 — Hook -->
+<div class="slide">
+  <div class="slide-num">1 / 5</div>
+  <div class="hook-title">Por que seu<br>patrimônio não<br>reflete seu esforço?</div>
+  <div class="hook-sub">Deslize para descobrir →</div>
+</div>
+
+<!-- CARD 2 — Revelação -->
+<div class="slide">
+  <div class="slide-num">2 / 5</div>
+  <div class="question">Não é falta<br>de disciplina.</div>
+  <div class="gold-line"></div>
+  <div class="answer">É um padrão<br>do seu sistema familiar.</div>
+</div>
+
+<!-- CARD 3 — Pertencimento -->
+<div class="slide">
+  <div class="slide-num">3 / 5</div>
+  <div class="pattern-number">1</div>
+  <div class="pattern-name">Pertencimento</div>
+  <div class="gold-line"></div>
+  <div class="pattern-desc">
+    Você sente culpa de prosperar mais que sua família.<br><br>
+    Subcobra, recusa oportunidades, se sabota quando o dinheiro começa a acumular.
+  </div>
+  <div class="pattern-quote">"Não posso ter mais que meus pais."</div>
+</div>
+
+<!-- CARD 4 — Ordem & Equilíbrio -->
+<div class="slide">
+  <div class="slide-num">4 / 5</div>
+  <div class="pattern-number">2 · 3</div>
+  <div class="pattern-name" style="font-size:38px;">Ordem & Equilíbrio</div>
+  <div class="gold-line"></div>
+  <div class="pattern-desc" style="font-size:26px;">
+    <strong style="color:#2D6B4F;">Ordem:</strong> Você repete ciclos financeiros da sua família. Dívidas que aparecem, prosperidade que não dura.<br><br>
+    <strong style="color:#2D6B4F;">Equilíbrio:</strong> O dinheiro entra mas evapora. Gastos que não lembra, oportunidades que passam.
+  </div>
+</div>
+
+<!-- CARD 5 — CTA -->
+<div class="slide">
+  <div class="slide-num">5 / 5</div>
+  <div class="cta-question">Qual padrão está<br>ativo em você?</div>
+  <div class="cta-button">Descubra agora → R$47</div>
+  <div class="cta-details">
+    ✦ 15 perguntas diagnósticas<br>
+    ✦ Relatório personalizado<br>
+    ✦ 3 práticas para destravar<br><br>
+    Acesso imediato · Garantia 7 dias
+  </div>
+  <div class="signature">
+    <div class="sig-line"></div>
+    <div class="sig-name">Marina Veauvy</div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>F3 — Quiz Autoridade</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #111; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+  .frame {
+    width: 1080px; height: 1080px;
+    position: relative; overflow: hidden;
+    background: #0B0A12;
+  }
+  .photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 20%;
+  }
+  .overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(11,10,18,0.92) 0%,
+        rgba(11,10,18,0.50) 30%,
+        rgba(11,10,18,0.25) 50%,
+        rgba(11,10,18,0.65) 70%,
+        rgba(11,10,18,0.95) 100%);
+    z-index: 1;
+  }
+  .content {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; flex-direction: column; justify-content: space-between;
+    padding: 60px 65px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(212,175,55,0.15);
+    border: 1px solid rgba(212,175,55,0.35);
+    color: #E8D5A3;
+    font-family: 'Lato', sans-serif;
+    font-size: 22px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    padding: 10px 26px; border-radius: 30px;
+    margin-bottom: 28px;
+    backdrop-filter: blur(8px);
+    width: fit-content;
+  }
+  .hook {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 62px; font-weight: 700;
+    color: #fff; line-height: 1.15;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6);
+  }
+  .hook em { color: #D4AF37; font-style: normal; }
+  .body-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 28px; font-weight: 300;
+    color: rgba(255,255,255,0.85); line-height: 1.65;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    max-width: 700px;
+  }
+  .bottom {}
+  .cta-box {
+    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    border-radius: 16px;
+    padding: 24px 40px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 6px 30px rgba(124,58,237,0.4);
+    margin-bottom: 24px;
+  }
+  .cta-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px; font-weight: 700;
+    color: #fff; letter-spacing: 1px;
+  }
+  .info-row {
+    display: flex; gap: 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 24px; color: rgba(255,255,255,0.65);
+  }
+  .info-row strong { color: #E8D5A3; }
+  .brand {
+    position: absolute; bottom: 35px; right: 65px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; color: rgba(212,175,55,0.5);
+    letter-spacing: 3px; z-index: 2;
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+  <img src="marina-blazer.png" class="photo" alt="">
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="top">
+      <div class="badge">Quiz gratuito · 6 perguntas</div>
+      <div class="hook">
+        Em centenas de<br>
+        constelações, o mesmo<br>
+        <em>padrão se repete.</em>
+      </div>
+      <div class="body-text">
+        Mulheres que ganham bem<br>
+        mas não constroem patrimônio<br>
+        carregam 1 de 3 lealdades invisíveis.
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="cta-box">
+        <div class="cta-text">DESCUBRA A SUA →</div>
+      </div>
+      <div class="info-row">
+        <span>🔍 <strong>6 perguntas</strong></span>
+        <span>⚡ <strong>Resultado na hora</strong></span>
+        <span>💰 <strong>100% gratuito</strong></span>
+      </div>
+    </div>
+  </div>
+  <div class="brand">PROSPERIDADE ALQUÍMICA</div>
+</div>
+</body>
+</html>

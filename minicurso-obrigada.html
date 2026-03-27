@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscricao Confirmada!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .check-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+    }
+    .check-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: #fff;
+      stroke-width: 3;
+      fill: none;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .message {
+      font-size: 1.15rem;
+      color: #a0a0b8;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .message strong {
+      color: #ffffff;
+    }
+    .tips {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    .tips h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .tips ul {
+      list-style: none;
+      padding: 0;
+    }
+    .tips li {
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: #b0b0c8;
+      padding-left: 24px;
+      position: relative;
+    }
+    .tips li::before {
+      content: ">";
+      position: absolute;
+      left: 0;
+      color: #e94560;
+      font-weight: 700;
+    }
+    .back-link {
+      display: inline-block;
+      color: #8888a0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="check-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <h1>Inscricao confirmada!</h1>
+    <p class="message">
+      O <strong>Dia 1</strong> do seu mini-curso ja esta na sua caixa de entrada.<br>Confira agora.
+    </p>
+    <div class="tips">
+      <h3>Para nao perder nenhuma aula:</h3>
+      <ul>
+        <li>Verifique a caixa de spam ou "Promocoes" do Gmail</li>
+        <li>Arraste nosso email para a caixa principal</li>
+        <li>Adicione nosso remetente aos contatos</li>
+        <li>As proximas aulas chegam uma por dia, no mesmo horario</li>
+      </ul>
+    </div>
+    <a href="index.html" class="back-link">Voltar para a pagina inicial</a>
+  </div>
+</body>
+</html>

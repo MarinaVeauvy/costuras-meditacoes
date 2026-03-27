@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>RT3 — Retarget Urgência</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; background: #FDF8F0; }
+  .card {
+    width: 1080px; height: 1080px; background: #FDF8F0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; padding: 80px 100px;
+  }
+  .card::before {
+    content: ''; position: absolute;
+    top: 30px; right: 30px; bottom: 30px; left: 30px;
+    border: 1px solid #C5A55A; opacity: 0.25; pointer-events: none;
+  }
+  .headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 58px; line-height: 1.25;
+    color: #3E2C1C; text-align: center; max-width: 800px; margin-bottom: 40px;
+  }
+  .highlight { color: #2D6B4F; }
+  .gold-line { width: 80px; height: 2px; background: #C5A55A; margin-bottom: 40px; }
+  .list {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 28px;
+    line-height: 2; color: #5C4033; text-align: left; margin-bottom: 45px;
+  }
+  .list strong { color: #3E2C1C; }
+  .cta {
+    background: #2D6B4F; color: #fff;
+    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 24px;
+    padding: 18px 45px; border-radius: 8px; margin-bottom: 12px;
+  }
+  .details {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 18px; color: #8B7340;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="headline">
+    Enquanto você<br>
+    não vê o padrão,<br>
+    <span class="highlight">ele decide por você:</span>
+  </div>
+  <div class="gold-line"></div>
+  <div class="list">
+    → Quanto você <strong>cobra</strong><br>
+    → O que você <strong>aceita</strong><br>
+    → O que você <strong>adia</strong><br>
+    → Pra onde o dinheiro <strong>vai</strong>
+  </div>
+  <div class="cta">Ver o meu padrão → R$47</div>
+  <div class="details">15 perguntas · Relatório na hora · Garantia 7 dias</div>
+</div>
+</body>
+</html>

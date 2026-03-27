@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>F3 — Feed Bisturi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; background: #FDF8F0; }
+  .card {
+    width: 1080px; height: 1080px; background: #FDF8F0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; padding: 90px 100px;
+  }
+  .card::before {
+    content: ''; position: absolute;
+    top: 30px; right: 30px; bottom: 30px; left: 30px;
+    border: 1px solid #C5A55A; opacity: 0.25; pointer-events: none;
+  }
+  .headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 56px; line-height: 1.3;
+    color: #3E2C1C; text-align: center; max-width: 850px; margin-bottom: 35px;
+  }
+  .highlight { color: #2D6B4F; }
+  .gold-line { width: 80px; height: 2px; background: #C5A55A; margin-bottom: 35px; }
+  .sub {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 28px;
+    line-height: 1.6; color: #5C4033; text-align: center; max-width: 700px;
+    margin-bottom: 45px;
+  }
+  .cta {
+    background: #2D6B4F; color: #fff;
+    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 24px;
+    padding: 18px 45px; border-radius: 8px; margin-bottom: 15px;
+  }
+  .details {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 18px; color: #8B7340;
+  }
+  .signature {
+    position: absolute; bottom: 45px; right: 55px; text-align: right;
+  }
+  .sig-line { width: 40px; height: 1px; background: #C5A55A; margin-left: auto; margin-bottom: 8px; }
+  .sig-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic; font-weight: 600; font-size: 22px; color: #2D6B4F;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="headline">
+    Mais uma planilha<br>
+    não vai resolver.<br><br>
+    <span class="highlight">Se resolvesse,<br>já teria resolvido.</span>
+  </div>
+  <div class="gold-line"></div>
+  <div class="sub">
+    O problema não está no que você sabe sobre dinheiro.<br>
+    Está no que o seu sistema familiar decidiu por você.
+  </div>
+  <div class="cta">Qual padrão está ativo em você? → R$47</div>
+  <div class="details">15 perguntas · Relatório personalizado · Acesso imediato</div>
+  <div class="signature">
+    <div class="sig-line"></div>
+    <div class="sig-name">Marina Veauvy</div>
+  </div>
+</div>
+</body>
+</html>

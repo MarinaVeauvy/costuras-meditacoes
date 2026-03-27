@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega — Secretaria IA Serena | Fernanda Rosa</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap');
+
+  :root {
+    --green: #2D5A3D;
+    --green-light: #E8F0EB;
+    --green-soft: #4A7C5C;
+    --gold: #B8860B;
+    --gold-light: #FFF8E7;
+    --bg: #FAFAF8;
+    --text: #2C2C2C;
+    --text-light: #666;
+    --border: #E5E5E0;
+    --white: #FFFFFF;
+    --red-soft: #D94F4F;
+    --red-bg: #FFF0F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-soft) 100%);
+    color: white;
+    padding: 60px 24px 50px;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .hero p {
+    font-size: 16px;
+    opacity: 0.85;
+    font-weight: 300;
+  }
+  .hero-meta {
+    margin-top: 24px;
+    font-size: 13px;
+    opacity: 0.7;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section {
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 32px;
+    margin: 24px auto;
+    max-width: 720px;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--green);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--green-light);
+  }
+  .section h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-soft);
+    margin: 24px 0 10px;
+  }
+  .section h3:first-of-type { margin-top: 0; }
+
+  ul { list-style: none; padding: 0; }
+  ul li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+  }
+  ul li::before {
+    content: '🌿';
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+  }
+
+  .highlight-box {
+    background: var(--green-light);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+  .highlight-box.gold {
+    background: var(--gold-light);
+    border-left-color: var(--gold);
+  }
+  .highlight-box.red {
+    background: var(--red-bg);
+    border-left-color: var(--red-soft);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  th {
+    background: var(--green-light);
+    color: var(--green);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 14px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:last-child td { border-bottom: none; }
+
+  code {
+    background: #F5F5F0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: var(--green);
+  }
+  .code-block {
+    background: #2C2C2C;
+    color: #E8E8E8;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 13px;
+    margin: 12px 0;
+    overflow-x: auto;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .status-badge.active {
+    background: var(--green-light);
+    color: var(--green);
+  }
+
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+  }
+  .steps li {
+    counter-increment: step;
+    padding: 10px 0 10px 44px;
+    position: relative;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 28px;
+    height: 28px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+    font-size: 13px;
+  }
+  .footer strong { color: var(--text); }
+
+  .emoji-icon {
+    font-size: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 20px 36px; }
+    .hero h1 { font-size: 26px; }
+    .section { padding: 24px 20px; margin: 16px 12px; }
+    table { font-size: 13px; }
+    th, td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">Entrega Final</div>
+  <h1>Secretaria IA Serena</h1>
+  <p>Consultorio Fernanda Rosa</p>
+  <div class="hero-meta">17 de marco de 2026 &middot; Versao 2.0 com IA conversacional</div>
+</div>
+
+<div class="section">
+  <h2>O que e a Serena</h2>
+  <p>A Serena e sua assistente virtual no WhatsApp. Ela acolhe novos interessados, explica seus servicos, responde duvidas e encaminha para agendamento &mdash; tudo com a linguagem do movimento <em>Eu Sou Minha Medicina</em>.</p>
+  <div class="highlight-box">
+    Diferente de um chatbot comum ("digite 1 para..."), a Serena <strong>conversa de verdade</strong>. Ela entende contexto, responde com empatia e sabe quando encaminhar para voce.
+  </div>
+</div>
+
+<div class="section">
+  <h2>O que a Serena faz</h2>
+
+  <h3><span class="emoji-icon">💬</span>Atendimento automatico</h3>
+  <ul>
+    <li>Acolhe novos contatos com apresentacao personalizada</li>
+    <li>Responde sobre todos os seus servicos (psicanalise, contoterapia, virtologia, plano de alma, sessao despertar, S.O.S, cannabis medicinal)</li>
+    <li>Explica a filosofia <em>Eu Sou Minha Medicina</em></li>
+    <li>Informa sobre condicoes de pagamento (sem revelar valores)</li>
+    <li>Redireciona perguntas fora do assunto com leveza</li>
+  </ul>
+
+  <h3><span class="emoji-icon">📅</span>Agendamento</h3>
+  <ul>
+    <li>Envia link do Cal.com para sessao entrevista gratuita</li>
+    <li>Confirma agendamento via WhatsApp para o paciente</li>
+    <li>Notifica voce sobre novos agendamentos, cancelamentos e remarcacoes</li>
+    <li>Quando alguem cancela, avisa que o <strong>slot ficou livre</strong> para realocar</li>
+  </ul>
+
+  <h3><span class="emoji-icon">📊</span>Controle de sessoes</h3>
+  <ul>
+    <li>Conta automaticamente "sessao X de Y" quando paciente tem pacote</li>
+    <li>Avisa quando o pacote esta acabando (2 ou menos sessoes restantes)</li>
+    <li>Avisa quando esgotou</li>
+  </ul>
+
+  <h3><span class="emoji-icon">⏰</span>Lembretes</h3>
+  <ul>
+    <li><strong>Diario (10h):</strong> Lembrete 24h antes da sessao para o paciente, com contagem do pacote</li>
+    <li><strong>Diario (10h):</strong> Resumo da agenda de amanha para voce</li>
+    <li><strong>Semanal (sexta 18h):</strong> Resumo completo da semana &mdash; atendimentos, cancelamentos, pacotes para renovar</li>
+  </ul>
+
+  <h3><span class="emoji-icon">🛡️</span>Protecao</h3>
+  <ul>
+    <li>Se alguem relata crise/risco, a Serena acolhe e informa o CVV 188</li>
+    <li>Quando voce aceita um ticket no AizyFlow, a Serena silencia automaticamente</li>
+    <li>Filtro anti-flood: nao repete mensagens e nao entra em loop</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Comandos para voce (WhatsApp)</h2>
+  <p>Mande esses comandos <strong>do seu numero</strong> no WhatsApp da Serena:</p>
+
+  <table>
+    <thead>
+      <tr><th>Comando</th><th>O que faz</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>/pacote email 10sessoes</code></td><td>Registra pacote de 10 sessoes</td></tr>
+      <tr><td><code>/pacote email 30sessoes</code></td><td>Registra pacote de 30 sessoes</td></tr>
+      <tr><td><code>/sessoes email</code></td><td>Consulta sessoes realizadas e restantes</td></tr>
+      <tr><td><code>/pacotes</code></td><td>Lista todos os pacotes ativos</td></tr>
+      <tr><td><code>/removerpacote email</code></td><td>Remove um pacote</td></tr>
+      <tr><td><code>/ajuda</code></td><td>Mostra todos os comandos</td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box gold">
+    <strong>Exemplo pratico:</strong> Paciente Maria comprou plano de 10 sessoes. Voce manda:
+    <div class="code-block">/pacote maria@email.com 10sessoes</div>
+    A partir dai, toda vez que a Maria agendar, ela recebe: <em>"Maria, essa e a sessao 3 de 10 🌿"</em>
+  </div>
+</div>
+
+<div class="section">
+  <h2>O que a Serena NAO faz</h2>
+  <div class="highlight-box red">
+    <ul>
+      <li><strong>Nao fala valores</strong> &mdash; isso e com voce, na sessao entrevista</li>
+      <li><strong>Nao promete cura</strong> nem diagnostica</li>
+      <li><strong>Nao cobra pagamento</strong> &mdash; voce faz manual (Stone/InfinitePay)</li>
+      <li><strong>Nao menciona terapia enteogenica</strong> &mdash; conforme combinado</li>
+      <li><strong>Nao agenda sessoes recorrentes</strong> &mdash; ela explica que voce organiza pessoalmente</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Como reconectar o WhatsApp</h2>
+  <p>A cada 2-3 meses, o WhatsApp pode pedir reconexao. O processo e simples:</p>
+  <ol class="steps">
+    <li>Me avise que precisa reconectar</li>
+    <li>Eu gero um QR code novo</li>
+    <li>No seu celular: <strong>WhatsApp &gt; Configuracoes &gt; Dispositivos conectados &gt; Vincular dispositivo</strong></li>
+    <li>Escaneie o QR code</li>
+    <li>Pronto &mdash; a Serena volta a funcionar em segundos</li>
+  </ol>
+</div>
+
+<div class="section">
+  <h2>Infraestrutura</h2>
+  <table>
+    <thead>
+      <tr><th>Componente</th><th>Servico</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>WhatsApp</td><td>AizyFlow</td><td><span class="status-badge active">&#10003; Conectado</span></td></tr>
+      <tr><td>Agendamento</td><td>Cal.com + Google Calendar</td><td><span class="status-badge active">&#10003; Integrado</span></td></tr>
+      <tr><td>Bot inteligente</td><td>Claude AI (Anthropic)</td><td><span class="status-badge active">&#10003; Ativo</span></td></tr>
+      <tr><td>Hospedagem</td><td>Vercel</td><td><span class="status-badge active">&#10003; Producao</span></td></tr>
+      <tr><td>Lembretes</td><td>Vercel Cron Jobs</td><td><span class="status-badge active">&#10003; Diario + semanal</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <strong>Credenciais salvas (voce nao precisa mexer):</strong><br>
+    AizyFlow: fernanda@fernandarosa.com.br<br>
+    Cal.com: drafernandarosa@gmail.com<br>
+    Google Calendar: sincronizado automaticamente
+  </div>
+</div>
+
+<div class="section">
+  <h2>Horarios de funcionamento</h2>
+  <p>A Serena responde <strong>24h</strong> (e automatica), mas os horarios de agendamento seguem:</p>
+  <table>
+    <thead><tr><th>Dia</th><th>Horario</th></tr></thead>
+    <tbody>
+      <tr><td>Segunda a Quinta</td><td>09:00 &mdash; 18:00</td></tr>
+      <tr><td>Sexta</td><td>09:00 &mdash; 12:00</td></tr>
+      <tr><td>Sabado e Domingo</td><td>Fechado</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Suporte</h2>
+  <p>Qualquer problema, ajuste ou duvida: me chama no WhatsApp.</p>
+  <div class="highlight-box gold">
+    Incluso no pacote: <strong>3 meses de acompanhamento</strong> (ate 17/06/2026).
+    <ul style="margin-top:8px">
+      <li>Ajustes na linguagem da Serena</li>
+      <li>Correcao de comportamentos</li>
+      <li>Reconexao WhatsApp</li>
+      <li>Inclusao de novos servicos</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Proximos passos (opcionais)</h2>
+  <table>
+    <thead><tr><th>Projeto</th><th>Descricao</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Diario dos Ciclos</strong></td><td>Produto de mapeamento de padroes via WhatsApp (proposta enviada)</td></tr>
+      <tr><td><strong>Landing page</strong></td><td>Pagina atualizada com seus servicos</td></tr>
+      <tr><td><strong>Pagamento automatizado</strong></td><td>Asaas/Stripe &mdash; eliminar cobranca manual</td></tr>
+      <tr><td><strong>Relatorios mensais</strong></td><td>PDF automatico de atendimentos</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>Entrega realizada por <strong>Marina Veauvy &mdash; Synkra AIOS</strong></p>
+  <p>Suporte incluso ate 17/06/2026</p>
+</div>
+
+</body>
+</html>

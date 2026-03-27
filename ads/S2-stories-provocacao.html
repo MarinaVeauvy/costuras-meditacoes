@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>S2 — Stories Provocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #FDF8F0; }
+  .card {
+    width: 1080px; height: 1920px; background: #FDF8F0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; padding: 140px 80px;
+  }
+  .card::before {
+    content: ''; position: absolute;
+    top: 40px; right: 40px; bottom: 40px; left: 40px;
+    border: 1px solid #C5A55A; opacity: 0.2; pointer-events: none;
+  }
+  .hook {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 62px; line-height: 1.25;
+    color: #3E2C1C; text-align: center; max-width: 850px; margin-bottom: 50px;
+  }
+  .highlight { color: #2D6B4F; }
+  .gold-line { width: 80px; height: 2px; background: #C5A55A; margin-bottom: 50px; }
+  .twist {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 54px; line-height: 1.3;
+    color: #2D6B4F; text-align: center; max-width: 850px; margin-bottom: 30px;
+  }
+  .explain {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 30px;
+    line-height: 1.6; color: #5C4033; text-align: center; max-width: 750px;
+    margin-bottom: 60px;
+  }
+  .cta-button {
+    background: #2D6B4F; color: #fff;
+    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 32px;
+    padding: 28px 60px; border-radius: 10px; margin-bottom: 20px;
+  }
+  .price {
+    font-family: 'Lato', sans-serif; font-weight: 400; font-size: 22px; color: #8B7340;
+  }
+  .signature {
+    position: absolute; bottom: 80px; text-align: center;
+  }
+  .sig-line { width: 50px; height: 1px; background: #C5A55A; margin: 0 auto 10px; }
+  .sig-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic; font-size: 24px; color: #2D6B4F;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hook">
+    Seu preço é reflexo<br>
+    da sua <span class="highlight">costura</span>,<br>
+    não do seu mercado.
+  </div>
+  <div class="gold-line"></div>
+  <div class="twist">
+    A mulher que subcobra<br>
+    não tem problema<br>
+    de posicionamento.
+  </div>
+  <div class="explain">
+    Tem um padrão familiar que diz:<br>
+    "gente como a gente não tem isso."
+  </div>
+  <div class="cta-button">Descubra o seu padrão → R$47</div>
+  <div class="price">Quiz · Relatório na hora · Garantia 7 dias</div>
+  <div class="signature">
+    <div class="sig-line"></div>
+    <div class="sig-name">Marina Veauvy</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto; background: #1a1a2e; color: #f0f0f0; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.3);">
+
+<div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 32px 24px; text-align: center; border-bottom: 3px solid #e8d5b7;">
+<h2 style="color: #e8d5b7; margin: 0 0 8px 0; font-size: 28px; font-weight: 700;">Simulador CDB vs Poupanca</h2>
+<p style="color: #a0a0b8; margin: 0; font-size: 15px;">Compare seus rendimentos e descubra quanto voce esta deixando na mesa</p>
+</div>
+
+<div style="padding: 24px;">
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+<div>
+<label style="display: block; color: #e8d5b7; font-size: 13px; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Investimento Inicial (R$)</label>
+<input type="text" id="sim-inicial" value="10.000,00" style="width: 100%; padding: 12px 16px; background: #16213e; border: 2px solid #2a2a4e; border-radius: 8px; color: #f0f0f0; font-size: 16px; box-sizing: border-box; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#e8d5b7'" onblur="this.style.borderColor='#2a2a4e'" oninput="formatarMoeda(this); calcular();">
+</div>
+<div>
+<label style="display: block; color: #e8d5b7; font-size: 13px; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Aporte Mensal (R$)</label>
+<input type="text" id="sim-mensal" value="500,00" style="width: 100%; padding: 12px 16px; background: #16213e; border: 2px solid #2a2a4e; border-radius: 8px; color: #f0f0f0; font-size: 16px; box-sizing: border-box; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='#e8d5b7'" onblur="this.style.borderColor='#2a2a4e'" oninput="formatarMoeda(this); calcular();">
+</div>
+</div>
+
+<div style="margin-bottom: 24px;">
+<label style="display: block; color: #e8d5b7; font-size: 13px; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Periodo: <span id="sim-periodo-label" style="color: #f0f0f0; font-size: 16px;">24 meses</span></label>
+<input type="range" id="sim-periodo" min="1" max="60" value="24" style="width: 100%; height: 6px; -webkit-appearance: none; appearance: none; background: linear-gradient(to right, #e8d5b7 40%, #2a2a4e 40%); border-radius: 3px; outline: none; cursor: pointer;" oninput="atualizarSlider(this); calcular();">
+<div style="display: flex; justify-content: space-between; color: #666; font-size: 12px; margin-top: 4px;">
+<span>1 mes</span><span>12 meses</span><span>24 meses</span><span>36 meses</span><span>48 meses</span><span>60 meses</span>
+</div>
+</div>
+
+<div style="margin-bottom: 28px;">
+<label style="display: block; color: #e8d5b7; font-size: 13px; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px;">Taxa Selic (% ao ano)</label>
+<input type="text" id="sim-selic" value="15,00" style="width: 120px; padding: 12px 16px; background: #16213e; border: 2px solid #2a2a4e; border-radius: 8px; color: #f0f0f0; font-size: 16px; box-sizing: border-box; outline: none; transition: border-color 0.3s; text-align: center;" onfocus="this.style.borderColor='#e8d5b7'" onblur="this.style.borderColor='#2a2a4e'" oninput="calcular();">
+<span style="color: #888; font-size: 12px; margin-left: 8px;">Atual: 15,00% (marco/2026)</span>
+</div>
+
+<div id="sim-destaque" style="background: linear-gradient(135deg, #2d1810 0%, #1a1a2e 100%); border: 2px solid #e8d5b7; border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 28px;">
+<p style="margin: 0; font-size: 14px; color: #a0a0b8;">Ao escolher a Poupanca em vez do CDB 110% CDI, voce esta perdendo:</p>
+<p id="sim-perda" style="margin: 8px 0 0 0; font-size: 32px; font-weight: 800; color: #e8d5b7;">R$ 0,00</p>
+</div>
+
+<div id="sim-grafico" style="margin-bottom: 28px; padding: 20px; background: #16213e; border-radius: 12px;"></div>
+
+<div id="sim-tabela" style="overflow-x: auto;"></div>
+
+<div style="margin-top: 28px; padding: 20px; background: #16213e; border-radius: 12px; font-size: 12px; color: #888; line-height: 1.6;">
+<strong style="color: #e8d5b7;">Notas:</strong><br>
+IR regressivo: 22,5% (ate 180 dias) | 20% (181-360) | 17,5% (361-720) | 15% (acima de 720 dias).<br>
+Poupanca: isenta de IR. Rendimento = TR + 0,5%/mes (Selic &gt; 8,5%). CDB e Tesouro Selic: rendimentos sujeitos a IR.<br>
+Simulacao simplificada para fins educacionais. Valores reais podem variar.
+</div>
+
+</div>
+</div>
+
+<script>
+function parseMoeda(str) {
+  if (!str) return 0;
+  return parseFloat(str.replace(/\./g, '').replace(',', '.')) || 0;
+}
+
+function formatarBRL(valor) {
+  return valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function formatarMoeda(input) {
+  let v = input.value.replace(/\D/g, '');
+  if (v === '') { input.value = ''; return; }
+  v = (parseInt(v) / 100).toFixed(2);
+  input.value = parseFloat(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function atualizarSlider(slider) {
+  var pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+  slider.style.background = 'linear-gradient(to right, #e8d5b7 ' + pct + '%, #2a2a4e ' + pct + '%)';
+  document.getElementById('sim-periodo-label').textContent = slider.value + (slider.value == 1 ? ' mes' : ' meses');
+}
+
+function aliquotaIR(dias) {
+  if (dias <= 180) return 0.225;
+  if (dias <= 360) return 0.20;
+  if (dias <= 720) return 0.175;
+  return 0.15;
+}
+
+function simularInvestimento(inicial, mensal, meses, taxaAnual, temIR) {
+  var taxaMensal = Math.pow(1 + taxaAnual / 100, 1 / 12) - 1;
+  var totalInvestido = inicial;
+  var saldo = inicial;
+  for (var m = 1; m <= meses; m++) {
+    saldo = saldo * (1 + taxaMensal);
+    if (m < meses) {
+      saldo += mensal;
+      totalInvestido += mensal;
+    }
+  }
+  var rendimentoBruto = saldo - totalInvestido;
+  var dias = meses * 30;
+  var ir = temIR ? rendimentoBruto * aliquotaIR(dias) : 0;
+  var rendimentoLiquido = rendimentoBruto - ir;
+  var totalLiquido = totalInvestido + rendimentoLiquido;
+  return {
+    totalInvestido: totalInvestido,
+    rendimentoBruto: rendimentoBruto,
+    ir: ir,
+    rendimentoLiquido: rendimentoLiquido,
+    totalLiquido: totalLiquido
+  };
+}
+
+function calcular() {
+  var inicial = parseMoeda(document.getElementById('sim-inicial').value);
+  var mensal = parseMoeda(document.getElementById('sim-mensal').value);
+  var meses = parseInt(document.getElementById('sim-periodo').value);
+  var selic = parseMoeda(document.getElementById('sim-selic').value);
+
+  var taxaPoupanca = 6.17;
+  if (selic <= 8.5) {
+    taxaPoupanca = selic * 0.70;
+  }
+  var taxaCDB100 = selic;
+  var taxaCDB110 = selic * 1.10;
+  var taxaTesouro = selic;
+
+  var poupanca = simularInvestimento(inicial, mensal, meses, taxaPoupanca, false);
+  var cdb100 = simularInvestimento(inicial, mensal, meses, taxaCDB100, true);
+  var cdb110 = simularInvestimento(inicial, mensal, meses, taxaCDB110, true);
+  var tesouro = simularInvestimento(inicial, mensal, meses, taxaTesouro, true);
+
+  var perda = cdb110.totalLiquido - poupanca.totalLiquido;
+  document.getElementById('sim-perda').textContent = 'R$ ' + formatarBRL(Math.max(0, perda));
+
+  var resultados = [
+    { nome: 'Poupanca', cor: '#6c757d', dados: poupanca, taxa: taxaPoupanca },
+    { nome: 'CDB 100% CDI', cor: '#4a90d9', dados: cdb100, taxa: taxaCDB100 },
+    { nome: 'CDB 110% CDI', cor: '#e8d5b7', dados: cdb110, taxa: taxaCDB110 },
+    { nome: 'Tesouro Selic', cor: '#50c878', dados: tesouro, taxa: taxaTesouro }
+  ];
+
+  var maxVal = 0;
+  for (var i = 0; i < resultados.length; i++) {
+    if (resultados[i].dados.totalLiquido > maxVal) maxVal = resultados[i].dados.totalLiquido;
+  }
+
+  var graficoHTML = '<h3 style="color: #e8d5b7; margin: 0 0 16px 0; font-size: 16px; font-weight: 600;">Comparativo Visual</h3>';
+  for (var i = 0; i < resultados.length; i++) {
+    var r = resultados[i];
+    var pct = maxVal > 0 ? (r.dados.totalLiquido / maxVal) * 100 : 0;
+    var isMelhor = i === 2;
+    graficoHTML += '<div style="margin-bottom: 12px;">';
+    graficoHTML += '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">';
+    graficoHTML += '<span style="font-size: 13px; font-weight: 600; color: ' + r.cor + ';">' + r.nome + (isMelhor ? ' (MELHOR)' : '') + '</span>';
+    graficoHTML += '<span style="font-size: 14px; font-weight: 700; color: #f0f0f0;">R$ ' + formatarBRL(r.dados.totalLiquido) + '</span>';
+    graficoHTML += '</div>';
+    graficoHTML += '<div style="background: #1a1a2e; border-radius: 6px; height: 28px; overflow: hidden; position: relative;">';
+    graficoHTML += '<div style="background: linear-gradient(90deg, ' + r.cor + ', ' + r.cor + 'cc); height: 100%; width: ' + pct + '%; border-radius: 6px; transition: width 0.6s ease; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; box-sizing: border-box; min-width: 60px;">';
+    graficoHTML += '<span style="font-size: 11px; font-weight: 700; color: #1a1a2e;">+R$ ' + formatarBRL(r.dados.rendimentoLiquido) + '</span>';
+    graficoHTML += '</div></div></div>';
+  }
+  document.getElementById('sim-grafico').innerHTML = graficoHTML;
+
+  var dias = meses * 30;
+  var faixaIR = aliquotaIR(dias);
+  var tabelaHTML = '<div style="overflow-x: auto;"><table style="width: 100%; border-collapse: collapse; font-size: 13px;">';
+  tabelaHTML += '<thead><tr style="border-bottom: 2px solid #e8d5b7;">';
+  tabelaHTML += '<th style="text-align: left; padding: 10px 8px; color: #e8d5b7; font-size: 12px;"></th>';
+  for (var i = 0; i < resultados.length; i++) {
+    tabelaHTML += '<th style="text-align: right; padding: 10px 8px; color: ' + resultados[i].cor + '; font-size: 12px; white-space: nowrap;">' + resultados[i].nome + '</th>';
+  }
+  tabelaHTML += '</tr></thead><tbody>';
+
+  var linhas = [
+    { label: 'Taxa ao ano', format: function(r) { return r.taxa.toFixed(2).replace('.', ',') + '%'; } },
+    { label: 'Total investido', format: function(r) { return 'R$ ' + formatarBRL(r.dados.totalInvestido); } },
+    { label: 'Rendimento bruto', format: function(r) { return 'R$ ' + formatarBRL(r.dados.rendimentoBruto); } },
+    { label: 'IR (' + (faixaIR * 100).toFixed(1).replace('.', ',') + '%)', format: function(r) { return r.dados.ir > 0 ? '- R$ ' + formatarBRL(r.dados.ir) : 'Isento'; } },
+    { label: 'Rendimento liquido', format: function(r) { return 'R$ ' + formatarBRL(r.dados.rendimentoLiquido); } },
+    { label: 'Total acumulado', format: function(r) { return 'R$ ' + formatarBRL(r.dados.totalLiquido); }, destaque: true }
+  ];
+
+  for (var l = 0; l < linhas.length; l++) {
+    var bgColor = l % 2 === 0 ? '#16213e' : '#1a1a2e';
+    if (linhas[l].destaque) bgColor = '#2d1810';
+    tabelaHTML += '<tr style="background: ' + bgColor + '; ' + (linhas[l].destaque ? 'font-weight: 700;' : '') + '">';
+    tabelaHTML += '<td style="padding: 10px 8px; color: #a0a0b8; white-space: nowrap;">' + linhas[l].label + '</td>';
+    for (var i = 0; i < resultados.length; i++) {
+      var txtColor = linhas[l].destaque ? '#e8d5b7' : '#f0f0f0';
+      tabelaHTML += '<td style="text-align: right; padding: 10px 8px; color: ' + txtColor + '; white-space: nowrap;">' + linhas[l].format(resultados[i]) + '</td>';
+    }
+    tabelaHTML += '</tr>';
+  }
+  tabelaHTML += '</tbody></table></div>';
+  document.getElementById('sim-tabela').innerHTML = tabelaHTML;
+}
+
+(function() {
+  atualizarSlider(document.getElementById('sim-periodo'));
+  calcular();
+})();
+</script>

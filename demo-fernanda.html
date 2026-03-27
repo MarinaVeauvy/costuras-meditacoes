@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fernanda Stapelbroek | Psicanalista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #FAF8F5;
+      --bg-warm: #F5F0EB;
+      --green-deep: #2D4A3E;
+      --green-mid: #3D6B5A;
+      --green-light: #5A8F7B;
+      --green-soft: rgba(61,107,90,0.08);
+      --gold: #B8956A;
+      --gold-light: #D4B896;
+      --text-dark: #2C2C2C;
+      --text-body: #4A4A4A;
+      --text-muted: #7A7A7A;
+      --white: #FFFFFF;
+      --border: rgba(45,74,62,0.12);
+      --shadow: 0 2px 20px rgba(0,0,0,0.06);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.10);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
+      padding: 60px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(184,149,106,0.1) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      color: var(--green-deep);
+      border: 3px solid rgba(255,255,255,0.2);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    .hero .crp {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.8);
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
+
+    /* SECTION */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* SOBRE */
+    .about {
+      padding: 48px 20px;
+    }
+
+    .about .container {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--green-deep);
+      margin-bottom: 16px;
+    }
+
+    .about p {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    /* SERVICOS */
+    .services {
+      padding: 0 20px 48px;
+    }
+
+    .service-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border-left: 3px solid var(--green-light);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--green-deep);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .service-card .price {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 0 20px 48px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .faq-item:hover {
+      background: var(--bg-warm);
+    }
+
+    .faq-item h4 {
+      font-size: 0.95rem;
+      color: var(--green-deep);
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-item h4::after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--green-light);
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open h4::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* CTA AGENDAMENTO */
+    .booking {
+      padding: 0 20px 48px;
+    }
+
+    .booking .container {
+      background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .booking h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .booking p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+    }
+
+    .btn-booking {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      padding: 16px 40px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-booking:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184,149,106,0.3);
+    }
+
+    .booking-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+      text-decoration: none;
+      transition: transform 0.2s;
+      z-index: 100;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* CAL.COM MODAL */
+    .cal-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cal-modal-overlay.active {
+      display: flex;
+    }
+
+    .cal-modal {
+      background: var(--white);
+      border-radius: 16px;
+      width: 90%;
+      max-width: 700px;
+      max-height: 85vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cal-modal-close {
+      position: absolute;
+      top: 12px; right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      z-index: 10;
+    }
+
+    .cal-modal iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.6rem; }
+      .booking h2 { font-size: 1.3rem; }
+      .btn-booking { padding: 14px 32px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="avatar">F</div>
+      <h1>Fernanda Stapelbroek</h1>
+      <p class="subtitle">Psicanalista</p>
+      <span class="crp">CRP XX/XXXXX</span>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="about">
+    <div class="container">
+      <h2 class="section-title">Sobre mim</h2>
+      <p>Psicanalista com atendimento presencial e online, dedicada a criar um espaço seguro e acolhedor para o seu processo de autoconhecimento e transformação.</p>
+      <p>Atendo adultos em sessões individuais, com foco em questões emocionais, relacionamentos, autoestima e desenvolvimento pessoal.</p>
+    </div>
+  </section>
+
+  <!-- SERVICOS -->
+  <section class="services">
+    <div class="container">
+      <h2 class="section-title">Atendimentos</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Sessão Entrevista Inicial</h3>
+          <p>Primeiro encontro para nos conhecermos, entender sua demanda e alinhar expectativas sobre o processo terapêutico.</p>
+          <p class="price">50 minutos</p>
+        </div>
+        <div class="service-card">
+          <h3>Sessão de Psicoterapia</h3>
+          <p>Sessões regulares de acompanhamento psicoterápico, com frequência semanal.</p>
+          <p class="price">50 minutos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <h4>Como funciona a psicoterapia?</h4>
+        <div class="faq-answer">A psicoterapia é um processo de autoconhecimento onde, através da escuta e do diálogo, trabalhamos juntos para compreender padrões emocionais e comportamentais. As sessões são semanais, com duração de 50 minutos.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <h4>Qual o valor da sessão?</h4>
+        <div class="faq-answer">Os valores são alinhados na sessão entrevista inicial, de acordo com o tipo de atendimento. Entre em contato para mais informações.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <h4>Atende online ou presencial?</h4>
+        <div class="faq-answer">Atendo nas duas modalidades! Você escolhe o que for mais confortável. O atendimento online é feito por videochamada em plataforma segura.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <h4>Como faço para agendar?</h4>
+        <div class="faq-answer">Clique no botão "Agendar Sessão" abaixo e escolha o melhor horário disponível. Você receberá a confirmação pelo WhatsApp automaticamente.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <h4>Posso desmarcar ou reagendar?</h4>
+        <div class="faq-answer">Sim! Você pode cancelar ou reagendar diretamente pelo link que recebe na confirmação, com até 24 horas de antecedência.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA AGENDAMENTO -->
+  <section class="booking">
+    <div class="container">
+      <h2>Pronta para começar?</h2>
+      <p>Agende sua sessão entrevista e dê o primeiro passo no seu processo de transformação.</p>
+      <button class="btn-booking" onclick="openCal()">Agendar Sessão</button>
+      <p class="booking-note">Agendamento online com confirmação automática</p>
+    </div>
+  </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/55XXXXXXXXXXX" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- CAL.COM MODAL -->
+  <div class="cal-modal-overlay" id="calModal">
+    <div class="cal-modal">
+      <button class="cal-modal-close" onclick="closeCal()">&times;</button>
+      <iframe id="calFrame" src=""></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Fernanda Stapelbroek &mdash; Psicanalista</p>
+  </footer>
+
+  <script>
+    // === CAL.COM INTEGRATION ===
+    // TROCAR pelo link real do Cal.com da Fernanda
+    const CAL_LINK = 'https://cal.com/FERNANDA/sessao-entrevista';
+
+    function openCal() {
+      document.getElementById('calFrame').src = CAL_LINK + '?embed=true';
+      document.getElementById('calModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCal() {
+      document.getElementById('calModal').classList.remove('active');
+      document.getElementById('calFrame').src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('calModal').addEventListener('click', function(e) {
+      if (e.target === this) closeCal();
+    });
+  </script>
+
+</body>
+</html>

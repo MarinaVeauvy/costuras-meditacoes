@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-Curso Gratuito: 5 Dias para Dominar IA no seu Negocio</title>
+  <meta name="description" content="Mini-curso gratuito por email. Em 5 dias, aprenda a usar inteligencia artificial para transformar seu negocio.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1a1a2e;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(233, 69, 96, 0.15);
+      color: #e94560;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    h1 span {
+      color: #e94560;
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: #a0a0b8;
+      line-height: 1.6;
+      margin-bottom: 48px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .days-grid {
+      max-width: 600px;
+      margin: 0 auto 48px;
+      text-align: left;
+    }
+    .day-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .day-item:last-child { border-bottom: none; }
+    .day-number {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #e94560, #c23152);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+    }
+    .day-content h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .day-content p {
+      font-size: 0.9rem;
+      color: #8888a0;
+      line-height: 1.5;
+    }
+    .form-section {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .form-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 36px 32px;
+    }
+    .form-card h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .form-card .form-sub {
+      font-size: 0.9rem;
+      color: #8888a0;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #c0c0d0;
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      border-color: #e94560;
+    }
+    .form-group input::placeholder {
+      color: #555570;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #e94560, #c23152);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(233,69,96,0.35);
+    }
+    .privacy {
+      font-size: 0.78rem;
+      color: #666680;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #e94560;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: #8888a0;
+      margin-top: 4px;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.75rem; }
+      .hero { padding: 40px 20px 30px; }
+      .form-card { padding: 28px 20px; }
+      .stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge">Mini-Curso Gratuito</div>
+    <h1>5 Dias para Dominar <span>IA no seu Negocio</span></h1>
+    <p class="subtitle">Receba uma aula pratica por dia no seu email. Sem enrolacao, sem teoria desnecessaria. Apenas o que funciona para pequenos negocios no Brasil.</p>
+
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Aulas praticas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Gratuito</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15min</div>
+        <div class="stat-label">Por dia</div>
+      </div>
+    </div>
+
+    <div class="days-grid">
+      <div class="day-item">
+        <div class="day-number">Dia 1</div>
+        <div class="day-content">
+          <h3>Como a IA ja esta mudando pequenos negocios no Brasil</h3>
+          <p>Casos reais de empreendedores que reduziram custos e aumentaram vendas com ferramentas acessiveis.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-number">Dia 2</div>
+        <div class="day-content">
+          <h3>Seu primeiro "funcionario virtual" no ChatGPT</h3>
+          <p>Tutorial passo a passo para criar um assistente que trabalha 24 horas por dia no seu negocio.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-number">Dia 3</div>
+        <div class="day-content">
+          <h3>5 ferramentas gratuitas que voce deveria estar usando</h3>
+          <p>Ferramentas de IA sem custo que resolvem problemas reais do dia a dia empresarial.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-number">Dia 4</div>
+        <div class="day-content">
+          <h3>Como automatizar tarefas repetitivas com IA</h3>
+          <p>Aprenda a identificar e eliminar o trabalho manual que consome seu tempo.</p>
+        </div>
+      </div>
+      <div class="day-item">
+        <div class="day-number">Dia 5</div>
+        <div class="day-content">
+          <h3>Plano de acao -- implementando IA no seu negocio esta semana</h3>
+          <p>Um roteiro pratico para comecar a usar IA imediatamente, com resultados visiveis em 7 dias.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-card">
+      <h2>Comece agora -- e gratuito</h2>
+      <p class="form-sub">O Dia 1 chega no seu email em minutos.</p>
+      <form id="minicurso-form" method="POST" action="https://costuras-meditacoes.vercel.app/api/minicurso/subscribe">
+        <input type="hidden" name="course_id" value="ia-negocios">
+        <div class="form-group">
+          <label for="name">Seu nome</label>
+          <input type="text" id="name" name="name" placeholder="Como posso te chamar?" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Seu melhor email</label>
+          <input type="email" id="email" name="email" placeholder="email@exemplo.com" required>
+        </div>
+        <button type="submit" class="btn-submit">Quero comecar o mini-curso</button>
+      </form>
+      <p class="privacy">Seus dados estao seguros. Voce pode sair a qualquer momento.</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('minicurso-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.btn-submit');
+      btn.textContent = 'Inscrevendo...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(this.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: this.name.value,
+            email: this.email.value,
+            course_id: this.course_id.value
+          })
+        });
+        if (res.ok) {
+          window.location.href = 'minicurso-obrigada.html';
+        } else {
+          const data = await res.json();
+          alert(data.error || 'Erro ao inscrever. Tente novamente.');
+          btn.textContent = 'Quero comecar o mini-curso';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        alert('Erro de conexao. Tente novamente.');
+        btn.textContent = 'Quero comecar o mini-curso';
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
