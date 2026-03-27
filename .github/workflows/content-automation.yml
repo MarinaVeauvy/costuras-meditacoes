@@ -1,0 +1,62 @@
+name: Content Automation
+
+on:
+  schedule:
+    # Artigos: Seg e Qui 08:00 UTC (2 artigos cada = 4/semana)
+    - cron: '0 8 * * 1,4'
+    # Newsletter Impulso IA: Terça 10:00 UTC (07h BRT)
+    - cron: '0 10 * * 2'
+    # Newsletter Dinheiro Simples: Quinta 10:00 UTC (07h BRT)
+    - cron: '0 10 * * 4'
+    # Newsletter Renda Extra: Sábado 12:00 UTC (09h BRT)
+    - cron: '0 12 * * 6'
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Ação a executar'
+        required: true
+        type: choice
+        options:
+          - articles
+          - newsletter-impulso-ia
+          - newsletter-dinheiro-simples
+          - newsletter-renda-extra
+          - all-newsletters
+
+jobs:
+  articles:
+    if: >
+      (github.event_name == 'schedule' && (github.event.schedule == '0 8 * * 1,4')) ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'articles')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gerar e publicar 2 artigos
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+          ARTICLE_COUNT: '2'
+        run: node scripts/generate-article.js
+
+  newsletter:
+    if: >
+      (github.event_name == 'schedule' && contains('0 10 * * 2,0 10 * * 4,0 12 * * 6', github.event.schedule)) ||
+      (github.event_name == 'workflow_dispatch' && contains(github.event.inputs.action, 'newsletter'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Enviar newsletter do dia
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          NEWSLETTER_ADMIN_KEY: ${{ secrets.NEWSLETTER_ADMIN_KEY }}
+          NEWSLETTER_NAME: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-impulso-ia' && 'impulso-ia' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-dinheiro-simples' && 'dinheiro-simples' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-renda-extra' && 'renda-extra' || '' }}
+        run: node scripts/send-newsletter.js
