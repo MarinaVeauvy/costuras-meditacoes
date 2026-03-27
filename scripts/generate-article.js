@@ -55,8 +55,11 @@ REQUISITOS:
 - 5-7 seções com headings H2
 - Dicas práticas e acionáveis
 - Tom: acessível, empoderador, prático
-- Incluir 1-2 links afiliados Amazon naturalmente: use o formato https://www.amazon.com.br/dp/{ASIN}?tag=${AMAZON_TAG}
-  - Escolha ASINs reais de livros brasileiros populares relacionados ao tema
+- Incluir 2-3 links afiliados Amazon naturalmente: use o formato https://www.amazon.com.br/dp/{ASIN}?tag=${AMAZON_TAG}
+  - Use estes ASINs REAIS: B07H3GFRKY (Pai Rico Pai Pobre), B08WWKX47Z (Hábitos Atômicos), B07QFZ9C4N (A Psicologia Financeira), B07QFDC4N7 (Mindset), B07QG1W5SW (Comece pelo Porquê), B09HQYR4BN (O Homem Mais Rico da Babilônia), B07C7KRSXG (Segredos da Mente Milionária), B0F1Y3QKQ7 (Costuras da Abundância - Marina Veauvy)
+  - Escolha os mais relevantes ao tema do artigo
+- Incluir ao final uma seção "Leitura Recomendada" com 2-3 livros afiliados
+- Incluir um CTA para produtos digitais: https://marinaveauvy.github.io/costuras-meditacoes/produtos-digitais.html
 - NÃO incluir tags <html>, <head>, <body> — apenas o conteúdo do artigo
 
 FORMATO DE RESPOSTA (JSON):

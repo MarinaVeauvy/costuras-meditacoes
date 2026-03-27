@@ -54,6 +54,15 @@ ${articleLinks}
 PRODUTO DIGITAL PARA CTA: ${config.ctaText} (${config.cta})
 ${config.extraCta ? `CTA EXTRA (sutil, no final): ${config.extraCtaText} (${config.extraCta})` : ''}
 
+SEÇÃO "LEITURA DA SEMANA" (incluir 1 livro com link afiliado Amazon):
+Use um destes links (escolha o mais relevante ao tema):
+- Pai Rico Pai Pobre: https://www.amazon.com.br/dp/B07H3GFRKY?tag=marinaveauv04-20
+- Hábitos Atômicos: https://www.amazon.com.br/dp/B08WWKX47Z?tag=marinaveauv04-20
+- A Psicologia Financeira: https://www.amazon.com.br/dp/B07QFZ9C4N?tag=marinaveauv04-20
+- Mindset: https://www.amazon.com.br/dp/B07QFDC4N7?tag=marinaveauv04-20
+- Costuras da Abundância (Marina Veauvy): https://www.amazon.com.br/dp/B0F1Y3QKQ7?tag=marinaveauv04-20
+Incluir como uma seção "📚 Leitura da Semana" com breve resenha e link
+
 REQUISITOS:
 - Subject line: curiosa, urgente, máximo 60 caracteres
 - 3-4 seções curtas com conteúdo valioso
