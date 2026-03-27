@@ -57,6 +57,6 @@ jobs:
       - name: Enviar newsletter do dia
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          NEWSLETTER_ADMIN_KEY: ${{ secrets.NEWSLETTER_ADMIN_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           NEWSLETTER_NAME: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-impulso-ia' && 'impulso-ia' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-dinheiro-simples' && 'dinheiro-simples' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-renda-extra' && 'renda-extra' || '' }}
         run: node scripts/send-newsletter.js

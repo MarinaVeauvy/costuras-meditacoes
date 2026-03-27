@@ -1,7 +1,7 @@
 // Gera e envia newsletter via Gemini + Resend API
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
-const SEND_URL = 'https://costuras-meditacoes.vercel.app/api/newsletter/send';
-const ADMIN_KEY = process.env.NEWSLETTER_ADMIN_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+// Envio direto via Resend API (bypass Vercel endpoint)
 const BLOG_URL = 'https://wp.marinaveauvy.com.br';
 const SITE_URL = 'https://marinaveauvy.github.io/costuras-meditacoes';
 
@@ -102,21 +102,47 @@ Responda APENAS o JSON.`;
   return JSON.parse(text);
 }
 
-async function sendNewsletter(name, config, content) {
-  const res = await fetch(SEND_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      admin_key: ADMIN_KEY,
-      newsletter_id: name,
-      subject: content.subject,
-      html_content: content.html,
-    }),
+async function getContacts(audienceId) {
+  const res = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+    headers: { Authorization: `Bearer ${RESEND_API_KEY}` },
   });
-
   const data = await res.json();
-  if (data.error) throw new Error(data.error);
-  return data;
+  return (data.data || []).filter(c => !c.unsubscribed).map(c => c.email);
+}
+
+async function sendNewsletter(name, config, content) {
+  const emails = await getContacts(config.audienceId);
+  if (emails.length === 0) {
+    console.log(`⚠️ ${name}: 0 contatos, pulando envio`);
+    return { sent: 0 };
+  }
+  console.log(`📬 ${name}: ${emails.length} contatos`);
+
+  // Enviar em batch de 50
+  let sent = 0;
+  for (let i = 0; i < emails.length; i += 50) {
+    const batch = emails.slice(i, i + 50).map(email => ({
+      from: config.from,
+      to: [email],
+      subject: content.subject,
+      html: content.html,
+    }));
+
+    const res = await fetch('https://api.resend.com/emails/batch', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(batch),
+    });
+
+    const data = await res.json();
+    if (data.data) sent += data.data.length;
+    else console.error('Batch error:', JSON.stringify(data).substring(0, 200));
+  }
+
+  return { sent };
 }
 
 async function main() {
