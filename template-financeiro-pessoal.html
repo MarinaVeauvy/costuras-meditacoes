@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Financeiro Pessoal — Template Notion | Marina Veauvy</title>
+<meta name="description" content="Template Notion completo para organizar suas finanças pessoais. Controle gastos, metas, investimentos e orçamento mensal. R$27.">
+<meta property="og:title" content="Dashboard Financeiro Pessoal — Template Notion">
+<meta property="og:description" content="Organize suas finanças em um só lugar. Template pronto para usar no Notion.">
+<meta property="og:type" content="product">
+<link rel="canonical" href="https://marinaveauvy.github.io/costuras-meditacoes/template-financeiro-pessoal.html">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #fafafa; color: #1a1a1a; }
+  .hero {
+    background: linear-gradient(135deg, #0B0A12 0%, #1a1a2e 100%);
+    padding: 80px 20px;
+    text-align: center;
+    color: #F5EDE3;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: rgba(212,175,55,0.15);
+    color: #D4AF37;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.15;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero h1 span { color: #D4AF37; }
+  .hero p {
+    font-size: 18px;
+    font-weight: 300;
+    opacity: 0.85;
+    max-width: 560px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .price-box {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .price-old {
+    font-size: 20px;
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  .price-new {
+    font-size: 48px;
+    font-weight: 800;
+    color: #D4AF37;
+  }
+  .price-new small { font-size: 20px; font-weight: 400; }
+  .cta-btn {
+    display: inline-block;
+    background: #D4AF37;
+    color: #0B0A12;
+    padding: 18px 48px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,175,55,0.3); }
+  .guarantee { font-size: 13px; opacity: 0.6; margin-top: 16px; }
+  .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+  .section-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+  .feature {
+    background: white;
+    padding: 28px 24px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .feature .icon { font-size: 32px; margin-bottom: 12px; }
+  .feature h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .feature p { font-size: 14px; color: #666; line-height: 1.5; }
+  .includes {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 60px;
+  }
+  .includes h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+  .includes ul { list-style: none; }
+  .includes li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .includes li:last-child { border-bottom: none; }
+  .check { color: #D4AF37; font-weight: 700; }
+  .faq { margin-bottom: 60px; }
+  .faq-item { margin-bottom: 20px; }
+  .faq-item h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .faq-item p { font-size: 14px; color: #666; line-height: 1.6; }
+  .final-cta {
+    text-align: center;
+    background: linear-gradient(135deg, #0B0A12, #1a1a2e);
+    padding: 60px 20px;
+    color: #F5EDE3;
+    border-radius: 24px;
+    margin-bottom: 60px;
+  }
+  .final-cta h2 { font-size: 32px; font-weight: 700; margin-bottom: 16px; }
+  .final-cta p { opacity: 0.8; margin-bottom: 24px; }
+  .footer { text-align: center; padding: 40px 20px; font-size: 13px; color: #999; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="badge">Template Notion</div>
+  <h1>Dashboard <span>Financeiro Pessoal</span> Completo</h1>
+  <p>Organize suas finanças, controle gastos, acompanhe metas e investimentos — tudo em um único template no Notion.</p>
+  <div class="price-box">
+    <span class="price-old">R$67</span>
+    <span class="price-new">R$27 <small>uma vez</small></span>
+  </div>
+  <br>
+  <a href="https://asaas.com/c/n9123aif35j68zwb" class="cta-btn">Quero Organizar Minhas Finanças</a>
+  <p class="guarantee">7 dias de garantia incondicional</p>
+</div>
+
+<div class="container">
+  <h2 class="section-title">O que você recebe</h2>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">📊</div>
+      <h3>Dashboard Visual</h3>
+      <p>Veja suas finanças de forma clara com gráficos e indicadores automáticos.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">💰</div>
+      <h3>Controle de Gastos</h3>
+      <p>Registre despesas por categoria. Saiba exatamente para onde vai seu dinheiro.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🎯</div>
+      <h3>Metas Financeiras</h3>
+      <p>Defina metas com prazos e acompanhe o progresso visualmente.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">📈</div>
+      <h3>Rastreador de Investimentos</h3>
+      <p>Acompanhe sua carteira de investimentos e rendimentos mensais.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🗓️</div>
+      <h3>Orçamento Mensal</h3>
+      <p>Planeje cada mês com orçamento por categoria e comparativo real vs planejado.</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🔄</div>
+      <h3>Assinaturas e Recorrências</h3>
+      <p>Controle todos os gastos recorrentes. Nunca mais esqueça uma assinatura.</p>
+    </div>
+  </div>
+
+  <div class="includes">
+    <h2>Incluso no template</h2>
+    <ul>
+      <li><span class="check">✓</span> Dashboard principal com resumo financeiro</li>
+      <li><span class="check">✓</span> Banco de dados de receitas e despesas</li>
+      <li><span class="check">✓</span> Controle de orçamento mensal (12 meses)</li>
+      <li><span class="check">✓</span> Rastreador de metas com barra de progresso</li>
+      <li><span class="check">✓</span> Controle de investimentos e rendimentos</li>
+      <li><span class="check">✓</span> Lista de assinaturas e gastos recorrentes</li>
+      <li><span class="check">✓</span> Calculadora de reserva de emergência</li>
+      <li><span class="check">✓</span> Tutorial em vídeo de como usar</li>
+      <li><span class="check">✓</span> Atualizações gratuitas vitalícias</li>
+    </ul>
+  </div>
+
+  <div class="faq">
+    <h2 class="section-title">Perguntas frequentes</h2>
+    <div class="faq-item">
+      <h3>Preciso pagar o Notion?</h3>
+      <p>Não! O template funciona perfeitamente no plano gratuito do Notion.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Como recebo o template?</h3>
+      <p>Após o pagamento, você recebe um link para duplicar o template direto no seu Notion. Leva 2 cliques.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Posso personalizar?</h3>
+      <p>Sim! O template é 100% editável. Adicione categorias, mude cores, adapte ao seu estilo.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Tem garantia?</h3>
+      <p>Sim, 7 dias de garantia incondicional. Se não gostar, devolvemos 100% do valor.</p>
+    </div>
+  </div>
+
+  <div class="final-cta">
+    <h2>Pare de perder dinheiro sem saber para onde vai</h2>
+    <p>Mais de 500 mulheres já organizaram suas finanças com este template.</p>
+    <a href="https://asaas.com/c/n9123aif35j68zwb" class="cta-btn">Quero por R$27</a>
+  </div>
+</div>
+
+<div class="footer">
+  Marina Veauvy &copy; 2026 | <a href="https://marinaveauvy.github.io/costuras-meditacoes/links.html">Todos os links</a>
+</div>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','754010884230693');fbq('track','PageView');fbq('track','ViewContent',{content_name:'Template Financeiro Notion',value:27,currency:'BRL'});
+</script>
+</body>
+</html>
