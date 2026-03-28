@@ -11,29 +11,39 @@ const WP_AUTH = Buffer.from(`${process.env.WP_USER}:${process.env.WP_PASS}`).toS
 // ============================================================
 const DEFAULT_LINKS = {
   'finanças pessoais': {
-    text: 'curso completo de finanças pessoais',
-    url: 'https://go.hotmart.com/XXXXX', // SUBSTITUIR
+    text: 'curso Educação Financeira para Adultos',
+    url: 'https://checkout.ticto.app/O72D0E863?pid=AF119042DF',
     category: 'financas',
   },
-  'chatgpt': {
-    text: 'curso prático de ChatGPT para negócios',
-    url: 'https://go.hotmart.com/XXXXX', // SUBSTITUIR
-    category: 'ia',
-  },
-  'renda extra': {
-    text: 'método comprovado de renda extra online',
-    url: 'https://go.hotmart.com/XXXXX', // SUBSTITUIR
-    category: 'renda',
-  },
   'investimento': {
-    text: 'curso de investimentos para iniciantes',
-    url: 'https://go.hotmart.com/XXXXX', // SUBSTITUIR
-    category: 'investimento',
+    text: 'curso Educação Financeira para Adultos',
+    url: 'https://checkout.ticto.app/O72D0E863?pid=AF119042DF',
+    category: 'financas',
   },
   'empreendedorismo': {
-    text: 'treinamento de empreendedorismo digital',
-    url: 'https://go.hotmart.com/XXXXX', // SUBSTITUIR
+    text: 'Método Eleva — Educação Financeira e Coaching',
+    url: 'https://ticto.link/to/PA68AC?pid=AF119042DF',
     category: 'empreendedorismo',
+  },
+  'renda extra': {
+    text: 'Método Eleva — Educação Financeira e Coaching',
+    url: 'https://ticto.link/to/PA68AC?pid=AF119042DF',
+    category: 'empreendedorismo',
+  },
+  'chatgpt': {
+    text: 'FilmAI — Crie Vídeos 100% com Inteligência Artificial',
+    url: 'https://checkout.ticto.app/OD0A1F3D2?pid=AF71C40F53',
+    category: 'ia',
+  },
+  'inteligência artificial': {
+    text: 'FilmAI — Crie Vídeos 100% com Inteligência Artificial',
+    url: 'https://checkout.ticto.app/OD0A1F3D2?pid=AF71C40F53',
+    category: 'ia',
+  },
+  'automação': {
+    text: 'FilmAI — Crie Vídeos 100% com Inteligência Artificial',
+    url: 'https://checkout.ticto.app/OD0A1F3D2?pid=AF71C40F53',
+    category: 'ia',
   },
 };
 
