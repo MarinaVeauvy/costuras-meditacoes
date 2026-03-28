@@ -147,13 +147,20 @@ jobs:
       (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1,4') ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'youtube')
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Gerar scripts YouTube Faceless
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar dependências
+        run: |
+          pip install edge-tts google-auth google-auth-oauthlib google-api-python-client
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: 1. Gerar scripts de vídeo
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -161,12 +168,25 @@ jobs:
           WP_PASS: ${{ secrets.WP_PASS }}
           VIDEO_COUNT: '3'
         run: node scripts/generate-youtube-scripts.js
-      - name: Commit scripts
+      - name: 2. Gerar narração TTS
+        run: node scripts/generate-tts.js
+        env:
+          AUDIO_COUNT: '3'
+      - name: 3. Renderizar vídeos MP4
+        run: node scripts/render-youtube-videos.js
+        env:
+          RENDER_COUNT: '3'
+      - name: 4. Upload para YouTube
+        run: python scripts/youtube-upload.py
+        env:
+          UPLOAD_COUNT: '3'
+          YOUTUBE_OAUTH_TOKEN: ${{ secrets.YOUTUBE_OAUTH_TOKEN }}
+      - name: Commit arquivos
         run: |
           git config user.name "Content Bot"
           git config user.email "bot@marinaveauvy.com.br"
           git add youtube/ 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "chore: add youtube scripts"
+          git diff --cached --quiet || git commit -m "chore: youtube - 3 new videos generated and uploaded"
           git push
 
   twitter:

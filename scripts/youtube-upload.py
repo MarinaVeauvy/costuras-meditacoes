@@ -16,6 +16,13 @@ YOUTUBE_DIR = os.path.join(os.path.dirname(__file__), '..', 'youtube')
 TOKEN_FILE = os.path.join(YOUTUBE_DIR, 'oauth-token.json')
 UPLOADED_FILE = os.path.join(YOUTUBE_DIR, 'uploaded-index.json')
 
+# Support token from env (GitHub Actions) or file (local)
+def ensure_token_file():
+    env_token = os.environ.get('YOUTUBE_OAUTH_TOKEN')
+    if env_token and not os.path.exists(TOKEN_FILE):
+        with open(TOKEN_FILE, 'w') as f:
+            f.write(env_token)
+
 def get_credentials():
     with open(TOKEN_FILE, 'r') as f:
         token_data = json.load(f)
@@ -94,6 +101,7 @@ def upload_video(youtube, mp4_path, metadata):
 def main():
     max_uploads = int(os.environ.get('UPLOAD_COUNT', '10'))
 
+    ensure_token_file()
     print(f"Carregando credenciais...")
     creds = get_credentials()
     youtube = build('youtube', 'v3', credentials=creds)
