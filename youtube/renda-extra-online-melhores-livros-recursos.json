@@ -1,0 +1,81 @@
+{
+  "article_url": "https://wp.marinaveauvy.com.br/renda-extra-online-melhores-livros-recursos/",
+  "article_title": "Renda Extra Online: Melhores Livros e Recursos para Começar",
+  "youtube_title": "Renda Extra Online: Melhores Livros e Recursos em 2026",
+  "youtube_description": "Quer ganhar renda extra online em 2026? Neste vídeo, vamos explorar os melhores livros e recursos que podem te ajudar a começar sua jornada. De dicas sobre finanças pessoais a ferramentas de IA, você encontrará tudo que precisa para empreender com sucesso. Não se esqueça de conferir os links na descrição e deixar seu like! Inscreva-se para mais conteúdos sobre finanças e empreendedorismo feminino. #RendaExtra #EmpreendedorismoFeminino #FinançasPessoais",
+  "tags": [
+    "Renda Extra",
+    "Finanças Pessoais",
+    "Empreendedorismo Feminino",
+    "Livros de Negócios",
+    "Recursos Online",
+    "IA para Mulheres",
+    "Dicas de Empreendimento",
+    "Ganhar Dinheiro Online",
+    "Trabalho Remoto",
+    "Investimentos",
+    "Educação Financeira",
+    "Empreendedorismo",
+    "Mulheres Empreendedoras"
+  ],
+  "script": [
+    {
+      "section": "HOOK",
+      "text": "Você sabia que é possível transformar seu tempo livre em um fluxo de renda extra online em 2026? Não perca essas dicas!",
+      "visual_note": "Animação com gráficos de aumento de renda e relógio.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "INTRO",
+      "text": "Olá, empreendedoras! Neste vídeo, vamos explorar os melhores livros e recursos que te ajudarão a começar a ganhar renda extra online. Prepare-se para dicas valiosas que podem mudar sua vida financeira!",
+      "visual_note": "Texto na tela com o título do vídeo e imagens de livros e laptops.",
+      "duration_seconds": 15
+    },
+    {
+      "section": "CONTENT",
+      "text": "Vamos começar com os livros. O primeiro é 'O Homem Mais Rico da Babilônia' de George S. Clason. Este clássico traz lições atemporais sobre a gestão do dinheiro e como construir riqueza. Uma leitura essencial para quem quer entender os princípios financeiros.",
+      "visual_note": "Capa do livro 'O Homem Mais Rico da Babilônia' com fundo inspirador.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "O segundo livro que recomendamos é 'A Mente Acima do Dinheiro' de Brad Klontz. Ele aborda a psicologia por trás do dinheiro e como nossos hábitos podem afetar nossas finanças. Ideal para quem quer mudar sua mentalidade em relação a dinheiro.",
+      "visual_note": "Capa do livro 'A Mente Acima do Dinheiro' e imagens de mulheres lendo.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "Agora, falemos sobre recursos online. A plataforma Udemy oferece diversos cursos sobre finanças pessoais e empreendedorismo. Você pode aprender a investir, criar um negócio online e muito mais! Uma ótima forma de adquirir conhecimento prático.",
+      "visual_note": "Captura de tela da plataforma Udemy com cursos destacados.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "Por último, não podemos esquecer das ferramentas de IA. O ChatGPT, por exemplo, pode te ajudar a gerar ideias de negócios e até criar conteúdos. Explore suas funcionalidades para potencializar sua jornada empreendedora.",
+      "visual_note": "Animações de como usar o ChatGPT e exemplos práticos.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CTA",
+      "text": "Se você gostou dessas dicas, deixe seu like, inscreva-se no canal e compartilhe suas experiências nos comentários! Qual livro ou recurso você mais gostou?",
+      "visual_note": "Animação com botões de like e inscrever-se.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "END",
+      "text": "Obrigada por assistir! Até o próximo vídeo!",
+      "visual_note": "Tela final com mensagem de agradecimento e sugestões de vídeos.",
+      "duration_seconds": 5
+    }
+  ],
+  "thumbnail_text": "Ganhe Renda Extra Online!",
+  "channel": {
+    "name": "Marina Veauvy — Finanças e IA",
+    "style": "faceless narration with stock footage, clean graphics, relaxed female Brazilian voice",
+    "tone": "prático, acessível, empoderador — como uma amiga que entende de finanças e tecnologia",
+    "cta_subscribe": "Se esse vídeo te ajudou, se inscreve no canal e ativa o sininho!",
+    "cta_like": "Deixa o like pra eu saber que você gostou!",
+    "end_screen": "Veja também o próximo vídeo que aparece na tela — vai te ajudar demais."
+  },
+  "generated_at": "2026-03-28T15:13:56.208Z"
+}

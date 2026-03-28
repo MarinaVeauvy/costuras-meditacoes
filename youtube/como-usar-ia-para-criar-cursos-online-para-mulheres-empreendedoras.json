@@ -1,0 +1,82 @@
+{
+  "article_url": "https://wp.marinaveauvy.com.br/como-usar-ia-para-criar-cursos-online-para-mulheres-empreendedoras/",
+  "article_title": "Como Usar IA para Criar Cursos Online para Mulheres Empreendedoras",
+  "youtube_title": "Como Usar IA para Criar Cursos Online para Mulheres Empreendedoras",
+  "youtube_description": "Aprenda a usar a inteligência artificial para transformar suas ideias em cursos online de sucesso e impulsionar seu negócio. Neste vídeo, vamos explorar ferramentas e estratégias essenciais para mulheres empreendedoras que desejam se destacar no mercado digital. Não se esqueça de deixar seu like, inscrever-se no canal e comentar suas experiências! Para mais dicas, acesse nosso site e acompanhe nossas redes sociais.",
+  "tags": [
+    "finanças pessoais",
+    "mulheres empreendedoras",
+    "cursos online",
+    "inteligência artificial",
+    "negócios digitais",
+    "empreendedorismo feminino",
+    "tecnologia",
+    "inovação",
+    "marketing digital",
+    "educação online",
+    "IA para negócios",
+    "criação de cursos",
+    "mulheres no mercado",
+    "sucesso profissional"
+  ],
+  "script": [
+    {
+      "section": "HOOK",
+      "text": "Você sabia que a inteligência artificial pode revolucionar a forma como você cria cursos online? Descubra como!",
+      "visual_note": "Animação de uma mulher pensando com ícones de tecnologia ao redor.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "INTRO",
+      "text": "Olá, empreendedoras! No vídeo de hoje, vamos explorar como usar a inteligência artificial para facilitar a criação de cursos online e impulsionar seus negócios. Fique até o final para dicas que podem transformar sua jornada!",
+      "visual_note": "Imagem de uma mulher empreendedora em um ambiente de trabalho inspirador.",
+      "duration_seconds": 15
+    },
+    {
+      "section": "CONTENT",
+      "text": "Primeiro, vamos falar sobre como a IA pode ajudar na pesquisa de conteúdo. Com ferramentas como o ChatGPT, você pode gerar ideias de tópicos e até mesmo estruturar suas aulas com rapidez e precisão.",
+      "visual_note": "Captura de tela de uma conversa com uma IA, mostrando como gerar ideias.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Em segundo lugar, a IA pode otimizar a criação de materiais. Ferramentas de design, como o Canva, oferecem sugestões inteligentes para criar visuais atraentes, enquanto algoritmos ajudam a personalizar a experiência do aluno.",
+      "visual_note": "Vídeo de uma tela do Canva, mostrando a criação de gráficos e layouts.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Terceiro, a IA pode ser uma aliada na promoção do seu curso. Com anúncios segmentados e análise de dados, você pode alcançar seu público-alvo com mais eficiência e aumentar suas vendas.",
+      "visual_note": "Animação mostrando gráficos de crescimento e elementos de marketing digital.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Por último, mas não menos importante, a IA pode ajudar no feedback e na melhoria contínua do seu curso. Ferramentas de análise podem identificar onde os alunos estão tendo dificuldades e como você pode aprimorar seu conteúdo.",
+      "visual_note": "Animação de uma pesquisa de feedback e gráficos mostrando resultados.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CTA",
+      "text": "Se você gostou dessas dicas, não esqueça de deixar seu like, se inscrever no canal e comentar sobre suas experiências com cursos online! Queremos saber como a IA está ajudando você!",
+      "visual_note": "Animação de botões de like e subscribe chamativos.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "END",
+      "text": "Muito obrigada por assistir e até o próximo vídeo! Vamos juntas transformar o empreendedorismo feminino!",
+      "visual_note": "Imagem inspiradora de mulheres empreendedoras unidas.",
+      "duration_seconds": 5
+    }
+  ],
+  "thumbnail_text": "Impulsione Seu Curso com IA!",
+  "channel": {
+    "name": "Marina Veauvy — Finanças e IA",
+    "style": "faceless narration with stock footage, clean graphics, relaxed female Brazilian voice",
+    "tone": "prático, acessível, empoderador — como uma amiga que entende de finanças e tecnologia",
+    "cta_subscribe": "Se esse vídeo te ajudou, se inscreve no canal e ativa o sininho!",
+    "cta_like": "Deixa o like pra eu saber que você gostou!",
+    "end_screen": "Veja também o próximo vídeo que aparece na tela — vai te ajudar demais."
+  },
+  "generated_at": "2026-03-28T15:13:06.381Z"
+}

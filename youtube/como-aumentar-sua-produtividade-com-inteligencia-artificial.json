@@ -1,0 +1,83 @@
+{
+  "article_url": "https://wp.marinaveauvy.com.br/como-aumentar-sua-produtividade-com-inteligencia-artificial/",
+  "article_title": "Como Aumentar Sua Produtividade com Inteligência Artificial",
+  "youtube_title": "Aumente Sua Produtividade com IA Hoje!",
+  "youtube_description": "Descubra como a inteligência artificial pode transformar sua rotina e impulsionar sua produtividade como mulher empreendedora. Neste vídeo, vamos explorar ferramentas e dicas práticas que você pode aplicar imediatamente. Não esqueça de deixar seu like, se inscrever no canal e comentar suas experiências! Links úteis: [link para ferramentas de IA], [link para comunidade de empreendedoras].",
+  "tags": [
+    "inteligência artificial",
+    "produtividade",
+    "mulheres empreendedoras",
+    "finanças pessoais",
+    "tecnologia",
+    "trabalho remoto",
+    "gestão do tempo",
+    "ferramentas de IA",
+    "dicas de produtividade",
+    "empreendedorismo feminino",
+    "autoajuda",
+    "inovação",
+    "sucesso profissional",
+    "rendimento",
+    "organização"
+  ],
+  "script": [
+    {
+      "section": "HOOK",
+      "text": "Você sabia que pode multiplicar sua produtividade usando inteligência artificial? Hoje, vou te mostrar como!",
+      "visual_note": "Imagens rápidas de mulheres trabalhando, ferramentas de IA em ação.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "INTRO",
+      "text": "Olá, empreendedoras! Neste vídeo, vamos descobrir como a inteligência artificial pode ser sua aliada para transformar sua rotina e aumentar sua produtividade. Prepare-se para dicas valiosas!",
+      "visual_note": "Animações ou texto chamativo com o tema do vídeo.",
+      "duration_seconds": 15
+    },
+    {
+      "section": "CONTENT",
+      "text": "Primeiro, vamos falar sobre gerenciamento de tarefas. Ferramentas como Trello e Asana agora contam com funções de IA que priorizam suas tarefas automaticamente, ajudando você a focar no que realmente importa.",
+      "visual_note": "Screenshots de Trello e Asana, mostrando a interface e suas funcionalidades.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "Em segundo lugar, a automação de e-mails. Aplicativos como o Mailchimp agora utilizam IA para segmentar sua lista de contatos e otimizar campanhas, garantindo que suas mensagens cheguem às pessoas certas.",
+      "visual_note": "Imagens de campanhas de e-mail em ação, gráficos de aumento de engajamento.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "Agora, vamos falar sobre a análise de dados. Ferramentas de IA podem analisar suas métricas de desempenho e oferecer insights valiosos, ajudando você a tomar decisões mais informadas e estratégicas.",
+      "visual_note": "Gráficos e relatórios sendo analisados, mostrando dados e insights.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "Por último, a criação de conteúdo. Softwares de IA como o Jasper podem ajudar na redação de textos e posts para redes sociais, poupando seu tempo e garantindo qualidade.",
+      "visual_note": "Demonstração do Jasper em uso, textos sendo gerados.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CTA",
+      "text": "Gostou dessas dicas? Então, curta este vídeo, inscreva-se no canal e compartilhe suas experiências com IA nos comentários. Sua opinião é muito importante!",
+      "visual_note": "Chamada para ação animada com botões de like e inscreva-se.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "END",
+      "text": "Obrigada por assistir! Aplique essas dicas e veja sua produtividade crescer com a ajuda da IA. Até a próxima!",
+      "visual_note": "Texto final com agradecimento e convite para assistir outros vídeos.",
+      "duration_seconds": 5
+    }
+  ],
+  "thumbnail_text": "Produtividade com IA!",
+  "channel": {
+    "name": "Marina Veauvy — Finanças e IA",
+    "style": "faceless narration with stock footage, clean graphics, relaxed female Brazilian voice",
+    "tone": "prático, acessível, empoderador — como uma amiga que entende de finanças e tecnologia",
+    "cta_subscribe": "Se esse vídeo te ajudou, se inscreve no canal e ativa o sininho!",
+    "cta_like": "Deixa o like pra eu saber que você gostou!",
+    "end_screen": "Veja também o próximo vídeo que aparece na tela — vai te ajudar demais."
+  },
+  "generated_at": "2026-03-28T15:12:14.291Z"
+}

@@ -1,0 +1,78 @@
+{
+  "article_url": "https://wp.marinaveauvy.com.br/renda-extra-com-habilidades-digitais-guia-pratico-para-mulheres/",
+  "article_title": "Renda Extra com Habilidades Digitais: Guia Prático para Mulheres",
+  "youtube_title": "Renda Extra com Habilidades Digitais para Mulheres",
+  "youtube_description": "Descubra como transformar suas habilidades digitais em uma fonte de renda extra nesse guia prático voltado para mulheres empreendedoras de 30 a 50 anos. Aprenda dicas valiosas sobre freelancing, marketing digital, e muito mais! Se você busca uma nova forma de incrementar sua renda, este vídeo é para você. Não esqueça de se inscrever no canal e ativar as notificações para mais conteúdos sobre finanças e empreendedorismo. Links úteis na descrição!",
+  "tags": [
+    "renda extra",
+    "habilidades digitais",
+    "finanças pessoais",
+    "mulheres empreendedoras",
+    "freelancing",
+    "marketing digital",
+    "empoderamento feminino",
+    "negócios online",
+    "trabalho remoto",
+    "dicas de finanças"
+  ],
+  "script": [
+    {
+      "section": "HOOK",
+      "text": "Você sabia que é possível transformar suas habilidades digitais em uma renda extra? Fique até o final e descubra como!",
+      "visual_note": "Animação de uma mulher utilizando um computador com gráficos de crescimento ao fundo.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "INTRO",
+      "text": "Olá, empreendedoras! Hoje vamos te mostrar um guia prático para transformar suas habilidades digitais em uma fonte de renda extra. Se você tem entre 30 e 50 anos e deseja aumentar sua renda, esse vídeo é para você!",
+      "visual_note": "Texto animado com o título do vídeo e imagens de mulheres diversas trabalhando em ambientes digitais.",
+      "duration_seconds": 15
+    },
+    {
+      "section": "CONTENT",
+      "text": "Primeiro, identifique suas habilidades. Você é boa em design, redação, ou marketing digital? Anote tudo! Isso será fundamental para saber qual serviço você pode oferecer.",
+      "visual_note": "Lista de habilidades digitais aparecendo na tela com ícones representativos.",
+      "duration_seconds": 30
+    },
+    {
+      "section": "CONTENT",
+      "text": "Agora, escolha uma plataforma. Sites como Upwork, Fiverr ou Workana são ótimos para freelancers. Crie um perfil atrativo e comece a oferecer seus serviços.",
+      "visual_note": "Capturas de tela de perfis bem-sucedidos em plataformas de freelancing.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Promova-se nas redes sociais! Use Instagram e LinkedIn para mostrar seu trabalho. Poste conteúdos relevantes para atrair clientes. Sempre lembre-se: a visibilidade é a chave.",
+      "visual_note": "Animações de postagens em redes sociais mostrando engajamento e interações.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Por último, a importância de networking. Converse com outras mulheres empreendedoras, participe de grupos e eventos online. Isso pode abrir portas para novas oportunidades.",
+      "visual_note": "Imagens de mulheres em videoconferência e grupos online, trocando ideias.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CTA",
+      "text": "Gostou dessas dicas? Então curta este vídeo, inscreva-se no canal e comente qual habilidade você pretende usar para ganhar a sua renda extra!",
+      "visual_note": "Animações de botões de like, inscrever-se e comentários sendo destacados.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "END",
+      "text": "Obrigada por assistir! Até a próxima!",
+      "visual_note": "Tela final com agradecimento e chamada para ação de assistir outros vídeos.",
+      "duration_seconds": 5
+    }
+  ],
+  "thumbnail_text": "Renda Extra com Habilidades Digitais!",
+  "channel": {
+    "name": "Marina Veauvy — Finanças e IA",
+    "style": "faceless narration with stock footage, clean graphics, relaxed female Brazilian voice",
+    "tone": "prático, acessível, empoderador — como uma amiga que entende de finanças e tecnologia",
+    "cta_subscribe": "Se esse vídeo te ajudou, se inscreve no canal e ativa o sininho!",
+    "cta_like": "Deixa o like pra eu saber que você gostou!",
+    "end_screen": "Veja também o próximo vídeo que aparece na tela — vai te ajudar demais."
+  },
+  "generated_at": "2026-03-28T15:12:32.081Z"
+}

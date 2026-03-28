@@ -1,0 +1,89 @@
+{
+  "article_url": "https://wp.marinaveauvy.com.br/como-montar-um-negocio-com-ia-guia-pratico-para-mulheres-empreendedoras/",
+  "article_title": "Como Montar um Negócio com IA: Guia Prático para Mulheres Empreendedoras",
+  "youtube_title": "Como Montar um Negócio com IA: Guia Prático para Mulheres Empreendedoras",
+  "youtube_description": "Aprenda a utilizar a inteligência artificial para criar e expandir seu negócio de forma prática e acessível. Neste vídeo, você descobrirá dicas valiosas para implementar IA no seu dia a dia empreendedor. Não perca nossas sugestões e estratégias que podem transformar sua jornada! Inscreva-se no canal e ative as notificações para mais conteúdos sobre finanças e empreendedorismo. Links úteis: [link para blog/curso].",
+  "tags": [
+    "finanças pessoais",
+    "mulheres empreendedoras",
+    "inteligência artificial",
+    "negócios",
+    "empreendedorismo feminino",
+    "IA nos negócios",
+    "dicas de negócios",
+    "tecnologia",
+    "inovação",
+    "startup",
+    "crescimento empresarial",
+    "marketing digital",
+    "produtividade",
+    "liderança feminina",
+    "transformação digital"
+  ],
+  "script": [
+    {
+      "section": "HOOK",
+      "text": "Você sabia que pode transformar sua ideia de negócio usando inteligência artificial? Descubra como neste vídeo!",
+      "visual_note": "Animação de uma lâmpada acendendo, simbolizando uma ideia.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "INTRO",
+      "text": "Olá, empreendedoras! Hoje, vamos explorar como utilizar a inteligência artificial para criar e expandir seu próprio negócio. Prepare-se para dicas práticas e acessíveis!",
+      "visual_note": "Texto animado com 'Inteligência Artificial + Mulher Empreendedora = Sucesso!'",
+      "duration_seconds": 15
+    },
+    {
+      "section": "CONTENT",
+      "text": "Seção 1: O que é Inteligência Artificial? A IA é uma tecnologia que simula a inteligência humana. Ela pode automatizar tarefas, analisar dados e até oferecer suporte ao cliente. Entender essa ferramenta é o primeiro passo para usá-la a seu favor.",
+      "visual_note": "Gráficos e animações explicando o conceito de IA.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Seção 2: Identificando oportunidades. Pense nas áreas do seu negócio onde a IA pode ajudar. Por exemplo, automação de marketing, atendimento ao cliente e análise de vendas. Anote as áreas que você gostaria de otimizar!",
+      "visual_note": "Lista de áreas com animações chamativas.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Seção 3: Ferramentas de IA acessíveis. Existem várias ferramentas que você pode usar, como chatbots para atendimento, sistemas de CRM inteligentes e até softwares de análise de dados. Pesquise e escolha as que melhor se adaptam ao seu negócio.",
+      "visual_note": "Exibição de logos de ferramentas de IA populares.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Seção 4: Implementação e Teste. Após escolher as ferramentas, implemente-as gradualmente no seu negócio. Teste e ajuste conforme necessário. A adaptação é essencial para que a IA funcione de forma eficaz.",
+      "visual_note": "Vídeo de uma mulher testando uma ferramenta no computador.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Seção 5: Aprendizado contínuo. A tecnologia está em constante evolução. Mantenha-se atualizada sobre as novidades em IA para aproveitar ao máximo essas ferramentas e garantir o sucesso do seu negócio.",
+      "visual_note": "Animação de uma mulher estudando com livros sobre tecnologia.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CTA",
+      "text": "Gostou das dicas? Então curta, inscreva-se no canal e compartilhe nos comentários como você planeja usar a IA no seu negócio!",
+      "visual_note": "Animação de botões de like e inscrever.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "END",
+      "text": "Até a próxima, empreendedoras! Vamos juntas transformar sonhos em realidade com a IA.",
+      "visual_note": "Texto final com 'Transforme sonhos em realidade!'",
+      "duration_seconds": 5
+    }
+  ],
+  "thumbnail_text": "Empreenda com IA!",
+  "channel": {
+    "name": "Marina Veauvy — Finanças e IA",
+    "style": "faceless narration with stock footage, clean graphics, relaxed female Brazilian voice",
+    "tone": "prático, acessível, empoderador — como uma amiga que entende de finanças e tecnologia",
+    "cta_subscribe": "Se esse vídeo te ajudou, se inscreve no canal e ativa o sininho!",
+    "cta_like": "Deixa o like pra eu saber que você gostou!",
+    "end_screen": "Veja também o próximo vídeo que aparece na tela — vai te ajudar demais."
+  },
+  "generated_at": "2026-03-28T15:13:24.160Z"
+}

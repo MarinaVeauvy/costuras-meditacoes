@@ -30,6 +30,9 @@ on:
           - all-newsletters
           - pinterest
           - web-stories
+          - youtube
+          - twitter
+          - linkedin
           - medium
           - seo-links
 
@@ -137,6 +140,87 @@ jobs:
           git config user.email "bot@marinaveauvy.com.br"
           git add web-stories/ 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: add new web stories"
+          git push
+
+  youtube:
+    if: >
+      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1,4') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'youtube')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gerar scripts YouTube Faceless
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+          VIDEO_COUNT: '3'
+        run: node scripts/generate-youtube-scripts.js
+      - name: Commit scripts
+        run: |
+          git config user.name "Content Bot"
+          git config user.email "bot@marinaveauvy.com.br"
+          git add youtube/ 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: add youtube scripts"
+          git push
+
+  twitter:
+    if: >
+      (github.event_name == 'schedule' && github.event.schedule == '0 14 * * 3,5') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'twitter')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gerar threads Twitter
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+          THREAD_COUNT: '3'
+        run: node scripts/generate-twitter-threads.js
+      - name: Commit threads
+        run: |
+          git config user.name "Content Bot"
+          git config user.email "bot@marinaveauvy.com.br"
+          git add twitter/ 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: add twitter threads"
+          git push
+
+  linkedin:
+    if: >
+      (github.event_name == 'schedule' && github.event.schedule == '0 15 * * 0') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'linkedin')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gerar artigos LinkedIn
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+          LINKEDIN_COUNT: '3'
+        run: node scripts/republish-linkedin.js
+      - name: Commit artigos
+        run: |
+          git config user.name "Content Bot"
+          git config user.email "bot@marinaveauvy.com.br"
+          git add linkedin/ 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: add linkedin articles"
           git push
 
   medium:

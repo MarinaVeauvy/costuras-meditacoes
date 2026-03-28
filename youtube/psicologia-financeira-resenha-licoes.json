@@ -1,0 +1,83 @@
+{
+  "article_url": "https://wp.marinaveauvy.com.br/psicologia-financeira-resenha-licoes/",
+  "article_title": "A Psicologia Financeira: Resenha e Principais Lições",
+  "youtube_title": "A Psicologia Financeira: Aprenda as Lições de Morgan Housel",
+  "youtube_description": "Descubra como as lições de 'A Psicologia Financeira' de Morgan Housel podem transformar sua relação com o dinheiro. Neste vídeo, vamos explorar conceitos que ajudam mulheres empreendedoras a entender melhor suas decisões financeiras e a aplicar a psicologia ao seu dia a dia. Não perca! Inscreva-se e ative as notificações para mais insights sobre finanças pessoais e IA. Links úteis na descrição!",
+  "tags": [
+    "finanças pessoais",
+    "psicologia financeira",
+    "Morgan Housel",
+    "mulheres empreendedoras",
+    "empoderamento financeiro",
+    "gestão de dinheiro",
+    "finanças para mulheres",
+    "empreendedorismo",
+    "desenvolvimento pessoal",
+    "inteligência financeira",
+    "educação financeira",
+    "investimentos",
+    "mindset financeiro",
+    "dicas de finanças",
+    "autoconhecimento financeiro"
+  ],
+  "script": [
+    {
+      "section": "HOOK",
+      "text": "Você sabia que suas emoções e percepções podem influenciar suas decisões financeiras mais do que você imagina? Vamos descobrir como!",
+      "visual_note": "Imagens de pessoas pensando, gráficos de finanças e expressões faciais de emoção.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "INTRO",
+      "text": "Neste vídeo, vamos explorar as principais lições do livro 'A Psicologia Financeira' de Morgan Housel. Prepare-se para entender como a psicologia pode moldar sua relação com o dinheiro e como você pode aplicar esses ensinamentos na sua vida.",
+      "visual_note": "Animação de um livro se abrindo com chamadas visuais sobre psicologia e finanças.",
+      "duration_seconds": 15
+    },
+    {
+      "section": "CONTENT",
+      "text": "A primeira lição do livro é a importância de entender a história financeira pessoal. Cada decisão que tomamos é influenciada por experiências passadas. Isso significa que conhecer sua própria história financeira pode ajudá-la a tomar decisões mais informadas.",
+      "visual_note": "Cenas de uma mulher escrevendo em um diário, reflexões sobre o passado.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "Outra lição crucial é o efeito da pressão social nas finanças. Morgan Housel nos lembra que muitas vezes gastamos por influência dos outros. É fundamental saber que suas escolhas financeiras devem ser baseadas no que é melhor para você, e não no que os outros esperam.",
+      "visual_note": "Imagens de pessoas em shoppings, interações sociais, e uma mulher decidindo não comprar algo.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "A paciência é uma das chaves para o sucesso financeiro. O autor enfatiza que 'o tempo é um aliado dos investidores'. Aprender a ser paciente em relação aos investimentos pode resultar em grandes retornos a longo prazo.",
+      "visual_note": "Cenas de uma planta crescendo, relógios, e gráficos de crescimento de investimentos.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CONTENT",
+      "text": "Por último, Housel fala sobre a importância do autoconhecimento. Saber quem você é e o que realmente deseja pode guiá-la em suas decisões financeiras, ajudando-a a evitar armadilhas comuns.",
+      "visual_note": "Imagens de uma mulher meditando, fazendo uma lista de objetivos, e focando em suas metas.",
+      "duration_seconds": 45
+    },
+    {
+      "section": "CTA",
+      "text": "Se você gostou dessas lições, não esqueça de deixar um like e se inscrever no canal! Comente abaixo o que mais te chamou a atenção e compartilhe suas experiências financeiras.",
+      "visual_note": "Animação de botões de like e inscrever-se, com comentários surgindo na tela.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "END",
+      "text": "Obrigada por assistir! Continue sua jornada rumo ao empoderamento financeiro.",
+      "visual_note": "Cenas inspiradoras de mulheres se unindo, trabalhando e celebrando conquistas.",
+      "duration_seconds": 5
+    }
+  ],
+  "thumbnail_text": "Domine sua Psicologia Financeira",
+  "channel": {
+    "name": "Marina Veauvy — Finanças e IA",
+    "style": "faceless narration with stock footage, clean graphics, relaxed female Brazilian voice",
+    "tone": "prático, acessível, empoderador — como uma amiga que entende de finanças e tecnologia",
+    "cta_subscribe": "Se esse vídeo te ajudou, se inscreve no canal e ativa o sininho!",
+    "cta_like": "Deixa o like pra eu saber que você gostou!",
+    "end_screen": "Veja também o próximo vídeo que aparece na tela — vai te ajudar demais."
+  },
+  "generated_at": "2026-03-28T15:14:15.523Z"
+}

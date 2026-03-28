@@ -1,0 +1,89 @@
+{
+  "article_url": "https://wp.marinaveauvy.com.br/dicas-de-economia-para-familias-estrategias-praticas-para-mulheres-empreendedoras/",
+  "article_title": "Dicas de Economia para Famílias: Estratégias Práticas para Mulheres Empreendedoras",
+  "youtube_title": "Dicas de Economia para Famílias: Estratégias para Mulheres Empreendedoras",
+  "youtube_description": "Neste vídeo, vamos compartilhar dicas práticas de economia para ajudar mulheres empreendedoras a gerenciar suas finanças e otimizar recursos familiares. Descubra como fazer o seu dinheiro render mais e garantir uma vida financeira saudável para você e sua família. Não esqueça de deixar seu like, se inscrever no canal e comentar suas próprias dicas nos comentários! Confira também nossos links úteis na descrição.",
+  "tags": [
+    "finanças pessoais",
+    "economia",
+    "mulheres empreendedoras",
+    "dicas financeiras",
+    "gestão de finanças",
+    "planejamento financeiro",
+    "economia familiar",
+    "empreendedorismo feminino",
+    "otimização de recursos",
+    "dicas de economia",
+    "finanças para mulheres",
+    "sucesso financeiro",
+    "mães empreendedoras",
+    "organização financeira",
+    "dinheiro"
+  ],
+  "script": [
+    {
+      "section": "HOOK",
+      "text": "Você sabia que pequenas mudanças podem fazer uma grande diferença nas finanças da sua família? Hoje, vamos revelar dicas de economia que toda mulher empreendedora deve conhecer!",
+      "visual_note": "Imagens de uma mulher pensativa, olhando para contas e gráficos financeiros.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "INTRO",
+      "text": "Seja bem-vinda ao nosso canal! No vídeo de hoje, vamos explorar estratégias práticas de economia para mulheres empreendedoras, ajudando você a gerenciar suas finanças e otimizar recursos familiares. Vamos lá?",
+      "visual_note": "Animação com o título do vídeo e transições suaves.",
+      "duration_seconds": 15
+    },
+    {
+      "section": "CONTENT",
+      "text": "Primeira dica: Crie um orçamento familiar. Isso vai ajudar você a ter uma visão clara das suas receitas e despesas. Use aplicativos financeiros para monitorar seus gastos e ajustar seu plano quando necessário.",
+      "visual_note": "Gráficos e animações mostrando a criação de um orçamento em um aplicativo.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Segunda dica: Aproveite promoções e cupons. Sempre que possível, procure por ofertas e descontos antes de fazer compras. Isso pode resultar em economias significativas ao longo do mês.",
+      "visual_note": "Imagens de um carrinho de compras com etiquetas de desconto e pessoas sorrindo enquanto compram.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Terceira dica: Invista em educação financeira. Conhecer mais sobre finanças pode abrir portas para estratégias que você nem imaginava. Considere fazer cursos online que ajudem a melhorar suas habilidades financeiras.",
+      "visual_note": "Imagens de mulheres assistindo a aulas online ou lendo livros sobre finanças.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Quarta dica: Negocie suas contas. Muitas vezes, empresas de serviços estão dispostas a reduzir preços para manter clientes. Não hesite em entrar em contato com elas e negociar melhores condições.",
+      "visual_note": "Animações de uma mulher ao telefone, dialogando e sorrindo ao receber uma oferta melhor.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CONTENT",
+      "text": "Quinta e última dica: Crie um fundo de emergência. Ter uma reserva financeira pode evitar estresse em momentos de imprevistos e, assim, manter suas finanças familiares mais estáveis.",
+      "visual_note": "Ilustrações de um cofre sendo preenchido com dinheiro e um gráfico crescente.",
+      "duration_seconds": 40
+    },
+    {
+      "section": "CTA",
+      "text": "Se você gostou dessas dicas de economia, não esqueça de deixar seu like, se inscrever no canal e comentar abaixo suas próprias estratégias financeiras! Sua participação é muito importante para nós.",
+      "visual_note": "Animações de botões de like e inscrever-se, com uma chamada para ação animada.",
+      "duration_seconds": 10
+    },
+    {
+      "section": "END",
+      "text": "Obrigada por assistir! Até o próximo vídeo onde traremos mais dicas valiosas para você e sua família.",
+      "visual_note": "Tela final com o logotipo do canal e opções de vídeos relacionados.",
+      "duration_seconds": 5
+    }
+  ],
+  "thumbnail_text": "Economize com Dicas Práticas!",
+  "channel": {
+    "name": "Marina Veauvy — Finanças e IA",
+    "style": "faceless narration with stock footage, clean graphics, relaxed female Brazilian voice",
+    "tone": "prático, acessível, empoderador — como uma amiga que entende de finanças e tecnologia",
+    "cta_subscribe": "Se esse vídeo te ajudou, se inscreve no canal e ativa o sininho!",
+    "cta_like": "Deixa o like pra eu saber que você gostou!",
+    "end_screen": "Veja também o próximo vídeo que aparece na tela — vai te ajudar demais."
+  },
+  "generated_at": "2026-03-28T15:11:57.457Z"
+}
