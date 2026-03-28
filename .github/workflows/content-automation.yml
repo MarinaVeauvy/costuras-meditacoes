@@ -14,6 +14,8 @@ on:
     - cron: '0 14 * * 3,5'
     # Medium: Domingo 15:00 UTC (republish últimos artigos)
     - cron: '0 15 * * 0'
+    # YouTube retry upload: diário 12:00 UTC (tenta uploads pendentes)
+    - cron: '0 12 * * *'
     # SEO Internal Links: 1o dia do mês 06:00 UTC
     - cron: '0 6 1 * *'
   workflow_dispatch:
@@ -31,6 +33,7 @@ on:
           - pinterest
           - web-stories
           - youtube
+          - youtube-retry
           - twitter
           - linkedin
           - medium
@@ -187,6 +190,32 @@ jobs:
           git config user.email "bot@marinaveauvy.com.br"
           git add youtube/ 2>/dev/null || true
           git diff --cached --quiet || git commit -m "chore: youtube - 3 new videos generated and uploaded"
+          git push
+
+  youtube-retry:
+    if: >
+      (github.event_name == 'schedule' && github.event.schedule == '0 12 * * *') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'youtube-retry')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Instalar dependências
+        run: pip install google-auth google-auth-oauthlib google-api-python-client
+      - name: Retry upload vídeos pendentes
+        run: python scripts/youtube-upload.py
+        env:
+          UPLOAD_COUNT: '5'
+          YOUTUBE_OAUTH_TOKEN: ${{ secrets.YOUTUBE_OAUTH_TOKEN }}
+      - name: Commit index
+        run: |
+          git config user.name "Content Bot"
+          git config user.email "bot@marinaveauvy.com.br"
+          git add youtube/uploaded-index.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: youtube uploads retry"
           git push
 
   twitter:
