@@ -10,6 +10,12 @@ on:
     - cron: '0 10 * * 4'
     # Newsletter Renda Extra: Sábado 12:00 UTC (09h BRT)
     - cron: '0 12 * * 6'
+    # Pinterest: Qua e Sex 14:00 UTC (gerar + publicar)
+    - cron: '0 14 * * 3,5'
+    # Medium: Domingo 15:00 UTC (republish últimos artigos)
+    - cron: '0 15 * * 0'
+    # SEO Internal Links: 1o dia do mês 06:00 UTC
+    - cron: '0 6 1 * *'
   workflow_dispatch:
     inputs:
       action:
@@ -22,24 +28,34 @@ on:
           - newsletter-dinheiro-simples
           - newsletter-renda-extra
           - all-newsletters
+          - pinterest
+          - web-stories
+          - medium
+          - seo-links
+
+permissions:
+  contents: write
 
 jobs:
   articles:
     if: >
-      (github.event_name == 'schedule' && (github.event.schedule == '0 8 * * 1,4')) ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1,4') ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'articles')
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Gerar e publicar 2 artigos
+      - name: Gerar e publicar 2 artigos + push notification
         env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WP_USER: ${{ secrets.WP_USER }}
           WP_PASS: ${{ secrets.WP_PASS }}
+          ONESIGNAL_APP_ID: ${{ secrets.ONESIGNAL_APP_ID }}
+          ONESIGNAL_API_KEY: ${{ secrets.ONESIGNAL_API_KEY }}
           ARTICLE_COUNT: '2'
         run: node scripts/generate-article.js
 
@@ -48,15 +64,113 @@ jobs:
       (github.event_name == 'schedule' && contains('0 10 * * 2,0 10 * * 4,0 12 * * 6', github.event.schedule)) ||
       (github.event_name == 'workflow_dispatch' && contains(github.event.inputs.action, 'newsletter'))
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Enviar newsletter
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NEWSLETTER_NAME: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'all-newsletters' && 'all' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-impulso-ia' && 'impulso-ia' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-dinheiro-simples' && 'dinheiro-simples' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-renda-extra' && 'renda-extra' || '' }}
+        run: node scripts/send-newsletter.js
+
+  pinterest:
+    if: >
+      (github.event_name == 'schedule' && github.event.schedule == '0 14 * * 3,5') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'pinterest')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gerar pins para artigos sem pin
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+        run: node scripts/generate-all-pins.js
+      - name: Publicar pins no Pinterest
+        env:
+          PINTEREST_TOKEN: ${{ secrets.PINTEREST_TOKEN }}
+          PIN_BATCH_SIZE: '5'
+        run: node scripts/pinterest-publish.js
+      - name: Commit alterações
+        run: |
+          git config user.name "Content Bot"
+          git config user.email "bot@marinaveauvy.com.br"
+          git add pinterest-pins.json pinterest-published.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: update pinterest pins and published log"
+          git push
+
+  web-stories:
+    if: >
+      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1,4') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'web-stories')
+    needs: articles
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gerar Web Stories dos artigos recentes
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+          STORY_COUNT: '3'
+        run: node scripts/generate-web-stories.js
+      - name: Commit Web Stories
+        run: |
+          git config user.name "Content Bot"
+          git config user.email "bot@marinaveauvy.com.br"
+          git add web-stories/ 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: add new web stories"
+          git push
+
+  medium:
+    if: >
+      (github.event_name == 'schedule' && github.event.schedule == '0 15 * * 0') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'medium')
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Enviar newsletter do dia
+      - name: Republicar artigos no Medium
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          NEWSLETTER_NAME: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-impulso-ia' && 'impulso-ia' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-dinheiro-simples' && 'dinheiro-simples' || github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'newsletter-renda-extra' && 'renda-extra' || '' }}
-        run: node scripts/send-newsletter.js
+          MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+        run: node scripts/republish-medium.js
+
+  seo-links:
+    if: >
+      (github.event_name == 'schedule' && github.event.schedule == '0 6 1 * *') ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'seo-links')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Adicionar internal links SEO
+        env:
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_PASS: ${{ secrets.WP_PASS }}
+          MAX_UPDATES: '50'
+        run: node scripts/seo-internal-links.js

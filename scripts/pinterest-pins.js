@@ -2,7 +2,7 @@
 // Pinterest drives significant organic traffic to blogs
 // This creates a pins.json file that can be used with Pinterest API or manual scheduling
 
-const GEMINI_KEY = process.env.GEMINI_API_KEY;
+const { generate } = require('./ai-provider');
 const WP_URL = 'https://wp.marinaveauvy.com.br/wp-json/wp/v2/posts';
 const WP_AUTH = Buffer.from(`${process.env.WP_USER}:${process.env.WP_PASS}`).toString('base64');
 const SITE_URL = 'https://wp.marinaveauvy.com.br';
@@ -20,39 +20,17 @@ async function generatePinData(article) {
   const title = article.title.rendered;
   const excerpt = article.excerpt.rendered.replace(/<[^>]+>/g, '').substring(0, 200);
 
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: `Generate a Pinterest pin for this article. Title: "${title}". Excerpt: "${excerpt}".
+  const prompt = `Generate a Pinterest pin for this article. Title: "${title}". Excerpt: "${excerpt}".
 
 Return JSON with:
 - pin_title: eye-catching title for Pinterest (max 100 chars, Portuguese pt-BR)
-- description: Pinterest-optimized description with keywords and hashtags (max 500 chars, Portuguese pt-BR)
-- board: suggested Pinterest board name (Portuguese)
-- alt_text: image alt text for accessibility` }] }],
-      generationConfig: {
-        temperature: 0.8,
-        maxOutputTokens: 1024,
-        responseMimeType: 'application/json',
-        responseSchema: {
-          type: 'object',
-          properties: {
-            pin_title: { type: 'string' },
-            description: { type: 'string' },
-            board: { type: 'string' },
-            alt_text: { type: 'string' },
-          },
-          required: ['pin_title', 'description', 'board', 'alt_text'],
-        },
-      },
-    }),
-  });
+- description: Pinterest-optimized description with keywords and 3-5 hashtags at the end (max 500 chars, Portuguese pt-BR)
+- board: one of: "Financas Pessoais e Investimentos", "IA e Ferramentas para Negocios", "Renda Extra Online", "Marketing Digital e Conteudo", "Livros e Desenvolvimento Pessoal", "Empreendedorismo Feminino", "Produtividade e Automacao"
+- alt_text: image alt text for accessibility
 
-  const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) return null;
-  return JSON.parse(text);
+Return ONLY the JSON object.`;
+
+  return await generate(prompt, { json: true, maxTokens: 1024 });
 }
 
 async function main() {

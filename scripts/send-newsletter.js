@@ -1,5 +1,5 @@
-// Gera e envia newsletter via Gemini + Resend API
-const GEMINI_KEY = process.env.GEMINI_API_KEY;
+// Gera e envia newsletter via AI (OpenAI/Gemini) + Resend API
+const { generate } = require('./ai-provider');
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 // Envio direto via Resend API (bypass Vercel endpoint)
 const BLOG_URL = 'https://wp.marinaveauvy.com.br';
@@ -84,31 +84,7 @@ FORMATO JSON:
 
 Responda APENAS o JSON.`;
 
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: 0.9,
-        maxOutputTokens: 8192,
-        responseMimeType: 'application/json',
-        responseSchema: {
-          type: 'object',
-          properties: {
-            subject: { type: 'string' },
-            html: { type: 'string' },
-          },
-          required: ['subject', 'html'],
-        },
-      },
-    }),
-  });
-
-  const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error('Gemini empty: ' + JSON.stringify(data).substring(0, 200));
-  return JSON.parse(text);
+  return await generate(prompt, { json: true, maxTokens: 8192 });
 }
 
 async function getContacts(audienceId) {

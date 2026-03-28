@@ -1,5 +1,5 @@
-// Gera e publica 1 artigo SEO no WordPress via Gemini API
-const GEMINI_KEY = process.env.GEMINI_API_KEY;
+// Gera e publica artigos SEO no WordPress via AI (OpenAI primary, Gemini fallback)
+const { generate } = require('./ai-provider');
 const WP_USER = process.env.WP_USER;
 const WP_PASS = process.env.WP_PASS;
 const WP_URL = 'https://wp.marinaveauvy.com.br/wp-json/wp/v2/posts';
@@ -26,6 +26,26 @@ const TOPICS = [
   'IA para criação de conteúdo',
   'educação financeira prática',
   'como monetizar conhecimento online',
+  'como organizar finanças de casal',
+  'melhores investimentos de renda fixa em 2026',
+  'como precificar serviços como freelancer',
+  'IA para criação de cursos online',
+  'como montar um negócio com IA',
+  'dicas de economia para famílias',
+  'como criar um canal no YouTube com IA',
+  'ferramentas de IA para designers',
+  'como fazer orçamento pessoal do zero',
+  'empreendedorismo digital para mães',
+  'como vender no Instagram com IA',
+  'melhores investimentos para autônomos',
+  'como usar IA para atendimento ao cliente',
+  'planejamento financeiro para aposentadoria',
+  'como criar um podcast com ferramentas de IA',
+  'melhores formas de monetizar um blog',
+  'como economizar em compras online',
+  'IA para pequenas lojas e e-commerce',
+  'como investir em ações pela primeira vez',
+  'como construir múltiplas fontes de renda',
 ];
 
 async function getExistingTitles() {
@@ -71,32 +91,7 @@ FORMATO DE RESPOSTA (JSON):
 
 Responda APENAS o JSON, sem markdown, sem code blocks.`;
 
-  const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: 0.8,
-        maxOutputTokens: 8192,
-        responseMimeType: 'application/json',
-        responseSchema: {
-          type: 'object',
-          properties: {
-            title: { type: 'string' },
-            excerpt: { type: 'string' },
-            content: { type: 'string' },
-          },
-          required: ['title', 'excerpt', 'content'],
-        },
-      },
-    }),
-  });
-
-  const data = await res.json();
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error('Gemini returned empty: ' + JSON.stringify(data).substring(0, 200));
-  return JSON.parse(text);
+  return await generate(prompt, { json: true, maxTokens: 8192 });
 }
 
 async function publishArticle(article) {
@@ -159,6 +154,16 @@ async function main() {
   }
 
   console.log(`\n📊 Resultado: ${published}/${count} artigos publicados`);
+
+  // Enviar push notification do último artigo publicado
+  if (published > 0 && process.env.ONESIGNAL_APP_ID) {
+    try {
+      const { pushLatestArticle } = require('./setup-push-notifications');
+      await pushLatestArticle();
+    } catch (err) {
+      console.log(`⚠️ Push notification pulada: ${err.message}`);
+    }
+  }
 }
 
 main().catch(err => { console.error('FATAL:', err.message); process.exit(1); });
