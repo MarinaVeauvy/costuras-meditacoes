@@ -163,27 +163,17 @@ jobs:
         run: |
           pip install edge-tts google-auth google-auth-oauthlib google-api-python-client
           sudo apt-get update && sudo apt-get install -y ffmpeg
-      - name: 1. Gerar scripts de vídeo
+      - name: YouTube Factory — Script + TTS + Pexels B-roll + Render + Upload
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           WP_USER: ${{ secrets.WP_USER }}
           WP_PASS: ${{ secrets.WP_PASS }}
-          VIDEO_COUNT: '3'
-        run: node scripts/generate-youtube-scripts.js
-      - name: 2. Gerar narração TTS
-        run: node scripts/generate-tts.js
-        env:
-          AUDIO_COUNT: '3'
-      - name: 3. Renderizar vídeos MP4
-        run: node scripts/render-youtube-videos.js
-        env:
-          RENDER_COUNT: '3'
-      - name: 4. Upload para YouTube
-        run: python scripts/youtube-upload.py
-        env:
-          UPLOAD_COUNT: '3'
           YOUTUBE_OAUTH_TOKEN: ${{ secrets.YOUTUBE_OAUTH_TOKEN }}
+          VIDEO_COUNT: '3'
+          PYTHON_PATH: python
+        run: node scripts/youtube-factory.js
       - name: Commit arquivos
         run: |
           git config user.name "Content Bot"
