@@ -7,13 +7,15 @@ const SITE = 'https://marinaveauvy.github.io/costuras-meditacoes';
 
 const TEMPLATES = {
   financeiro: {
-    url: `${SITE}/template-financeiro-pessoal.html`,
+    url: 'https://payment.ticto.app/O93AF2A6D',
+    landing: `${SITE}/template-financeiro-pessoal.html`,
     title: 'Dashboard Financeiro Pessoal',
     price: 'R$27',
     keywords: ['finanç', 'investiment', 'orçamento', 'economiz', 'dívida', 'reserva', 'cdb', 'poupanç', 'tesouro', 'renda fixa', 'controle financeiro', 'planilha', 'gastos'],
   },
   empreendedora: {
-    url: `${SITE}/template-empreendedora.html`,
+    url: 'https://payment.ticto.app/OEB5D91EE',
+    landing: `${SITE}/template-empreendedora.html`,
     title: 'Kit Empreendedora Digital (5 Templates)',
     price: 'R$37',
     keywords: ['empreendedor', 'negócio', 'freelanc', 'marketing', 'instagram', 'conteúdo', 'funil', 'newsletter', 'canva', 'template', 'mei', 'vender'],
