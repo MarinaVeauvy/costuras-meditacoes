@@ -349,6 +349,14 @@ async function main() {
   // Upload all factory videos
   if (success > 0 && process.env.YOUTUBE_UPLOAD !== 'false') {
     console.log('\n📤 Enviando para YouTube...');
+
+    // Ensure token file exists from env var (GitHub Actions)
+    const tokenFile = path.join(YOUTUBE_DIR, 'oauth-token.json');
+    if (!fs.existsSync(tokenFile) && process.env.YOUTUBE_OAUTH_TOKEN) {
+      fs.writeFileSync(tokenFile, process.env.YOUTUBE_OAUTH_TOKEN, 'utf8');
+      console.log('  Token criado a partir de YOUTUBE_OAUTH_TOKEN env var');
+    }
+
     const uploaded = getUploaded();
 
     const mp4s = fs.readdirSync(FACTORY_DIR).filter(f => f.endsWith('.mp4'));

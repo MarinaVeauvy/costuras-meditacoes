@@ -1,7 +1,7 @@
 """
 YouTube Video Uploader
 Uploads MP4 videos with metadata from JSON files
-Uses OAuth2 token from youtube-auth.py
+Uses OAuth2 token from youtube-auth.py or YOUTUBE_OAUTH_TOKEN env var
 """
 import os
 import sys
@@ -12,6 +12,9 @@ from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
+if sys.stdout.encoding != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 YOUTUBE_DIR = os.path.join(os.path.dirname(__file__), '..', 'youtube')
 TOKEN_FILE = os.path.join(YOUTUBE_DIR, 'oauth-token.json')
 UPLOADED_FILE = os.path.join(YOUTUBE_DIR, 'uploaded-index.json')
@@ -19,12 +22,12 @@ UPLOADED_FILE = os.path.join(YOUTUBE_DIR, 'uploaded-index.json')
 # Support token from env (GitHub Actions) or file (local)
 def ensure_token_file():
     env_token = os.environ.get('YOUTUBE_OAUTH_TOKEN')
-    if env_token and not os.path.exists(TOKEN_FILE):
-        with open(TOKEN_FILE, 'w') as f:
+    if env_token:
+        with open(TOKEN_FILE, 'w', encoding='utf-8') as f:
             f.write(env_token)
 
 def get_credentials():
-    with open(TOKEN_FILE, 'r') as f:
+    with open(TOKEN_FILE, 'r', encoding='utf-8') as f:
         token_data = json.load(f)
 
     creds = Credentials(
@@ -38,21 +41,28 @@ def get_credentials():
 
     if creds.expired:
         creds.refresh(Request())
-        # Save refreshed token
         token_data['token'] = creds.token
-        with open(TOKEN_FILE, 'w') as f:
+        with open(TOKEN_FILE, 'w', encoding='utf-8') as f:
             json.dump(token_data, f, indent=2)
 
     return creds
 
+def load_json_safe(filepath):
+    """Load JSON with fallback encoding handling."""
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except UnicodeDecodeError:
+        with open(filepath, 'r', encoding='latin-1') as f:
+            return json.load(f)
+
 def get_uploaded():
     if os.path.exists(UPLOADED_FILE):
-        with open(UPLOADED_FILE, 'r') as f:
-            return json.load(f)
+        return load_json_safe(UPLOADED_FILE)
     return []
 
 def save_uploaded(uploaded):
-    with open(UPLOADED_FILE, 'w') as f:
+    with open(UPLOADED_FILE, 'w', encoding='utf-8') as f:
         json.dump(uploaded, f, indent=2, ensure_ascii=False)
 
 def upload_video(youtube, mp4_path, metadata):
@@ -107,32 +117,45 @@ def main():
     youtube = build('youtube', 'v3', credentials=creds)
     print("Conectado ao YouTube!\n")
 
-    # Find MP4 files with matching JSON metadata
+    # Find MP4 files with matching JSON metadata (root + factory/)
     uploaded = get_uploaded()
     uploaded_slugs = set(u['slug'] for u in uploaded)
 
-    mp4_files = [f for f in os.listdir(YOUTUBE_DIR) if f.endswith('.mp4')]
     pending = []
-    for mp4 in mp4_files:
+    # Scan youtube/ root
+    for mp4 in os.listdir(YOUTUBE_DIR):
+        if not mp4.endswith('.mp4'):
+            continue
         slug = mp4.replace('.mp4', '')
         if slug in uploaded_slugs:
             continue
         json_file = os.path.join(YOUTUBE_DIR, f"{slug}.json")
         if os.path.exists(json_file):
-            pending.append((slug, mp4, json_file))
+            pending.append((slug, os.path.join(YOUTUBE_DIR, mp4), json_file))
+
+    # Scan youtube/factory/
+    factory_dir = os.path.join(YOUTUBE_DIR, 'factory')
+    if os.path.isdir(factory_dir):
+        for mp4 in os.listdir(factory_dir):
+            if not mp4.endswith('.mp4'):
+                continue
+            slug = mp4.replace('.mp4', '')
+            if slug in uploaded_slugs:
+                continue
+            json_file = os.path.join(factory_dir, f"{slug}.json")
+            if os.path.exists(json_file):
+                pending.append((slug, os.path.join(factory_dir, mp4), json_file))
 
     to_upload = pending[:max_uploads]
-    print(f"{len(mp4_files)} videos | {len(uploaded)} ja enviados | {len(to_upload)} a enviar\n")
+    print(f"{len(pending)+len(uploaded_slugs)} videos | {len(uploaded)} ja enviados | {len(to_upload)} a enviar\n")
 
     if not to_upload:
         print("Todos os videos ja foram enviados!")
         return
 
     created = 0
-    for slug, mp4, json_file in to_upload:
-        mp4_path = os.path.join(YOUTUBE_DIR, mp4)
-        with open(json_file, 'r', encoding='utf-8') as f:
-            metadata = json.load(f)
+    for slug, mp4_path, json_file in to_upload:
+        metadata = load_json_safe(json_file)
 
         title = metadata.get('youtube_title', slug)[:50]
         print(f"Enviando: {title}...")
@@ -158,7 +181,11 @@ def main():
                 time.sleep(5)
 
         except Exception as e:
-            print(f"  ERRO: {str(e)[:300]}")
+            err = str(e)
+            print(f"  ERRO: {err[:300]}")
+            if 'uploadLimitExceeded' in err or 'quotaExceeded' in err or 'dailyLimitExceeded' in err:
+                print("Quota diaria atingida. Tentara novamente amanha.")
+                break
 
     print(f"\n{created}/{len(to_upload)} videos enviados ao YouTube")
 

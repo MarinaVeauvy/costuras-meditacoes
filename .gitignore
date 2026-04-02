@@ -1,2 +1,16 @@
 .vercel
 .env*.local
+
+# YouTube media files (too large for git)
+youtube/*.mp4
+youtube/*.mp3
+youtube/factory/*.mp4
+youtube/factory/*.mp3
+youtube/factory/*/
+youtube/oauth-token.json
+youtube/oauth-client.json
+
+# Pinterest images
+pinterest-images/
+pinterest-debug.png
+covers/
