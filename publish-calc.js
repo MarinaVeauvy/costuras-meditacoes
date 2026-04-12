@@ -21,7 +21,7 @@ const outroSeo = `
 
 const fullContent = introSeo + toolHtml + outroSeo;
 
-const token = Buffer.from('wp.marinaveauvy.com.br:reTc To1g Apni rmPa aeTI x63B').toString('base64');
+const token = Buffer.from(`${process.env.WP_USER || 'wp.marinaveauvy.com.br'}:${process.env.WP_APP_PASSWORD}`).toString('base64');
 
 const postData = JSON.stringify({
   title: 'Calculadora CLT vs PJ: Descubra Qual Compensa Mais em 2026',

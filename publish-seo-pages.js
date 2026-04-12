@@ -1,4 +1,4 @@
-const TOKEN = Buffer.from('wp.marinaveauvy.com.br:reTc To1g Apni rmPa aeTI x63B').toString('base64');
+const TOKEN = Buffer.from(`${process.env.WP_USER || 'wp.marinaveauvy.com.br'}:${process.env.WP_APP_PASSWORD}`).toString('base64');
 
 async function publish(title, slug, content) {
   const res = await fetch('https://wp.marinaveauvy.com.br/wp-json/wp/v2/posts', {
