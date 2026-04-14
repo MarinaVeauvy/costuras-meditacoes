@@ -57,6 +57,7 @@ async function generateGemini(prompt, { json, maxTokens }) {
   const config = {
     temperature: 0.8,
     maxOutputTokens: maxTokens,
+    thinkingConfig: { thinkingBudget: 0 },
   };
   if (json) config.responseMimeType = 'application/json';
 
