@@ -378,46 +378,12 @@ async function main() {
           break;
         }
 
-        const uploadCmd = `${PYTHON} -c "
-import json, sys, os
-sys.path.insert(0, '${path.join(__dirname).replace(/\\/g, '/')}')
-os.chdir('${path.join(__dirname, '..').replace(/\\/g, '/')}')
+        const uploaderScript = path.join(__dirname, 'youtube-upload-single.py');
+        const videoPath = path.join(FACTORY_DIR, mp4);
+        const metaPath = path.join(FACTORY_DIR, slug + '.json');
+        const uploadCmd = `${PYTHON} "${uploaderScript}" "${videoPath}" "${metaPath}"`;
 
-from google.oauth2.credentials import Credentials
-from google.auth.transport.requests import Request
-from googleapiclient.discovery import build
-from googleapiclient.http import MediaFileUpload
-
-with open('youtube/oauth-token.json') as f:
-    td = json.load(f)
-creds = Credentials(token=td['token'], refresh_token=td['refresh_token'],
-    token_uri=td['token_uri'], client_id=td['client_id'],
-    client_secret=td['client_secret'], scopes=td['scopes'])
-if creds.expired:
-    creds.refresh(Request())
-    td['token'] = creds.token
-    with open('youtube/oauth-token.json','w') as f:
-        json.dump(td,f,indent=2)
-
-yt = build('youtube','v3',credentials=creds)
-meta = json.load(open('${path.join(FACTORY_DIR, slug + '.json').replace(/\\/g, '/')}'))
-
-body = {
-    'snippet': {
-        'title': meta.get('youtube_title','Video')[:100],
-        'description': meta.get('description','')[:5000] + chr(10)*2 + 'Artigo: ' + meta.get('article_url',''),
-        'tags': meta.get('tags',[])[:15],
-        'categoryId': '22',
-        'defaultLanguage': 'pt-BR',
-    },
-    'status': {'privacyStatus': 'public', 'selfDeclaredMadeForKids': False},
-}
-media = MediaFileUpload('${path.join(FACTORY_DIR, mp4).replace(/\\/g, '/')}', mimetype='video/mp4', resumable=True)
-r = yt.videos().insert(part='snippet,status', body=body, media_body=media).execute()
-print('VIDEO_ID:' + r['id'])
-"`;
-
-        const result = execSync(uploadCmd, { timeout: 180000, stdio: 'pipe' }).toString();
+        const result = execSync(uploadCmd, { timeout: 300000, stdio: 'pipe' }).toString();
         const videoId = result.match(/VIDEO_ID:(\S+)/)?.[1];
 
         if (videoId) {
@@ -433,7 +399,11 @@ print('VIDEO_ID:' + r['id'])
           console.log(`    ✅ https://youtube.com/watch?v=${videoId}`);
         }
       } catch (err) {
-        console.log(`    ❌ Upload: ${err.message.substring(0, 100)}`);
+        const stderr = err.stderr ? err.stderr.toString() : '';
+        const stdout = err.stdout ? err.stdout.toString() : '';
+        console.log(`    ❌ Upload falhou: ${err.message.substring(0, 200)}`);
+        if (stderr) console.log(`       stderr: ${stderr.substring(0, 500)}`);
+        if (stdout) console.log(`       stdout: ${stdout.substring(0, 500)}`);
       }
 
       await new Promise(r => setTimeout(r, 5000));
