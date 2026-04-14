@@ -402,8 +402,8 @@ async function main() {
         const stderr = err.stderr ? err.stderr.toString() : '';
         const stdout = err.stdout ? err.stdout.toString() : '';
         console.log(`    ❌ Upload falhou: ${err.message.substring(0, 200)}`);
-        if (stderr) console.log(`       stderr: ${stderr.substring(0, 500)}`);
-        if (stdout) console.log(`       stdout: ${stdout.substring(0, 500)}`);
+        if (stderr) console.log(`       stderr:\n${stderr}`);
+        if (stdout) console.log(`       stdout:\n${stdout}`);
       }
 
       await new Promise(r => setTimeout(r, 5000));

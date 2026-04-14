@@ -96,14 +96,20 @@ def main():
         },
     }
 
-    media = MediaFileUpload(video_path, mimetype='video/mp4', resumable=True, chunksize=-1)
+    media = MediaFileUpload(video_path, mimetype='video/mp4', resumable=True)
     request = youtube.videos().insert(part='snippet,status', body=body, media_body=media)
 
     try:
         response = request.execute()
     except HttpError as e:
-        print(f'ERROR: HttpError {e.resp.status}: {e.content.decode("utf-8", "replace")[:500]}', file=sys.stderr)
+        content = e.content.decode("utf-8", "replace") if hasattr(e, 'content') else str(e)
+        print(f'ERROR: HttpError {e.resp.status}: {content[:1000]}', file=sys.stderr)
         sys.exit(5)
+    except Exception as e:
+        import traceback
+        print(f'ERROR: {type(e).__name__}: {e}', file=sys.stderr)
+        traceback.print_exc(file=sys.stderr)
+        sys.exit(7)
 
     video_id = response.get('id') if response else None
     if not video_id:
