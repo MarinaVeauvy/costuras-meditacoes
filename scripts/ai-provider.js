@@ -1,20 +1,11 @@
-// Unified AI Provider — OpenAI (primary) with Gemini fallback
+// Unified AI Provider — Gemini (primary) with OpenAI fallback
 // All scripts use this instead of calling APIs directly
 
 const OPENAI_KEY = process.env.OPENAI_API_KEY;
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
 
 async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
-  // Try OpenAI first (GPT-4o-mini — fast, cheap, good for content)
-  if (OPENAI_KEY) {
-    try {
-      return await generateOpenAI(prompt, { json, maxTokens });
-    } catch (err) {
-      console.error(`  ⚠️ OpenAI falhou: ${err.message}`);
-    }
-  }
-
-  // Fallback to Gemini
+  // Try Gemini first (gemini-2.0-flash — free tier, fast)
   if (GEMINI_KEY) {
     try {
       return await generateGemini(prompt, { json, maxTokens });
@@ -23,7 +14,16 @@ async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
     }
   }
 
-  throw new Error('Nenhum AI provider disponível. Configure OPENAI_API_KEY ou GEMINI_API_KEY.');
+  // Fallback to OpenAI
+  if (OPENAI_KEY) {
+    try {
+      return await generateOpenAI(prompt, { json, maxTokens });
+    } catch (err) {
+      console.error(`  ⚠️ OpenAI falhou: ${err.message}`);
+    }
+  }
+
+  throw new Error('Nenhum AI provider disponível. Configure GEMINI_API_KEY ou OPENAI_API_KEY.');
 }
 
 async function generateOpenAI(prompt, { json, maxTokens }) {
@@ -61,7 +61,7 @@ async function generateGemini(prompt, { json, maxTokens }) {
   if (json) config.responseMimeType = 'application/json';
 
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=${GEMINI_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_KEY}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
