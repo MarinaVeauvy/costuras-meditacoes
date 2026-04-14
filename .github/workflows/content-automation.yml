@@ -56,6 +56,7 @@ jobs:
           node-version: '20'
       - name: Gerar e publicar 2 artigos + push notification
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WP_USER: ${{ secrets.WP_USER }}
@@ -78,6 +79,7 @@ jobs:
           node-version: '20'
       - name: Enviar newsletter
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
@@ -97,6 +99,7 @@ jobs:
           node-version: '20'
       - name: Gerar pins para artigos sem pin
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WP_USER: ${{ secrets.WP_USER }}
@@ -129,6 +132,7 @@ jobs:
           node-version: '20'
       - name: Gerar Web Stories dos artigos recentes
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WP_USER: ${{ secrets.WP_USER }}
@@ -163,6 +167,7 @@ jobs:
           sudo apt-get update && sudo apt-get install -y ffmpeg
       - name: YouTube Factory — Script + TTS + Pexels B-roll + Render + Upload
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
@@ -219,6 +224,7 @@ jobs:
           node-version: '20'
       - name: Gerar threads Twitter
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WP_USER: ${{ secrets.WP_USER }}
@@ -246,6 +252,7 @@ jobs:
           node-version: '20'
       - name: Gerar artigos LinkedIn
         env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           WP_USER: ${{ secrets.WP_USER }}
