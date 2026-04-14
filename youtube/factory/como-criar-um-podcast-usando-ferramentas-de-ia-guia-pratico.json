@@ -1,63 +1,63 @@
 {
-  "youtube_title": "Podcast com IA: Guia Prático para Mulheres Empreendedoras",
-  "description": "Aprenda a criar um podcast de sucesso usando ferramentas de inteligência artificial! Este guia prático é perfeito para mulheres empreendedoras que desejam potencializar seus negócios. Descubra como a IA pode simplificar a produção, edição e distribuição do seu podcast, alcançando mais ouvintes. Dicas essenciais para o seu podcast com IA.",
+  "youtube_title": "Crie um Podcast com IA: Guia Prático para Mulheres Empreendedoras",
+  "description": "Aprenda a criar um podcast de sucesso usando ferramentas de inteligência artificial! Este guia prático é perfeito para mulheres empreendedoras que desejam potencializar seus negócios. Descubra como planejar, roteirizar, gravar e editar seu podcast de forma eficiente com IA. Transforme sua ideia em um podcast incrível e alcance mais ouvintes!",
   "tags": [
     "podcast com ia",
     "criar podcast",
-    "empreendedorismo feminino",
-    "mulheres de negocios",
-    "inteligencia artificial",
-    "marketing digital",
-    "dicas podcast",
-    "negocios online",
+    "inteligência artificial podcast",
+    "mulheres empreendedoras",
+    "podcast para negócios",
     "ferramentas ia",
-    "sucesso podcast"
+    "guia podcast",
+    "marketing digital",
+    "empreendedorismo feminino",
+    "dicas de podcast"
   ],
-  "thumbnail_text": "Podcast com IA AGORA!",
+  "thumbnail_text": "PODCAST COM IA EM 60s!",
   "scenes": [
     {
-      "narration": "Quer um podcast de sucesso, mas sem toda a complicação? Descubra como a inteligência artificial pode transformar sua ideia em realidade em minutos!",
-      "visual_query": "energetic woman speaking into microphone, AI robot assistant",
+      "narration": "Quer criar um podcast incrível, mas falta tempo e recursos? E se eu te disser que a inteligência artificial pode fazer a mágica por você?",
+      "visual_query": "woman looking excited at laptop, lightbulb idea",
       "duration": 7,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/audio_0.mp3",
-      "audioDuration": 9.12,
+      "audioDuration": 8.448,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/broll_0.mp4"
     },
     {
-      "narration": "Primeiro, escolha seu tema e roteirize com IA. Ferramentas como o ChatGPT podem gerar ideias e até rascunhos de roteiro em segundos, poupando seu tempo precioso.",
-      "visual_query": "woman typing on laptop with AI interface, digital brain icon",
+      "narration": "Primeiro, defina seu nicho e público-alvo. Use ferramentas de IA para gerar ideias de tópicos e roteiros que realmente engajam sua audiência.",
+      "visual_query": "woman brainstorming writing ideas, diverse women collaborating",
       "duration": 12,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/audio_1.mp3",
-      "audioDuration": 11.352,
+      "audioDuration": 9.792,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/broll_1.mp4"
     },
     {
-      "narration": "Em seguida, grave seu áudio. Não precisa de estúdio! Use seu celular e edite com softwares de IA que removem ruídos e melhoram a qualidade da voz automaticamente.",
-      "visual_query": "woman recording podcast with smartphone, audio wave editing software",
+      "narration": "Depois, grave seu áudio. Não se preocupe com a edição! A IA pode transcrever, remover ruídos e até criar vozes sintéticas se você preferir.",
+      "visual_query": "woman recording podcast with microphone, AI interface on screen",
       "duration": 13,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/audio_2.mp3",
-      "audioDuration": 11.472,
+      "audioDuration": 10.44,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/broll_2.mp4"
     },
     {
-      "narration": "Para a divulgação, a IA pode criar descrições chamativas e até transformar seu áudio em posts para redes sociais. Alcance mais pessoas com menos esforço!",
-      "visual_query": "social media icons flying around, woman sharing content online",
-      "duration": 13,
+      "narration": "Para a divulgação, utilize a IA para criar descrições otimizadas, títulos chamativos e até posts para redes sociais. Alcance mais pessoas com menos esforço!",
+      "visual_query": "social media marketing, data analytics dashboard",
+      "duration": 12,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/audio_3.mp3",
-      "audioDuration": 10.992,
+      "audioDuration": 11.448,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/broll_3.mp4"
     },
     {
-      "narration": "Pronta para lançar seu podcast com IA e potencializar seu negócio? Clique no botão de se inscrever para mais dicas de empreendedorismo com tecnologia!",
-      "visual_query": "finger pressing subscribe button, woman smiling confidently",
+      "narration": "Com a IA, seu podcast de sucesso está ao seu alcance. Potencialize seu negócio e sua voz! Inscreva-se para mais dicas práticas de empreendedorismo!",
+      "visual_query": "woman entrepreneur celebrating success, subscribe button animation",
       "duration": 7,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/audio_4.mp3",
-      "audioDuration": 10.32,
+      "audioDuration": 10.56,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/broll_4.mp4"
     }
   ],
   "article_url": "https://wp.marinaveauvy.com.br/como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico/",
   "article_title": "Como Criar um Podcast Usando Ferramentas de IA: Guia Prático",
   "slug": "como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico",
-  "rendered_at": "2026-04-14T13:41:11.526Z"
+  "rendered_at": "2026-04-14T14:32:39.569Z"
 }
