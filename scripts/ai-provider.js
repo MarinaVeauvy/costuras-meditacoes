@@ -36,9 +36,33 @@ async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
   throw new Error('Nenhum AI provider disponível. Configure OPENROUTER_API_KEY, GEMINI_API_KEY ou OPENAI_API_KEY.');
 }
 
+// Free models on OpenRouter, tried in order. Each has independent rate limits,
+// so rotating across them lets us generate multiple items per minute.
+const OPENROUTER_FREE_MODELS = [
+  'google/gemma-4-31b-it:free',
+  'qwen/qwen3-next-80b-a3b-instruct:free',
+  'openai/gpt-oss-120b:free',
+  'z-ai/glm-4.5-air:free',
+  'google/gemma-3-12b-it:free',
+  'nvidia/nemotron-3-super-120b-a12b:free',
+];
+
 async function generateOpenRouter(prompt, { json, maxTokens }) {
+  let lastErr;
+  for (const model of OPENROUTER_FREE_MODELS) {
+    try {
+      return await callOpenRouter(model, prompt, { json, maxTokens });
+    } catch (err) {
+      lastErr = err;
+      console.error(`    ↪ ${model} falhou: ${err.message.substring(0, 120)}`);
+    }
+  }
+  throw lastErr || new Error('Todos os modelos OpenRouter falharam');
+}
+
+async function callOpenRouter(model, prompt, { json, maxTokens }) {
   const body = {
-    model: 'google/gemma-4-31b-it:free',
+    model,
     messages: [{ role: 'user', content: prompt }],
     max_tokens: maxTokens,
     temperature: 0.8,
