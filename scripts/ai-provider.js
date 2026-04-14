@@ -38,7 +38,7 @@ async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
 
 async function generateOpenRouter(prompt, { json, maxTokens }) {
   const body = {
-    model: 'google/gemini-2.5-flash',
+    model: 'google/gemini-2.0-flash-exp:free',
     messages: [{ role: 'user', content: prompt }],
     max_tokens: maxTokens,
     temperature: 0.8,
