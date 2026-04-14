@@ -1,71 +1,63 @@
 {
   "youtube_title": "Automatizar Tarefas Repetitivas: Ganhe Tempo no Seu Negócio!",
-  "description": "Mulheres empreendedoras, descubram como automatizar tarefas repetitivas e otimizar seu tempo! Dicas práticas para aumentar a produtividade, focar no crescimento do seu negócio e ter mais liberdade. Aprenda a usar ferramentas e estratégias para automatização e transforme sua rotina. Ganhe tempo e dinheiro!",
+  "description": "Empreendedora, aprenda a automatizar tarefas repetitivas e libere seu tempo para o que realmente importa! Descubra dicas práticas para otimizar seu negócio, aumentar a produtividade e focar no crescimento. Transforme sua rotina, ganhe tempo e impulsione seu empreendimento com automação inteligente. Produtividade, empreendedorismo feminino, automação.",
   "tags": [
     "automatizar tarefas",
-    "produtividade empreendedora",
-    "gestão de tempo",
-    "negócio feminino",
-    "mulheres empreendedoras",
-    "otimização de tempo",
-    "dicas de negócio",
-    "automação de processos",
     "ganhar tempo",
-    "empreendedorismo digital"
+    "produtividade empreendedora",
+    "negócio feminino",
+    "dicas de automação",
+    "otimizar rotina",
+    "empreendedorismo digital",
+    "eficiência no trabalho",
+    "gestão de tempo",
+    "mulheres de negócios"
   ],
-  "thumbnail_text": "Automatize e Ganhe Tempo!",
+  "thumbnail_text": "AUTOMAÇÃO: MENOS TEMPO, MAIS LUCRO!",
   "scenes": [
     {
-      "narration": "Cansada de tarefas repetitivas que roubam seu tempo valioso? Imagine ter mais horas livres para o que realmente importa no seu negócio.",
-      "visual_query": "frustrated woman looking at computer, then relieved woman smiling",
-      "duration": 6,
+      "narration": "Empreendedora, você se sente sobrecarregada com tarefas repetitivas que roubam seu tempo precioso? Imagine ter mais horas livres para focar no crescimento do seu negócio!",
+      "visual_query": "stressed woman working late",
+      "duration": 7,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/audio_0.mp3",
-      "audioDuration": 8.352,
+      "audioDuration": 10.368,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/broll_0.mp4"
     },
     {
-      "narration": "Primeiro, identifique! Quais são as três tarefas que você faz todo dia e que poderiam ser automatizadas? Pense em e-mails, agendamentos ou relatórios.",
-      "visual_query": "woman writing on whiteboard, checklist, calendar app",
+      "narration": "Primeiro, identifique as tarefas que você faz todos os dias e que são manuais. Pense em e-mails de boas-vindas, agendamentos ou relatórios simples.",
+      "visual_query": "woman writing to-do list, calendar app",
       "duration": 12,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/audio_1.mp3",
-      "audioDuration": 9.552,
+      "audioDuration": 9.096,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/broll_1.mp4"
     },
     {
-      "narration": "Agora, escolha as ferramentas certas. Use softwares para agendamento automático, respostas de e-mail ou gerenciamento de redes sociais. Existem muitas opções gratuitas!",
-      "visual_query": "hands typing on laptop, various app icons, woman using tablet",
+      "narration": "Depois, explore ferramentas de automação. Plataformas como Zapier ou IFTTT podem conectar seus aplicativos e fazer o trabalho chato por você, sem precisar de código.",
+      "visual_query": "woman using project management software, different app icons connecting",
       "duration": 13,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/audio_2.mp3",
-      "audioDuration": 11.136,
+      "audioDuration": 10.56,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/broll_2.mp4"
     },
     {
-      "narration": "Comece pequeno e teste. Automatize uma tarefa por vez e observe os resultados. Você verá o tempo extra surgir na sua agenda rapidamente.",
-      "visual_query": "woman planning on a desk, time lapse of work, clock animation",
-      "duration": 12,
+      "narration": "Automatize a comunicação com clientes, a gestão de redes sociais e até a organização de arquivos. Libere sua mente para estratégias e inovações que impulsionam seu negócio.",
+      "visual_query": "woman recording social media video, automated email sequence graphic",
+      "duration": 13,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/audio_3.mp3",
-      "audioDuration": 9.288,
+      "audioDuration": 10.896,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/broll_3.mp4"
     },
     {
-      "narration": "Liberte-se das tarefas manuais e foque no crescimento do seu negócio. Ganhe tempo, produtividade e liberdade!",
-      "visual_query": "woman celebrating success, business growth chart, woman relaxing with laptop",
-      "duration": 10,
-      "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/audio_4.mp3",
-      "audioDuration": 7.176,
-      "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/broll_4.mp4"
-    },
-    {
-      "narration": "Gostou da dica? Inscreva-se para mais estratégias e transforme seu empreendimento!",
-      "visual_query": "subscribe button animation, hand clicking subscribe, woman smiling at camera",
+      "narration": "Não deixe que a rotina te prenda! Comece a automatizar hoje e veja seu negócio prosperar. Para mais dicas como essa, inscreva-se no canal!",
+      "visual_query": "woman relaxing with laptop, subscribe button animation",
       "duration": 7,
-      "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/audio_5.mp3",
-      "audioDuration": 5.592,
-      "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/broll_5.mp4"
+      "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/audio_4.mp3",
+      "audioDuration": 8.592,
+      "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/broll_4.mp4"
     }
   ],
   "article_url": "https://wp.marinaveauvy.com.br/como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio/",
   "article_title": "Como Automatizar Tarefas Repetitivas e Ganhar Tempo no Seu Negócio",
   "slug": "como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio",
-  "rendered_at": "2026-04-14T13:50:52.997Z"
+  "rendered_at": "2026-04-14T13:56:51.770Z"
 }

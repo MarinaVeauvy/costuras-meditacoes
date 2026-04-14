@@ -1,71 +1,63 @@
 {
   "youtube_title": "Investimentos para Iniciantes: Guia Prático para Mulheres Empreendedoras",
-  "description": "Mulheres empreendedoras, prontas para investir? Este guia rápido te mostra como começar seus investimentos com segurança e inteligência. Descubra dicas práticas para iniciantes, entenda os primeiros passos e empodere-se financeiramente. Invista no seu futuro hoje! #InvestimentosParaMulheres #EmpreendedorismoFeminino #FinançasParaMulheres #Investir",
+  "description": "Mulheres empreendedoras, prontas para investir? Este guia prático e rápido te mostra como começar seus investimentos com segurança e inteligência. Aprenda dicas essenciais para iniciantes e empodere sua jornada financeira. Invista no seu futuro hoje! #Investimentos #MulheresEmpreendedoras #FinançasParaMulheres #DicasDeInvestimento #Dinheiro",
   "tags": [
-    "Investimentos para Mulheres",
-    "Empreendedorismo Feminino",
-    "Finanças para Mulheres",
-    "Como Investir",
-    "Investimentos Iniciantes",
-    "Mulheres Investidoras",
-    "Dicas de Investimento",
-    "Independência Financeira",
-    "Dinheiro Mulher",
-    "Guia Investimento"
+    "investimentos para iniciantes",
+    "mulheres empreendedoras",
+    "investir dinheiro",
+    "finanças femininas",
+    "dicas de investimento",
+    "como começar a investir",
+    "independência financeira",
+    "educação financeira",
+    "dinheiro",
+    "empreendedorismo feminino"
   ],
   "thumbnail_text": "Invista e Empodere-se!",
   "scenes": [
     {
-      "narration": "Mulher empreendedora, você sabe que seu negócio merece crescer. Mas e o seu dinheiro? Está trabalhando para você?",
-      "visual_query": "successful business woman looking confident",
-      "duration": 6,
+      "narration": "Mulher empreendedora, cansada de ver seu dinheiro parado? É hora de fazê-lo trabalhar para você! Descubra como começar a investir hoje.",
+      "visual_query": "woman looking confident money",
+      "duration": 7,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/audio_0.mp3",
-      "audioDuration": 7.32,
+      "audioDuration": 8.52,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/broll_0.mp4"
     },
     {
-      "narration": "Muitas pensam que investir é complicado, mas não é! Comece definindo seus objetivos financeiros. Quer uma reserva de emergência ou liberdade no futuro?",
-      "visual_query": "woman planning finances, piggy bank, calculator",
+      "narration": "Primeiro passo: entenda seus objetivos financeiros e seu perfil de risco. Você busca crescimento rápido ou mais segurança?",
+      "visual_query": "woman planning finances laptop",
       "duration": 12,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/audio_1.mp3",
-      "audioDuration": 9.504,
+      "audioDuration": 7.992,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/broll_1.mp4"
     },
     {
-      "narration": "O primeiro passo é sempre aprender. Pesquise sobre Tesouro Direto, CDBs e fundos de investimento. São opções seguras e acessíveis para iniciantes.",
-      "visual_query": "woman reading financial books, laptop with charts",
-      "duration": 12,
+      "narration": "Comece com o básico: renda fixa como Tesouro Direto ou CDBs são excelentes para iniciantes. Eles oferecem segurança e bons retornos.",
+      "visual_query": "money coins growth graph",
+      "duration": 13,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/audio_2.mp3",
-      "audioDuration": 9.888,
+      "audioDuration": 9.36,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/broll_2.mp4"
     },
     {
-      "narration": "Não precisa de muito para começar. Pequenos aportes regulares fazem uma grande diferença a longo prazo. A consistência é sua maior aliada!",
-      "visual_query": "hand putting coins into a small plant, growing money",
-      "duration": 12,
+      "narration": "Diversifique seus investimentos para minimizar riscos. Não coloque todos os ovos na mesma cesta! Estude e invista em diferentes tipos de ativos.",
+      "visual_query": "diverse investment options chart",
+      "duration": 13,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/audio_3.mp3",
-      "audioDuration": 8.808,
+      "audioDuration": 9.648,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/broll_3.mp4"
     },
     {
-      "narration": "Invista em você e no seu futuro. Comece hoje a construir a segurança e o empoderamento financeiro que você merece.",
-      "visual_query": "woman smiling confidently, cityscape background",
-      "duration": 12,
+      "narration": "Não espere pelo momento perfeito, comece agora! O tempo é seu maior aliado nos investimentos. Clique no botão de se inscrever para mais dicas!",
+      "visual_query": "woman smiling confident camera subscribe button",
+      "duration": 15,
       "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/audio_4.mp3",
-      "audioDuration": 7.272,
+      "audioDuration": 9,
       "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/broll_4.mp4"
-    },
-    {
-      "narration": "Gostou das dicas? Inscreva-se para mais conteúdo sobre investimentos e finanças para mulheres empreendedoras!",
-      "visual_query": "subscribe button animation, hand clicking subscribe",
-      "duration": 6,
-      "audioPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/audio_5.mp3",
-      "audioDuration": 6.888,
-      "videoPath": "/home/runner/work/costuras-meditacoes/costuras-meditacoes/youtube/factory/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/broll_5.mp4"
     }
   ],
   "article_url": "https://wp.marinaveauvy.com.br/investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras/",
   "article_title": "Investimentos para Iniciantes: Um Guia Prático para Mulheres Empreendedoras",
   "slug": "investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras",
-  "rendered_at": "2026-04-14T13:52:13.003Z"
+  "rendered_at": "2026-04-14T13:57:58.146Z"
 }
