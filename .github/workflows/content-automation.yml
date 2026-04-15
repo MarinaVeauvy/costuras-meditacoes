@@ -14,8 +14,8 @@ on:
     - cron: '0 14 * * 3,5'
     # Medium + LinkedIn: Domingo 15:00 UTC
     - cron: '0 15 * * 0'
-    # YouTube retry upload: Ter e Sex 12:00 UTC (tenta uploads pendentes)
-    - cron: '0 12 * * 2,5'
+    # YouTube retry upload: DESATIVADO ate 2026-05-01 (economia de minutos Actions)
+    # - cron: '0 12 * * 2,5'
     # SEO Internal Links: 1o dia do mês 06:00 UTC
     - cron: '0 6 1 * *'
   workflow_dispatch:
@@ -217,8 +217,9 @@ jobs:
           git push
 
   twitter:
+    # Scheduled run DESATIVADO ate 2026-05-01 (economia de minutos Actions)
+    # Ainda disponivel via workflow_dispatch manual
     if: >
-      (github.event_name == 'schedule' && github.event.schedule == '0 14 * * 3,5') ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'twitter')
     runs-on: ubuntu-latest
     timeout-minutes: 10
