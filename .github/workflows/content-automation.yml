@@ -2,8 +2,8 @@ name: Content Automation
 
 on:
   schedule:
-    # Artigos: Seg e Qui 08:00 UTC (2 artigos cada = 4/semana)
-    - cron: '0 8 * * 1,4'
+    # Artigos: Seg 08:00 UTC (2 artigos/semana)
+    - cron: '0 8 * * 1'
     # Newsletter Impulso IA: Terça 10:00 UTC (07h BRT)
     - cron: '0 10 * * 2'
     # Newsletter Dinheiro Simples: Quinta 10:00 UTC (07h BRT)
@@ -12,10 +12,10 @@ on:
     - cron: '0 12 * * 6'
     # Pinterest: Qua e Sex 14:00 UTC (gerar + publicar)
     - cron: '0 14 * * 3,5'
-    # Medium: Domingo 15:00 UTC (republish últimos artigos)
+    # Medium + LinkedIn: Domingo 15:00 UTC
     - cron: '0 15 * * 0'
-    # YouTube retry upload: diário 12:00 UTC (tenta uploads pendentes)
-    - cron: '0 12 * * *'
+    # YouTube retry upload: Ter e Sex 12:00 UTC (tenta uploads pendentes)
+    - cron: '0 12 * * 2,5'
     # SEO Internal Links: 1o dia do mês 06:00 UTC
     - cron: '0 6 1 * *'
   workflow_dispatch:
@@ -45,7 +45,7 @@ permissions:
 jobs:
   articles:
     if: >
-      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1,4') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1') ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'articles')
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -120,7 +120,7 @@ jobs:
 
   web-stories:
     if: >
-      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1,4') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1') ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'web-stories')
     needs: articles
     runs-on: ubuntu-latest
@@ -149,10 +149,10 @@ jobs:
 
   youtube:
     if: >
-      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1,4') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1') ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'youtube')
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -161,10 +161,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Instalar dependências
-        run: |
-          pip install edge-tts google-auth google-auth-oauthlib google-api-python-client
-          sudo apt-get update && sudo apt-get install -y ffmpeg
+          cache: 'pip'
+      - name: Cache apt packages (ffmpeg)
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: ffmpeg
+          version: 1.0
+      - name: Instalar dependências Python
+        run: pip install edge-tts google-auth google-auth-oauthlib google-api-python-client
       - name: YouTube Factory — Script + TTS + Pexels B-roll + Render + Upload
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -174,7 +178,7 @@ jobs:
           WP_USER: ${{ secrets.WP_USER }}
           WP_PASS: ${{ secrets.WP_PASS }}
           YOUTUBE_OAUTH_TOKEN: ${{ secrets.YOUTUBE_OAUTH_TOKEN }}
-          VIDEO_COUNT: '3'
+          VIDEO_COUNT: '1'
           PYTHON_PATH: python
         run: node scripts/youtube-factory.js
       - name: Commit arquivos
@@ -187,15 +191,16 @@ jobs:
 
   youtube-retry:
     if: >
-      (github.event_name == 'schedule' && github.event.schedule == '0 12 * * *') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 12 * * 2,5') ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'youtube-retry')
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
       - name: Instalar dependências
         run: pip install google-auth google-auth-oauthlib google-api-python-client
       - name: Retry upload vídeos pendentes
@@ -239,10 +244,10 @@ jobs:
           git diff --cached --quiet || git commit -m "chore: add twitter threads"
           git push
 
-  linkedin:
+  linkedin-medium:
     if: >
       (github.event_name == 'schedule' && github.event.schedule == '0 15 * * 0') ||
-      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'linkedin')
+      (github.event_name == 'workflow_dispatch' && contains('linkedin,medium', github.event.inputs.action))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -251,6 +256,7 @@ jobs:
         with:
           node-version: '20'
       - name: Gerar artigos LinkedIn
+        if: github.event_name == 'schedule' || github.event.inputs.action == 'linkedin'
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -259,31 +265,20 @@ jobs:
           WP_PASS: ${{ secrets.WP_PASS }}
           LINKEDIN_COUNT: '3'
         run: node scripts/republish-linkedin.js
-      - name: Commit artigos
-        run: |
-          git config user.name "Content Bot"
-          git config user.email "bot@marinaveauvy.com.br"
-          git add linkedin/ 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "chore: add linkedin articles"
-          git push
-
-  medium:
-    if: >
-      (github.event_name == 'schedule' && github.event.schedule == '0 15 * * 0') ||
-      (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'medium')
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
       - name: Republicar artigos no Medium
+        if: github.event_name == 'schedule' || github.event.inputs.action == 'medium'
         env:
           MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
           WP_USER: ${{ secrets.WP_USER }}
           WP_PASS: ${{ secrets.WP_PASS }}
         run: node scripts/republish-medium.js
+      - name: Commit artigos LinkedIn
+        run: |
+          git config user.name "Content Bot"
+          git config user.email "bot@marinaveauvy.com.br"
+          git add linkedin/ 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "chore: add linkedin articles"
+          git push || true
 
   seo-links:
     if: >
