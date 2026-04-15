@@ -10,8 +10,8 @@ on:
     - cron: '0 10 * * 4'
     # Newsletter Renda Extra: Sábado 12:00 UTC (09h BRT)
     - cron: '0 12 * * 6'
-    # Pinterest: Qua e Sex 14:00 UTC (gerar + publicar)
-    - cron: '0 14 * * 3,5'
+    # Pinterest: DESATIVADO ate 2026-05-01 (WP fetch retornando HTML, falhando)
+    # - cron: '0 14 * * 3,5'
     # Medium + LinkedIn: Domingo 15:00 UTC
     - cron: '0 15 * * 0'
     # YouTube retry upload: DESATIVADO ate 2026-05-01 (economia de minutos Actions)
