@@ -1,0 +1,67 @@
+{
+  "accounts": [
+    {
+      "id": "pros_peridade_do_reino",
+      "instagram_handle": "pros.peridadedoreino",
+      "instagram_business_id": "17841441741304118",
+      "facebook_page_id": "1094940133701143",
+      "facebook_page_name": "Vida Nova Próspera",
+      "instagram_access_token_env": "IG_TOKEN_1",
+      "youtube_channel_handle": "ProsperidadedoReino-m8e",
+      "youtube_oauth_env": "YT_OAUTH_1",
+      "tiktok_handle": "pros.peridadedoreino",
+      "active": true,
+      "persona": "prosperidade-do-reino",
+      "bio_angle": "Deus quer que você prospere"
+    },
+    {
+      "id": "orar_prosperar",
+      "instagram_handle": "orar.prosperar",
+      "instagram_business_id": "PENDING_META_SETUP",
+      "instagram_access_token_env": "IG_TOKEN_2",
+      "youtube_channel_handle": "PENDING",
+      "youtube_oauth_env": "YT_OAUTH_2",
+      "tiktok_handle": "PENDING",
+      "active": false,
+      "persona": "mae-empreendedora",
+      "bio_angle": "Orar + prosperar — mães empreendedoras de fé"
+    },
+    {
+      "id": "liberdade_com_fe",
+      "instagram_handle": "liberdade.com.fe",
+      "instagram_business_id": "PENDING_META_SETUP",
+      "instagram_access_token_env": "IG_TOKEN_3",
+      "youtube_channel_handle": "PENDING",
+      "youtube_oauth_env": "YT_OAUTH_3",
+      "tiktok_handle": "PENDING",
+      "active": false,
+      "persona": "transformacao",
+      "bio_angle": "Da falta pra abundância — liberdade financeira com Deus"
+    }
+  ],
+  "affiliate_link": "https://payment.ticto.app/OA1B58ADA?pid=AFCAA6C80D",
+  "bridge_site": "https://vidanovaprospera.com.br",
+  "publishing_start_date": "2026-04-17",
+  "ramp_up_schedule": {
+    "week_1": {
+      "days": [1, 7],
+      "slots_utc": ["13:00"],
+      "label": "warmup"
+    },
+    "week_2": {
+      "days": [8, 14],
+      "slots_utc": ["10:30", "22:30"],
+      "label": "ramp"
+    },
+    "week_3_4": {
+      "days": [15, 30],
+      "slots_utc": ["10:30", "16:00", "22:30"],
+      "label": "scale"
+    },
+    "month_2_plus": {
+      "days": [31, 9999],
+      "slots_utc": ["10:30", "13:00", "16:00", "22:30"],
+      "label": "cruising"
+    }
+  }
+}

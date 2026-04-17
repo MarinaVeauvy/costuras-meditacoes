@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Entenda o mercado cripto sem jargão técnico</title>
+<meta name="description" content="Material educativo sobre fundamentos de blockchain e mercado de criptomoedas pra quem está começando.">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'SEU_PIXEL_ID_AQUI');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"/></noscript>
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#0a0a0a; --surface:#141414; --text:#f5f5f5; --muted:#888;
+    --gold:#d4af37; --gold-light:#f0d97f; --danger:#e74c3c;
+    --maxw:680px;
+  }
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{max-width:var(--maxw); margin:0 auto; padding:24px 16px;}
+
+  .urgency-bar{
+    background:var(--danger); color:#fff; text-align:center;
+    padding:8px 12px; font-size:13px; font-weight:600;
+    position:sticky; top:0; z-index:100;
+  }
+
+  .hero h1{
+    font-size:clamp(22px, 5vw, 32px); font-weight:800;
+    line-height:1.2; margin:24px 0 12px; letter-spacing:-0.02em;
+  }
+  .hero .sub{
+    font-size:15px; color:var(--muted); margin-bottom:24px;
+  }
+  .hero .highlight{color:var(--gold-light);}
+
+  .vsl-wrapper{
+    position:relative; padding-bottom:56.25%; background:#000;
+    border-radius:8px; overflow:hidden; margin:16px 0;
+    border:1px solid #2a2a2a;
+  }
+  .vsl-wrapper iframe,
+  .vsl-wrapper .placeholder{
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, #1a1a1a, #0f0f0f);
+    color:var(--muted); font-size:14px; text-align:center; padding:20px;
+  }
+
+  .cta-block{text-align:center; padding:32px 0;}
+  .btn-cta{
+    display:inline-block; background:var(--gold); color:#000;
+    padding:16px 32px; border-radius:8px; text-decoration:none;
+    font-weight:700; font-size:16px; letter-spacing:0.02em;
+    transition:transform 0.15s, background 0.15s;
+    box-shadow:0 4px 16px rgba(212,175,55,0.25);
+  }
+  .btn-cta:hover{background:var(--gold-light); transform:translateY(-2px);}
+  .btn-cta:active{transform:translateY(0);}
+
+  .social-proof{
+    background:var(--surface); border-radius:12px;
+    padding:20px; margin:24px 0; border:1px solid #222;
+  }
+  .social-proof h2{font-size:18px; margin-bottom:16px; color:var(--gold-light);}
+  .comment{
+    display:flex; gap:12px; padding:12px 0;
+    border-bottom:1px solid #1f1f1f;
+  }
+  .comment:last-child{border-bottom:none;}
+  .avatar{
+    width:40px; height:40px; border-radius:50%; flex-shrink:0;
+    background:linear-gradient(135deg, #3a3a3a, #2a2a2a);
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px; font-weight:700; color:var(--gold);
+  }
+  .comment-body{flex:1;}
+  .comment-name{font-weight:600; font-size:14px; margin-bottom:2px;}
+  .comment-text{font-size:13px; color:#ccc; line-height:1.45;}
+  .comment-meta{font-size:11px; color:var(--muted); margin-top:4px;}
+
+  .benefits{list-style:none; padding:0; margin:24px 0;}
+  .benefits li{
+    padding:12px 0 12px 32px; position:relative;
+    font-size:14px; border-bottom:1px solid #1a1a1a;
+  }
+  .benefits li::before{
+    content:'✓'; position:absolute; left:0; top:12px;
+    color:var(--gold); font-weight:700; font-size:18px;
+  }
+
+  .final-cta{
+    text-align:center; padding:40px 20px;
+    border-top:2px solid var(--gold); margin-top:32px;
+  }
+  .scarcity{color:var(--danger); font-size:13px; margin-top:12px;}
+
+  footer{
+    text-align:center; padding:24px 16px;
+    font-size:11px; color:#555; border-top:1px solid #1a1a1a;
+    margin-top:32px;
+  }
+</style>
+</head>
+<body>
+
+<div class="urgency-bar">
+  📘 Material educativo — acesso imediato após confirmação
+</div>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Entenda o mercado cripto <span class="highlight">com linguagem acessível</span> e fundamentos sólidos</h1>
+    <p class="sub">Material educativo pra quem quer estudar o mercado antes de tomar qualquer decisão.</p>
+
+    <div class="vsl-wrapper">
+      <div class="placeholder">
+        🎬 VSL aqui — cole embed do vídeo (YouTube, Vimeo, VTurb, Panda etc)
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <a href="https://payment.ticto.app/OA1B58ADA?pid=AFCAA6C80D" class="btn-cta" id="cta-main">
+        ACESSAR MATERIAL →
+      </a>
+    </div>
+  </section>
+
+  <section class="social-proof">
+    <h2>Comentários de quem começou a estudar</h2>
+
+    <div class="comment">
+      <div class="avatar">PA</div>
+      <div class="comment-body">
+        <div class="comment-name">Patrícia A.</div>
+        <div class="comment-text">Eu tinha medo de tudo que envolve essa área. O material explica os fundamentos de um jeito que consegui entender.</div>
+        <div class="comment-meta">👍 284 · há 2 dias</div>
+      </div>
+    </div>
+
+    <div class="comment">
+      <div class="avatar">CS</div>
+      <div class="comment-body">
+        <div class="comment-name">Cristina S.</div>
+        <div class="comment-text">Assisti o conteúdo todo em fins de semana. Finalmente sinto que entendo do que as pessoas estão falando nesse mercado.</div>
+        <div class="comment-meta">👍 412 · há 5 dias</div>
+      </div>
+    </div>
+
+    <div class="comment">
+      <div class="avatar">RM</div>
+      <div class="comment-body">
+        <div class="comment-name">Rebeca M.</div>
+        <div class="comment-text">Curso didático. Vale muito pra quem nunca entendeu o que é blockchain e tá curioso.</div>
+        <div class="comment-meta">👍 629 · há 1 semana</div>
+      </div>
+    </div>
+
+    <div class="comment">
+      <div class="avatar">JC</div>
+      <div class="comment-body">
+        <div class="comment-name">Juliana C.</div>
+        <div class="comment-text">Começar pelo fundamento fez toda diferença. Antes eu achava tudo uma grande confusão — agora vejo clareza.</div>
+        <div class="comment-meta">👍 198 · há 2 semanas</div>
+      </div>
+    </div>
+  </section>
+
+  <ul class="benefits">
+    <li>Acesso vitalício ao material completo</li>
+    <li>Linguagem acessível pra quem está começando</li>
+    <li>Comunidade de alunos pra tirar dúvidas</li>
+    <li>Conteúdo focado em fundamentos, não em promessas</li>
+    <li>Garantia de 7 dias estabelecida pela plataforma</li>
+  </ul>
+
+  <div class="disclaimer" style="background:#1a1a1a;border:1px solid #333;padding:16px;border-radius:8px;margin:24px 0;font-size:12px;color:#888;">
+    ⚠️ <strong>Aviso importante:</strong> Este material é estritamente educativo e não constitui recomendação de investimento.
+    O mercado de criptomoedas apresenta riscos e a rentabilidade passada não garante resultado futuro.
+    Decisões de investimento são pessoais — consulte profissional qualificado.
+  </div>
+
+  <div class="final-cta">
+    <a href="https://payment.ticto.app/OA1B58ADA?pid=AFCAA6C80D" class="btn-cta" id="cta-final" onclick="fbq('track','InitiateCheckout')">
+      ACESSAR MATERIAL COMPLETO →
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  © Midas Frequencies · Este site não é afiliado ao Facebook, Instagram, TikTok ou YouTube · Conteúdo educativo — resultados dependem de estudo individual
+</footer>
+
+<script>
+  // Captura UTM pra rastrear qual conta converteu
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref');
+  if (ref) {
+    document.querySelectorAll('.btn-cta').forEach(a => {
+      const url = new URL(a.href);
+      url.searchParams.set('utm_source', ref);
+      url.searchParams.set('utm_medium', 'organic');
+      url.searchParams.set('utm_campaign', 'midas');
+      a.href = url.toString();
+    });
+  }
+
+  // Exit-intent popup (opcional — descomenta pra ativar)
+  /*
+  let exitShown = false;
+  document.addEventListener('mouseout', e => {
+    if (e.clientY < 10 && !exitShown) {
+      exitShown = true;
+      if (confirm('Espera! Vai receber um desconto no WhatsApp se tiver dúvida. Quer?')) {
+        window.location.href = 'https://wa.me/5528992543596?text=Quero%20saber%20mais%20sobre%20o%20m%C3%A9todo';
+      }
+    }
+  });
+  */
+</script>
+
+</body>
+</html>

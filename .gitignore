@@ -16,3 +16,4 @@ youtube/oauth-client.json
 pinterest-images/
 pinterest-debug.png
 covers/
+.env

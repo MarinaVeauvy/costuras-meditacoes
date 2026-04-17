@@ -1,0 +1,50 @@
+{
+  "niche": "cripto-educacao",
+  "hooks": [
+    "O que eu queria ter aprendido antes de começar nesse mercado.",
+    "Ninguém explica isso pra quem está começando.",
+    "A maioria das pessoas faz tudo errado desde o primeiro passo.",
+    "Se eu soubesse disso antes teria evitado muito erro.",
+    "Isso muda completamente como você enxerga esse mercado.",
+    "Por que tão pouca gente fala sobre isso?",
+    "O método que explicou tudo pra mim de forma simples.",
+    "Essa é a parte que as pessoas ignoram.",
+    "Não é o que você acha que é.",
+    "Antes eu pensava igual — hoje penso diferente."
+  ],
+  "ctas": [
+    "Método completo no link da bio.",
+    "Conteúdo detalhado no link da bio.",
+    "Material completo — link na bio.",
+    "Tudo explicado no link abaixo.",
+    "Link na bio pra saber mais.",
+    "Bio → link → conteúdo."
+  ],
+  "forbidden_words": [
+    "garantido", "garantia", "sem risco", "lucro certo",
+    "R$1000", "R$10.000", "mil reais", "ganhe", "enriqueça rápido",
+    "sem trabalho", "fácil", "100%", "comprovado",
+    "dinheiro fácil", "milionário", "escala", "sinais",
+    "fique rico", "riqueza rápida"
+  ],
+  "preferred_words": [
+    "método", "conteúdo", "estudo", "aprendizado", "mercado",
+    "conhecimento", "educação", "entendimento", "compreensão",
+    "fundamento", "conceito", "princípio", "pilar"
+  ],
+  "hashtags_instagram": [
+    "#cripto #bitcoin #educacaofinanceira #blockchain #mercadocripto #investimentos #financas #empreendedorismodigital #liberdadefinanceira #mulherinvestidora",
+    "#cripto #blockchain #btc #educacao #financas #mercadofinanceiro #aprenderinvestir #financaspessoais #empreendedora #mulher",
+    "#criptomoedas #bitcoin #ethereum #blockchain #aprendiz #estudando #financaspessoais #investimentos #prosperidade #fe"
+  ],
+  "hashtags_tiktok": [
+    "#cripto #bitcoin #financas #educacao #aprender #fyp #parati",
+    "#criptomoedas #blockchain #btc #estudo #financas #fy",
+    "#mercadocripto #investir #aprender #financaspessoais #fyp"
+  ],
+  "hashtags_youtube": [
+    "#Shorts #Cripto #Bitcoin #EducacaoFinanceira #Blockchain",
+    "#Shorts #Criptomoedas #Investimentos #FinancasPessoais",
+    "#Shorts #Blockchain #BTC #MercadoCripto"
+  ]
+}
