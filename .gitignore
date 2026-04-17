@@ -17,3 +17,4 @@ pinterest-images/
 pinterest-debug.png
 covers/
 .env
+midas/state/yt-token-*.json
