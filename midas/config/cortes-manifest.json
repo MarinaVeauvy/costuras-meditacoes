@@ -141,6 +141,150 @@
       "duration": 73.752993,
       "bytes": 27733312,
       "uploaded_at": "2026-04-17T15:52:03.532Z"
+    },
+    {
+      "file": "corte_00018.mp4",
+      "public_id": "midas/corte_00018",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441138/midas/corte_00018.mp4",
+      "duration": 59.977007,
+      "bytes": 43322443,
+      "uploaded_at": "2026-04-17T15:52:20.235Z"
+    },
+    {
+      "file": "corte_00019.mp4",
+      "public_id": "midas/corte_00019",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441146/midas/corte_00019.mp4",
+      "duration": 49.198005,
+      "bytes": 19198749,
+      "uploaded_at": "2026-04-17T15:52:28.548Z"
+    },
+    {
+      "file": "corte_00020.mp4",
+      "public_id": "midas/corte_00020",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441156/midas/corte_00020.mp4",
+      "duration": 47.036009,
+      "bytes": 28593782,
+      "uploaded_at": "2026-04-17T15:52:37.539Z"
+    },
+    {
+      "file": "corte_00021.mp4",
+      "public_id": "midas/corte_00021",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441164/midas/corte_00021.mp4",
+      "duration": 72.875011,
+      "bytes": 25194511,
+      "uploaded_at": "2026-04-17T15:52:45.693Z"
+    },
+    {
+      "file": "corte_00022.mp4",
+      "public_id": "midas/corte_00022",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441168/midas/corte_00022.mp4",
+      "duration": 30.69,
+      "bytes": 14131556,
+      "uploaded_at": "2026-04-17T15:52:49.674Z"
+    },
+    {
+      "file": "corte_00023.mp4",
+      "public_id": "midas/corte_00023",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441176/midas/corte_00023.mp4",
+      "duration": 52.802993,
+      "bytes": 27286254,
+      "uploaded_at": "2026-04-17T15:52:58.106Z"
+    },
+    {
+      "file": "corte_00024.mp4",
+      "public_id": "midas/corte_00024",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441185/midas/corte_00024.mp4",
+      "duration": 50.638005,
+      "bytes": 25885739,
+      "uploaded_at": "2026-04-17T15:53:06.823Z"
+    },
+    {
+      "file": "corte_00025.mp4",
+      "public_id": "midas/corte_00025",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441193/midas/corte_00025.mp4",
+      "duration": 32.466667,
+      "bytes": 18368777,
+      "uploaded_at": "2026-04-17T15:53:14.411Z"
+    },
+    {
+      "file": "corte_00026.mp4",
+      "public_id": "midas/corte_00026",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441199/midas/corte_00026.mp4",
+      "duration": 40.303991,
+      "bytes": 17576503,
+      "uploaded_at": "2026-04-17T15:53:20.946Z"
+    },
+    {
+      "file": "corte_00027.mp4",
+      "public_id": "midas/corte_00027",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441210/midas/corte_00027.mp4",
+      "duration": 52.19,
+      "bytes": 30366021,
+      "uploaded_at": "2026-04-17T15:53:32.315Z"
+    },
+    {
+      "file": "corte_00028.mp4",
+      "public_id": "midas/corte_00028",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441221/midas/corte_00028.mp4",
+      "duration": 45.812993,
+      "bytes": 25452989,
+      "uploaded_at": "2026-04-17T15:53:42.207Z"
+    },
+    {
+      "file": "corte_00030.mp4",
+      "public_id": "midas/corte_00030",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441228/midas/corte_00030.mp4",
+      "duration": 31.45,
+      "bytes": 15090015,
+      "uploaded_at": "2026-04-17T15:53:49.796Z"
+    },
+    {
+      "file": "corte_00031.mp4",
+      "public_id": "midas/corte_00031",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441251/midas/corte_00031.mp4",
+      "duration": 70.189002,
+      "bytes": 58993906,
+      "uploaded_at": "2026-04-17T15:54:13.569Z"
+    },
+    {
+      "file": "corte_00032.mp4",
+      "public_id": "midas/corte_00032",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441267/midas/corte_00032.mp4",
+      "duration": 75.866667,
+      "bytes": 42914440,
+      "uploaded_at": "2026-04-17T15:54:28.766Z"
+    },
+    {
+      "file": "corte_00033.mp4",
+      "public_id": "midas/corte_00033",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441276/midas/corte_00033.mp4",
+      "duration": 44.626009,
+      "bytes": 20655372,
+      "uploaded_at": "2026-04-17T15:54:37.892Z"
+    },
+    {
+      "file": "corte_00034.mp4",
+      "public_id": "midas/corte_00034",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441290/midas/corte_00034.mp4",
+      "duration": 59.05,
+      "bytes": 32582188,
+      "uploaded_at": "2026-04-17T15:54:52.450Z"
+    },
+    {
+      "file": "corte_00035.mp4",
+      "public_id": "midas/corte_00035",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441296/midas/corte_00035.mp4",
+      "duration": 32.051995,
+      "bytes": 13833654,
+      "uploaded_at": "2026-04-17T15:54:57.788Z"
+    },
+    {
+      "file": "corte_00036.mp4",
+      "public_id": "midas/corte_00036",
+      "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441301/midas/corte_00036.mp4",
+      "duration": 31.685011,
+      "bytes": 14162169,
+      "uploaded_at": "2026-04-17T15:55:03.028Z"
     }
   ]
 }
