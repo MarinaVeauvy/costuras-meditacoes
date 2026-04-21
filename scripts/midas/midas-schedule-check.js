@@ -14,13 +14,14 @@ const fs = require('fs');
 const path = require('path');
 
 const CONFIG_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'accounts.json');
+const STATE_IG = path.join(__dirname, '..', '..', 'midas', 'state', 'published-ig.json');
 
 function daysBetween(start, end) {
   const ms = end.getTime() - start.getTime();
   return Math.floor(ms / (1000 * 60 * 60 * 24));
 }
 
-function matchSlot(nowUtc, slotsUtc, toleranceMin = 30) {
+function matchSlot(nowUtc, slotsUtc, toleranceMin = 90) {
   const hh = nowUtc.getUTCHours();
   const mm = nowUtc.getUTCMinutes();
   const nowMin = hh * 60 + mm;
@@ -55,18 +56,32 @@ function main() {
   }
 
   const currentSlot = matchSlot(now, activeWeek.slots_utc);
+
+  let publishedToday = 0;
+  if (fs.existsSync(STATE_IG)) {
+    const todayUtc = now.toISOString().slice(0, 10);
+    const ig = JSON.parse(fs.readFileSync(STATE_IG, 'utf8'));
+    publishedToday = (ig.published || []).filter(p => (p.publishedAt || '').startsWith(todayUtc)).length;
+  }
+  const quota = activeWeek.slots_utc.length;
+  const quotaReached = publishedToday >= quota;
+  const shouldPublish = !!currentSlot && !quotaReached;
+
   const result = {
-    should_publish: !!currentSlot,
+    should_publish: shouldPublish,
     week_key: activeWeek.key,
     week_label: activeWeek.label,
     days_since_start: daysSince,
     current_slot: currentSlot,
     available_slots: activeWeek.slots_utc,
+    published_today: publishedToday,
+    daily_quota: quota,
+    quota_reached: quotaReached,
     now_utc: now.toISOString(),
   };
 
   console.log(JSON.stringify(result));
-  process.exit(currentSlot ? 0 : 1);
+  process.exit(shouldPublish ? 0 : 1);
 }
 
 if (require.main === module) {
