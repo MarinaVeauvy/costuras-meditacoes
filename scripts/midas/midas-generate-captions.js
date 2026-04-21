@@ -19,7 +19,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const Anthropic = require('@anthropic-ai/sdk');
+const { generate } = require('../ai-provider');
 
 const CONFIG_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'accounts.json');
 const TEMPLATES_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'captions-templates.json');
@@ -46,8 +46,6 @@ function personaContext(persona) {
 async function generateCaptions({ videoFile, transcript }) {
   const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
   const templates = JSON.parse(fs.readFileSync(TEMPLATES_PATH, 'utf8'));
-
-  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
   const accountsBrief = config.accounts
     .filter(a => a.active || a.persona !== 'PENDING')
@@ -89,17 +87,7 @@ Retorne JSON válido no formato:
 
 Retorne APENAS o JSON, sem markdown nem explicação.`;
 
-  const response = await client.messages.create({
-    model: 'claude-haiku-4-5-20251001',
-    max_tokens: 1500,
-    messages: [{ role: 'user', content: prompt }],
-  });
-
-  const text = response.content[0].text.trim();
-  const jsonMatch = text.match(/\{[\s\S]*\}/);
-  if (!jsonMatch) throw new Error(`Claude não retornou JSON válido:\n${text}`);
-
-  const captions = JSON.parse(jsonMatch[0]);
+  const captions = await generate(prompt, { json: true, maxTokens: 1500 });
 
   const pickRandom = arr => arr[Math.floor(Math.random() * arr.length)];
 
@@ -136,8 +124,8 @@ async function main() {
     process.exit(1);
   }
 
-  if (!process.env.ANTHROPIC_API_KEY) {
-    throw new Error('ANTHROPIC_API_KEY ausente');
+  if (!process.env.OPENROUTER_API_KEY && !process.env.GEMINI_API_KEY && !process.env.OPENAI_API_KEY && !process.env.ANTHROPIC_API_KEY) {
+    throw new Error('Nenhum AI provider configurado (OPENROUTER_API_KEY, GEMINI_API_KEY, OPENAI_API_KEY ou ANTHROPIC_API_KEY)');
   }
 
   console.log(`Gerando captions pra ${args.video}...`);
