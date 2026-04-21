@@ -94,6 +94,8 @@ jobs:
     if: needs.check-gate.outputs.should_run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      contents: write
     concurrency:
       group: midas-publish
       cancel-in-progress: false
@@ -144,14 +146,20 @@ jobs:
           CAPTIONS="midas/captions/${VIDEO%.mp4}.json"
           [ -f "$CAPTIONS" ] || node scripts/midas/midas-generate-captions.js --video="$VIDEO"
 
-      - name: Upload to Cloudinary
+      - name: Ensure Cloudinary upload
         if: ${{ github.event.inputs.dry_run != 'true' }}
         id: upload
         run: |
           VIDEO=$(jq -r '.video' pick.json)
-          node scripts/midas/midas-upload-cloudinary.js --video="$VIDEO" | tee upload.log
-          URL=$(grep -oP 'https://res\.cloudinary\.com\S+\.mp4' upload.log | head -1)
-          echo "url=$URL" >> $GITHUB_OUTPUT
+          PICK_URL=$(jq -r '.url' pick.json)
+          if [ -n "$PICK_URL" ] && [ "$PICK_URL" != "null" ]; then
+            echo "✅ URL já no manifest: $PICK_URL"
+            echo "url=$PICK_URL" >> $GITHUB_OUTPUT
+          else
+            node scripts/midas/midas-upload-cloudinary.js --video="$VIDEO" | tee upload.log
+            URL=$(grep -oP 'https://res\.cloudinary\.com\S+\.mp4' upload.log | head -1)
+            echo "url=$URL" >> $GITHUB_OUTPUT
+          fi
 
       - name: Publish Instagram Reel
         if: ${{ github.event.inputs.dry_run != 'true' }}
@@ -163,11 +171,16 @@ jobs:
         run: |
           VIDEO=$(jq -r '.video' pick.json)
           ACCOUNT=$(jq -r '.account' pick.json)
+          VIDEO_URL="${{ steps.upload.outputs.url }}"
+          if [ -z "$VIDEO_URL" ]; then
+            echo "❌ videoUrl vazio — abortando IG publish"
+            exit 1
+          fi
           CAPTION=$(jq -r ".[\"$ACCOUNT\"].caption_ig" "midas/captions/${VIDEO%.mp4}.json")
           node scripts/midas/midas-publish-ig.js \
             --account="$ACCOUNT" \
             --video="$VIDEO" \
-            --videoUrl="${{ steps.upload.outputs.url }}" \
+            --videoUrl="$VIDEO_URL" \
             --caption="$CAPTION"
 
       - name: Publish YouTube Short
@@ -180,7 +193,11 @@ jobs:
         run: |
           VIDEO=$(jq -r '.video' pick.json)
           ACCOUNT=$(jq -r '.account' pick.json)
-          if [ -z "${!account_oauth_env}" ]; then echo "⏭️ YT OAuth não configurado pra $ACCOUNT, skip"; exit 0; fi
+          YT_ENV=$(jq -r ".accounts[] | select(.id==\"$ACCOUNT\") | .youtube_oauth_env" midas/config/accounts.json)
+          if [ -z "$YT_ENV" ] || [ "$YT_ENV" = "null" ] || [ -z "${!YT_ENV}" ]; then
+            echo "⏭️ YT OAuth não configurado pra $ACCOUNT (env=$YT_ENV), skip"
+            exit 0
+          fi
           CAPTION=$(jq -r ".[\"$ACCOUNT\"].caption_youtube" "midas/captions/${VIDEO%.mp4}.json")
           HOOK=$(jq -r ".[\"$ACCOUNT\"].hook" "midas/captions/${VIDEO%.mp4}.json")
           node scripts/midas/midas-publish-yt-shorts.js \
