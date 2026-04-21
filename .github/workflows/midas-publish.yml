@@ -161,8 +161,30 @@ jobs:
             echo "url=$URL" >> $GITHUB_OUTPUT
           fi
 
-      - name: Publish Instagram Reel
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+      - name: Publish via Publer (primary)
+        if: ${{ github.event.inputs.dry_run != 'true' && env.PUBLER_API_KEY != '' }}
+        continue-on-error: true
+        id: publer
+        env:
+          PUBLER_API_KEY: ${{ secrets.PUBLER_API_KEY }}
+          PUBLER_WORKSPACE_ID: ${{ secrets.PUBLER_WORKSPACE_ID }}
+        run: |
+          VIDEO=$(jq -r '.video' pick.json)
+          ACCOUNT=$(jq -r '.account' pick.json)
+          VIDEO_URL="${{ steps.upload.outputs.url }}"
+          if [ -z "$VIDEO_URL" ]; then
+            echo "❌ videoUrl vazio — abortando"
+            exit 1
+          fi
+          node scripts/midas/midas-publish-publer.js \
+            --account="$ACCOUNT" \
+            --video="$VIDEO" \
+            --videoUrl="$VIDEO_URL" \
+            --platform=all
+          echo "publer_ran=true" >> $GITHUB_OUTPUT
+
+      - name: Publish Instagram Reel (fallback Meta API)
+        if: ${{ github.event.inputs.dry_run != 'true' && steps.publer.outputs.publer_ran != 'true' }}
         continue-on-error: true
         env:
           IG_TOKEN_1: ${{ secrets.IG_TOKEN_1 }}
@@ -183,8 +205,8 @@ jobs:
             --videoUrl="$VIDEO_URL" \
             --caption="$CAPTION"
 
-      - name: Publish YouTube Short
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+      - name: Publish YouTube Short (fallback YT API)
+        if: ${{ github.event.inputs.dry_run != 'true' && steps.publer.outputs.publer_ran != 'true' }}
         continue-on-error: true
         env:
           YT_OAUTH_1: ${{ secrets.YT_OAUTH_1 }}
@@ -220,4 +242,6 @@ jobs:
       CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
       CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
       CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+      PUBLER_API_KEY: ${{ secrets.PUBLER_API_KEY }}
+      PUBLER_WORKSPACE_ID: ${{ secrets.PUBLER_WORKSPACE_ID }}
       MIDAS_CORTES_DIR: /tmp/midas-cortes
