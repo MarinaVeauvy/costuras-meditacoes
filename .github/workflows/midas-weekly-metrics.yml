@@ -1,0 +1,34 @@
+name: Midas Weekly Metrics Report
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'  # toda segunda 12:00 UTC (9h BRT)
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate weekly metrics report
+        env:
+          UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
+        run: |
+          node scripts/midas/midas-weekly-metrics.js
+
+      - name: Commit report
+        run: |
+          git config user.name "midas-bot"
+          git config user.email "midas-bot@users.noreply.github.com"
+          git add midas/reports/
+          git commit -m "chore(midas): weekly metrics report $(date +%Y-%m-%d) [skip ci]" || echo "No changes"
+          git push || echo "Push skipped"
