@@ -36,7 +36,7 @@
 | Link afiliado | https://payment.ticto.app/OA1B58ADA?pid=AFCAA6C80D |
 | Affiliate PID | AFCAA6C80D |
 | Comissão | R$237,60/venda (80%) |
-| Domínio bridge | vidanovaprospera.com.br (comprado via Hostinger) |
+| Domínio bridge | novavidaprospera.com.br (comprado via Hostinger) |
 | LP | Pendente — Thiago Montibeller montando (enviar domínio) |
 | Elite Flow | Assinada R$597/mês |
 
@@ -282,7 +282,7 @@ Quando receber acesso à plataforma Elite Flow, checa:
 **Mensagem pronta pra Thiago:**
 ```
 Thiago, tudo bem?
-Meu domínio registrado é: vidanovaprospera.com.br
+Meu domínio registrado é: novavidaprospera.com.br
 Link MAC afiliado: https://payment.ticto.app/OA1B58ADA?pid=AFCAA6C80D
 Pode montar a LP pra mim? Obrigada!
 ```

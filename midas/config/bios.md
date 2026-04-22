@@ -95,12 +95,12 @@ Testemunho de mulheres que estão se educando sobre o mercado de criptomoedas co
 
 ## Padrão técnico pra todas
 
-### Link na bio → vidanovaprospera.com.br
+### Link na bio → novavidaprospera.com.br
 
 Todas as 3 contas apontam pro mesmo domínio bridge. Tracking via UTM:
-- @pros.peridadedoreino → vidanovaprospera.com.br/?ref=reino
-- @orar.prosperar → vidanovaprospera.com.br/?ref=orar
-- @liberdade.com.fe → vidanovaprospera.com.br/?ref=liberdade
+- @pros.peridadedoreino → novavidaprospera.com.br/?ref=reino
+- @orar.prosperar → novavidaprospera.com.br/?ref=orar
+- @liberdade.com.fe → novavidaprospera.com.br/?ref=liberdade
 
 ### Foto de perfil (evitar)
 - ❌ Foto pessoal (nenhuma é a Marina)
