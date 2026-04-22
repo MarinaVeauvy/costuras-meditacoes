@@ -24,18 +24,13 @@
     {
       "id": "orar_prosperar",
       "instagram_handle": "orarprosperar",
-      "instagram_business_id": "PENDING_META_SETUP",
+      "instagram_business_id": "25062300203468426",
       "facebook_page_name": "Prosperidade Reino",
-      "instagram_access_token_env": "IG_TOKEN_2",
-      "youtube_channel_handle": "PENDING",
-      "youtube_oauth_env": "YT_OAUTH_2",
+      "youtube_channel_handle": "@orar-prosperar",
       "tiktok_handle": "PENDING",
-      "publer_accounts": {
-        "instagram": "PENDING_PUBLER_SETUP",
-        "tiktok": "PENDING_PUBLER_SETUP",
-        "youtube": "PENDING_PUBLER_SETUP"
-      },
-      "active": false,
+      "upload_post_username": "ProsperidadedoReino",
+      "upload_post_platforms": ["instagram", "youtube"],
+      "active": true,
       "persona": "mae-empreendedora",
       "bio_angle": "Orar + prosperar — mães empreendedoras de fé"
     },
