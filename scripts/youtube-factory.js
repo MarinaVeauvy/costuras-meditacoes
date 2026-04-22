@@ -214,6 +214,48 @@ function renderVideo(scenes, outputPath) {
 }
 
 // ============================================================
+// HELPER: Build optimized YouTube description with affiliate CTA
+// ============================================================
+function buildDescription(summary, articleUrl) {
+  const affiliateLink = 'https://novavidaprospera.com.br/?ref=yt_marina';
+  const amazonBook = 'https://www.amazon.com.br/dp/B0F1Y3QKQ7?tag=marinaveauv04-20';
+  const blog = 'https://wp.marinaveauvy.com.br';
+  const channel = 'https://www.youtube.com/@marinaveauvy';
+
+  return `${summary}
+
+💡 Método completo passo a passo no link:
+👉 ${affiliateLink}
+
+📖 Artigo completo: ${articleUrl}
+
+━━━━━━━━━━━━━━━━━━━━━━━
+🎯 QUER IR MAIS FUNDO?
+━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 Blog com conteúdo novo toda semana:
+${blog}
+
+📚 Meu livro na Amazon:
+${amazonBook}
+
+📧 Newsletters gratuitas (assina direto):
+• Dinheiro Simples (toda quinta 07h)
+• Impulso IA (toda terça 07h)
+• Renda Extra Report (todo sábado 09h)
+${blog}
+
+📺 Inscreva-se pra mais conteúdo:
+${channel}
+
+━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ Conteúdo educativo. Não é recomendação de investimento. Decisões financeiras são pessoais — estude e consulte profissional qualificado.
+
+#financas #investimentos #iaparamulheres #empreendedorismo #educacaofinanceira #rendaextra #mulheresempreendedoras`;
+}
+
+// ============================================================
 // STEP 6: Upload to YouTube
 // ============================================================
 async function uploadToYouTube(videoPath, metadata, articleUrl) {
@@ -223,7 +265,7 @@ async function uploadToYouTube(videoPath, metadata, articleUrl) {
   const metaPath = videoPath.replace('.mp4', '-meta.json');
   fs.writeFileSync(metaPath, JSON.stringify({
     youtube_title: metadata.youtube_title,
-    youtube_description: metadata.description + `\n\nArtigo completo: ${articleUrl}\n\nMarina Veauvy - Finanças e IA\nInscreva-se: https://www.youtube.com/@marinaveauvy\nBlog: https://wp.marinaveauvy.com.br\nLivro: https://www.amazon.com.br/dp/B0F1Y3QKQ7?tag=marinaveauv04-20`,
+    youtube_description: buildDescription(metadata.description, articleUrl),
     tags: metadata.tags || [],
   }));
 
@@ -302,11 +344,12 @@ async function processArticle(article) {
   const size = (fs.statSync(outputPath).size / 1024 / 1024).toFixed(1);
   console.log(`  5/5 Vídeo pronto! (${size}MB)`);
 
-  // Save metadata
+  // Save metadata (inclui youtube_description montada com CTA afiliado)
   fs.writeFileSync(path.join(FACTORY_DIR, `${slug}.json`), JSON.stringify({
     ...script,
     article_url: article.link,
     article_title: article.title.rendered,
+    youtube_description: buildDescription(script.description || '', article.link),
     slug,
     rendered_at: new Date().toISOString(),
   }, null, 2));

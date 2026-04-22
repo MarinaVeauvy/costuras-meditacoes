@@ -71,15 +71,21 @@ def main():
         meta = json.load(f)
 
     title = (meta.get('youtube_title') or meta.get('article_title') or 'Video')[:100]
-    description = (meta.get('youtube_description') or meta.get('description') or '')
+    yt_desc = meta.get('youtube_description')
+    description = yt_desc or meta.get('description') or ''
     article_url = meta.get('article_url', '')
 
-    full_desc = f"{description}\n\n"
-    if article_url:
-        full_desc += f"Artigo completo: {article_url}\n\n"
-    full_desc += "---\nMarina Veauvy - Financas e IA para Empreendedoras\n"
-    full_desc += "Blog: https://wp.marinaveauvy.com.br\n"
-    full_desc += "Ferramentas: https://marinaveauvy.github.io/costuras-meditacoes/links.html\n"
+    # youtube_description já vem montada pelo factory (buildDescription com CTA afiliado)
+    # se vier, usa direto — caso contrário adiciona footer legado
+    if yt_desc:
+        full_desc = description
+    else:
+        full_desc = f"{description}\n\n"
+        if article_url:
+            full_desc += f"Artigo completo: {article_url}\n\n"
+        full_desc += "---\nMarina Veauvy - Financas e IA para Empreendedoras\n"
+        full_desc += "Blog: https://wp.marinaveauvy.com.br\n"
+        full_desc += "Ferramentas: https://marinaveauvy.github.io/costuras-meditacoes/links.html\n"
 
     body = {
         'snippet': {
