@@ -161,13 +161,10 @@ jobs:
             echo "url=$URL" >> $GITHUB_OUTPUT
           fi
 
-      - name: Publish via Publer (primary)
-        if: ${{ github.event.inputs.dry_run != 'true' && env.PUBLER_API_KEY != '' }}
+      - name: Publish via Upload-Post (primary)
+        if: ${{ github.event.inputs.dry_run != 'true' && env.UPLOAD_POST_API_KEY != '' }}
         continue-on-error: true
-        id: publer
-        env:
-          PUBLER_API_KEY: ${{ secrets.PUBLER_API_KEY }}
-          PUBLER_WORKSPACE_ID: ${{ secrets.PUBLER_WORKSPACE_ID }}
+        id: upload_post
         run: |
           VIDEO=$(jq -r '.video' pick.json)
           ACCOUNT=$(jq -r '.account' pick.json)
@@ -176,15 +173,14 @@ jobs:
             echo "❌ videoUrl vazio — abortando"
             exit 1
           fi
-          node scripts/midas/midas-publish-publer.js \
+          node scripts/midas/midas-publish-upload-post.js \
             --account="$ACCOUNT" \
             --video="$VIDEO" \
-            --videoUrl="$VIDEO_URL" \
-            --platform=all
-          echo "publer_ran=true" >> $GITHUB_OUTPUT
+            --videoUrl="$VIDEO_URL"
+          echo "upload_post_ran=true" >> $GITHUB_OUTPUT
 
       - name: Publish Instagram Reel (fallback Meta API)
-        if: ${{ github.event.inputs.dry_run != 'true' && steps.publer.outputs.publer_ran != 'true' }}
+        if: ${{ github.event.inputs.dry_run != 'true' && steps.upload_post.outputs.upload_post_ran != 'true' }}
         continue-on-error: true
         env:
           IG_TOKEN_1: ${{ secrets.IG_TOKEN_1 }}
@@ -206,7 +202,7 @@ jobs:
             --caption="$CAPTION"
 
       - name: Publish YouTube Short (fallback YT API)
-        if: ${{ github.event.inputs.dry_run != 'true' && steps.publer.outputs.publer_ran != 'true' }}
+        if: ${{ github.event.inputs.dry_run != 'true' && steps.upload_post.outputs.upload_post_ran != 'true' }}
         continue-on-error: true
         env:
           YT_OAUTH_1: ${{ secrets.YT_OAUTH_1 }}
@@ -242,6 +238,5 @@ jobs:
       CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
       CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
       CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
-      PUBLER_API_KEY: ${{ secrets.PUBLER_API_KEY }}
-      PUBLER_WORKSPACE_ID: ${{ secrets.PUBLER_WORKSPACE_ID }}
+      UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
       MIDAS_CORTES_DIR: /tmp/midas-cortes

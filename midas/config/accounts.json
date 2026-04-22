@@ -10,10 +10,12 @@
       "youtube_channel_handle": "ProsperidadedoReino-m8e",
       "youtube_oauth_env": "YT_OAUTH_1",
       "tiktok_handle": "pros.peridadedoreino",
+      "upload_post_username": "pros_peridade_do_reino",
+      "upload_post_platforms": ["instagram", "youtube"],
       "publer_accounts": {
-        "instagram": "PENDING_CONNECT_UI",
-        "tiktok": "69e2a24c5aed8dc2e0089568",
-        "youtube": "PENDING_CONNECT_UI"
+        "instagram": "DEPRECATED",
+        "tiktok": "DEPRECATED",
+        "youtube": "DEPRECATED"
       },
       "active": true,
       "persona": "prosperidade-do-reino",
