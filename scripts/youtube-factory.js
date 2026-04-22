@@ -217,7 +217,7 @@ function renderVideo(scenes, outputPath) {
 // HELPER: Build optimized YouTube description with affiliate CTA
 // ============================================================
 function buildDescription(summary, articleUrl) {
-  const affiliateLink = 'https://novavidaprospera.com.br/?ref=yt_marina';
+  const affiliateLink = 'https://novavidaprospera.com.br/?ref=yt_aurumlab';
   const amazonBook = 'https://www.amazon.com.br/dp/B0F1Y3QKQ7?tag=marinaveauv04-20';
   const blog = 'https://wp.marinaveauvy.com.br';
   const channel = 'https://www.youtube.com/@marinaveauvy';

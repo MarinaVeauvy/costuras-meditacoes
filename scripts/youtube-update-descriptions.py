@@ -23,7 +23,7 @@ YOUTUBE_DIR = os.path.join(os.path.dirname(__file__), '..', 'youtube')
 TOKEN_FILE = os.path.join(YOUTUBE_DIR, 'oauth-token.json')
 UPLOADED_INDEX = os.path.join(YOUTUBE_DIR, 'uploaded-index.json')
 
-AFFILIATE_LINK = 'https://novavidaprospera.com.br/?ref=yt_marina'
+AFFILIATE_LINK = 'https://novavidaprospera.com.br/?ref=yt_aurumlab'
 BLOG = 'https://wp.marinaveauvy.com.br'
 CHANNEL = 'https://www.youtube.com/@marinaveauvy'
 AMAZON_BOOK = 'https://www.amazon.com.br/dp/B0F1Y3QKQ7?tag=marinaveauv04-20'
