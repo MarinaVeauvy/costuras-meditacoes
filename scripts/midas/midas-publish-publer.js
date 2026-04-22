@@ -123,8 +123,8 @@ async function main() {
 
   for (const platform of targets) {
     const publerAccountId = account.publer_accounts[platform];
-    if (!publerAccountId) {
-      console.warn(`⏭️  ${platform}: sem publer_account_id pra ${account.id}, skip`);
+    if (!publerAccountId || publerAccountId.startsWith('PENDING_')) {
+      console.warn(`⏭️  ${platform}: sem publer_account_id válido pra ${account.id} (valor=${publerAccountId}), skip`);
       continue;
     }
 
