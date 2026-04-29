@@ -161,9 +161,8 @@ jobs:
             echo "url=$URL" >> $GITHUB_OUTPUT
           fi
 
-      - name: Publish via Upload-Post (primary)
-        if: ${{ github.event.inputs.dry_run != 'true' && env.UPLOAD_POST_API_KEY != '' }}
-        continue-on-error: true
+      - name: Publish via Upload-Post
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         id: upload_post
         run: |
           VIDEO=$(jq -r '.video' pick.json)
@@ -177,50 +176,6 @@ jobs:
             --account="$ACCOUNT" \
             --video="$VIDEO" \
             --videoUrl="$VIDEO_URL"
-          echo "upload_post_ran=true" >> $GITHUB_OUTPUT
-
-      - name: Publish Instagram Reel (fallback Meta API)
-        if: ${{ github.event.inputs.dry_run != 'true' && steps.upload_post.outputs.upload_post_ran != 'true' }}
-        continue-on-error: true
-        env:
-          IG_TOKEN_1: ${{ secrets.IG_TOKEN_1 }}
-          IG_TOKEN_2: ${{ secrets.IG_TOKEN_2 }}
-          IG_TOKEN_3: ${{ secrets.IG_TOKEN_3 }}
-        run: |
-          VIDEO=$(jq -r '.video' pick.json)
-          ACCOUNT=$(jq -r '.account' pick.json)
-          VIDEO_URL="${{ steps.upload.outputs.url }}"
-          if [ -z "$VIDEO_URL" ]; then
-            echo "❌ videoUrl vazio — abortando IG publish"
-            exit 1
-          fi
-          CAPTION=$(jq -r ".[\"$ACCOUNT\"].caption_ig" "midas/captions/${VIDEO%.mp4}.json")
-          node scripts/midas/midas-publish-ig.js \
-            --account="$ACCOUNT" \
-            --video="$VIDEO" \
-            --videoUrl="$VIDEO_URL" \
-            --caption="$CAPTION"
-
-      - name: Publish YouTube Short (fallback YT API)
-        if: ${{ github.event.inputs.dry_run != 'true' && steps.upload_post.outputs.upload_post_ran != 'true' }}
-        continue-on-error: true
-        env:
-          YT_OAUTH_1: ${{ secrets.YT_OAUTH_1 }}
-          YT_OAUTH_2: ${{ secrets.YT_OAUTH_2 }}
-          YT_OAUTH_3: ${{ secrets.YT_OAUTH_3 }}
-        run: |
-          VIDEO=$(jq -r '.video' pick.json)
-          ACCOUNT=$(jq -r '.account' pick.json)
-          YT_ENV=$(jq -r ".accounts[] | select(.id==\"$ACCOUNT\") | .youtube_oauth_env" midas/config/accounts.json)
-          if [ -z "$YT_ENV" ] || [ "$YT_ENV" = "null" ] || [ -z "${!YT_ENV}" ]; then
-            echo "⏭️ YT OAuth não configurado pra $ACCOUNT (env=$YT_ENV), skip"
-            exit 0
-          fi
-          CAPTION=$(jq -r ".[\"$ACCOUNT\"].caption_youtube" "midas/captions/${VIDEO%.mp4}.json")
-          HOOK=$(jq -r ".[\"$ACCOUNT\"].hook" "midas/captions/${VIDEO%.mp4}.json")
-          node scripts/midas/midas-publish-yt-shorts.js \
-            --account="$ACCOUNT" --video="$VIDEO" \
-            --title="$HOOK #Shorts" --description="$CAPTION"
 
       - name: Commit state
         run: |
