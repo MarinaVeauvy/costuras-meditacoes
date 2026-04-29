@@ -1,0 +1,33 @@
+name: Midas Daily Reminder (Marina 10min/dia)
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  schedule:
+    # 11:00 BRT (14:00 UTC) Seg-Sáb. Domingo o script envia "descansa hoje".
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm install dotenv
+
+      - name: Send daily reminder
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          MARINA_EMAIL: ${{ vars.MARINA_EMAIL || 'macmarina@gmail.com' }}
+        run: node scripts/midas/midas-daily-reminder.js
