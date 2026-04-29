@@ -1,8 +1,12 @@
-# Bios Prontas — Perfis Midas (Positioning CRIPTO)
+# Bios Prontas — Perfis Midas
 
-Copia e cola. Reposicionadas pra Método Águia Cripto (MAC) com linguagem conservadora (sem palavras-gatilho de ban).
+> **Estratégia atual (29/04/2026):** posts intercalam versículos (neutros) com cortes MAC.
+> Bios reposicionadas pra tom espiritual/família — tema cripto/investir queimou algoritmo das contas zeradas.
+> Bios v1 (cripto direto) marcadas como DEPRECATED abaixo.
 
-**Evitar nas bios:** valores específicos, "garantido", "sem risco", "ganhe", "lucro certo", emojis $$, sinais matemáticos.
+**Evitar nas bios:** "cripto", "investir", "lucro", "ganhe", valores específicos, "garantido", "sem risco", emojis $$, sinais matemáticos, categoria Finance/Investimentos.
+
+**Categoria preferida:** Educação · Estilo de vida · Família. NUNCA Finance.
 
 ---
 
@@ -35,32 +39,54 @@ Prosperidade do Reino — conteúdo sobre mercado de criptomoedas explicado de f
 
 ---
 
-## 2. @orar.prosperar (criar)
+## 2. @orarprosperar — ATIVA (TikTok aplicado 29/04/2026)
 
-**Persona:** Mãe de família descobrindo cripto
-**Público:** Mães 30-45 sem experiência em investimentos
+**Persona:** Mãe de fé + propósito
+**Público:** Mulheres 30-45, evangélicas, foco família/casa
+**Display name TikTok:** `Orar e Prosperar`
 
-### Bio Instagram
+### Bio TikTok (ATIVA — Opção A neutra)
+```
+🙏 Mãe + fé + propósito
+📖 Provérbios na prática
+✨ IG: @orarprosperar
+```
+65 caracteres · zero gatilho cripto · alinhada com versículos do pipeline
+
+### Bio Instagram (ATIVA — neutra)
+```
+🙏 Orar + prosperar
+📖 Versículos para o dia a dia
+👩‍👧 Mãe + fé + propósito
+✨ Conteúdo educativo
+```
+
+### Bio YouTube (ATIVA — neutra)
+```
+Conteúdo de fé, família e propósito para mães que buscam viver com mais leveza, propósito e equilíbrio financeiro. Versículos, reflexões e dicas práticas pra dia a dia.
+
+📌 Conteúdo educativo.
+```
+
+### Bio TikTok v2 (futura — quando bater 500+ followers)
+```
+👨‍👩‍👧 Família próspera com Deus
+📚 Educação financeira do dia a dia
+✨ IG: @orarprosperar
+```
+77 chars · introduz tema dinheiro envolto em fé/família
+
+---
+
+### ⚠️ DEPRECATED v1 (cripto direto, queimou algoritmo)
+
 ```
 🙏 Orar + prosperar
 👩‍👧 Mãe aprendendo mercado cripto
 📚 Educação financeira sem enrolação
 📌 Método completo 👇
 ```
-
-### Bio TikTok
-```
-🙏 Mãe que estuda cripto
-📚 Investindo com pé no chão
-👇 Link
-```
-
-### Bio YouTube
-```
-Para mães que querem entender o mercado de criptomoedas sem jargão técnico. Aprenda na prática como outras mães brasileiras estão estudando esse mercado com responsabilidade e consistência. Conteúdo educativo, sem promessas mirabolantes.
-
-📌 Método educativo abaixo.
-```
+Não usar — tema cripto direto suprimiu reach das contas novas.
 
 ---
 
