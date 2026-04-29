@@ -40,6 +40,16 @@
       "postId": "cbfb2a752d0343b383477ae21227dd6b",
       "success": true,
       "publishedAt": "2026-04-29T14:40:38.623Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00004.mp4",
+      "platform": "youtube",
+      "postId": "FHb90ySvqLs",
+      "success": true,
+      "requestId": "08c625f6f7cb4125b28f78d032e5f2d1",
+      "publishedAt": "2026-04-29T20:41:48.188Z",
+      "postUrl": "https://www.youtube.com/watch?v=FHb90ySvqLs"
     }
   ]
 }
