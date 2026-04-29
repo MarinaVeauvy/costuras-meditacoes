@@ -125,11 +125,10 @@ jobs:
       - name: Install deps
         run: |
           npm install @anthropic-ai/sdk dotenv
-          pip install google-auth google-auth-oauthlib google-api-python-client
+          pip install google-auth google-auth-oauthlib google-api-python-client edge-tts
 
-      - name: Setup ffmpeg + fontes (para versículos)
+      - name: Setup ffmpeg + fontes (para versículos + overlay hooks)
         run: |
-          # ffmpeg já vem no ubuntu-latest, mas garantimos
           which ffmpeg || sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
           sudo apt-get update -qq && sudo apt-get install -y -qq fonts-liberation fonts-dejavu
 
@@ -167,8 +166,40 @@ jobs:
         if: ${{ steps.pick.outputs.type == 'corte_mac' }}
         run: |
           VIDEO=$(jq -r '.video' pick.json)
-          CAPTIONS="midas/captions/${VIDEO%.mp4}.json"
-          [ -f "$CAPTIONS" ] || node scripts/midas/midas-generate-captions.js --video="$VIDEO"
+          # Sempre regenerar pra usar Format Vault (caption antiga era cripto direto)
+          rm -f "midas/captions/${VIDEO%.mp4}.json"
+          node scripts/midas/midas-generate-captions.js --video="$VIDEO"
+
+      - name: Apply hook overlay (corte_mac only)
+        if: ${{ steps.pick.outputs.type == 'corte_mac' && github.event.inputs.dry_run != 'true' }}
+        id: overlay
+        run: |
+          VIDEO=$(jq -r '.video' pick.json)
+          ACCOUNT=$(jq -r '.account' pick.json)
+          VIDEO_URL=$(jq -r '.url' pick.json)
+          ORIG_CAPTIONS="midas/captions/${VIDEO%.mp4}.json"
+          HOOK=$(jq -r ".[\"$ACCOUNT\"].hook" "$ORIG_CAPTIONS")
+
+          if [ -z "$HOOK" ] || [ "$HOOK" = "null" ]; then
+            echo "⚠️ Hook ausente — pulando overlay"
+            echo "url=$VIDEO_URL" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "🎯 Hook: $HOOK"
+          node scripts/midas/midas-overlay-hook.js \
+            --video="$VIDEO" \
+            --videoUrl="$VIDEO_URL" \
+            --hook="$HOOK" > overlay.json
+          cat overlay.json
+          NEW_URL=$(jq -r '.url' overlay.json)
+          NEW_VIDEO=$(jq -r '.video' overlay.json)
+          NEW_BASE=$(basename "$NEW_VIDEO" .mp4)
+          # Captions do hooked herdam do original
+          cp "$ORIG_CAPTIONS" "midas/captions/${NEW_BASE}.json"
+          # Atualiza pick.json com versão hooked
+          jq --arg url "$NEW_URL" --arg video "$NEW_VIDEO" '.url = $url | .video = $video' pick.json > pick.tmp && mv pick.tmp pick.json
+          echo "url=$NEW_URL" >> $GITHUB_OUTPUT
 
       - name: Ensure Cloudinary upload
         if: ${{ github.event.inputs.dry_run != 'true' }}
@@ -177,7 +208,7 @@ jobs:
           VIDEO=$(jq -r '.video' pick.json)
           PICK_URL=$(jq -r '.url' pick.json)
           if [ -n "$PICK_URL" ] && [ "$PICK_URL" != "null" ]; then
-            echo "✅ URL já no manifest: $PICK_URL"
+            echo "✅ URL pronta: $PICK_URL"
             echo "url=$PICK_URL" >> $GITHUB_OUTPUT
           else
             node scripts/midas/midas-upload-cloudinary.js --video="$VIDEO" | tee upload.log
@@ -218,4 +249,5 @@ jobs:
       CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
       CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
       UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       MIDAS_CORTES_DIR: /tmp/midas-cortes

@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 /**
- * Midas — Gerador de Reel de versículo
+ * Midas — Gerador de Reel de versículo v2 (pós-Brendan Kane diagnostic)
  *
- * Pega próximo versículo do pool (rotação), gera MP4 vertical 12s via FFmpeg
- * (gradient + texto + referência), upa pro Cloudinary, retorna metadata.
+ * MUDANÇAS v2:
+ * - Background = vídeo Pexels (movimento orgânico — natureza/golden hour/luz)
+ * - Áudio = Edge TTS narração + (futuro: música de fundo)
+ * - Texto kinetic: aparece palavra por palavra
+ * - Duração 8s (loops melhor + retém mais)
+ * - CTA "Salve pra ler depois 🤍" no último segundo
+ * - Referência destacada após texto completo
  *
  * Output (stdout, JSON):
  *   { video, public_id, url, type: "versiculo", caption, hashtags }
  *
- * Uso (no workflow ou local com ffmpeg disponível):
- *   node scripts/midas/midas-generate-versiculo.js [--versiculo-id=v001]
- *
- * Requer: ffmpeg no PATH, CLOUDINARY_* no env.
+ * Requer: ffmpeg, Python3 + edge-tts, PEXELS_API_KEY, CLOUDINARY_*
  */
 
 require('dotenv').config({ quiet: true });
@@ -26,22 +28,32 @@ const ROTATION_PATH = path.join(__dirname, '..', '..', 'midas', 'state', 'versic
 const VERSICULOS_MANIFEST = path.join(__dirname, '..', '..', 'midas', 'config', 'versiculos-manifest.json');
 const ACCOUNTS_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'accounts.json');
 const CAPTIONS_DIR = path.join(__dirname, '..', '..', 'midas', 'captions');
+const TTS_SCRIPT = path.join(__dirname, 'midas-tts-versiculo.py');
 
-// Paletas (background -> texto -> referência). Rotaciona pra variedade visual.
-const PALETTES = [
-  { bg: '0x1a3d5c', text: 'white',     ref: '0xd4a574' }, // azul-noite + dourado
-  { bg: '0x2d4a3e', text: 'white',     ref: '0xe8c878' }, // verde-musgo + dourado-claro
-  { bg: '0x4a3a2c', text: 'white',     ref: '0xf2d49b' }, // marrom-quente + bege
-  { bg: '0x3a2d4e', text: 'white',     ref: '0xc9a9d1' }, // roxo-escuro + lavanda
-  { bg: '0x5e3a2d', text: 'white',     ref: '0xf0c89a' }, // terracota + areia
-  { bg: '0xf2ead3', text: '0x3a2d1e', ref: '0x8b6f3f' }, // bege-claro + terra (modo claro)
+// Pool de queries Pexels — temas que combinam com versículos (calmo, contemplativo, luz)
+const PEXELS_QUERIES = [
+  'golden hour nature',
+  'sunlight forest',
+  'ocean waves slow',
+  'sky clouds time lapse',
+  'candle flame slow',
+  'sunset mountains',
+  'water reflection light',
+  'wheat field wind',
+  'morning mist',
+  'silhouette sunset prayer',
+  'dove flying slow',
+  'cross silhouette light',
 ];
+
+// Duração total do Reel
+const TOTAL_DURATION = 8.0;
 
 function parseArgs() {
   const args = {};
   for (const a of process.argv.slice(2)) {
-    const [k, v] = a.replace(/^--/, '').split('=');
-    args[k] = v || true;
+    const [k, ...rest] = a.replace(/^--/, '').split('=');
+    args[k] = rest.length ? rest.join('=') : true;
   }
   return args;
 }
@@ -66,7 +78,6 @@ function pickNextVersiculo(pool, args) {
   const usedSet = new Set(rotation.used_ids);
   const next = pool.versiculos.find(v => !usedSet.has(v.id));
   if (next) return next;
-  // Pool esgotado, reseta ciclo
   console.error('⚠️  Pool de versículos esgotado, reiniciando ciclo');
   saveJson(ROTATION_PATH, { used_ids: [] });
   return pool.versiculos[0];
@@ -78,22 +89,6 @@ function markUsed(versiculoId) {
   saveJson(ROTATION_PATH, rotation);
 }
 
-function wrapText(text, maxCharsPerLine = 28) {
-  const words = text.split(/\s+/);
-  const lines = [];
-  let current = '';
-  for (const w of words) {
-    if ((current + ' ' + w).trim().length > maxCharsPerLine) {
-      if (current) lines.push(current);
-      current = w;
-    } else {
-      current = (current + ' ' + w).trim();
-    }
-  }
-  if (current) lines.push(current);
-  return lines.join('\n');
-}
-
 function findFontFile() {
   const candidates = [
     '/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf',
@@ -101,62 +96,218 @@ function findFontFile() {
     '/usr/share/fonts/dejavu/DejaVuSerif-Bold.ttf',
     'C:/Windows/Fonts/georgia.ttf',
     'C:/Windows/Fonts/times.ttf',
-    'C:/Windows/Fonts/arial.ttf',
     '/System/Library/Fonts/Georgia.ttf',
-    '/Library/Fonts/Georgia.ttf',
   ];
-  for (const c of candidates) {
-    if (fs.existsSync(c)) return c;
+  for (const c of candidates) if (fs.existsSync(c)) return c;
+  throw new Error('Nenhuma fonte serifada encontrada');
+}
+
+async function fetchPexelsVideo(query) {
+  const apiKey = process.env.PEXELS_API_KEY;
+  if (!apiKey) throw new Error('PEXELS_API_KEY ausente');
+
+  const url = `https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&orientation=portrait&size=medium&per_page=15`;
+  const res = await fetch(url, { headers: { Authorization: apiKey } });
+  if (!res.ok) throw new Error(`Pexels falhou: ${res.status}`);
+  const data = await res.json();
+  if (!data.videos || !data.videos.length) throw new Error(`Pexels sem resultados pra "${query}"`);
+
+  // Pega vídeo random com duração >= 8s
+  const ok = data.videos.filter(v => v.duration >= 8);
+  if (!ok.length) throw new Error(`Nenhum vídeo Pexels >= 8s pra "${query}"`);
+
+  const video = ok[Math.floor(Math.random() * ok.length)];
+
+  // Pega arquivo HD vertical (preferencialmente 1080p ou 720p, MP4)
+  const files = video.video_files
+    .filter(f => f.file_type === 'video/mp4' && f.height >= f.width)
+    .sort((a, b) => Math.abs(b.height - 1920) - Math.abs(a.height - 1920));
+
+  // Fallback: aceita qualquer aspect se não tem vertical
+  const file = files[0] || video.video_files.find(f => f.file_type === 'video/mp4');
+  if (!file) throw new Error(`Pexels: nenhum arquivo MP4 utilizável pra "${query}"`);
+
+  return {
+    url: file.link,
+    width: file.width,
+    height: file.height,
+    duration: video.duration,
+    pexels_id: video.id,
+  };
+}
+
+async function downloadFile(url, dest) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Download falhou ${url}: ${res.status}`);
+  const ab = await res.arrayBuffer();
+  fs.writeFileSync(dest, Buffer.from(ab));
+}
+
+function generateTTS(texto, ref, outputMp3) {
+  const r = spawnSync('python3', [TTS_SCRIPT, texto, ref, outputMp3], {
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  if (r.status !== 0) {
+    // tenta python (sem 3) como fallback
+    const r2 = spawnSync('python', [TTS_SCRIPT, texto, ref, outputMp3], {
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    if (r2.status !== 0) {
+      const err = (r2.stderr || r.stderr || Buffer.alloc(0)).toString().slice(-1500);
+      throw new Error(`TTS falhou:\n${err}`);
+    }
   }
-  return null;
+  if (!fs.existsSync(outputMp3)) throw new Error('TTS não gerou arquivo de áudio');
 }
 
-function escapeForFfmpegFile(text) {
-  // ffmpeg textfile não precisa de escape extensivo, mas evitamos chars problemáticos
-  return text.replace(/\r/g, '');
+function escapeText(text) {
+  // ffmpeg drawtext escape: : , ' \ %
+  return text
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'")
+    .replace(/:/g, '\\:')
+    .replace(/,/g, '\\,')
+    .replace(/%/g, '\\%');
 }
 
-function generateMp4(versiculo, palette, outPath) {
-  const fontFile = findFontFile();
-  if (!fontFile) throw new Error('Nenhuma fonte serifada encontrada (DejaVuSerif/Liberation/Georgia)');
+function buildKineticDrawtext(texto, fontFile, fontSize, color, yPos) {
+  // Quebra texto em palavras, cada palavra aparece em slot temporal
+  const words = texto.split(/\s+/);
+  const startTime = 0.5;       // espera 0.5s antes da 1a palavra
+  const revealDuration = 5.0;  // total 5s pra revelar texto completo
+  const perWord = revealDuration / words.length;
 
-  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'midas-vers-'));
-  const textPath = path.join(tmpDir, 'texto.txt');
-  const refPath = path.join(tmpDir, 'ref.txt');
-
-  const wrapped = wrapText(versiculo.texto, 28);
-  fs.writeFileSync(textPath, escapeForFfmpegFile(wrapped));
-  fs.writeFileSync(refPath, escapeForFfmpegFile(versiculo.ref));
-
-  // Em ffmpeg filter syntax, paths Windows precisam de escape especial.
-  // Conversão: C:\path → C\:/path. Mais seguro forçar forward-slash.
   const ff = (p) => p.replace(/\\/g, '/').replace(/^([A-Za-z]):/, '$1\\:');
 
-  const filters = [
-    `drawtext=fontfile='${ff(fontFile)}':textfile='${ff(textPath)}':fontsize=56:fontcolor=${palette.text}:line_spacing=18:x=(w-text_w)/2:y=(h-text_h)/2-180`,
-    `drawtext=fontfile='${ff(fontFile)}':textfile='${ff(refPath)}':fontsize=44:fontcolor=${palette.ref}:x=(w-text_w)/2:y=(h-text_h)/2+260`,
-    `fade=t=in:st=0:d=0.6,fade=t=out:st=11.4:d=0.6`,
-  ].join(',');
+  // Estratégia kinetic: cada palavra individualmente desenhada com seu próprio enable
+  // Usar "showText" cumulativo — cada palavra ENTRA e fica até o fim
+  // Vamos fazer: a cada slot, o texto VISÍVEL é a substring até a palavra N
+  // Implementação: criar N drawtext, cada um com text="palavras 1..N", enable=[start_n, fim]
+  const filters = [];
+  for (let i = 0; i < words.length; i++) {
+    const visibleText = words.slice(0, i + 1).join(' ');
+    const startThis = startTime + (i * perWord);
+    const endThis = TOTAL_DURATION;
+    // Mostra apenas durante esse slot — senão temos N camadas sobrepostas (que é o que queremos!)
+    // Cada drawtext usa enable individual mas TODOS escrevem texto cumulativo no mesmo lugar:
+    // Na verdade só precisamos de UM drawtext por slot, mas só o ÚLTIMO ativo é visível por estar no topo
+    // Simplificação: usar ENTRY de fade pra cada palavra
+    // Mais simples: 1 drawtext por slot, enable só no slot dele (so ele aparece naquele slot)
+    // Mas aí texto some entre slots. Não. Eu quero ACUMULAR.
+    // Alternativa: enable só do startThis até endThis, com textfile diferente
+    // Eficiente mas complexo. Vamos pelo caminho simples:
+    filters.push(
+      `drawtext=fontfile='${ff(fontFile)}'` +
+      `:text='${escapeText(visibleText)}'` +
+      `:fontsize=${fontSize}` +
+      `:fontcolor=${color}` +
+      `:borderw=2` +
+      `:bordercolor=black@0.7` +
+      `:line_spacing=14` +
+      `:x=(w-text_w)/2` +
+      `:y=${yPos}` +
+      `:enable='between(t,${startThis.toFixed(2)},${(startThis + perWord).toFixed(2)})'`
+    );
+  }
+  // E mais um drawtext final que mantém o texto completo do fim do reveal até o end
+  const visibleAll = words.join(' ');
+  const finalStart = startTime + revealDuration;
+  filters.push(
+    `drawtext=fontfile='${ff(fontFile)}'` +
+    `:text='${escapeText(visibleAll)}'` +
+    `:fontsize=${fontSize}` +
+    `:fontcolor=${color}` +
+    `:borderw=2` +
+    `:bordercolor=black@0.7` +
+    `:line_spacing=14` +
+    `:x=(w-text_w)/2` +
+    `:y=${yPos}` +
+    `:enable='gte(t,${finalStart.toFixed(2)})'`
+  );
+
+  return filters.join(',');
+}
+
+function composeReel({ bgVideoPath, ttsAudioPath, versiculo, outputPath }) {
+  const fontFile = findFontFile();
+  const ff = (p) => p.replace(/\\/g, '/').replace(/^([A-Za-z]):/, '$1\\:');
+
+  // Wrap texto em ~26 chars/linha
+  const wrap = (text, max) => {
+    const words = text.split(/\s+/);
+    const lines = [];
+    let cur = '';
+    for (const w of words) {
+      if ((cur + ' ' + w).trim().length > max) {
+        if (cur) lines.push(cur);
+        cur = w;
+      } else cur = (cur + ' ' + w).trim();
+    }
+    if (cur) lines.push(cur);
+    return lines.join('\n');
+  };
+
+  // Texto wrapped pra exibição
+  const textoWrapped = wrap(versiculo.texto, 26);
+  const refText = versiculo.ref;
+  const ctaText = 'Salve pra ler depois';
+
+  const kineticVerse = buildKineticDrawtext(textoWrapped, fontFile, 56, 'white', 'h*0.30');
+
+  // Referência: aparece após reveal completo
+  const refStart = 0.5 + 5.0;  // start + reveal duration
+  const refDrawtext =
+    `drawtext=fontfile='${ff(fontFile)}'` +
+    `:text='${escapeText(refText)}'` +
+    `:fontsize=44:fontcolor=#d4a574` +
+    `:borderw=2:bordercolor=black@0.7` +
+    `:x=(w-text_w)/2:y=h*0.62` +
+    `:enable='gte(t,${refStart.toFixed(2)})'`;
+
+  // CTA: aparece no segundo 6.5
+  const ctaDrawtext =
+    `drawtext=fontfile='${ff(fontFile)}'` +
+    `:text='${escapeText(ctaText)}'` +
+    `:fontsize=42:fontcolor=white` +
+    `:borderw=2:bordercolor=black@0.7` +
+    `:box=1:boxcolor=black@0.45:boxborderw=20` +
+    `:x=(w-text_w)/2:y=h*0.78` +
+    `:enable='gte(t,6.5)'`;
+
+  // Filter complete:
+  // 1. scale + crop bg pra 1080x1920
+  // 2. trim/loop pra 8s
+  // 3. apply darken (overlay preto 25% pra texto ler melhor)
+  // 4. drawtexts
+  const videoFilter = [
+    `[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,trim=duration=${TOTAL_DURATION},setpts=PTS-STARTPTS,format=yuv420p[bg]`,
+    `[bg]drawbox=x=0:y=0:w=iw:h=ih:color=black@0.30:t=fill[bg2]`,
+    `[bg2]${kineticVerse},${refDrawtext},${ctaDrawtext}[v]`,
+  ].join(';');
 
   const args = [
     '-y',
-    '-f', 'lavfi',
-    '-i', `color=c=${palette.bg}:s=1080x1920:d=12:rate=30`,
-    '-vf', filters,
+    '-stream_loop', '-1',  // loop infinito do bg caso precise
+    '-i', bgVideoPath,
+    '-i', ttsAudioPath,
+    '-filter_complex', videoFilter,
+    '-map', '[v]',
+    '-map', '1:a',
     '-c:v', 'libx264',
+    '-c:a', 'aac',
+    '-b:a', '128k',
     '-pix_fmt', 'yuv420p',
-    '-t', '12',
-    outPath,
+    '-preset', 'veryfast',
+    '-shortest',
+    '-t', String(TOTAL_DURATION),
+    outputPath,
   ];
 
   const r = spawnSync('ffmpeg', args, { stdio: ['ignore', 'pipe', 'pipe'] });
   if (r.status !== 0) {
-    const err = (r.stderr || Buffer.alloc(0)).toString().slice(-2000);
-    throw new Error(`ffmpeg falhou:\n${err}`);
+    const err = (r.stderr || Buffer.alloc(0)).toString().slice(-2500);
+    throw new Error(`ffmpeg compose falhou:\n${err}`);
   }
-
-  // cleanup
-  try { fs.rmSync(tmpDir, { recursive: true, force: true }); } catch {}
 }
 
 function signParams(params, apiSecret) {
@@ -176,8 +327,7 @@ async function uploadCloudinary(filePath, publicId) {
   const signature = signParams(paramsToSign, apiSecret);
 
   const form = new FormData();
-  const buffer = fs.readFileSync(filePath);
-  form.append('file', new Blob([buffer]), path.basename(filePath));
+  form.append('file', new Blob([fs.readFileSync(filePath)]), path.basename(filePath));
   form.append('api_key', apiKey);
   form.append('timestamp', String(timestamp));
   form.append('signature', signature);
@@ -191,25 +341,15 @@ async function uploadCloudinary(filePath, publicId) {
   return json;
 }
 
-function buildCaption(versiculo, hashtags) {
-  return [
-    versiculo.texto,
-    '',
-    `— ${versiculo.ref}`,
-    '',
-    hashtags,
-  ].join('\n');
-}
-
 function buildCaptionsByAccount(versiculo, pool) {
   const accounts = loadJson(ACCOUNTS_PATH);
   if (!accounts || !accounts.accounts) throw new Error('accounts.json inválido');
 
-  const hashtagsIg = pool.hashtags_default || '#fé #Deus #família #propósito #prosperidade #bíblia';
+  const hashtagsIg = pool.hashtags_default || '#fé #Deus #família #propósito';
   const hashtagsTk = '#fé #Deus #salmos #provérbios #família #fyp';
   const hashtagsYt = '#Shorts #Fé #Versículo #Bíblia';
 
-  const baseText = `${versiculo.texto}\n\n— ${versiculo.ref}`;
+  const baseText = `${versiculo.texto}\n\n— ${versiculo.ref}\n\nSalve pra ler depois 🤍`;
   const hook = versiculo.texto.length > 100 ? versiculo.texto.slice(0, 97) + '...' : versiculo.texto;
 
   const out = {};
@@ -217,7 +357,7 @@ function buildCaptionsByAccount(versiculo, pool) {
     out[acc.id] = {
       hook,
       body: versiculo.texto,
-      cta: '',
+      cta: 'Salve pra ler depois 🤍',
       full_caption: baseText,
       hashtags_instagram: hashtagsIg,
       hashtags_tiktok: hashtagsTk,
@@ -234,13 +374,11 @@ function writeCaptionsFile(videoBase, captionsByAccount) {
   fs.mkdirSync(CAPTIONS_DIR, { recursive: true });
   const captionsPath = path.join(CAPTIONS_DIR, `${videoBase}.json`);
   fs.writeFileSync(captionsPath, JSON.stringify(captionsByAccount, null, 2));
-  return captionsPath;
 }
 
 function appendToManifest(entry) {
   const manifest = loadJson(VERSICULOS_MANIFEST, { versiculos: [] });
   manifest.versiculos = manifest.versiculos || [];
-  // dedup por public_id
   manifest.versiculos = manifest.versiculos.filter(v => v.public_id !== entry.public_id);
   manifest.versiculos.push(entry);
   saveJson(VERSICULOS_MANIFEST, manifest);
@@ -252,17 +390,32 @@ async function main() {
   if (!pool || !pool.versiculos) throw new Error('Pool de versículos não encontrado');
 
   const versiculo = pickNextVersiculo(pool, args);
-  const palette = PALETTES[Math.floor(Math.random() * PALETTES.length)];
-
-  const fileBase = `versiculo_${versiculo.id}`;
-  const outDir = process.env.MIDAS_OUTPUT_DIR || path.join(os.tmpdir(), 'midas-out');
-  fs.mkdirSync(outDir, { recursive: true });
-  const outPath = path.join(outDir, `${fileBase}.mp4`);
-
   console.error(`📜 Gerando ${versiculo.id}: ${versiculo.ref}`);
-  generateMp4(versiculo, palette, outPath);
 
+  // 1. Pexels
+  const query = PEXELS_QUERIES[Math.floor(Math.random() * PEXELS_QUERIES.length)];
+  console.error(`🎥 Pexels query: "${query}"`);
+  const pex = await fetchPexelsVideo(query);
+  console.error(`🎥 Vídeo: id=${pex.pexels_id} ${pex.width}x${pex.height} ${pex.duration}s`);
+
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'midas-vers-'));
+  const bgPath = path.join(tmpDir, 'bg.mp4');
+  const ttsPath = path.join(tmpDir, 'tts.mp3');
+  const outPath = path.join(tmpDir, `versiculo_${versiculo.id}.mp4`);
+
+  await downloadFile(pex.url, bgPath);
+
+  // 2. TTS
+  console.error(`🎤 Gerando TTS...`);
+  generateTTS(versiculo.texto, versiculo.ref, ttsPath);
+
+  // 3. Compose
+  console.error(`🎬 Compondo Reel ${TOTAL_DURATION}s...`);
+  composeReel({ bgVideoPath: bgPath, ttsAudioPath: ttsPath, versiculo, outputPath: outPath });
+
+  // 4. Upload Cloudinary
   console.error(`☁️  Upload Cloudinary...`);
+  const fileBase = `versiculo_${versiculo.id}`;
   const up = await uploadCloudinary(outPath, fileBase);
 
   const entry = {
@@ -273,20 +426,19 @@ async function main() {
     versiculo_ref: versiculo.ref,
     duration: up.duration,
     bytes: up.bytes,
+    pexels_query: query,
+    pexels_id: pex.pexels_id,
     uploaded_at: new Date().toISOString(),
   };
   appendToManifest(entry);
   markUsed(versiculo.id);
 
-  const hashtags = pool.hashtags_default || '#fé #Deus #família';
-  const caption = buildCaption(versiculo, hashtags);
-
-  // Escreve captions/{file}.json compatível com midas-publish-upload-post.js
+  // 5. Captions
   const captionsByAccount = buildCaptionsByAccount(versiculo, pool);
   writeCaptionsFile(fileBase, captionsByAccount);
 
-  // cleanup arquivo local (não precisamos guardar)
-  try { fs.unlinkSync(outPath); } catch {}
+  // cleanup
+  try { fs.rmSync(tmpDir, { recursive: true, force: true }); } catch {}
 
   process.stdout.write(JSON.stringify({
     video: entry.file,
@@ -295,8 +447,7 @@ async function main() {
     type: 'versiculo',
     versiculo_id: versiculo.id,
     versiculo_ref: versiculo.ref,
-    caption,
-    hashtags,
+    pexels_query: query,
   }));
 }
 

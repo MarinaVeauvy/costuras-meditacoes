@@ -1,50 +1,79 @@
 {
-  "niche": "cripto-educacao",
-  "hooks": [
-    "O que eu queria ter aprendido antes de começar nesse mercado.",
-    "Ninguém explica isso pra quem está começando.",
-    "A maioria das pessoas faz tudo errado desde o primeiro passo.",
-    "Se eu soubesse disso antes teria evitado muito erro.",
-    "Isso muda completamente como você enxerga esse mercado.",
-    "Por que tão pouca gente fala sobre isso?",
-    "O método que explicou tudo pra mim de forma simples.",
-    "Essa é a parte que as pessoas ignoram.",
-    "Não é o que você acha que é.",
-    "Antes eu pensava igual — hoje penso diferente."
+  "_doc": "Templates pós-diagnóstico Brendan Kane (29/04). Tema neutro família/fé/educação financeira. Hooks da Format Vault (≤8 palavras). CTAs focam em SAVE (peso máximo no IG).",
+  "niche": "fe-familia-educacao-financeira",
+  "format_vault_pool": {
+    "FV-001-counter-intuitive": [
+      "Tudo que te ensinaram sobre dinheiro está errado.",
+      "Você acha que está economizando. Não está.",
+      "A maioria não sabe disso sobre patrimônio.",
+      "Trabalhar mais não vai te enriquecer.",
+      "O que ricos fazem diferente — e ninguém conta.",
+      "Você está fazendo isso ao contrário."
+    ],
+    "FV-005-secret-reveal": [
+      "O que ninguém conta sobre construir patrimônio.",
+      "O segredo que famílias prósperas guardam.",
+      "Isso aqui mudou tudo na minha casa.",
+      "Ninguém te ensinou isso na escola.",
+      "O que mães prósperas fazem diferente.",
+      "A verdade que poucos têm coragem de falar."
+    ],
+    "FV-007-data-drop": [
+      "97% das famílias erram nisso aqui.",
+      "9 em cada 10 fazem o mesmo erro.",
+      "85% das pessoas perdem dinheiro por isso.",
+      "Só 3% sabem dessa diferença.",
+      "70% das mulheres nunca aprenderam isso.",
+      "Apenas 1 em 100 entende isso."
+    ],
+    "FV-006-pattern-interrupt": [
+      "Pare. Você precisa ver isso.",
+      "Espera — leia até o fim.",
+      "Salve isso agora.",
+      "Você precisa saber disso hoje."
+    ]
+  },
+  "ctas_save_focused": [
+    "Salve pra ler depois 🤍",
+    "Salva esse aqui pra não esquecer 🤍",
+    "Marca aquela amiga que precisa ver isso 💛",
+    "Compartilha com quem precisa ouvir isso ✨",
+    "Comenta SIM se concorda 🙏",
+    "Salva — você vai lembrar disso amanhã 🤍"
   ],
-  "ctas": [
-    "Método completo no link da bio.",
-    "Conteúdo detalhado no link da bio.",
+  "ctas_link_bio_legacy": [
+    "Conteúdo completo no link da bio.",
     "Material completo — link na bio.",
-    "Tudo explicado no link abaixo.",
-    "Link na bio pra saber mais.",
-    "Bio → link → conteúdo."
+    "Bio → link → mais conteúdo."
   ],
   "forbidden_words": [
+    "cripto", "criptomoeda", "criptomoedas", "bitcoin", "blockchain", "ethereum", "btc",
+    "trading", "trader", "investir", "investimento", "investimentos",
     "garantido", "garantia", "sem risco", "lucro certo",
     "R$1000", "R$10.000", "mil reais", "ganhe", "enriqueça rápido",
-    "sem trabalho", "fácil", "100%", "comprovado",
+    "sem trabalho", "100%", "comprovado",
     "dinheiro fácil", "milionário", "escala", "sinais",
-    "fique rico", "riqueza rápida"
+    "fique rico", "riqueza rápida", "Bruno Aguiar", "MAC"
   ],
   "preferred_words": [
-    "método", "conteúdo", "estudo", "aprendizado", "mercado",
-    "conhecimento", "educação", "entendimento", "compreensão",
-    "fundamento", "conceito", "princípio", "pilar"
+    "método", "conteúdo", "estudo", "aprendizado", "patrimônio",
+    "conhecimento", "educação financeira", "entendimento", "consciência",
+    "fundamento", "conceito", "princípio", "pilar", "família próspera",
+    "propósito", "abundância", "sabedoria", "bençãos", "responsabilidade"
   ],
   "hashtags_instagram": [
-    "#cripto #bitcoin #educacaofinanceira #blockchain #mercadocripto #investimentos #financas #empreendedorismodigital #liberdadefinanceira #mulherinvestidora",
-    "#cripto #blockchain #btc #educacao #financas #mercadofinanceiro #aprenderinvestir #financaspessoais #empreendedora #mulher",
-    "#criptomoedas #bitcoin #ethereum #blockchain #aprendiz #estudando #financaspessoais #investimentos #prosperidade #fe"
+    "#fé #família #propósito #educacaofinanceira #patrimônio #famíliapróspera #vidacomproposito #organizefinanceira #esperança #gratidão",
+    "#deus #família #propósito #planejamentofinanceiro #poupar #famíliapróspera #fé #salmosdodia #bençãos #gratidão",
+    "#fé #propósito #abundância #educacaofinanceira #patrimôniofamiliar #sabedoria #provérbios #liberdadefinanceira #famíliacomdeus #esperança"
   ],
   "hashtags_tiktok": [
-    "#cripto #bitcoin #financas #educacao #aprender #fyp #parati",
-    "#criptomoedas #blockchain #btc #estudo #financas #fy",
-    "#mercadocripto #investir #aprender #financaspessoais #fyp"
+    "#fé #deus #família #propósito #fyp #parati #cristã",
+    "#famíliapróspera #educacaofinanceira #propósito #fé #fyp",
+    "#sabedoria #provérbios #família #patrimônio #fyp #deus"
   ],
   "hashtags_youtube": [
-    "#Shorts #Cripto #Bitcoin #EducacaoFinanceira #Blockchain",
-    "#Shorts #Criptomoedas #Investimentos #FinancasPessoais",
-    "#Shorts #Blockchain #BTC #MercadoCripto"
+    "#Shorts #Fé #Família #Propósito",
+    "#Shorts #EducacaoFinanceira #Família #Patrimônio",
+    "#Shorts #Propósito #Sabedoria #Família"
   ]
 }

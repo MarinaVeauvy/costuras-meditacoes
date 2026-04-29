@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 /**
- * Midas Caption Generator
+ * Midas Caption Generator v2 — Format Vault edition
  *
- * Usa Claude Haiku pra gerar 3 captions variadas (uma por conta/persona)
- * mantendo estrutura Hook + Valor + CTA da metodologia Elite Flow.
+ * Reescrito 29/04/2026 pós-diagnóstico Brendan Kane:
+ * - Tema NEUTRO (família/fé/educação financeira) — não cripto direto
+ * - Hooks ≤ 8 palavras das Format Vault categories (FV-001/005/007)
+ * - 3 linhas máximo por caption (hook + body 1 linha + CTA)
+ * - CTA save-focused (peso máximo no IG algoritmo)
+ * - Hashtags neutras
  *
  * Uso:
  *   node midas-generate-captions.js --video=corte_00001.mp4 [--transcript="..."]
@@ -11,9 +15,8 @@
  * Output:
  *   midas/captions/corte_00001.json
  *   {
- *     pros_peridade_do_reino: { hook, body, cta, hashtags_ig, hashtags_tt, hashtags_yt },
- *     orar_prosperar: { ... },
- *     liberdade_com_fe: { ... }
+ *     pros_peridade_do_reino: { hook, body, cta, hashtags_*, caption_* },
+ *     orar_prosperar: { ... }
  *   }
  */
 
@@ -36,11 +39,11 @@ function parseArgs() {
 
 function personaContext(persona) {
   const contexts = {
-    'prosperidade-do-reino': 'Fé cristã + mercado cripto. Linguagem inspiracional mas educativa, referência a estudo responsável de investimentos. Audiência: mulheres evangélicas 28-50 curiosas sobre mercado financeiro.',
-    'mae-empreendedora': 'Mãe de família aprendendo sobre cripto. Linguagem direta e acessível, sem jargão. Audiência: mães 30-45 começando a estudar investimentos.',
-    'transformacao': 'Jornada pessoal de estudo do mercado cripto. Testemunho de aprendizado (não de lucro). Audiência: mulheres 25-45 buscando entender alternativas financeiras.',
+    'prosperidade-do-reino': 'Mulher cristã, 28-50, busca conteúdo de fé + sabedoria prática + organização de vida e família. Ouve sobre Provérbios, prosperidade bíblica, propósito.',
+    'mae-empreendedora': 'Mãe de família 30-45, evangélica, busca conteúdo prático que cabe na rotina puxada. Ouve sobre família, educação financeira simples, organizar a casa, criar filhos com propósito.',
+    'transformacao': 'Mulher 25-45 em transição de vida, busca testemunho real de transformação. Ouve sobre superação, fé prática, mudanças de mentalidade.',
   };
-  return contexts[persona] || 'Educação cripto genérica';
+  return contexts[persona] || 'Conteúdo neutro fé/família/educação';
 }
 
 async function generateCaptions({ videoFile, transcript }) {
@@ -48,46 +51,57 @@ async function generateCaptions({ videoFile, transcript }) {
   const templates = JSON.parse(fs.readFileSync(TEMPLATES_PATH, 'utf8'));
 
   const accountsBrief = config.accounts
-    .filter(a => a.active || a.persona !== 'PENDING')
-    .map(a => `- ${a.id} (@${a.instagram_handle}): ${personaContext(a.persona)}`)
+    .filter(a => a.active)
+    .map(a => `- ${a.id}: ${personaContext(a.persona)}`)
     .join('\n');
 
   const forbiddenList = templates.forbidden_words.join(', ');
+  const formatVaultDescription = `
+FORMAT VAULT (Brendan Kane) — escolha UM por hook:
+- FV-001 Counter-Intuitive: "Tudo que te ensinaram sobre X está errado."
+- FV-005 Secret Reveal: "O que ninguém conta sobre Y."
+- FV-007 Data Drop: "97% das pessoas erram nisso."
+- FV-006 Pattern Interrupt: "Pare. Você precisa ver isso."`;
 
-  const prompt = `Você é estrategista de conteúdo educativo sobre MERCADO CRIPTO para público feminino brasileiro.
+  const prompt = `Você é estrategista de conteúdo viral para Instagram Reels brasileiro, audiência feminina cristã.
 
-O conteúdo será publicado em 3 contas com personas distintas:
+Contexto: contas novas, 0 followers, precisam SAIR DO ZERO. Tema cripto/investir queimou o algoritmo nos primeiros 6 posts. Pivô estratégico: conteúdo neutro de FAMÍLIA + FÉ + EDUCAÇÃO FINANCEIRA básica.
 
+Contas:
 ${accountsBrief}
 
-Contexto do corte${transcript ? ` (transcrição):\n${transcript}` : ` (arquivo: ${videoFile}, transcrição indisponível — inferir tema educação cripto/fundamentos de blockchain/lições de investimento)`}
+Vídeo (corte): ${videoFile}${transcript ? `\nTranscrição: ${transcript}` : '\n(transcrição indisponível — inferir tema educativo de patrimônio/família/sabedoria financeira)'}
 
-Estrutura obrigatória por caption (Código Viral):
-1. HOOK (1 linha, 3s de leitura, intrigante/contra-intuitivo/curiosidade)
-2. VALOR (2-4 linhas, ensina/intriga algo sobre aprender o mercado cripto)
-3. CTA (1 linha curta direcionando pro link na bio)
+${formatVaultDescription}
 
-REGRAS CRÍTICAS (anti-ban das plataformas):
-- Português BR coloquial, sem vocabulário corporativo
-- Cada persona usa linguagem DIFERENTE (não copia-cola)
-- NUNCA mencione "Bruno Aguiar", "MAC", "afiliado"
-- NUNCA prometa retorno financeiro específico (valores, percentuais, prazo)
-- NUNCA use palavras proibidas: ${forbiddenList}
-- Use framing EDUCATIVO: "aprender", "estudar", "entender", "conhecer"
-- Posicione como informação, não como promessa
-- Emojis com moderação (1-3 por caption)
-- Evite gatilhos de urgência explícitos ("última chance", "sai do ar hoje")
+ESTRUTURA OBRIGATÓRIA por persona (3 linhas máximo):
+1. HOOK (≤ 8 palavras, escolher UM Format Vault, scroll-stop garantido nos 3s primeiros)
+2. BODY (1 linha curta, 10-15 palavras, fecha o curiosity gap parcialmente)
+3. CTA (1 linha, focado em SAVE — máximo peso algoritmo IG)
 
-Retorne JSON válido no formato:
+REGRAS DURAS (anti-ban + algoritmo):
+- TEMA NEUTRO: foque em "patrimônio familiar", "educação financeira", "famílias prósperas", "sabedoria de Provérbios", "propósito"
+- NUNCA mencione palavras proibidas: ${forbiddenList}
+- Hook = MÁXIMO 8 palavras, sem rodeio
+- Body = 1 linha, sem floreio
+- CTA = puxa SAVE: "Salve pra ler depois", "Salva pra não esquecer", "Marca aquela amiga que precisa ver"
+- Português BR coloquial, sem corporativo
+- Linguagem feminina, calorosa, direta
+- 1 emoji máximo por caption (no final do CTA)
+- Cada persona tem TOM próprio (não copia-cola)
+
+Retorne JSON válido APENAS, sem markdown:
 {
-  "pros_peridade_do_reino": { "hook": "...", "body": "...", "cta": "..." },
-  "orar_prosperar": { "hook": "...", "body": "...", "cta": "..." },
-  "liberdade_com_fe": { "hook": "...", "body": "...", "cta": "..." }
-}
+  "pros_peridade_do_reino": {
+    "hook": "...",
+    "body": "...",
+    "cta": "...",
+    "format_used": "FV-XXX"
+  },
+  "orar_prosperar": { ... }
+}`;
 
-Retorne APENAS o JSON, sem markdown nem explicação.`;
-
-  const captions = await generate(prompt, { json: true, maxTokens: 1500 });
+  const captions = await generate(prompt, { json: true, maxTokens: 1200 });
 
   const pickRandom = arr => arr[Math.floor(Math.random() * arr.length)];
 
@@ -95,7 +109,6 @@ Retorne APENAS o JSON, sem markdown nem explicação.`;
     const c = captions[accountId];
     c.full_caption = `${c.hook}\n\n${c.body}\n\n${c.cta}`;
 
-    // Rotação randomizada de hashtags entre variações (anti-detecção de bot farm)
     c.hashtags_instagram = pickRandom(templates.hashtags_instagram);
     c.hashtags_tiktok = pickRandom(templates.hashtags_tiktok);
     c.hashtags_youtube = pickRandom(templates.hashtags_youtube);
@@ -104,12 +117,12 @@ Retorne APENAS o JSON, sem markdown nem explicação.`;
     c.caption_tiktok = `${c.full_caption}\n\n${c.hashtags_tiktok}`;
     c.caption_youtube = `${c.hook} ${c.hashtags_youtube}`;
 
-    // Validação anti-ban: checa palavras proibidas
+    // Validação anti-ban
     const forbidden = templates.forbidden_words || [];
     const fullText = c.caption_ig.toLowerCase();
     const violations = forbidden.filter(w => fullText.includes(w.toLowerCase()));
     if (violations.length) {
-      console.warn(`⚠️  [${accountId}] Possível gatilho detectado: ${violations.join(', ')}. Considere regenerar.`);
+      console.warn(`⚠️  [${accountId}] Gatilho detectado: ${violations.join(', ')}.`);
       c.warnings = violations;
     }
   }
@@ -125,10 +138,10 @@ async function main() {
   }
 
   if (!process.env.OPENROUTER_API_KEY && !process.env.GEMINI_API_KEY && !process.env.OPENAI_API_KEY && !process.env.ANTHROPIC_API_KEY) {
-    throw new Error('Nenhum AI provider configurado (OPENROUTER_API_KEY, GEMINI_API_KEY, OPENAI_API_KEY ou ANTHROPIC_API_KEY)');
+    throw new Error('Nenhum AI provider configurado');
   }
 
-  console.log(`Gerando captions pra ${args.video}...`);
+  console.log(`Gerando captions Format Vault pra ${args.video}...`);
   const captions = await generateCaptions({
     videoFile: args.video,
     transcript: args.transcript || null,
@@ -140,7 +153,8 @@ async function main() {
   console.log(`✅ Captions salvas em ${outPath}`);
 
   for (const accountId of Object.keys(captions)) {
-    console.log(`\n--- ${accountId} ---\n${captions[accountId].full_caption}`);
+    const c = captions[accountId];
+    console.log(`\n--- ${accountId} (${c.format_used || 'unknown'}) ---\n${c.full_caption}`);
   }
 }
 
