@@ -17,6 +17,7 @@ const CONFIG_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'account
 const MANIFEST_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'cortes-manifest.json');
 const STATE_IG = path.join(__dirname, '..', '..', 'midas', 'state', 'published-ig.json');
 const STATE_YT = path.join(__dirname, '..', '..', 'midas', 'state', 'published-yt.json');
+const ROTATION_PATH = path.join(__dirname, '..', '..', 'midas', 'state', 'post-rotation.json');
 
 function parseArgs() {
   const args = {};
@@ -32,6 +33,26 @@ function loadJson(filepath, defaultVal = null) {
   return JSON.parse(fs.readFileSync(filepath, 'utf8'));
 }
 
+function loadRotation() {
+  const r = loadJson(ROTATION_PATH, { last_type: null });
+  return r;
+}
+
+function saveRotation(lastType) {
+  const fsLocal = require('fs');
+  fsLocal.mkdirSync(path.dirname(ROTATION_PATH), { recursive: true });
+  fsLocal.writeFileSync(ROTATION_PATH, JSON.stringify({ last_type: lastType, updated_at: new Date().toISOString() }, null, 2));
+}
+
+function decideType(args) {
+  // Se forçado via flag, respeita
+  if (args.type === 'corte_mac' || args.type === 'versiculo') return args.type;
+  // Alterna baseado no último tipo postado
+  const r = loadRotation();
+  if (r.last_type === 'corte_mac') return 'versiculo';
+  return 'corte_mac'; // default e após versiculo, volta pro corte
+}
+
 function main() {
   const args = parseArgs();
   const config = loadJson(CONFIG_PATH);
@@ -39,10 +60,36 @@ function main() {
   const ig = loadJson(STATE_IG, { published: [] });
   const yt = loadJson(STATE_YT, { published: [] });
 
-  if (!manifest.cortes.length) throw new Error('Manifest vazio — rode midas-upload-all-cortes.js');
-
   const allActive = config.accounts.filter(a => a.active);
   if (!allActive.length) throw new Error('Nenhuma conta ativa em accounts.json');
+
+  const postType = decideType(args);
+
+  // Para versiculo: a geração é dinâmica (no workflow), aqui só sinalizamos.
+  if (postType === 'versiculo') {
+    let account;
+    if (args.account) {
+      account = allActive.find(a => a.id === args.account);
+      if (!account) throw new Error(`Conta inativa/inexistente: ${args.account}`);
+    } else {
+      // round-robin simples por contagem total
+      const usageCount = Object.fromEntries(allActive.map(a => [a.id, 0]));
+      for (const p of ig.published) if (usageCount[p.account] !== undefined) usageCount[p.account]++;
+      for (const p of yt.published) if (usageCount[p.account] !== undefined) usageCount[p.account]++;
+      allActive.sort((a, b) => usageCount[a.id] - usageCount[b.id]);
+      account = allActive[0];
+    }
+    saveRotation('versiculo');
+    console.log(JSON.stringify({
+      type: 'versiculo',
+      account: account.id,
+      // video/url serão preenchidos pelo midas-generate-versiculo.js
+    }));
+    return;
+  }
+
+  // Tipo padrão: corte_mac
+  if (!manifest.cortes.length) throw new Error('Manifest vazio — rode midas-upload-all-cortes.js');
 
   let account;
   if (args.account) {
@@ -71,7 +118,9 @@ function main() {
     }
   }
 
+  saveRotation('corte_mac');
   console.log(JSON.stringify({
+    type: 'corte_mac',
     video: corte.file,
     account: account.id,
     url: corte.url,

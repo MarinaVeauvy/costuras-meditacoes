@@ -127,6 +127,12 @@ jobs:
           npm install @anthropic-ai/sdk dotenv
           pip install google-auth google-auth-oauthlib google-api-python-client
 
+      - name: Setup ffmpeg + fontes (para versículos)
+        run: |
+          # ffmpeg já vem no ubuntu-latest, mas garantimos
+          which ffmpeg || sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-liberation fonts-dejavu
+
       - name: Pick next video + account
         id: pick
         run: |
@@ -143,7 +149,22 @@ jobs:
             exit 0
           fi
 
-      - name: Generate captions
+          TYPE=$(jq -r '.type' pick.json)
+          echo "type=$TYPE" >> $GITHUB_OUTPUT
+
+      - name: Generate versículo (if type=versiculo)
+        if: ${{ steps.pick.outputs.type == 'versiculo' }}
+        run: |
+          node scripts/midas/midas-generate-versiculo.js > versiculo.json
+          cat versiculo.json
+          # Merge no pick.json: adiciona video, url, public_id
+          jq -s '.[0] * .[1]' pick.json versiculo.json > pick.merged.json
+          mv pick.merged.json pick.json
+          echo "📜 Pick final:"
+          cat pick.json
+
+      - name: Generate captions (corte_mac only — versiculo já gerou)
+        if: ${{ steps.pick.outputs.type == 'corte_mac' }}
         run: |
           VIDEO=$(jq -r '.video' pick.json)
           CAPTIONS="midas/captions/${VIDEO%.mp4}.json"
