@@ -1,5 +1,8 @@
 name: Content Automation
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   schedule:
     # Artigos: Seg 08:00 UTC (2 artigos/semana)

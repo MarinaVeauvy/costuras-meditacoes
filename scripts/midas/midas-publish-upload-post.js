@@ -151,15 +151,24 @@ async function main() {
 
   for (const r of final.results || []) {
     const platformKey = r.platform === 'youtube' ? 'yt' : r.platform;
-    appendPublished(platformKey, {
+    const postId = r.platform_post_id || r.post_id || r.external_id || initial.job_id;
+    const entry = {
       account: account.id,
       video: args.video,
       platform: r.platform,
-      postId: r.post_id || r.external_id || initial.job_id,
+      postId,
       success: r.success === true,
       status: r.status,
+      requestId: initial.request_id,
       publishedAt: new Date().toISOString(),
-    });
+    };
+    if (r.platform === 'youtube' && r.platform_post_id) {
+      entry.postUrl = `https://www.youtube.com/watch?v=${r.platform_post_id}`;
+    }
+    if (r.platform === 'instagram' && r.platform_post_id) {
+      entry.postUrl = `https://www.instagram.com/p/${r.platform_post_id}/`;
+    }
+    appendPublished(platformKey, entry);
   }
 
   const anySuccess = (final.results || []).some(r => r.success);
