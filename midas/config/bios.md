@@ -45,13 +45,22 @@ Prosperidade do Reino — conteúdo sobre mercado de criptomoedas explicado de f
 **Público:** Mulheres 30-45, evangélicas, foco família/casa
 **Display name TikTok:** `Orar e Prosperar`
 
-### Bio TikTok (ATIVA — Opção A neutra)
+### Bio TikTok (ATIVA — Opção A neutra com CTA WhatsApp)
 ```
 🙏 Mãe + fé + propósito
 📖 Provérbios na prática
-✨ IG: @orarprosperar
+💬 WhatsApp 28 99254-3596
 ```
-65 caracteres · zero gatilho cripto · alinhada com versículos do pipeline
+70 caracteres · CTA WhatsApp porque TikTok não permite link clicável <1k followers.
+AizyFlow já configurado: lead que chama no WA recebe boas-vindas automática.
+
+### Pinned comment recomendado (driver de algoritmo)
+```
+Comenta AMÉM que mando uma palavra de fé pra você 🤍
+```
+Driver de comentário (peso máximo no algoritmo TikTok). Marina responde manualmente
+no início; quando tiver volume → migrar pra ManyChat ($15/mês) pra automatizar
+o reply com link.
 
 ### Bio Instagram (ATIVA — neutra)
 ```
