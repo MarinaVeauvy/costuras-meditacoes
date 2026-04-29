@@ -14,7 +14,7 @@
  * Requer: ffmpeg no PATH, CLOUDINARY_* no env.
  */
 
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
