@@ -5,8 +5,10 @@ env:
 
 on:
   schedule:
-    # 11:00 BRT (14:00 UTC) Seg-Sáb. Domingo o script envia "descansa hoje".
-    - cron: '0 14 * * *'
+    # 11:23 BRT (14:23 UTC) — minuto fora dos populares (00/30) reduz delay
+    # do GitHub Actions cron em repos baixa atividade. Domingo: script envia
+    # "descansa hoje" (variabilidade humana melhora algoritmo per Brendan).
+    - cron: '23 14 * * *'
   workflow_dispatch:
 
 permissions:
