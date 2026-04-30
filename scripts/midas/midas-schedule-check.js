@@ -14,7 +14,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CONFIG_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'accounts.json');
-const STATE_IG = path.join(__dirname, '..', '..', 'midas', 'state', 'published-ig.json');
+const STATE_IG = path.join(__dirname, '..', '..', 'midas', 'state', 'published-instagram.json');
 
 function daysBetween(start, end) {
   const ms = end.getTime() - start.getTime();

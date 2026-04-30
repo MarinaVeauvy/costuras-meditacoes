@@ -61,11 +61,24 @@
       "slots_utc": ["13:00"],
       "label": "warmup"
     },
-    "week_2": {
-      "days": [8, 14],
+    "week_2_frozen": {
+      "days": [8, 9999],
       "slots_utc": ["10:30", "22:30"],
-      "label": "ramp"
+      "label": "ramp-frozen-by-metric-gate"
+    }
+  },
+  "ramp_frozen": {
+    "frozen_at": "2026-04-30",
+    "frozen_reason": "Brendan Kane gating — métricas 0 followers, conteúdo Brendan novo só rodou desde 29/04 noite, sem dados pra avaliar. Subir cadência antes de validar = piorar.",
+    "unfreeze_thresholds": {
+      "any_account_followers": 50,
+      "any_post_reach_min": 200,
+      "consecutive_posts_min": 3
     },
+    "unfreeze_action": "Marina avisa quando bater 50+ followers numa conta OU 3 posts seguidos com 200+ reach. Liberar para week_3_4 (3 slots/dia) restaurando schema completo abaixo."
+  },
+  "_ramp_up_schedule_full_archive": {
+    "_doc": "Cronograma original arquivado pra restaurar quando descongelar (gating por métrica)",
     "week_3_4": {
       "days": [15, 30],
       "slots_utc": ["10:30", "16:00", "22:30"],

@@ -115,6 +115,14 @@ function buildHtml(ctx) {
             • Pula <strong>perfis cripto</strong> — fica nas mães cristãs e família
           </p>
         </div>
+
+        <div style="background:#fef9ed;padding:16px 22px;border-radius:8px;border:1px dashed #d4a574;margin-top:14px;">
+          <p style="margin:0;font-size:12.5px;color:#8b6f3f;line-height:1.6;">
+            🎯 <strong>Cadência travada em 2 posts/dia/conta</strong> até bater
+            <strong>50+ followers numa conta</strong> ou <strong>3 posts com 200+ reach</strong>.
+            Quando atingir, me avisa que destravo pra 3 posts/dia (Brendan Kane gating).
+          </p>
+        </div>
       `
     }
 
