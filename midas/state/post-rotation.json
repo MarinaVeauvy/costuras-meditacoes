@@ -1,9 +1,8 @@
 {
   "accounts": {
     "pros_peridade_do_reino": {
-      "last_type": "versiculo",
-      "updated_at": "2026-04-29T23:31:48.559Z",
-      "_note": "Recebeu 4 versículos seguidos antes do fix v3 — próximo deve ser corte_mac"
+      "last_type": "corte_mac",
+      "updated_at": "2026-04-30T12:02:43.250Z"
     },
     "orar_prosperar": {
       "last_type": "corte_mac",
