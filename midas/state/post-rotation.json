@@ -1,4 +1,15 @@
 {
-  "last_type": "versiculo",
-  "updated_at": "2026-04-29T23:31:48.559Z"
+  "accounts": {
+    "pros_peridade_do_reino": {
+      "last_type": "versiculo",
+      "updated_at": "2026-04-29T23:31:48.559Z",
+      "_note": "Recebeu 4 versículos seguidos antes do fix v3 — próximo deve ser corte_mac"
+    },
+    "orar_prosperar": {
+      "last_type": "corte_mac",
+      "updated_at": "2026-04-29T22:42:23.564Z",
+      "_note": "Recebeu 2 cortes_mac seguidos antes do fix v3 — próximo deve ser versículo"
+    }
+  },
+  "_doc": "Estrutura v3 (29/04 fix bug intercala). Tipo alterna POR CONTA, não global."
 }
