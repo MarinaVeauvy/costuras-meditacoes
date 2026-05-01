@@ -5,9 +5,8 @@
       "updated_at": "2026-04-30T23:28:25.246Z"
     },
     "orar_prosperar": {
-      "last_type": "corte_mac",
-      "updated_at": "2026-04-29T22:42:23.564Z",
-      "_note": "Recebeu 2 cortes_mac seguidos antes do fix v3 — próximo deve ser versículo"
+      "last_type": "versiculo",
+      "updated_at": "2026-05-01T11:41:00.840Z"
     }
   },
   "_doc": "Estrutura v3 (29/04 fix bug intercala). Tipo alterna POR CONTA, não global."
