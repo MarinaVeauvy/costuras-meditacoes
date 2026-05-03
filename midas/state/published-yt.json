@@ -150,6 +150,16 @@
       "requestId": "65b13eee16ee4b7fb75028682c77dc98",
       "publishedAt": "2026-05-03T11:18:12.466Z",
       "postUrl": "https://www.youtube.com/watch?v=oPNB3dH0mnI"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v006.mp4",
+      "platform": "youtube",
+      "postId": "szLIdXHaMpI",
+      "success": true,
+      "requestId": "772966f9892349efb66a4a2624423466",
+      "publishedAt": "2026-05-03T23:12:35.746Z",
+      "postUrl": "https://www.youtube.com/watch?v=szLIdXHaMpI"
     }
   ]
 }
