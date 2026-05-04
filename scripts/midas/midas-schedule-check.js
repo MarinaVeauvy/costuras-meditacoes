@@ -21,7 +21,7 @@ function daysBetween(start, end) {
   return Math.floor(ms / (1000 * 60 * 60 * 24));
 }
 
-function matchSlot(nowUtc, slotsUtc, toleranceMin = 90) {
+function matchSlot(nowUtc, slotsUtc, toleranceMin = 180) {
   const hh = nowUtc.getUTCHours();
   const mm = nowUtc.getUTCMinutes();
   const nowMin = hh * 60 + mm;

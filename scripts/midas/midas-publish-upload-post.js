@@ -94,19 +94,26 @@ async function uploadPostCreate({ apiKey, profileUsername, platforms, videoUrl, 
   return data;
 }
 
-async function pollStatus({ apiKey, requestId, maxAttempts = 12, delaySec = 10 }) {
+async function pollStatus({ apiKey, requestId, maxAttempts = 24, delaySec = 10 }) {
+  let lastData = null;
   for (let i = 0; i < maxAttempts; i++) {
     await new Promise(r => setTimeout(r, delaySec * 1000));
     const res = await fetch(`${API_BASE}/uploadposts/status?request_id=${requestId}`, {
       headers: { Authorization: `Apikey ${apiKey}` },
     });
     const data = await res.json();
+    lastData = data;
     console.log(`  [${i + 1}/${maxAttempts}] status=${data.status} completed=${data.completed}/${data.total}`);
     if (data.status === 'completed' || data.status === 'failed' || data.completed === data.total) {
       return data;
     }
   }
-  throw new Error('Polling timeout — Upload-Post ainda processando após 2min');
+  // Timeout depois de 4min: aceitar success parcial se ao menos 1 plataforma já completou
+  if (lastData && lastData.completed >= 1 && Array.isArray(lastData.results)) {
+    console.warn(`⚠️  Polling timeout após 4min, mas ${lastData.completed}/${lastData.total} já completou — aceitando success parcial.`);
+    return { ...lastData, partial_timeout: true };
+  }
+  throw new Error('Polling timeout — Upload-Post ainda processando após 4min e nada completou');
 }
 
 async function main() {
