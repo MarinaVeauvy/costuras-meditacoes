@@ -160,6 +160,16 @@
       "requestId": "772966f9892349efb66a4a2624423466",
       "publishedAt": "2026-05-03T23:12:35.746Z",
       "postUrl": "https://www.youtube.com/watch?v=szLIdXHaMpI"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "versiculo_v007.mp4",
+      "platform": "youtube",
+      "postId": "gjiL1pcHq68",
+      "success": true,
+      "requestId": "f403e6563afd4d4f8df9860ce3da9626",
+      "publishedAt": "2026-05-04T23:33:10.698Z",
+      "postUrl": "https://www.youtube.com/watch?v=gjiL1pcHq68"
     }
   ]
 }
