@@ -200,6 +200,16 @@
       "requestId": "11bab07303354ff8a1eb7fbb3132d543",
       "publishedAt": "2026-05-05T17:54:46.342Z",
       "postUrl": "https://www.youtube.com/watch?v=24Z41T2XOsI"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00011.mp4",
+      "platform": "youtube",
+      "postId": "0qJ2VggVIdo",
+      "success": true,
+      "requestId": "419e39c786304bdda97e19b83563b62c",
+      "publishedAt": "2026-05-05T18:06:25.712Z",
+      "postUrl": "https://www.youtube.com/watch?v=0qJ2VggVIdo"
     }
   ]
 }
