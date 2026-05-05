@@ -103,10 +103,24 @@ Retorne JSON válido APENAS, sem markdown:
 
   const captions = await generate(prompt, { json: true, maxTokens: 1200 });
 
+  // VALIDAÇÃO crítica — sem hook/body/cta, abortar antes de propagar undefined
+  const activeAccountIds = config.accounts.filter(a => a.active).map(a => a.id);
+  for (const accountId of activeAccountIds) {
+    const c = captions[accountId];
+    if (!c || typeof c !== 'object') {
+      throw new Error(`Caption gerada não tem campo "${accountId}" — JSON malformado: ${JSON.stringify(captions).slice(0, 300)}`);
+    }
+    const missing = ['hook', 'body', 'cta'].filter(k => !c[k] || typeof c[k] !== 'string' || !c[k].trim());
+    if (missing.length) {
+      throw new Error(`Caption [${accountId}] sem campos obrigatórios: ${missing.join(', ')}. Recebido: ${JSON.stringify(c).slice(0, 200)}`);
+    }
+  }
+
   const pickRandom = arr => arr[Math.floor(Math.random() * arr.length)];
 
   for (const accountId of Object.keys(captions)) {
     const c = captions[accountId];
+    if (!c || !c.hook) continue; // skip se não passou validação acima (defensivo)
     c.full_caption = `${c.hook}\n\n${c.body}\n\n${c.cta}`;
 
     c.hashtags_instagram = pickRandom(templates.hashtags_instagram);

@@ -138,6 +138,16 @@ async function main() {
     throw new Error(`Captions ausentes pra ${account.id}`);
   }
 
+  // SAFETY NET — não publica com placeholders "undefined" do generator quebrado
+  const accountCaption = captions[account.id];
+  const fields = ['hook', 'caption_ig', 'caption_tiktok', 'caption_youtube', 'full_caption'];
+  for (const f of fields) {
+    const val = accountCaption[f];
+    if (typeof val === 'string' && val.toLowerCase().includes('undefined')) {
+      throw new Error(`ABORTADO: caption[${account.id}].${f} contém "undefined" — caption generator falhou. Não publicar.`);
+    }
+  }
+
   const platforms = account.upload_post_platforms || ['instagram', 'youtube'];
   console.log(`📤 [${account.id}] Publicando ${args.video} em: ${platforms.join(', ')}`);
 
