@@ -29,8 +29,9 @@
       "youtube_channel_handle": "@orar-prosperar",
       "tiktok_handle": "orar.e.prosperar0",
       "tiktok_status": "connected",
+      "facebook_status": "connected",
       "upload_post_username": "ProsperidadedoReino",
-      "upload_post_platforms": ["instagram", "youtube", "tiktok"],
+      "upload_post_platforms": ["instagram", "youtube", "tiktok", "facebook"],
       "active": true,
       "persona": "mae-empreendedora",
       "bio_angle": "Orar + prosperar — mães empreendedoras de fé"
