@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Métricas Midas — Marina Veauvy</title>
+  <style>
+    :root { --emerald: #2D6B4F; --emerald-dark: #1A4030; --gold: #C5A55A; --cream: #FDF8F0; --brown: #3E2C1C; --danger: #B85450; --warn: #D4A574; --ok: #4A8B5F; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--cream); color: var(--brown); padding: 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; color: var(--emerald-dark); margin-bottom: 0.3rem; }
+    .updated { color: #888; font-size: 0.85rem; margin-bottom: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .card { background: white; border-radius: 12px; padding: 1.3rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .card .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08rem; color: #888; margin-bottom: 0.5rem; }
+    .card .value { font-size: 2rem; font-weight: 700; color: var(--emerald-dark); }
+    .card .delta { font-size: 0.85rem; margin-top: 0.4rem; color: #666; }
+    section { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    section h2 { font-size: 1.1rem; color: var(--emerald-dark); margin-bottom: 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { padding: 0.6rem 0.5rem; text-align: left; border-bottom: 1px solid #EFE9DC; }
+    th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05rem; color: #888; font-weight: 700; }
+    .bar { display: inline-block; height: 10px; background: var(--emerald); border-radius: 5px; vertical-align: middle; margin-right: 6px; }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 8px; font-size: 0.75rem; font-weight: 700; }
+    .pill.corte { background: #FFE0B2; color: #804F00; }
+    .pill.story { background: #C5E1A5; color: #2E5316; }
+    .pill.versiculo { background: #E1BEE7; color: #4A148C; }
+    .alert { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.95rem; }
+    .alert.danger { background: #FFEBEE; color: var(--danger); border-left: 4px solid var(--danger); }
+    .alert.warn { background: #FFF8E1; color: #8B6914; border-left: 4px solid var(--warn); }
+    .alert.ok { background: #E8F5E9; color: var(--ok); border-left: 4px solid var(--ok); }
+    .empty { color: #999; font-style: italic; padding: 1rem; text-align: center; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>📊 Saúde do funil Midas (afiliada MAC)</h1>
+  <div class="updated" id="updated">Carregando...</div>
+
+  <div id="alerts"></div>
+
+  <div class="grid" id="kpis">
+    <div class="card"><div class="label">Posts publicados</div><div class="value" id="kpi-posts">—</div><div class="delta" id="kpi-posts-delta">por conta</div></div>
+    <div class="card"><div class="label">Mix corte/story/vers</div><div class="value" id="kpi-mix">—</div><div class="delta">target: 50/35/15</div></div>
+    <div class="card"><div class="label">Janela validação</div><div class="value" id="kpi-window">—</div><div class="delta" id="kpi-window-detail">desde 2026-05-06</div></div>
+    <div class="card"><div class="label">Vendas confirmadas</div><div class="value" id="kpi-sales">0</div><div class="delta">target: 3 em 30d</div></div>
+  </div>
+
+  <section>
+    <h2>📤 Posts por tipo (últimos 14 dias)</h2>
+    <table><thead><tr><th>Tipo</th><th>Quantidade</th><th>Distribuição</th></tr></thead><tbody id="tbl-types"></tbody></table>
+  </section>
+
+  <section>
+    <h2>👤 Posts por conta (últimos 14 dias)</h2>
+    <table><thead><tr><th>Conta</th><th>Total</th><th>Por tipo</th></tr></thead><tbody id="tbl-accounts"></tbody></table>
+  </section>
+
+  <section>
+    <h2>📖 Stories publicadas (template + voz)</h2>
+    <table><thead><tr><th>Data</th><th>Conta</th><th>Template</th><th>Voz</th><th>CTA</th></tr></thead><tbody id="tbl-stories"></tbody></table>
+  </section>
+
+  <section>
+    <h2>🎯 Captions por format_used (últimos 30 posts)</h2>
+    <table><thead><tr><th>Format</th><th>Uso</th><th>Distribuição</th></tr></thead><tbody id="tbl-formats"></tbody></table>
+  </section>
+</div>
+
+<script>
+const STATE_BASE = 'https://raw.githubusercontent.com/MarinaVeauvy/costuras-meditacoes/master/midas/state';
+const CAPTIONS_BASE = 'https://raw.githubusercontent.com/MarinaVeauvy/costuras-meditacoes/master/midas/captions';
+const VALIDATION_START = new Date('2026-05-06T00:00:00Z');
+const VALIDATION_DAYS = 30;
+
+async function loadJSON(url) {
+  try { const r = await fetch(url, { cache: 'no-store' }); return r.ok ? await r.json() : null; }
+  catch { return null; }
+}
+
+function classifyType(video) {
+  if (!video) return 'unknown';
+  if (video.startsWith('story_')) return 'story_post';
+  if (video.startsWith('versiculo_')) return 'versiculo';
+  if (video.startsWith('corte_')) return 'corte_mac';
+  return 'unknown';
+}
+
+function formatPill(type) {
+  const map = { corte_mac: ['corte','Corte'], story_post: ['story','Story'], versiculo: ['versiculo','Vers.'] };
+  const [klass, label] = map[type] || ['', type];
+  return `<span class="pill ${klass}">${label}</span>`;
+}
+
+(async function(){
+  const ig = await loadJSON(`${STATE_BASE}/published-instagram.json`) || { published: [] };
+  const stories = await loadJSON(`https://raw.githubusercontent.com/MarinaVeauvy/costuras-meditacoes/master/midas/config/stories-manifest.json`) || { stories: [] };
+
+  document.getElementById('updated').textContent = `Atualizado: ${new Date().toISOString().slice(0,16).replace('T',' ')}`;
+
+  const cutoff = Date.now() - 14 * 24 * 3600 * 1000;
+  const recent = (ig.published || []).filter(p => new Date(p.publishedAt).getTime() >= cutoff);
+
+  // KPIs
+  const total = recent.length;
+  document.getElementById('kpi-posts').textContent = total;
+  const accs = [...new Set(recent.map(p => p.account))];
+  document.getElementById('kpi-posts-delta').textContent = accs.map(a => `${a.split('_')[0]}: ${recent.filter(p => p.account === a).length}`).join(' · ');
+
+  const types = recent.map(p => classifyType(p.video));
+  const cnt = { corte_mac: 0, story_post: 0, versiculo: 0 };
+  types.forEach(t => { if (cnt[t] !== undefined) cnt[t]++; });
+  const pct = (n) => total ? Math.round(n/total*100) : 0;
+  document.getElementById('kpi-mix').textContent = `${pct(cnt.corte_mac)}/${pct(cnt.story_post)}/${pct(cnt.versiculo)}`;
+
+  const daysSince = Math.floor((Date.now() - VALIDATION_START.getTime()) / (24*3600*1000));
+  const daysLeft = VALIDATION_DAYS - daysSince;
+  document.getElementById('kpi-window').textContent = daysLeft > 0 ? `${daysLeft}d` : 'expirou';
+  document.getElementById('kpi-window-detail').textContent = `dia ${daysSince}/${VALIDATION_DAYS}`;
+
+  // Alerts
+  const alerts = document.getElementById('alerts');
+  if (cnt.story_post === 0 && total > 5) alerts.innerHTML += `<div class="alert danger">⚠️ Zero stories publicadas em ${total} posts. Pipeline deveria ter ~35% stories. Verificar workflow + logs.</div>`;
+  else if (cnt.story_post / total < 0.20 && total > 10) alerts.innerHTML += `<div class="alert warn">⚠️ Stories abaixo do target (${pct(cnt.story_post)}% vs 35%).</div>`;
+  if (daysLeft <= 7 && daysLeft > 0) alerts.innerHTML += `<div class="alert warn">⏰ ${daysLeft} dias até fim da janela de validação.</div>`;
+  if (daysLeft <= 0) alerts.innerHTML += `<div class="alert danger">⏰ Janela de validação expirou. Avaliar vendas e decidir continuação/pivot.</div>`;
+  if (!alerts.innerHTML) alerts.innerHTML = `<div class="alert ok">✅ Pipeline saudável.</div>`;
+
+  // Tipos
+  const tblT = document.getElementById('tbl-types');
+  ['corte_mac', 'story_post', 'versiculo'].forEach(t => {
+    const n = cnt[t];
+    const p = pct(n);
+    tblT.innerHTML += `<tr><td>${formatPill(t)}</td><td>${n}</td><td><span class="bar" style="width:${p*2}px"></span> ${p}%</td></tr>`;
+  });
+
+  // Por conta
+  const tblA = document.getElementById('tbl-accounts');
+  accs.forEach(a => {
+    const aPosts = recent.filter(p => p.account === a);
+    const byType = { corte_mac: 0, story_post: 0, versiculo: 0 };
+    aPosts.forEach(p => { const t = classifyType(p.video); if (byType[t] !== undefined) byType[t]++; });
+    tblA.innerHTML += `<tr><td>${a}</td><td>${aPosts.length}</td><td>${formatPill('corte_mac')}${byType.corte_mac} ${formatPill('story_post')}${byType.story_post} ${formatPill('versiculo')}${byType.versiculo}</td></tr>`;
+  });
+
+  // Stories detalhado
+  const tblS = document.getElementById('tbl-stories');
+  const recentStories = recent.filter(p => classifyType(p.video) === 'story_post').slice(-15).reverse();
+  if (!recentStories.length) tblS.innerHTML = '<tr><td colspan="5" class="empty">Nenhuma story publicada ainda. Será gerada automaticamente conforme rotação 50/35/15.</td></tr>';
+  else recentStories.forEach(p => {
+    const stMatch = (stories.stories || []).find(s => s.public_id && p.video && s.public_id.includes(p.video.replace('.mp4','')));
+    tblS.innerHTML += `<tr><td>${(p.publishedAt||'').slice(0,10)}</td><td>${p.account.split('_')[0]}</td><td>${stMatch?.story_template_id || p.video}</td><td>${stMatch?.voz || '—'}</td><td>${stMatch?.cta_id || '—'}</td></tr>`;
+  });
+
+  // Formats
+  const tblF = document.getElementById('tbl-formats');
+  const recent30 = (ig.published || []).slice(-30);
+  const formatCnt = {};
+  for (const p of recent30) {
+    const captionsUrl = `${CAPTIONS_BASE}/${(p.video || '').replace('.mp4','')}.json`;
+    const cap = await loadJSON(captionsUrl);
+    const f = cap?.[p.account]?.format_used || 'unknown';
+    formatCnt[f] = (formatCnt[f] || 0) + 1;
+  }
+  const total30 = Object.values(formatCnt).reduce((a,b)=>a+b, 0);
+  Object.entries(formatCnt).sort((a,b)=>b[1]-a[1]).forEach(([f,n]) => {
+    const p = total30 ? Math.round(n/total30*100) : 0;
+    tblF.innerHTML += `<tr><td>${f}</td><td>${n}</td><td><span class="bar" style="width:${p*2}px"></span> ${p}%</td></tr>`;
+  });
+})();
+</script>
+</body>
+</html>

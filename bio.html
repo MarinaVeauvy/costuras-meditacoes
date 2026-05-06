@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marina Veauvy — Patrimônio com Propósito</title>
+  <meta name="description" content="Educação financeira para mulheres cristãs empreendedoras">
+  <meta property="og:title" content="Marina Veauvy">
+  <meta property="og:type" content="website">
+
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','754010884230693');fbq('track','PageView');
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+    :root {
+      --gold: #C5A55A;
+      --emerald: #2D6B4F;
+      --emerald-dark: #1A4030;
+      --cream: #FDF8F0;
+      --brown: #3E2C1C;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Lato', sans-serif; background: linear-gradient(180deg, var(--emerald-dark) 0%, var(--emerald) 100%); color: var(--cream); min-height: 100vh; padding: 2rem 1rem 4rem; }
+    .container { max-width: 420px; margin: 0 auto; text-align: center; }
+    .avatar { width: 110px; height: 110px; border-radius: 50%; background: var(--gold); margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--emerald-dark); }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #E8D5A3; margin-bottom: 0.3rem; }
+    .handle { font-size: 0.95rem; opacity: 0.85; margin-bottom: 0.5rem; }
+    .tagline { font-size: 0.95rem; font-style: italic; opacity: 0.9; margin-bottom: 2rem; }
+    .links { display: flex; flex-direction: column; gap: 0.8rem; }
+    .link-card { display: block; padding: 1.1rem 1.4rem; background: rgba(253, 248, 240, 0.95); color: var(--brown); border-radius: 14px; text-decoration: none; font-weight: 700; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 14px rgba(0,0,0,0.15); }
+    .link-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+    .link-card .label { display: block; font-size: 1rem; }
+    .link-card .desc { display: block; font-size: 0.8rem; font-weight: 400; color: #6C5340; margin-top: 0.2rem; }
+    .link-card.primary { background: var(--gold); color: var(--brown); }
+    .link-card.whatsapp { background: #25D366; color: white; }
+    .link-card.whatsapp .desc { color: rgba(255,255,255,0.85); }
+    footer { margin-top: 3rem; font-size: 0.78rem; opacity: 0.6; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="avatar">M</div>
+  <h1>Marina Veauvy</h1>
+  <div class="handle">@marinaveauvy</div>
+  <div class="tagline">Patrimônio com propósito • Educação financeira para mulheres cristãs</div>
+
+  <div class="links">
+    <a href="#" class="link-card primary" data-track="method" data-dest="ticto">
+      <span class="label">📈 Conhecer o método de patrimônio</span>
+      <span class="desc">O conteúdo que mudou minha visão sobre construir riqueza</span>
+    </a>
+    <a href="#" class="link-card" data-track="guide" data-dest="bridge">
+      <span class="label">📖 Guia gratuito + auditoria financeira</span>
+      <span class="desc">3 versículos sobre patrimônio + planilha de 30 min</span>
+    </a>
+    <a href="#" class="link-card whatsapp" data-track="whatsapp" data-dest="wa">
+      <span class="label">💬 Falar comigo no WhatsApp</span>
+      <span class="desc">Tira dúvidas direto comigo</span>
+    </a>
+    <a href="#" class="link-card" data-track="newsletter" data-dest="newsletter">
+      <span class="label">✉️ Newsletter Dinheiro Simples</span>
+      <span class="desc">1 dica por semana, direto no seu e-mail</span>
+    </a>
+  </div>
+
+  <footer>
+    <a href="/politica-privacidade.html">Privacidade</a> · <a href="/termos.html">Termos</a><br>
+    <span style="opacity: 0.5;">© Marina Veauvy</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // Captura origem da bio (Instagram passa "?utm_source=ig" se configurado)
+  const params = new URLSearchParams(location.search);
+  const from = params.get('from') || params.get('utm_source') || 'bio';
+  const platform = params.get('p') || '';
+
+  const DESTINATIONS = {
+    ticto: 'https://payment.ticto.app/OA1B58ADA?pid=AFCAA6C80D',
+    bridge: '/patrimonio-com-proposito.html',
+    wa: 'https://wa.me/5528992543596?text=Oi%20Marina%2C%20vim%20do%20seu%20perfil',
+    newsletter: '/newsletter-dinheiro-simples.html',
+  };
+
+  const FB_EVENTS = {
+    ticto: 'InitiateCheckout',
+    bridge: 'Lead',
+    wa: 'Contact',
+    newsletter: 'Subscribe',
+  };
+
+  function trackClick(destKey, action) {
+    const url = new URL(DESTINATIONS[destKey], location.origin);
+    url.searchParams.set('utm_source', from);
+    url.searchParams.set('utm_medium', 'bio');
+    url.searchParams.set('utm_campaign', action);
+    if (platform) url.searchParams.set('utm_content', platform);
+
+    if (typeof fbq === 'function') fbq('track', FB_EVENTS[destKey] || 'Lead', { content_name: action });
+
+    // Beacon — não bloqueia o redirect mesmo se falhar
+    try {
+      const payload = JSON.stringify({ from, platform, action, dest: destKey, ts: Date.now() });
+      navigator.sendBeacon('/api/click/track', new Blob([payload], { type: 'application/json' }));
+    } catch {}
+
+    return url.toString();
+  }
+
+  document.querySelectorAll('[data-track]').forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      const dest = el.dataset.dest;
+      const action = el.dataset.track;
+      const finalUrl = trackClick(dest, action);
+      const isExternal = !DESTINATIONS[dest].startsWith('/');
+      if (isExternal) window.location.href = finalUrl;
+      else window.location.href = finalUrl;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

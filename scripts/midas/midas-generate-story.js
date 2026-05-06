@@ -49,7 +49,7 @@ function saveJson(p, data) {
   fs.writeFileSync(p, JSON.stringify(data, null, 2));
 }
 
-function pickNextStory(pool, args) {
+function pickNextStory(pool, args, accountPersona) {
   if (args['story-id']) {
     const t = pool.templates.find(x => x.id === args['story-id']);
     if (!t) throw new Error(`Story template não encontrado: ${args['story-id']}`);
@@ -57,11 +57,39 @@ function pickNextStory(pool, args) {
   }
   const rotation = loadJson(ROTATION_PATH, { used_ids: [] });
   const usedSet = new Set(rotation.used_ids);
-  const next = pool.templates.find(t => !usedSet.has(t.id));
-  if (next) return next;
-  console.error('⚠️  Pool de stories esgotado, reiniciando ciclo');
-  saveJson(ROTATION_PATH, { used_ids: [] });
-  return pool.templates[0];
+  const available = pool.templates.filter(t => !usedSet.has(t.id));
+
+  // Se pool esgotou, reseta
+  let candidates = available;
+  if (!candidates.length) {
+    console.error('⚠️  Pool esgotado, reiniciando ciclo');
+    saveJson(ROTATION_PATH, { used_ids: [] });
+    candidates = pool.templates;
+  }
+
+  // Persona priority weighted random — templates com priority alto pra essa persona aparecem mais
+  if (accountPersona) {
+    const weighted = [];
+    for (const t of candidates) {
+      const w = t.persona_priority?.[accountPersona] || 1;
+      for (let i = 0; i < w; i++) weighted.push(t);
+    }
+    if (weighted.length) return weighted[Math.floor(Math.random() * weighted.length)];
+  }
+  return candidates[Math.floor(Math.random() * candidates.length)];
+}
+
+function pickCta(pool) {
+  // Pondera por weekday_priority + weight
+  const today = new Date().getDay(); // 0=domingo, 6=sábado
+  const weighted = [];
+  for (const cta of pool.ctas_bio) {
+    let w = cta.weight || 1;
+    if (cta.weekday_priority && cta.weekday_priority.includes(today)) w *= 3;
+    else if (cta.weekday_priority) w = 0; // CTAs específicos de outros dias ficam fora
+    for (let i = 0; i < w; i++) weighted.push(cta);
+  }
+  return weighted.length ? weighted[Math.floor(Math.random() * weighted.length)] : pool.ctas_bio[0];
 }
 
 function markUsed(storyId) {
@@ -128,9 +156,19 @@ function escapeText(text) {
 }
 
 async function generateNarrative(template, persona) {
+  const vozInstructions = {
+    marina_primeira_pessoa: 'Marina conta a PRÓPRIA história em primeira pessoa. "Eu vivi isso", "comigo aconteceu", "no meu caso". Vulnerável, sem pose.',
+    aluna_anonima: 'Marina conta a história de uma ALUNA/AMIGA sem identificar. "Conversei com uma mulher que...", "uma mãe me contou que...", "acompanhei uma cliente que...". Terceira pessoa anônima.',
+    dado_externo: 'Marina cita um DADO/PESQUISA/PASSAGEM BÍBLICA como ponto de partida. "Pesquisa do X mostra...", "Provérbios 31 diz...", "estudo do Banco Mundial...". Voz informativa.',
+  };
+  const vozHint = vozInstructions[template.voz] || vozInstructions.marina_primeira_pessoa;
+
   const prompt = `Você é Marina Veauvy, mulher cristã, mãe, empreendedora, especialista em educação financeira feminina. Sua audiência: mulheres cristãs 28-50 que querem prosperar com propósito.
 
-Vou te dar uma estrutura de história. Você vai expandir em narrativa CONCRETA na voz da Marina, em 4 partes que serão narradas em vídeo de 24s:
+VOZ NARRATIVA (CRÍTICO — segue à risca):
+${vozHint}
+
+Vou te dar uma estrutura de história. Você vai expandir em narrativa CONCRETA, em 4 partes que serão narradas em vídeo de 24s:
 
 ESTRUTURA:
 - Tema: ${template.theme}
@@ -141,7 +179,6 @@ ESTRUTURA:
 
 REGRAS DE NARRAÇÃO:
 - Português BR coloquial, como se contando a uma amiga
-- Primeira pessoa, vulnerável mas não vitimista
 - USE 1 número específico, 1 valor concreto, OU 1 referência bíblica curta
 - Evite frases vazias ("transforma sua vida", "muda tudo")
 - Tom: testemunho, não pitch
@@ -208,13 +245,29 @@ function composeReel({ bgVideoPath, ttsAudioPath, narrative, ctaText, outputPath
     return lines.join('\n');
   };
 
+  // Hook overlay nos 3s iniciais — usa legenda_curta gerada pelo LLM (max ~10 palavras)
+  // Posicionado no topo, bem grande, alta contraste — scroll-stop garantido
+  const hookText = wrap((narrative.legenda_curta || narrative.frase_1_abertura).toUpperCase(), 18);
+
   // Caption-style legenda: cada frase aparece em janela temporal
-  // Total 24s: 0-5s frase1, 5-11s frase2, 11-18s frase3, 18-22s frase4, 22-24s CTA
+  // Total 24s: 0-3s HOOK overlay, 0-5s frase1, 5-11s frase2, 11-18s frase3, 18-22s frase4, 22-24s CTA
   const legenda1 = wrap(narrative.frase_1_abertura, 24);
   const legenda2 = wrap(narrative.frase_2_contexto, 24);
   const legenda3 = wrap(narrative.frase_3_descoberta, 24);
   const legenda4 = wrap(narrative.frase_4_transformacao, 24);
   const ctaWrapped = wrap(ctaText, 22);
+
+  const hookSlot = (text, start, end) =>
+    `drawtext=fontfile='${ff(fontFile)}'` +
+    `:text='${escapeText(text)}'` +
+    `:fontsize=72` +
+    `:fontcolor=#FFE082` +
+    `:borderw=4:bordercolor=black@0.95` +
+    `:box=1:boxcolor=black@0.65:boxborderw=24` +
+    `:line_spacing=14` +
+    `:x=(w-text_w)/2` +
+    `:y=h*0.18` +
+    `:enable='between(t,${start.toFixed(2)},${end.toFixed(2)})'`;
 
   const slot = (text, start, end, fontSize = 50, color = 'white') =>
     `drawtext=fontfile='${ff(fontFile)}'` +
@@ -240,12 +293,24 @@ function composeReel({ bgVideoPath, ttsAudioPath, narrative, ctaText, outputPath
     `:y=h*0.40` +
     `:enable='between(t,${start.toFixed(2)},${end.toFixed(2)})'`;
 
+  // Watermark sutil — aparece o vídeo todo, canto superior direito
+  const watermark =
+    `drawtext=fontfile='${ff(fontFile)}'` +
+    `:text='${escapeText('@marinaveauvy')}'` +
+    `:fontsize=28` +
+    `:fontcolor=white@0.55` +
+    `:borderw=1:bordercolor=black@0.7` +
+    `:x=w-text_w-30` +
+    `:y=40`;
+
   const drawtexts = [
+    hookSlot(hookText, 0.0, 3.0),
     slot(legenda1, 0.2, 5.0),
     slot(legenda2, 5.0, 11.0),
     slot(legenda3, 11.0, 18.0),
     slot(legenda4, 18.0, 22.0),
     ctaSlot(ctaWrapped, 22.0, TOTAL_DURATION),
+    watermark,
   ].join(',');
 
   const videoFilter = [
@@ -307,7 +372,7 @@ async function uploadCloudinary(filePath, publicId) {
   return json;
 }
 
-function buildCaptionsByAccount(template, narrative, ctaText, pool) {
+function buildCaptionsByAccount(template, narrative, cta, pool) {
   const accounts = loadJson(ACCOUNTS_PATH);
   if (!accounts || !accounts.accounts) throw new Error('accounts.json inválido');
   const hashtagsIg = pool.hashtags_default;
@@ -316,17 +381,20 @@ function buildCaptionsByAccount(template, narrative, ctaText, pool) {
 
   const hook = narrative.frase_1_abertura;
   const body = `${narrative.frase_2_contexto} ${narrative.frase_3_descoberta} ${narrative.frase_4_transformacao}`;
-  const fullCaption = `${hook}\n\n${body}\n\n${ctaText}`;
+  const fullCaption = `${hook}\n\n${body}\n\n${cta.text}`;
 
   const out = {};
   for (const acc of accounts.accounts.filter(a => a.active)) {
     out[acc.id] = {
       hook,
       body,
-      cta: ctaText,
+      cta: cta.text,
       format_used: 'ST-' + template.id.split('-')[1],
       cta_category: 'bio',
+      cta_id: cta.id,
+      cta_classification: cta.category,
       story_template_id: template.id,
+      story_voz: template.voz,
       full_caption: fullCaption,
       hashtags_instagram: hashtagsIg,
       hashtags_tiktok: hashtagsTk,
@@ -357,8 +425,20 @@ async function main() {
   const pool = loadJson(POOL_PATH);
   if (!pool || !pool.templates) throw new Error('Pool de stories não encontrado');
 
-  const template = pickNextStory(pool, args);
-  console.error(`📖 Gerando story ${template.id}: ${template.theme}`);
+  // Resolve persona da conta (passada via --account ou primeira ativa)
+  const accounts = loadJson(ACCOUNTS_PATH);
+  let accountPersona = null;
+  if (args.account) {
+    const acc = accounts.accounts.find(a => a.id === args.account);
+    accountPersona = acc?.persona;
+  } else if (accounts?.accounts?.length) {
+    const active = accounts.accounts.filter(a => a.active);
+    if (active.length === 1) accountPersona = active[0].persona;
+  }
+
+  const template = pickNextStory(pool, args, accountPersona);
+  console.error(`📖 Gerando story ${template.id} (voz=${template.voz}): ${template.theme}`);
+  if (accountPersona) console.error(`   persona=${accountPersona}, priority=${template.persona_priority?.[accountPersona] || 1}`);
 
   // 1. LLM gera narrativa concreta
   console.error(`🧠 LLM gerando narrativa...`);
@@ -381,12 +461,13 @@ async function main() {
   console.error(`🎤 TTS narrando ${narrative.narracao_completa.length} chars...`);
   generateTTS(narrative.narracao_completa, ttsPath);
 
-  // 4. CTA bio (pick random)
-  const ctaText = pool.ctas_bio[Math.floor(Math.random() * pool.ctas_bio.length)];
+  // 4. CTA bio (weighted por dia da semana + weight no pool)
+  const cta = pickCta(pool);
+  console.error(`📣 CTA: ${cta.id} (${cta.category})`);
 
   // 5. Compose reel
-  console.error(`🎬 Compondo Reel ${TOTAL_DURATION}s...`);
-  composeReel({ bgVideoPath: bgPath, ttsAudioPath: ttsPath, narrative, ctaText, outputPath: outPath });
+  console.error(`🎬 Compondo Reel ${TOTAL_DURATION}s (hook overlay + watermark)...`);
+  composeReel({ bgVideoPath: bgPath, ttsAudioPath: ttsPath, narrative, ctaText: cta.text, outputPath: outPath });
 
   // 6. Upload Cloudinary
   console.error(`☁️  Upload Cloudinary...`);
@@ -399,11 +480,14 @@ async function main() {
     url: up.secure_url || up.url,
     story_template_id: template.id,
     theme: template.theme,
+    voz: template.voz,
     duration: up.duration,
     bytes: up.bytes,
     pexels_query: query,
     pexels_id: pex.pexels_id,
-    cta_text: ctaText,
+    cta_id: cta.id,
+    cta_text: cta.text,
+    cta_category: cta.category,
     narrative,
     uploaded_at: new Date().toISOString(),
   };
@@ -411,7 +495,7 @@ async function main() {
   markUsed(template.id);
 
   // 7. Captions
-  const captionsByAccount = buildCaptionsByAccount(template, narrative, ctaText, pool);
+  const captionsByAccount = buildCaptionsByAccount(template, narrative, cta, pool);
   writeCaptionsFile(fileBase, captionsByAccount);
 
   // cleanup

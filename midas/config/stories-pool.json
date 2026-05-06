@@ -1,10 +1,17 @@
 {
-  "_doc": "Pool de templates de stories conversoras (afiliada MAC). Cada template tem estrutura dor→descoberta→transformação→cta-bio. LLM expande cada estrutura em narrativa concreta na voz da Marina (mulher cristã, mãe, empreendedora, audit financeira pessoal).",
+  "_doc": "Pool de templates de stories conversoras (afiliada MAC). Cada template tem estrutura dor→descoberta→transformação→cta-bio. LLM expande cada estrutura em narrativa concreta.",
   "_estrategia": "Story-based posts convertem ~70% das vendas afiliado. Tom: testemunho real (não pitch). Tema NEUTRO: fé, família, educação financeira doméstica, transformação pessoal. NUNCA mencionar cripto/MAC/Bruno Aguiar diretamente — link bio resolve.",
+  "_voz_categorias": {
+    "marina_primeira_pessoa": "Marina conta sua própria história — alta autenticidade, mas algoritmo penaliza repetição se 100% dos posts são 'eu'. Usar em ~50% dos posts.",
+    "aluna_anonima": "Marina conta história de aluna/amiga sem identificar — varia o foco. Usar em ~30%.",
+    "dado_externo": "Marina cita dado/pesquisa/citação histórica — quebra padrão. Usar em ~20%."
+  },
   "templates": [
     {
       "id": "ST-001-dinheiro-pecado",
       "theme": "Reconciliar fé e prosperidade",
+      "voz": "marina_primeira_pessoa",
+      "persona_priority": { "prosperidade-do-reino": 3, "mae-empreendedora": 1 },
       "estrutura": {
         "dor": "Crença de que prosperar materialmente seria contradição com fé cristã",
         "descoberta": "Provérbios 13:22 — herança que se estende aos filhos dos filhos. Patrimônio é mandato bíblico.",
@@ -16,6 +23,8 @@
     {
       "id": "ST-002-auditoria-cartao",
       "theme": "Audit financeiro pessoal",
+      "voz": "marina_primeira_pessoa",
+      "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 },
       "estrutura": {
         "dor": "Abriu fatura do cartão e percebeu R$ X em compras automáticas que não lembrava",
         "descoberta": "Não era falta de disciplina, era falta de sistema simples de revisão semanal",
@@ -27,6 +36,8 @@
     {
       "id": "ST-003-quebrava-dezembro",
       "theme": "Padrão financeiro repetido",
+      "voz": "marina_primeira_pessoa",
+      "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 },
       "estrutura": {
         "dor": "Todo final de ano chegava no zero, mesmo ganhando mais que o ano anterior",
         "descoberta": "Não era quanto entrava, era a ausência de estrutura pra reservar antes de gastar",
@@ -38,19 +49,23 @@
     {
       "id": "ST-004-mentora-paga",
       "theme": "Aprendizado pago vs improviso",
+      "voz": "aluna_anonima",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 },
       "estrutura": {
-        "dor": "Tentou aprender finanças sozinha por anos via YouTube grátis sem ver mudança real",
+        "dor": "Uma mulher tentou aprender finanças sozinha por anos via YouTube grátis sem ver mudança real",
         "descoberta": "Investiu em mentoria estruturada e em 30 dias entendeu o que 5 anos de conteúdo solto não entregaram",
         "transformacao": "Aprendizado caro virou economia depois — não é gasto, é alavanca"
       },
-      "tom": "testemunho de transformação prática",
+      "tom": "testemunho de transformação prática, terceira pessoa",
       "duracao_alvo_s": 22
     },
     {
       "id": "ST-005-3-erros",
       "theme": "Erros comuns em renda extra",
+      "voz": "aluna_anonima",
+      "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 },
       "estrutura": {
-        "dor": "Tentou 3 caminhos de renda extra que não deram certo (curso barato, MMN, vender produto físico sem público)",
+        "dor": "Uma mãe tentou 3 caminhos de renda extra que não deram certo (curso barato, MMN, vender produto físico sem público)",
         "descoberta": "Os 3 falharam pelo mesmo motivo: falta de sistema antes da execução",
         "transformacao": "O que destravou foi entender a sequência: primeiro o método, depois o esforço"
       },
@@ -60,6 +75,8 @@
     {
       "id": "ST-006-marido-financas",
       "theme": "Conversas difíceis sobre dinheiro com cônjuge",
+      "voz": "marina_primeira_pessoa",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 3 },
       "estrutura": {
         "dor": "Casal evitava conversa sobre finanças porque sempre virava briga",
         "descoberta": "Mudou o formato: planilha em vez de discussão verbal. Visual desarma emoção.",
@@ -71,6 +88,8 @@
     {
       "id": "ST-007-filho-perguntou",
       "theme": "Educação financeira de filhos",
+      "voz": "marina_primeira_pessoa",
+      "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 },
       "estrutura": {
         "dor": "Filho pequeno perguntou 'mãe, a gente é rico ou pobre?' e ela travou",
         "descoberta": "Percebeu que precisava ter uma resposta clara antes de ensinar conceito de dinheiro",
@@ -82,6 +101,8 @@
     {
       "id": "ST-008-igreja-x-mundo",
       "theme": "Duplo padrão cristã empreendedora",
+      "voz": "marina_primeira_pessoa",
+      "persona_priority": { "prosperidade-do-reino": 3, "mae-empreendedora": 1 },
       "estrutura": {
         "dor": "Igreja dizia 'desapega' e mundo dos negócios dizia 'invista mais'. Vivia em conflito interno.",
         "descoberta": "Achou um caminho do meio: prosperar com responsabilidade, sem culpa nem ostentação",
@@ -91,35 +112,83 @@
       "duracao_alvo_s": 24
     },
     {
-      "id": "ST-009-amiga-pediu-dinheiro",
-      "theme": "Limites financeiros emocionais",
+      "id": "ST-009-dado-mulheres-financas",
+      "theme": "Falha educacional sistêmica feminina",
+      "voz": "dado_externo",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 },
       "estrutura": {
-        "dor": "Amiga pediu R$X emprestado, ela emprestou e nunca recebeu de volta. Perdeu o dinheiro e a amizade.",
-        "descoberta": "Caridade sem critério não é virtude, é ausência de fronteira",
-        "transformacao": "Aprendeu que cuidar do próprio patrimônio é cuidar das pessoas que dependem dela"
+        "dor": "Pesquisa do Banco Mundial: mulheres recebem 50% menos educação financeira formal que homens em todo o mundo",
+        "descoberta": "Não é incapacidade — é literatura financeira escrita historicamente por homens, para homens",
+        "transformacao": "A geração atual de mulheres está reescrevendo as regras. Você pode ser parte disso."
       },
-      "tom": "lição amarga, generosidade madura",
+      "tom": "informativo, empoderador, dado-driven",
       "duracao_alvo_s": 22
     },
     {
-      "id": "ST-010-30-anos-sem-saber",
-      "theme": "Falha educacional sobre dinheiro",
+      "id": "ST-010-proverbios-31",
+      "theme": "Mulher virtuosa como modelo de gestão",
+      "voz": "dado_externo",
+      "persona_priority": { "prosperidade-do-reino": 3, "mae-empreendedora": 2 },
       "estrutura": {
-        "dor": "Cresceu sem nunca ouvir conversas sobre dinheiro em casa. Tabu absoluto.",
-        "descoberta": "Aos 30 percebeu que a falta de conversa em casa virou um buraco de 30 anos de letramento financeiro",
-        "transformacao": "Decidiu ser a primeira da família a quebrar o silêncio. Conversa hoje com filhos e mãe."
+        "dor": "Provérbios 31 é citado em casamentos, mas raramente lido como manual de gestão",
+        "descoberta": "A mulher de Provérbios 31 compra terras, planta vinha, negocia, lucra — e isso está na Bíblia há 3 mil anos",
+        "transformacao": "Sabedoria financeira feminina não é tendência moderna. É restauração de algo antigo."
       },
-      "tom": "intergeracional, libertador",
+      "tom": "exegético, surpreendente, cultura cristã",
       "duracao_alvo_s": 24
     }
   ],
   "ctas_bio": [
-    "O método que destravou isso tá no link da bio.",
-    "Link na bio pra quem quer aprofundar isso.",
-    "Compartilho o que aprendi no link da bio.",
-    "Tem um material no link da bio que mudou minha visão.",
-    "Se isso ressoou, dá uma olhada no link da bio.",
-    "Conteúdo completo no link da bio."
+    {
+      "id": "CTA-001-metodo-destravou",
+      "text": "O método que destravou isso tá no link da bio.",
+      "category": "promessa-especifica",
+      "weight": 3
+    },
+    {
+      "id": "CTA-002-aprofundar",
+      "text": "Link na bio pra quem quer aprofundar isso.",
+      "category": "convite-aberto",
+      "weight": 2
+    },
+    {
+      "id": "CTA-003-compartilho-bio",
+      "text": "Compartilho o que aprendi no link da bio.",
+      "category": "promessa-conteudo",
+      "weight": 2
+    },
+    {
+      "id": "CTA-004-material-mudou-visao",
+      "text": "Tem um material no link da bio que mudou minha visão.",
+      "category": "testemunho-pessoal",
+      "weight": 3
+    },
+    {
+      "id": "CTA-005-ressoou-bio",
+      "text": "Se isso ressoou, dá uma olhada no link da bio.",
+      "category": "soft-invite",
+      "weight": 1
+    },
+    {
+      "id": "CTA-006-conteudo-completo",
+      "text": "Conteúdo completo no link da bio.",
+      "category": "direto",
+      "weight": 1
+    },
+    {
+      "id": "CTA-007-domingo-familia",
+      "text": "Compartilha esse com sua família — link da bio tem mais.",
+      "category": "domingo-espiritual",
+      "weight": 2,
+      "weekday_priority": [0]
+    },
+    {
+      "id": "CTA-008-quinta-virada",
+      "text": "Link da bio pra quem tá pronta pra essa virada.",
+      "category": "quinta-comercial",
+      "weight": 2,
+      "weekday_priority": [4, 5]
+    }
   ],
   "pexels_queries": [
     "woman writing journal calm",
