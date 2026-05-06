@@ -23,8 +23,8 @@ async def main():
     ref = sys.argv[2]
     output = sys.argv[3]
 
-    # Texto narrado: versículo + pausa + referência
-    full_text = f"{texto} ... {ref}"
+    # Texto narrado: se tem ref (versículo), adiciona pausa + ref. Senão narra só texto (story_post).
+    full_text = f"{texto} ... {ref}" if ref and ref.strip() else texto
 
     voice = "pt-BR-FranciscaNeural"
     communicate = edge_tts.Communicate(

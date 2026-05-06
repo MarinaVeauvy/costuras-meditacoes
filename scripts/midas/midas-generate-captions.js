@@ -74,18 +74,20 @@ function getRecentCaptionsForAccount(accountId, limit = 3) {
 function buildRotationConstraints(activeAccountIds) {
   const lines = [];
   for (const accountId of activeAccountIds) {
-    const recent = getRecentCaptionsForAccount(accountId, 3);
-    if (recent.length === 0) {
-      lines.push(`- ${accountId}: sem histórico, escolha qualquer format`);
+    const recent = getRecentCaptionsForAccount(accountId, 6); // pega mais pra filtrar FV depois
+    // Filtra só FV-* (formats de cortes) — ignora ST-* (stories) que são pipeline diferente
+    const fvOnly = recent.filter(r => r.format && r.format.startsWith('FV-')).slice(0, 3);
+    if (fvOnly.length === 0) {
+      lines.push(`- ${accountId}: sem histórico de cortes, escolha qualquer format`);
       continue;
     }
-    const usedFormats = [...new Set(recent.map(r => r.format))];
-    const usedCtaCats = [...new Set(recent.map(r => r.cta_category).filter(Boolean))];
+    const usedFormats = [...new Set(fvOnly.map(r => r.format))];
+    const usedCtaCats = [...new Set(fvOnly.map(r => r.cta_category).filter(Boolean))];
     const allowedFormats = ALL_FORMATS.filter(f => !usedFormats.includes(f));
     const allowedCtaCats = CTA_CATEGORIES.filter(c => !usedCtaCats.includes(c));
     const formatPool = allowedFormats.length ? allowedFormats : ALL_FORMATS.filter(f => f !== usedFormats[0]);
     const ctaPool = allowedCtaCats.length ? allowedCtaCats : CTA_CATEGORIES.filter(c => c !== usedCtaCats[0]);
-    lines.push(`- ${accountId}: últimos hooks usaram [${usedFormats.join(', ')}] e CTA cat [${usedCtaCats.join(', ') || 'nenhum'}]. PROIBIDO repetir. ESCOLHA format de [${formatPool.join(', ')}] e cta_category de [${ctaPool.join(', ')}].`);
+    lines.push(`- ${accountId}: últimos cortes usaram [${usedFormats.join(', ')}] e CTA cat [${usedCtaCats.join(', ') || 'nenhum'}]. PROIBIDO repetir. ESCOLHA format de [${formatPool.join(', ')}] e cta_category de [${ctaPool.join(', ')}].`);
   }
   return lines.join('\n');
 }

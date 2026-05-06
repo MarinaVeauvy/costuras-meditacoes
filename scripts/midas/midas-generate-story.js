@@ -90,9 +90,9 @@ async function fetchPexelsVideo(query) {
   if (!res.ok) throw new Error(`Pexels falhou: ${res.status}`);
   const data = await res.json();
   if (!data.videos || !data.videos.length) throw new Error(`Pexels sem resultados: "${query}"`);
-  const ok = data.videos.filter(v => v.duration >= TOTAL_DURATION);
-  const candidates = ok.length ? ok : data.videos.filter(v => v.duration >= 10);
-  if (!candidates.length) throw new Error(`Nenhum Pexels >=10s pra "${query}"`);
+  // Aceita >=8s — ffmpeg faz stream_loop infinito pra cobrir 24s
+  const candidates = data.videos.filter(v => v.duration >= 8);
+  if (!candidates.length) throw new Error(`Nenhum Pexels >=8s pra "${query}"`);
   const video = candidates[Math.floor(Math.random() * candidates.length)];
   const files = video.video_files
     .filter(f => f.file_type === 'video/mp4' && f.height >= f.width)
@@ -148,11 +148,13 @@ REGRAS DE NARRAÇÃO:
 - NÃO mencione cripto, MAC, Bruno Aguiar, investimento direto
 - TEMA NEUTRO: fé, família, finanças domésticas, propósito
 
-ESTRUTURA OBRIGATÓRIA (4 frases curtas, total ~70 palavras):
-1. ABERTURA com gancho de dor (~12 palavras, scroll-stop nos 3s)
-2. CONTEXTUALIZAÇÃO da dor (~18 palavras, valida a realidade)
-3. DESCOBERTA / virada (~22 palavras, o insight que mudou)
-4. TRANSFORMAÇÃO + GANCHO PRA CTA (~18 palavras, fecha curiosity gap parcialmente)
+ESTRUTURA OBRIGATÓRIA (4 frases curtas, total MÁXIMO 55 palavras — Edge TTS narra ~150 palavras/min, precisa caber em 22s de áudio):
+1. ABERTURA com gancho de dor (~10 palavras, scroll-stop nos 3s)
+2. CONTEXTUALIZAÇÃO da dor (~14 palavras, valida a realidade)
+3. DESCOBERTA / virada (~17 palavras, o insight que mudou)
+4. TRANSFORMAÇÃO + GANCHO PRA CTA (~14 palavras, fecha curiosity gap parcialmente)
+
+⚠️ CONTAR PALAVRAS — se passar de 55 totais, REESCREVE menor.
 
 Retorne JSON válido APENAS:
 {
@@ -164,11 +166,28 @@ Retorne JSON válido APENAS:
   "legenda_curta": "frase principal pra texto na tela (~10 palavras)"
 }`;
 
-  const result = await generate(prompt, { json: true, maxTokens: 800 });
   const required = ['frase_1_abertura', 'frase_2_contexto', 'frase_3_descoberta', 'frase_4_transformacao', 'narracao_completa', 'legenda_curta'];
-  const missing = required.filter(k => !result[k] || typeof result[k] !== 'string' || !result[k].trim());
-  if (missing.length) throw new Error(`Narrativa incompleta: faltou ${missing.join(', ')}`);
-  return result;
+  // 1 retry — LLM às vezes retorna JSON malformado, campos faltando ou texto longo
+  let lastErr;
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const result = await generate(prompt, { json: true, maxTokens: 800 });
+      const missing = required.filter(k => !result[k] || typeof result[k] !== 'string' || !result[k].trim());
+      if (missing.length) throw new Error(`Narrativa incompleta: faltou ${missing.join(', ')}`);
+      // Validação de length — TTS Edge a -8% rate narra ~145 palavras/min
+      // Limite: 60 palavras pra ficar <=24s com folga
+      const wordCount = result.narracao_completa.split(/\s+/).filter(Boolean).length;
+      if (wordCount > 65) {
+        throw new Error(`Narrativa muito longa: ${wordCount} palavras (máx 65, alvo 55)`);
+      }
+      return result;
+    } catch (e) {
+      lastErr = e;
+      console.error(`⚠️  Tentativa ${attempt} falhou: ${e.message}`);
+      if (attempt < 2) console.error(`   Retentando...`);
+    }
+  }
+  throw new Error(`Narrativa falhou após 2 tentativas: ${lastErr.message}`);
 }
 
 function composeReel({ bgVideoPath, ttsAudioPath, narrative, ctaText, outputPath }) {
