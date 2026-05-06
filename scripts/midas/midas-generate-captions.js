@@ -46,10 +46,55 @@ function personaContext(persona) {
   return contexts[persona] || 'Conteúdo neutro fé/família/educação';
 }
 
+const ALL_FORMATS = ['FV-001', 'FV-005', 'FV-006', 'FV-007'];
+const CTA_CATEGORIES = ['save', 'comment', 'share', 'bio'];
+
+function getRecentCaptionsForAccount(accountId, limit = 3) {
+  if (!fs.existsSync(CAPTIONS_DIR)) return [];
+  const files = fs.readdirSync(CAPTIONS_DIR)
+    .filter(f => f.endsWith('.json'))
+    .map(f => ({ f, mtime: fs.statSync(path.join(CAPTIONS_DIR, f)).mtimeMs }))
+    .sort((a, b) => b.mtime - a.mtime)
+    .slice(0, limit * 2);
+
+  const recent = [];
+  for (const { f } of files) {
+    try {
+      const data = JSON.parse(fs.readFileSync(path.join(CAPTIONS_DIR, f), 'utf8'));
+      const c = data[accountId];
+      if (c && c.format_used) {
+        recent.push({ file: f, format: c.format_used, hook: c.hook, cta_category: c.cta_category });
+        if (recent.length >= limit) break;
+      }
+    } catch { /* ignore malformed */ }
+  }
+  return recent;
+}
+
+function buildRotationConstraints(activeAccountIds) {
+  const lines = [];
+  for (const accountId of activeAccountIds) {
+    const recent = getRecentCaptionsForAccount(accountId, 3);
+    if (recent.length === 0) {
+      lines.push(`- ${accountId}: sem histórico, escolha qualquer format`);
+      continue;
+    }
+    const usedFormats = [...new Set(recent.map(r => r.format))];
+    const usedCtaCats = [...new Set(recent.map(r => r.cta_category).filter(Boolean))];
+    const allowedFormats = ALL_FORMATS.filter(f => !usedFormats.includes(f));
+    const allowedCtaCats = CTA_CATEGORIES.filter(c => !usedCtaCats.includes(c));
+    const formatPool = allowedFormats.length ? allowedFormats : ALL_FORMATS.filter(f => f !== usedFormats[0]);
+    const ctaPool = allowedCtaCats.length ? allowedCtaCats : CTA_CATEGORIES.filter(c => c !== usedCtaCats[0]);
+    lines.push(`- ${accountId}: últimos hooks usaram [${usedFormats.join(', ')}] e CTA cat [${usedCtaCats.join(', ') || 'nenhum'}]. PROIBIDO repetir. ESCOLHA format de [${formatPool.join(', ')}] e cta_category de [${ctaPool.join(', ')}].`);
+  }
+  return lines.join('\n');
+}
+
 async function generateCaptions({ videoFile, transcript }) {
   const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
   const templates = JSON.parse(fs.readFileSync(TEMPLATES_PATH, 'utf8'));
 
+  const activeAccountIds = config.accounts.filter(a => a.active).map(a => a.id);
   const accountsBrief = config.accounts
     .filter(a => a.active)
     .map(a => `- ${a.id}: ${personaContext(a.persona)}`)
@@ -63,6 +108,8 @@ FORMAT VAULT (Brendan Kane) — escolha UM por hook:
 - FV-007 Data Drop: "97% das pessoas erram nisso."
 - FV-006 Pattern Interrupt: "Pare. Você precisa ver isso."`;
 
+  const rotationConstraints = buildRotationConstraints(activeAccountIds);
+
   const prompt = `Você é estrategista de conteúdo viral para Instagram Reels brasileiro, audiência feminina cristã.
 
 Contexto: contas novas, 0 followers, precisam SAIR DO ZERO. Tema cripto/investir queimou o algoritmo nos primeiros 6 posts. Pivô estratégico: conteúdo neutro de FAMÍLIA + FÉ + EDUCAÇÃO FINANCEIRA básica.
@@ -74,17 +121,25 @@ Vídeo (corte): ${videoFile}${transcript ? `\nTranscrição: ${transcript}` : '\
 
 ${formatVaultDescription}
 
+ROTAÇÃO OBRIGATÓRIA (anti-fadiga de hook):
+${rotationConstraints}
+
+CTA CATEGORIES — escolha UMA por persona (rotacionar conforme histórico acima):
+- save: "Salve pra ler depois 🤍", "Salva pra não esquecer 🤍"
+- comment: "Comenta AMÉM se concorda 🙏", "Comenta SIM e te mando o resto", "Comenta 1 se quer saber mais"
+- share: "Marca aquela amiga que precisa ver isso 💛", "Compartilha com quem precisa ouvir"
+- bio: "Conteúdo completo no link da bio", "Bio → link → eu te explico tudo"
+
 ESTRUTURA OBRIGATÓRIA por persona (3 linhas máximo):
-1. HOOK (≤ 8 palavras, escolher UM Format Vault, scroll-stop garantido nos 3s primeiros)
-2. BODY (1 linha curta, 10-15 palavras, fecha o curiosity gap parcialmente)
-3. CTA (1 linha, focado em SAVE — máximo peso algoritmo IG)
+1. HOOK (≤ 8 palavras, escolher UM Format Vault SEGUINDO ROTAÇÃO ACIMA, scroll-stop garantido nos 3s primeiros)
+2. BODY (1 linha curta, 10-15 palavras, OBRIGATÓRIO incluir 1 número específico OU 1 verbo de ação concreto — não use frases vazias tipo "transforma sua vida" ou "muda tudo")
+3. CTA (1 linha, escolher categoria SEGUINDO ROTAÇÃO ACIMA)
 
 REGRAS DURAS (anti-ban + algoritmo):
 - TEMA NEUTRO: foque em "patrimônio familiar", "educação financeira", "famílias prósperas", "sabedoria de Provérbios", "propósito"
 - NUNCA mencione palavras proibidas: ${forbiddenList}
 - Hook = MÁXIMO 8 palavras, sem rodeio
-- Body = 1 linha, sem floreio
-- CTA = puxa SAVE: "Salve pra ler depois", "Salva pra não esquecer", "Marca aquela amiga que precisa ver"
+- Body = 1 linha COM ESPECIFICIDADE (número, % , passo numerado, citação direta) — proibido genérico
 - Português BR coloquial, sem corporativo
 - Linguagem feminina, calorosa, direta
 - 1 emoji máximo por caption (no final do CTA)
@@ -96,7 +151,8 @@ Retorne JSON válido APENAS, sem markdown:
     "hook": "...",
     "body": "...",
     "cta": "...",
-    "format_used": "FV-XXX"
+    "format_used": "FV-XXX",
+    "cta_category": "save|comment|share|bio"
   },
   "orar_prosperar": { ... }
 }`;
@@ -104,7 +160,6 @@ Retorne JSON válido APENAS, sem markdown:
   const captions = await generate(prompt, { json: true, maxTokens: 1200 });
 
   // VALIDAÇÃO crítica — sem hook/body/cta, abortar antes de propagar undefined
-  const activeAccountIds = config.accounts.filter(a => a.active).map(a => a.id);
   for (const accountId of activeAccountIds) {
     const c = captions[accountId];
     if (!c || typeof c !== 'object') {
@@ -113,6 +168,19 @@ Retorne JSON válido APENAS, sem markdown:
     const missing = ['hook', 'body', 'cta'].filter(k => !c[k] || typeof c[k] !== 'string' || !c[k].trim());
     if (missing.length) {
       throw new Error(`Caption [${accountId}] sem campos obrigatórios: ${missing.join(', ')}. Recebido: ${JSON.stringify(c).slice(0, 200)}`);
+    }
+  }
+
+  // VALIDAÇÃO de rotação — se LLM repetir format do post anterior, log warning + fallback
+  for (const accountId of activeAccountIds) {
+    const c = captions[accountId];
+    const recent = getRecentCaptionsForAccount(accountId, 1);
+    if (recent.length && c.format_used && c.format_used === recent[0].format) {
+      console.warn(`⚠️  [${accountId}] LLM ignorou rotação: ${c.format_used} igual ao post anterior. Hook="${c.hook}"`);
+      c.warnings = (c.warnings || []).concat([`format_repeat:${c.format_used}`]);
+    }
+    if (!c.cta_category) {
+      console.warn(`⚠️  [${accountId}] cta_category ausente — LLM não retornou.`);
     }
   }
 

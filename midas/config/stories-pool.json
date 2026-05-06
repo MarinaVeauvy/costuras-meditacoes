@@ -1,0 +1,137 @@
+{
+  "_doc": "Pool de templates de stories conversoras (afiliada MAC). Cada template tem estrutura dor→descoberta→transformação→cta-bio. LLM expande cada estrutura em narrativa concreta na voz da Marina (mulher cristã, mãe, empreendedora, audit financeira pessoal).",
+  "_estrategia": "Story-based posts convertem ~70% das vendas afiliado. Tom: testemunho real (não pitch). Tema NEUTRO: fé, família, educação financeira doméstica, transformação pessoal. NUNCA mencionar cripto/MAC/Bruno Aguiar diretamente — link bio resolve.",
+  "templates": [
+    {
+      "id": "ST-001-dinheiro-pecado",
+      "theme": "Reconciliar fé e prosperidade",
+      "estrutura": {
+        "dor": "Crença de que prosperar materialmente seria contradição com fé cristã",
+        "descoberta": "Provérbios 13:22 — herança que se estende aos filhos dos filhos. Patrimônio é mandato bíblico.",
+        "transformacao": "Hoje vejo construir patrimônio como obediência, não tentação"
+      },
+      "tom": "vulnerável, primeira pessoa, sem moralismo",
+      "duracao_alvo_s": 22
+    },
+    {
+      "id": "ST-002-auditoria-cartao",
+      "theme": "Audit financeiro pessoal",
+      "estrutura": {
+        "dor": "Abriu fatura do cartão e percebeu R$ X em compras automáticas que não lembrava",
+        "descoberta": "Não era falta de disciplina, era falta de sistema simples de revisão semanal",
+        "transformacao": "Aplicou 1 hábito que cabe em 15 min/semana e mudou a relação com dinheiro"
+      },
+      "tom": "diário pessoal, números concretos",
+      "duracao_alvo_s": 22
+    },
+    {
+      "id": "ST-003-quebrava-dezembro",
+      "theme": "Padrão financeiro repetido",
+      "estrutura": {
+        "dor": "Todo final de ano chegava no zero, mesmo ganhando mais que o ano anterior",
+        "descoberta": "Não era quanto entrava, era a ausência de estrutura pra reservar antes de gastar",
+        "transformacao": "Inverteu a ordem: separa primeiro, vive com o que sobra. Pequena mudança, resultado grande."
+      },
+      "tom": "honesto, lições de mãe pra mulher empreendedora",
+      "duracao_alvo_s": 22
+    },
+    {
+      "id": "ST-004-mentora-paga",
+      "theme": "Aprendizado pago vs improviso",
+      "estrutura": {
+        "dor": "Tentou aprender finanças sozinha por anos via YouTube grátis sem ver mudança real",
+        "descoberta": "Investiu em mentoria estruturada e em 30 dias entendeu o que 5 anos de conteúdo solto não entregaram",
+        "transformacao": "Aprendizado caro virou economia depois — não é gasto, é alavanca"
+      },
+      "tom": "testemunho de transformação prática",
+      "duracao_alvo_s": 22
+    },
+    {
+      "id": "ST-005-3-erros",
+      "theme": "Erros comuns em renda extra",
+      "estrutura": {
+        "dor": "Tentou 3 caminhos de renda extra que não deram certo (curso barato, MMN, vender produto físico sem público)",
+        "descoberta": "Os 3 falharam pelo mesmo motivo: falta de sistema antes da execução",
+        "transformacao": "O que destravou foi entender a sequência: primeiro o método, depois o esforço"
+      },
+      "tom": "lista mental, ritmo rápido",
+      "duracao_alvo_s": 24
+    },
+    {
+      "id": "ST-006-marido-financas",
+      "theme": "Conversas difíceis sobre dinheiro com cônjuge",
+      "estrutura": {
+        "dor": "Casal evitava conversa sobre finanças porque sempre virava briga",
+        "descoberta": "Mudou o formato: planilha em vez de discussão verbal. Visual desarma emoção.",
+        "transformacao": "Reunião financeira mensal de 30 min virou rotina. Casamento melhorou junto."
+      },
+      "tom": "íntimo, cumplicidade feminina",
+      "duracao_alvo_s": 22
+    },
+    {
+      "id": "ST-007-filho-perguntou",
+      "theme": "Educação financeira de filhos",
+      "estrutura": {
+        "dor": "Filho pequeno perguntou 'mãe, a gente é rico ou pobre?' e ela travou",
+        "descoberta": "Percebeu que precisava ter uma resposta clara antes de ensinar conceito de dinheiro",
+        "transformacao": "Estudou pra educar a si mesma primeiro. Hoje conversa abertamente sobre dinheiro com os filhos."
+      },
+      "tom": "maternal, honesto",
+      "duracao_alvo_s": 22
+    },
+    {
+      "id": "ST-008-igreja-x-mundo",
+      "theme": "Duplo padrão cristã empreendedora",
+      "estrutura": {
+        "dor": "Igreja dizia 'desapega' e mundo dos negócios dizia 'invista mais'. Vivia em conflito interno.",
+        "descoberta": "Achou um caminho do meio: prosperar com responsabilidade, sem culpa nem ostentação",
+        "transformacao": "Construir patrimônio com propósito é diferente de acumular sem direção"
+      },
+      "tom": "reflexivo, espiritualmente maduro",
+      "duracao_alvo_s": 24
+    },
+    {
+      "id": "ST-009-amiga-pediu-dinheiro",
+      "theme": "Limites financeiros emocionais",
+      "estrutura": {
+        "dor": "Amiga pediu R$X emprestado, ela emprestou e nunca recebeu de volta. Perdeu o dinheiro e a amizade.",
+        "descoberta": "Caridade sem critério não é virtude, é ausência de fronteira",
+        "transformacao": "Aprendeu que cuidar do próprio patrimônio é cuidar das pessoas que dependem dela"
+      },
+      "tom": "lição amarga, generosidade madura",
+      "duracao_alvo_s": 22
+    },
+    {
+      "id": "ST-010-30-anos-sem-saber",
+      "theme": "Falha educacional sobre dinheiro",
+      "estrutura": {
+        "dor": "Cresceu sem nunca ouvir conversas sobre dinheiro em casa. Tabu absoluto.",
+        "descoberta": "Aos 30 percebeu que a falta de conversa em casa virou um buraco de 30 anos de letramento financeiro",
+        "transformacao": "Decidiu ser a primeira da família a quebrar o silêncio. Conversa hoje com filhos e mãe."
+      },
+      "tom": "intergeracional, libertador",
+      "duracao_alvo_s": 24
+    }
+  ],
+  "ctas_bio": [
+    "O método que destravou isso tá no link da bio.",
+    "Link na bio pra quem quer aprofundar isso.",
+    "Compartilho o que aprendi no link da bio.",
+    "Tem um material no link da bio que mudou minha visão.",
+    "Se isso ressoou, dá uma olhada no link da bio.",
+    "Conteúdo completo no link da bio."
+  ],
+  "pexels_queries": [
+    "woman writing journal calm",
+    "coffee morning routine warm",
+    "mother daughter conversation",
+    "hands praying soft light",
+    "open notebook pen warm tone",
+    "woman thinking window light",
+    "family dinner candle warm",
+    "wallet coins bible warm light",
+    "woman smiling reading book",
+    "child hand mother hand warm"
+  ],
+  "hashtags_default": "#mulhercrista #educacaofinanceirafeminina #financasdomesticas #familiaprospera #planejamentofamiliar #fe #proposito #organizacaofinanceira #mulheresdefe"
+}

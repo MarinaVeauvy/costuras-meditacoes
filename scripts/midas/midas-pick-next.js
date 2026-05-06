@@ -1,19 +1,21 @@
 #!/usr/bin/env node
 /**
- * Midas Next-Pick (v3 — alternância POR CONTA + state files corretos)
+ * Midas Next-Pick (v4 — 3 tipos: corte_mac | story_post | versiculo)
  *
- * Decide qual conta + qual tipo (corte_mac | versiculo) publicar agora.
+ * Decide qual conta + qual tipo publicar agora.
  *
- * Lógica nova (29/04 fix):
- * 1. Round-robin de conta lendo published-instagram.json + published-yt.json
- *    (BUG corrigido: antes lia published-ig.json que nunca era atualizado)
- * 2. Tipo alterna POR CONTA (não global). Cada conta tem seu próprio
- *    last_type em post-rotation.json. Garante intercalação 1:1 dentro
- *    de cada conta.
+ * Mix 50/35/15 (06/05 — pivot foco vendas afiliado MAC):
+ *   - 50% corte_mac: cortes do Bruno com hook overlay
+ *   - 35% story_post: narrativa Marina (gera 70% das vendas afiliado historicamente)
+ *   - 15% versiculo: alimenta feed humano
+ *
+ * Sequência por conta (ciclo de 20 posts): C S C S C V C S C S C V C S C V C S C V
+ * Onde C=corte_mac, S=story_post, V=versiculo
  *
  * Output: JSON no stdout
- *   versiculo: { type, account }
- *   corte_mac: { type, account, video, url, public_id }
+ *   versiculo:  { type: "versiculo", account }
+ *   story_post: { type: "story_post", account }
+ *   corte_mac:  { type: "corte_mac", account, video, url, public_id }
  */
 
 const fs = require('fs');
@@ -51,12 +53,21 @@ function saveRotation(rotation) {
   fs.writeFileSync(ROTATION_PATH, JSON.stringify(rotation, null, 2));
 }
 
+// Sequência ótima de 20 slots: 10 cortes (50%) + 7 stories (35%) + 3 versículos (15%)
+// Distribuição: nunca 2 versículos seguidos, nunca 3+ stories seguidas, intercala cortes/stories
+const ROTATION_SEQUENCE = [
+  'corte_mac', 'story_post', 'corte_mac', 'story_post', 'corte_mac',
+  'versiculo', 'corte_mac', 'story_post', 'corte_mac', 'story_post',
+  'corte_mac', 'versiculo', 'corte_mac', 'story_post', 'corte_mac',
+  'versiculo', 'corte_mac', 'story_post', 'corte_mac', 'story_post',
+];
+
 function decideTypeForAccount(accountId, args, rotation) {
   // Forçado por flag
-  if (args.type === 'corte_mac' || args.type === 'versiculo') return args.type;
+  if (['corte_mac', 'story_post', 'versiculo'].includes(args.type)) return args.type;
   const accState = rotation.accounts[accountId] || {};
-  if (accState.last_type === 'corte_mac') return 'versiculo';
-  return 'corte_mac'; // default e após versiculo, volta pro corte
+  const slotIdx = (accState.slot_idx || 0) % ROTATION_SEQUENCE.length;
+  return ROTATION_SEQUENCE[slotIdx];
 }
 
 function pickAccount(args, allActive, ig, yt) {
@@ -91,18 +102,25 @@ function main() {
   // 1. Escolhe conta primeiro (round-robin por usage)
   const account = pickAccount(args, allActive, ig, yt);
 
-  // 2. Decide tipo POR CONTA
+  // 2. Decide tipo POR CONTA via sequência fixa de 20 slots
   const postType = decideTypeForAccount(account.id, args, rotation);
 
-  // 3. Atualiza state da conta
+  // 3. Atualiza state — avança slot_idx (loop em 20)
+  const prevSlot = rotation.accounts[account.id]?.slot_idx || 0;
+  const nextSlot = (prevSlot + 1) % ROTATION_SEQUENCE.length;
   rotation.accounts[account.id] = {
     last_type: postType,
+    slot_idx: nextSlot,
     updated_at: new Date().toISOString(),
   };
   saveRotation(rotation);
 
   if (postType === 'versiculo') {
     console.log(JSON.stringify({ type: 'versiculo', account: account.id }));
+    return;
+  }
+  if (postType === 'story_post') {
+    console.log(JSON.stringify({ type: 'story_post', account: account.id }));
     return;
   }
 

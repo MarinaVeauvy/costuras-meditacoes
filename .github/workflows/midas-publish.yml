@@ -162,7 +162,18 @@ jobs:
           echo "📜 Pick final:"
           cat pick.json
 
-      - name: Generate captions (corte_mac only — versiculo já gerou)
+      - name: Generate story_post (if type=story_post)
+        if: ${{ steps.pick.outputs.type == 'story_post' }}
+        run: |
+          node scripts/midas/midas-generate-story.js > story.json
+          cat story.json
+          # Merge no pick.json: adiciona video, url, public_id
+          jq -s '.[0] * .[1]' pick.json story.json > pick.merged.json
+          mv pick.merged.json pick.json
+          echo "📖 Pick final:"
+          cat pick.json
+
+      - name: Generate captions (corte_mac only — versiculo e story_post já geraram)
         if: ${{ steps.pick.outputs.type == 'corte_mac' }}
         run: |
           VIDEO=$(jq -r '.video' pick.json)
