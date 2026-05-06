@@ -55,8 +55,8 @@
 
   <div class="links">
     <a href="#" class="link-card primary" data-track="method" data-dest="ticto">
-      <span class="label">📈 Conhecer o método de patrimônio</span>
-      <span class="desc">O conteúdo que mudou minha visão sobre construir riqueza</span>
+      <span class="label">📈 Assistir ao conteúdo completo</span>
+      <span class="desc">Aula gratuita que mudou minha visão sobre construir patrimônio</span>
     </a>
     <a href="#" class="link-card" data-track="guide" data-dest="bridge">
       <span class="label">📖 Guia gratuito + auditoria financeira</span>
@@ -85,15 +85,17 @@
   const from = params.get('from') || params.get('utm_source') || 'bio';
   const platform = params.get('p') || '';
 
+  // LP do Thiago = VSL Atomicat onde acontece a venda (timed reveal do checkout Ticto)
+  // Marina é afiliada via pid=AFCAA6C80D — UTMs preservadas via querystring
   const DESTINATIONS = {
-    ticto: 'https://payment.ticto.app/OA1B58ADA?pid=AFCAA6C80D',
+    ticto: 'https://novavidaprospera.com.br/',
     bridge: '/patrimonio-com-proposito.html',
     wa: 'https://wa.me/5528992543596?text=Oi%20Marina%2C%20vim%20do%20seu%20perfil',
     newsletter: '/newsletter-dinheiro-simples.html',
   };
 
   const FB_EVENTS = {
-    ticto: 'InitiateCheckout',
+    ticto: 'ViewContent', // VSL é content view; checkout intent é DENTRO da LP
     bridge: 'Lead',
     wa: 'Contact',
     newsletter: 'Subscribe',
