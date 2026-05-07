@@ -44,9 +44,11 @@ Conteúdo novo sobre estratégias financeiras, automação com IA, renda passiva
 ⚠️ Conteúdo educativo. Não é recomendação de investimento. Decisões financeiras são pessoais — estude e consulte profissional qualificado.
 
 #financas #investimentos #empreendedorismo #educacaofinanceira #rendapassiva #automacao
-
----
 """
+
+# Marker que identifica descrição já no novo padrão (channel-only, sem Marina)
+# Se descrição contém isso, não precisa atualizar
+NEW_FORMAT_MARKER = '🎯 SE INSCREVA NO CANAL'
 
 
 def parse_args():
@@ -102,9 +104,24 @@ def update_description(youtube, video_id, new_description, title):
     return youtube.videos().update(part='snippet', body=body).execute()
 
 
-def already_has_cta(description):
-    """Detecta se descrição já foi atualizada pra evitar duplicar"""
-    return AFFILIATE_LINK in (description or '')
+def already_in_new_format(description):
+    """Detecta se descrição já está 100% no novo padrão (channel-only AurumLab).
+    Verifica: tem o marker novo E não tem refs Marina Veauvy ainda apendadas no fim."""
+    desc = description or ''
+    if NEW_FORMAT_MARKER not in desc:
+        return False
+    # Se tem ref pessoal antiga apendada, NÃO está no novo formato (precisa re-substituir)
+    pessoal_markers = [
+        'wp.marinaveauvy.com.br',
+        'Marina Veauvy',
+        'marinaveauv04-20',
+        'Newsletters gratuitas',
+        '#iaparamulheres',
+        '#mulheresempreendedoras',
+    ]
+    if any(m in desc for m in pessoal_markers):
+        return False
+    return True
 
 
 def main():
@@ -157,13 +174,13 @@ def main():
             current_desc = ''
             current_title = v.get('title', 'Title')
 
-        if already_has_cta(current_desc):
-            print(f"  [{idx+1}/{len(videos)}] {video_id}: já tem CTA, skip")
+        if already_in_new_format(current_desc):
+            print(f"  [{idx+1}/{len(videos)}] {video_id}: já no novo formato, skip")
             skipped += 1
             continue
 
-        # Nova descrição = CTA block + descrição atual
-        new_desc = CTA_BLOCK + (current_desc or '')
+        # Nova descrição = SUBSTITUI completamente (channel-only, sem Marina)
+        new_desc = CTA_BLOCK
 
         if dry_run:
             print(f"  [{idx+1}/{len(videos)}] [DRY] {video_id} — {current_title[:50]}")
