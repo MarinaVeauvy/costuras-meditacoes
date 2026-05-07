@@ -94,41 +94,64 @@ async function generateScript(article) {
   const title = article.title.rendered;
   const excerpt = article.excerpt.rendered.replace(/<[^>]+>/g, '').substring(0, 300);
 
-  const prompt = `Crie um roteiro de YouTube Short (45-60 segundos) sobre este artigo.
+  const prompt = `Crie um roteiro de YouTube Short OTIMIZADO PARA VIEWS (30-40 segundos — retenção máxima).
 
 ARTIGO: "${title}"
 RESUMO: "${excerpt}"
 
-ESTRUTURA OBRIGATÓRIA (Format Vault Brendan Kane):
-- Cena 1 HOOK (3-5s): Format Vault — escolha 1:
+═══════════════════════════════════════
+TÍTULO (CRÍTICO PARA CTR NO FEED)
+═══════════════════════════════════════
+youtube_title MAX 60 chars com gatilho viral. Escolher UM padrão:
+- LOSS AVERSION: "Por que TODA mulher PERDE dinheiro com X" / "O ERRO de R$3.000 que ninguém te avisa"
+- CONTRASTE: "Eu fazia X errado por 5 anos. Agora faço Y"
+- CURIOSIDADE: "Ninguém fala sobre ISSO em finanças"
+- NÚMERO + DOR: "97% das mulheres fazem este 1 erro"
+- AUTORIDADE: "O que faria diferente se começasse hoje"
+
+PROIBIDO títulos genéricos: "Como Investir em X", "Guia Prático", "Dicas Para".
+EVITAR começar com pronome interrogativo simples.
+
+═══════════════════════════════════════
+ESTRUTURA (5 CENAS, total 30-40s)
+═══════════════════════════════════════
+- Cena 1 HOOK (3-4s): Format Vault — escolha 1:
   * FV-001 Counter-Intuitive: "Tudo que te ensinaram sobre X está errado"
   * FV-005 Secret Reveal: "O que ninguém conta sobre Y"
   * FV-007 Data Drop: "97% das pessoas erram nisso"
   * FV-006 Pattern Interrupt: "Pare. Você precisa ver isso"
-- Cenas 2-4 CONTEÚDO (8-12s cada): especificidade obrigatória — 1 número/fato concreto por cena, sem "transforma sua vida"
-- Cena 5 CTA (5-7s): "Tá no link da bio" / "Salve pra ler depois" / "Comenta AMÉM se concorda"
+- Cenas 2-4 CONTEÚDO (6-10s cada): 1 número/fato concreto por cena, sem genérico
+- Cena 5 CTA (4-6s): obrigatoriamente engagement bait — "Comenta SIM se você já passou por isso" / "Salva pra não esquecer" / "Marca aquela amiga"
 
-Retorne JSON:
-- youtube_title: max 70 chars, keyword no início, hook scroll-stop
-- description: 300 chars com keywords pt-BR
-- tags: array 10 tags
-- thumbnail_text: max 18 chars, MAIÚSCULAS, hook destacado
-- thumbnail_keyword: 1 palavra que ressume (pra contraste visual na thumb)
+═══════════════════════════════════════
+RETORNE JSON
+═══════════════════════════════════════
+- youtube_title: max 60 chars com gatilho viral (ver acima)
+- description: 250 chars com keywords pt-BR (sem "Marina")
+- tags: array 12 tags (incluir "shorts", "finanças", "empreendedorismo", "ia"; NUNCA "marina")
+- thumbnail_text: max 16 chars MAIÚSCULAS, palavra-chave + emoção
+  Bons exemplos: "PERDI R$3 MIL", "ERRO MILIONÁRIO", "NINGUÉM TE CONTA", "FIZ ERRADO"
+  Ruins: "Como Investir", "IA pra Mulheres"
+- thumbnail_keyword: 1 palavra que faz contraste visual
+- pinned_comment: texto curto pra fixar embaixo do vídeo, gerando engagement
+  Exemplos: "Conta aqui: você já passou por isso? 👇", "Salva esse aqui pra não esquecer 🤍"
 - scenes: array 5 objetos com:
-  - narration: texto narração (1-2 frases, max 25 palavras, pt-BR)
-  - visual_query: busca Pexels em inglês (ex: "woman writing journal warm")
-  - visual_query_alt: busca alternativa pra cortes dinâmicos (mesmo tema, ângulo diferente)
+  - narration: 1 frase, max 18 palavras, pt-BR direto
+  - visual_query: busca Pexels em inglês
+  - visual_query_alt: busca alternativa para cortes dinâmicos
   - keywords_highlight: array 1-3 palavras DA narração pra destacar em dourado
-  - voice: "francisca" (calma, default) | "thalita" (dinâmica, hook/CTA)
-  - duration: segundos (total ~50s)
+  - voice: "francisca" (calma) | "thalita" (dinâmica, hook/CTA)
+  - duration: segundos (total 30-40s, NÃO mais que isso)
 
-REGRAS:
-- Tom: direto, narrador/educativo, voz neutra
+═══════════════════════════════════════
+REGRAS DURAS
+═══════════════════════════════════════
+- Tom: direto, narrador AurumLab Cloud, voz neutra (não "minha")
 - Tema: educação financeira + IA + empreendedorismo + renda passiva
-- NUNCA mencionar "Marina", "Marina Veauvy", "minha experiência pessoal", "no meu caso", "comigo aconteceu"
-- NUNCA mencionar "Quarta Via", "manifestar", "lei da atração", cripto direto
-- Voz é narrador genérico AurumLab Cloud, não pessoa identificada
-- Tags NÃO devem incluir "marina", "marinaveauvy", nome próprio`;
+- NUNCA mencionar "Marina", nome próprio, "minha experiência", "comigo"
+- NUNCA "Quarta Via", "manifestar", "lei da atração", cripto direto
+- Tags sem nome próprio
+- Duração total OBRIGATÓRIA 30-40s (Shorts curtos retêm 80% mais)`;
 
   return await generate(prompt, { json: true, maxTokens: 2048 });
 }
@@ -472,12 +495,13 @@ Conteúdo novo sobre estratégias financeiras, automação com IA, renda passiva
 async function uploadToYouTube(videoPath, metadata, articleUrl) {
   const uploadScript = path.join(__dirname, 'youtube-upload-single.py');
 
-  // Create temp metadata file
+  // Create temp metadata file (incluindo pinned_comment pra auto-engagement)
   const metaPath = videoPath.replace('.mp4', '-meta.json');
   fs.writeFileSync(metaPath, JSON.stringify({
     youtube_title: metadata.youtube_title,
     youtube_description: buildDescription(metadata.description, articleUrl),
     tags: metadata.tags || [],
+    pinned_comment: metadata.pinned_comment || 'Conta aqui: você já passou por isso? 👇',
   }));
 
   const cmd = `${PYTHON} "${uploadScript}" "${videoPath}" "${metaPath}"`;

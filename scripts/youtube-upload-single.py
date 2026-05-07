@@ -75,23 +75,25 @@ def main():
     description = yt_desc or meta.get('description') or ''
     article_url = meta.get('article_url', '')
 
-    # youtube_description já vem montada pelo factory (buildDescription com CTA afiliado)
-    # se vier, usa direto — caso contrário adiciona footer legado
+    # youtube_description vem montada pelo factory (channel-only AurumLab Cloud).
+    # Fallback minimalista, SEM branding pessoal.
     if yt_desc:
         full_desc = description
     else:
-        full_desc = f"{description}\n\n"
-        if article_url:
-            full_desc += f"Artigo completo: {article_url}\n\n"
-        full_desc += "---\nMarina Veauvy - Financas e IA para Empreendedoras\n"
-        full_desc += "Blog: https://wp.marinaveauvy.com.br\n"
-        full_desc += "Ferramentas: https://marinaveauvy.github.io/costuras-meditacoes/links.html\n"
+        full_desc = description + "\n\n👉 https://novavidaprospera.com.br/?ref=yt_aurumlab\n📺 https://www.youtube.com/@aurumlabcloud"
+
+    # Tags: incluir #shorts se duração curta + tags do script
+    tags = (meta.get('tags') or [])[:13]
+    if 'shorts' not in [t.lower() for t in tags]:
+        tags.append('shorts')
+    if 'finances' not in [t.lower() for t in tags]:
+        tags.append('finanças')
 
     body = {
         'snippet': {
             'title': title,
             'description': full_desc[:5000],
-            'tags': (meta.get('tags') or [])[:15],
+            'tags': tags[:15],
             'categoryId': '22',
             'defaultLanguage': 'pt-BR',
             'defaultAudioLanguage': 'pt-BR',
@@ -121,6 +123,36 @@ def main():
     if not video_id:
         print(f'ERROR: no video id in response: {response}', file=sys.stderr)
         sys.exit(6)
+
+    # Upload thumbnail customizada se existir (caminho derivado do video)
+    thumb_path = video_path.replace('.mp4', '-thumb.jpg')
+    if os.path.exists(thumb_path):
+        try:
+            youtube.thumbnails().set(
+                videoId=video_id,
+                media_body=MediaFileUpload(thumb_path, mimetype='image/jpeg'),
+            ).execute()
+            print(f'THUMBNAIL_OK', file=sys.stderr)
+        except Exception as e:
+            print(f'WARN: thumbnail upload falhou: {e}', file=sys.stderr)
+
+    # Auto-comment de engajamento (driver de algoritmo)
+    pinned_comment = meta.get('pinned_comment') or 'Curte se aprendeu algo aqui 🤍 Comenta sua dúvida embaixo!'
+    try:
+        youtube.commentThreads().insert(
+            part='snippet',
+            body={
+                'snippet': {
+                    'videoId': video_id,
+                    'topLevelComment': {
+                        'snippet': {'textOriginal': pinned_comment[:500]}
+                    }
+                }
+            }
+        ).execute()
+        print(f'COMMENT_OK', file=sys.stderr)
+    except Exception as e:
+        print(f'WARN: comment post falhou: {e}', file=sys.stderr)
 
     print(f'VIDEO_ID:{video_id}')
 
