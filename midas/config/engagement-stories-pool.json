@@ -1,0 +1,93 @@
+{
+  "_doc": "Pool de stories de engagement (perguntas/enquetes) — algoritmo IG dá peso máximo pra interação. Sem sticker de link (precisa 10k followers), o conteúdo da imagem simula visualmente uma pergunta com call-to-action no texto.",
+  "_estrategia": "Stories de pergunta puxam DM/comment. Cada interação ensina algoritmo que conta é 'engajante' → mais alcance nos Reels. Frequência: 2x/semana (terça + sexta).",
+  "templates": [
+    {
+      "id": "ENG-001-ganha-bem-some",
+      "pergunta_visual": "Você ganha bem\nmas o dinheiro\nsome?",
+      "cta_texto": "Comenta SIM ou NÃO 👇",
+      "follow_up_caption": "Se respondeu SIM, sabe que não é falta de fé — é falta de método. Última story tem o caminho.",
+      "categoria": "dor-financeira",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 3 }
+    },
+    {
+      "id": "ENG-002-conversa-marido",
+      "pergunta_visual": "Você consegue\nconversar de\nfinanças com\nseu marido?",
+      "cta_texto": "Manda DM contando 💬",
+      "follow_up_caption": "Sei como é difícil. Eu também travava nessa conversa. Hoje uso 1 sistema que mudou tudo.",
+      "categoria": "casamento-financeiro",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 3 }
+    },
+    {
+      "id": "ENG-003-rica-ou-pobre",
+      "pergunta_visual": "Seu filho\njá perguntou:\n'a gente é rico\nou pobre?'",
+      "cta_texto": "Como você responde? Comenta 👇",
+      "follow_up_caption": "Eu travei na primeira vez. Aprendi que precisava me ensinar antes de ensinar eles.",
+      "categoria": "filhos-educacao",
+      "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 }
+    },
+    {
+      "id": "ENG-004-sente-culpa",
+      "pergunta_visual": "Você sente\nculpa quando\nganha dinheiro?",
+      "cta_texto": "Comenta o emoji que representa 👇",
+      "follow_up_caption": "Provérbios 13:22 mudou minha visão sobre isso. Conta sua experiência no DM.",
+      "categoria": "fe-prosperidade",
+      "persona_priority": { "prosperidade-do-reino": 3, "mae-empreendedora": 1 }
+    },
+    {
+      "id": "ENG-005-gasto-impulso",
+      "pergunta_visual": "Última compra\npor impulso\nque você fez?",
+      "cta_texto": "Conta no DM (sem julgamento) 💬",
+      "follow_up_caption": "A minha foi uma R$340 que ainda nem usei. A gente aprende rindo dos próprios erros.",
+      "categoria": "auditoria-pessoal",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 }
+    },
+    {
+      "id": "ENG-006-aposentadoria",
+      "pergunta_visual": "Você sabe\nquanto vai precisar\npra se aposentar?",
+      "cta_texto": "Comenta SIM, NÃO ou 🤷‍♀️",
+      "follow_up_caption": "70% das mulheres não fazem essa conta. Não é incapacidade — é porque ninguém ensinou. Tem material no link da bio.",
+      "categoria": "planejamento-longo-prazo",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 }
+    },
+    {
+      "id": "ENG-007-mae-falava",
+      "pergunta_visual": "Sua mãe\nfalava sobre\ndinheiro\nem casa?",
+      "cta_texto": "Comenta SIM ou NÃO 👇",
+      "follow_up_caption": "Maioria de nós cresceu no silêncio. Tabu virou buraco de 30 anos no letramento financeiro feminino. Hora de quebrar.",
+      "categoria": "intergeracional",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 }
+    },
+    {
+      "id": "ENG-008-decembro-aperto",
+      "pergunta_visual": "Você termina\ndezembro\napertada todo\nano?",
+      "cta_texto": "Reage com 🥲 se sim",
+      "follow_up_caption": "Eu também passei anos assim. O problema nunca foi quanto entrava — era a ordem das coisas. Conta no link da bio.",
+      "categoria": "padrao-anual",
+      "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 }
+    },
+    {
+      "id": "ENG-009-dizimo-investe",
+      "pergunta_visual": "Quem dá dízimo\ndeve também\ninvestir?",
+      "cta_texto": "Comenta sua opinião 💬",
+      "follow_up_caption": "Provérbios 31 fala de mulher que compra terras, planta vinhas, lucra. Sabedoria financeira está na Bíblia há 3 mil anos.",
+      "categoria": "fe-finanças",
+      "persona_priority": { "prosperidade-do-reino": 3, "mae-empreendedora": 1 }
+    },
+    {
+      "id": "ENG-010-renda-extra-frustrou",
+      "pergunta_visual": "Já tentou renda\nextra e\nfrustrou?",
+      "cta_texto": "Comenta SIM se já passou por isso 👇",
+      "follow_up_caption": "Eu tentei 3 caminhos antes de entender que faltava método. Compartilho o que aprendi no link da bio.",
+      "categoria": "renda-extra",
+      "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 }
+    }
+  ],
+  "background_colors": [
+    { "name": "emerald", "hex": "#1A4030", "text_hex": "#FFE082" },
+    { "name": "gold", "hex": "#C5A55A", "text_hex": "#1A4030" },
+    { "name": "cream", "hex": "#FDF8F0", "text_hex": "#1A4030" },
+    { "name": "navy", "hex": "#1B2A47", "text_hex": "#FFE082" },
+    { "name": "burgundy", "hex": "#5C1F2D", "text_hex": "#FDF8F0" }
+  ]
+}

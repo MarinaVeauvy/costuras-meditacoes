@@ -243,6 +243,22 @@ jobs:
             --video="$VIDEO" \
             --videoUrl="$VIDEO_URL"
 
+      - name: Cross-post Reel as Story (boost de alcance)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        continue-on-error: true
+        run: |
+          VIDEO=$(jq -r '.video' pick.json)
+          ACCOUNT=$(jq -r '.account' pick.json)
+          VIDEO_URL="${{ steps.upload.outputs.url }}"
+          # Aguarda 30s pra Reel ficar indexado antes do cross-post
+          # (Story que aponta pro Reel precisa do Reel já visível)
+          sleep 30
+          node scripts/midas/midas-publish-story.js \
+            --account="$ACCOUNT" \
+            --videoUrl="$VIDEO_URL" \
+            --sourceVideo="$VIDEO" \
+            --mode=cross-post || echo "⚠️ Cross-post story falhou (não-crítico, segue)"
+
       - name: Commit state
         run: |
           git config user.name "midas-bot"
@@ -261,4 +277,6 @@ jobs:
       CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
       UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      IG_TOKEN_1: ${{ secrets.IG_TOKEN_1 }}
+      IG_TOKEN_2: ${{ secrets.IG_TOKEN_2 }}
       MIDAS_CORTES_DIR: /tmp/midas-cortes

@@ -1,0 +1,93 @@
+name: Midas Stories — Engagement (pergunta/enquete)
+
+on:
+  schedule:
+    # Terça e sexta às 17:00 UTC = 14:00 BRT (horário de pico mobile)
+    - cron: '0 17 * * 2,5'
+  workflow_dispatch:
+    inputs:
+      account:
+        description: 'Conta específica (default: ambas)'
+        required: false
+        type: choice
+        options:
+          - all
+          - pros_peridade_do_reino
+          - orar_prosperar
+        default: all
+      template_id:
+        description: 'ID do template (ex: ENG-001-...) — vazio = pick auto'
+        required: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+
+      - name: Install deps
+        run: npm install dotenv
+
+      - name: Setup ffmpeg + fontes
+        run: |
+          which ffmpeg || sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          sudo apt-get install -y -qq fonts-liberation fonts-dejavu
+
+      - name: Decide accounts
+        id: accounts
+        run: |
+          INPUT="${{ github.event.inputs.account }}"
+          if [ -z "$INPUT" ] || [ "$INPUT" = "all" ]; then
+            echo 'accounts=["pros_peridade_do_reino","orar_prosperar"]' >> $GITHUB_OUTPUT
+          else
+            echo "accounts=[\"$INPUT\"]" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish engagement stories
+        run: |
+          ACCOUNTS='${{ steps.accounts.outputs.accounts }}'
+          TID="${{ github.event.inputs.template_id }}"
+          for ACC in $(echo "$ACCOUNTS" | jq -r '.[]'); do
+            echo "=== Conta: $ACC ==="
+
+            EXTRA=""
+            [ -n "$TID" ] && EXTRA="--template-id=$TID"
+
+            node scripts/midas/midas-generate-engagement-story.js --account="$ACC" $EXTRA > eng_$ACC.json
+            cat eng_$ACC.json
+
+            IMAGE_URL=$(jq -r '.url' eng_$ACC.json)
+            if [ -z "$IMAGE_URL" ] || [ "$IMAGE_URL" = "null" ]; then
+              echo "⚠️ image url vazia em $ACC, pulando"
+              continue
+            fi
+
+            node scripts/midas/midas-publish-story.js \
+              --account="$ACC" \
+              --imageUrl="$IMAGE_URL" \
+              --mode=engagement || echo "⚠️ Story publish falhou em $ACC, continua"
+
+            # Pausa entre contas pra não saturar Graph API
+            sleep 5
+          done
+
+      - name: Commit state
+        run: |
+          git config user.name "midas-bot"
+          git config user.email "midas-bot@users.noreply.github.com"
+          git add midas/state/ || true
+          git commit -m "chore(midas): engagement stories [skip ci]" || echo "No changes"
+          git push || echo "Push skipped"
+
+    env:
+      CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+      CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+      CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+      IG_TOKEN_1: ${{ secrets.IG_TOKEN_1 }}
+      IG_TOKEN_2: ${{ secrets.IG_TOKEN_2 }}
