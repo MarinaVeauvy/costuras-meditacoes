@@ -1,0 +1,193 @@
+{
+  "snapshots": [
+    {
+      "snapshot_at": "2026-05-07T14:43:21.511Z",
+      "factory": {
+        "label": "factory",
+        "count": 25,
+        "total_views": 696,
+        "avg_views": 27.8,
+        "median_views": 1,
+        "zero_views": 11,
+        "top5": [
+          {
+            "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
+            "views": 298,
+            "dur_s": 34
+          },
+          {
+            "title": "Dicas de Economia para Mulheres Empreendedoras",
+            "views": 138,
+            "dur_s": 33
+          },
+          {
+            "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
+            "views": 68,
+            "dur_s": 25
+          },
+          {
+            "title": "Podcast com IA: Guia Prático para Empreendedoras",
+            "views": 68,
+            "dur_s": 46
+          },
+          {
+            "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+            "views": 59,
+            "dur_s": 35
+          }
+        ]
+      },
+      "midas": {
+        "label": "midas-shorts",
+        "total": 0,
+        "avg": 0,
+        "median": 0,
+        "count": 0,
+        "zero_views": 0
+      },
+      "combined": {
+        "label": "combined",
+        "count": 25,
+        "total_views": 696,
+        "avg_views": 27.8,
+        "median_views": 1,
+        "zero_views": 11,
+        "top5": [
+          {
+            "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
+            "views": 298,
+            "dur_s": 34
+          },
+          {
+            "title": "Dicas de Economia para Mulheres Empreendedoras",
+            "views": 138,
+            "dur_s": 33
+          },
+          {
+            "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
+            "views": 68,
+            "dur_s": 25
+          },
+          {
+            "title": "Podcast com IA: Guia Prático para Empreendedoras",
+            "views": 68,
+            "dur_s": 46
+          },
+          {
+            "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+            "views": 59,
+            "dur_s": 35
+          }
+        ]
+      }
+    },
+    {
+      "snapshot_at": "2026-05-07T14:44:37.507Z",
+      "factory": {
+        "label": "factory",
+        "count": 25,
+        "total_views": 696,
+        "avg_views": 27.8,
+        "median_views": 1,
+        "zero_views": 11,
+        "top5": [
+          {
+            "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
+            "views": 298,
+            "dur_s": 34
+          },
+          {
+            "title": "Dicas de Economia para Mulheres Empreendedoras",
+            "views": 138,
+            "dur_s": 33
+          },
+          {
+            "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
+            "views": 68,
+            "dur_s": 25
+          },
+          {
+            "title": "Podcast com IA: Guia Prático para Empreendedoras",
+            "views": 68,
+            "dur_s": 46
+          },
+          {
+            "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+            "views": 59,
+            "dur_s": 35
+          }
+        ]
+      },
+      "midas": {
+        "label": "midas-shorts",
+        "count": 19,
+        "total_views": 1,
+        "avg_views": 0.1,
+        "median_views": 0,
+        "zero_views": 18,
+        "top5": [
+          {
+            "title": "versiculo_v008.mp4",
+            "views": 1,
+            "dur_s": 8
+          },
+          {
+            "title": "corte_00004.mp4",
+            "views": 0,
+            "dur_s": 51
+          },
+          {
+            "title": "versiculo_v001.mp4",
+            "views": 0,
+            "dur_s": 12
+          },
+          {
+            "title": "corte_00005.mp4",
+            "views": 0,
+            "dur_s": 45
+          },
+          {
+            "title": "versiculo_v002.mp4",
+            "views": 0,
+            "dur_s": 8
+          }
+        ]
+      },
+      "combined": {
+        "label": "combined",
+        "count": 44,
+        "total_views": 697,
+        "avg_views": 15.8,
+        "median_views": 0,
+        "zero_views": 29,
+        "top5": [
+          {
+            "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
+            "views": 298,
+            "dur_s": 34
+          },
+          {
+            "title": "Dicas de Economia para Mulheres Empreendedoras",
+            "views": 138,
+            "dur_s": 33
+          },
+          {
+            "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
+            "views": 68,
+            "dur_s": 25
+          },
+          {
+            "title": "Podcast com IA: Guia Prático para Empreendedoras",
+            "views": 68,
+            "dur_s": 46
+          },
+          {
+            "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+            "views": 59,
+            "dur_s": 35
+          }
+        ]
+      }
+    }
+  ]
+}

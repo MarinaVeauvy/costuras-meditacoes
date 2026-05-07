@@ -92,10 +92,11 @@ async function main() {
   let midasStats = [];
   if (includeMidas) {
     const yt = loadJson(MIDAS_YT, { published: [] });
-    const midasItems = (yt.published || []).filter(p => p.youtubeVideoId || (p.url && p.url.includes('youtu')));
+    // Schema published-yt.json: { account, video, platform, postId, postUrl, success, publishedAt }
+    const midasItems = (yt.published || []).filter(p => p.success && p.postId && p.platform === 'youtube');
     midasStats = await trackList(
       midasItems,
-      p => p.youtubeVideoId || (p.url && (p.url.match(/[?&]v=([^&]+)/) || p.url.match(/youtu\.be\/([^?&]+)/) || [])[1]),
+      p => p.postId,
       p => ({ video: p.video, account: p.account, source: 'midas-shorts', uploaded_at: p.publishedAt }),
       'midas-shorts',
       300

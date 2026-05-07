@@ -1,180 +1,548 @@
 {
-  "snapshot_at": "2026-05-07T14:13:05.354Z",
-  "videos": [
-    {
-      "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
-      "views": 298,
-      "dur_s": 34,
-      "source": "factory",
-      "uploaded": "2026-04-14"
+  "snapshot_at": "2026-05-07T14:44:37.507Z",
+  "summary": {
+    "factory": {
+      "label": "factory",
+      "count": 25,
+      "total_views": 696,
+      "avg_views": 27.8,
+      "median_views": 1,
+      "zero_views": 11,
+      "top5": [
+        {
+          "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
+          "views": 298,
+          "dur_s": 34
+        },
+        {
+          "title": "Dicas de Economia para Mulheres Empreendedoras",
+          "views": 138,
+          "dur_s": 33
+        },
+        {
+          "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
+          "views": 68,
+          "dur_s": 25
+        },
+        {
+          "title": "Podcast com IA: Guia Prático para Empreendedoras",
+          "views": 68,
+          "dur_s": 46
+        },
+        {
+          "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+          "views": 59,
+          "dur_s": 35
+        }
+      ]
     },
-    {
-      "title": "Dicas de Economia para Mulheres Empreendedoras",
-      "views": 138,
-      "dur_s": 33,
-      "source": "factory",
-      "uploaded": "2026-04-02"
+    "midas": {
+      "label": "midas-shorts",
+      "count": 19,
+      "total_views": 1,
+      "avg_views": 0.1,
+      "median_views": 0,
+      "zero_views": 18,
+      "top5": [
+        {
+          "title": "versiculo_v008.mp4",
+          "views": 1,
+          "dur_s": 8
+        },
+        {
+          "title": "corte_00004.mp4",
+          "views": 0,
+          "dur_s": 51
+        },
+        {
+          "title": "versiculo_v001.mp4",
+          "views": 0,
+          "dur_s": 12
+        },
+        {
+          "title": "corte_00005.mp4",
+          "views": 0,
+          "dur_s": 45
+        },
+        {
+          "title": "versiculo_v002.mp4",
+          "views": 0,
+          "dur_s": 8
+        }
+      ]
     },
-    {
-      "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
-      "views": 68,
-      "dur_s": 25,
-      "source": "factory",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "Podcast com IA: Guia Prático para Empreendedoras",
-      "views": 68,
-      "dur_s": 46,
-      "source": "factory",
-      "uploaded": "2026-04-14"
-    },
-    {
-      "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Neg",
-      "views": 59,
-      "dur_s": 35,
-      "source": "factory",
-      "uploaded": "2026-04-14"
-    },
-    {
-      "title": "Inteligencia Artificial: Aumente Sua Produtividade Agor",
-      "views": 43,
-      "dur_s": 26,
-      "source": "factory",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "Como Montar uma Renda Extra com Apenas 2 Horas por Dia",
-      "views": 8,
-      "dur_s": 407,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-04"
-    },
-    {
-      "title": "Como Sair das Dívidas em 90 Dias: Método Avalanche",
-      "views": 6,
-      "dur_s": 589,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-04"
-    },
-    {
-      "title": "Renda Extra com Habilidades Digitais: Dicas PrÃ¡ticas",
-      "views": 2,
-      "dur_s": 26,
-      "source": "factory",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "Automatize seu WhatsApp Business com IA em 2026",
-      "views": 2,
-      "dur_s": 455,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-04"
-    },
-    {
-      "title": "Como Usar IA para Criar Cursos Online para Mulheres Emp",
-      "views": 1,
-      "dur_s": 185,
-      "source": "unspecified",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "5 Formas de Usar ChatGPT para Ganhar Dinheiro em 2026",
-      "views": 1,
-      "dur_s": 361,
-      "source": "unspecified",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "Notion com IA: Sistema de Produtividade em 10 Minutos",
-      "views": 1,
-      "dur_s": 434,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-03"
-    },
-    {
-      "title": "5 Aplicativos de IA que Substituem Funcionários em 2026",
-      "views": 1,
-      "dur_s": 476,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-04"
-    },
-    {
-      "title": "Como Montar um Negócio com IA: Guia Prático para Mulher",
-      "views": 0,
-      "dur_s": 215,
-      "source": "unspecified",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "3 Investimentos que Rendem Mais que a Poupança em 2026",
-      "views": 0,
-      "dur_s": 503,
-      "source": "unspecified",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "7 Ferramentas de IA Gratuitas que Todo Empreendedor Pre",
-      "views": 0,
-      "dur_s": 475,
-      "source": "unspecified",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "CDB vs Poupança: Quanto Dinheiro Você Está Perdendo?",
-      "views": 0,
-      "dur_s": 464,
-      "source": "unspecified",
-      "uploaded": "2026-04-02"
-    },
-    {
-      "title": "Como Automatizar Seu Instagram Inteiro com IA",
-      "views": 0,
-      "dur_s": 430,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-03"
-    },
-    {
-      "title": "E-book com ChatGPT: Crie e Venda na Amazon em 1 Dia",
-      "views": 0,
-      "dur_s": 417,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-03"
-    },
-    {
-      "title": "Como Economizar R$200/Mês Cancelando Assinaturas Inútei",
-      "views": 0,
-      "dur_s": 415,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-03"
-    },
-    {
-      "title": "Ganhe Dinheiro Vendendo Templates no Canva em 2026",
-      "views": 0,
-      "dur_s": 489,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-03"
-    },
-    {
-      "title": "Reserva de Emergência: Quanto Guardar e Onde Investir",
-      "views": 0,
-      "dur_s": 406,
-      "source": "backlog-drain",
-      "uploaded": "2026-04-04"
-    },
-    {
-      "title": "Investimentos para Mulheres Empreendedoras: Guia Prátic",
-      "views": 0,
-      "dur_s": 52,
-      "source": "factory",
-      "uploaded": "2026-04-14"
-    },
-    {
-      "title": "Renda Extra Online 2026: Os 5 Melhores Livros e Recurso",
-      "views": 0,
-      "dur_s": 44,
-      "source": "factory",
-      "uploaded": "2026-05-04"
+    "combined": {
+      "label": "combined",
+      "count": 44,
+      "total_views": 697,
+      "avg_views": 15.8,
+      "median_views": 0,
+      "zero_views": 29,
+      "top5": [
+        {
+          "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
+          "views": 298,
+          "dur_s": 34
+        },
+        {
+          "title": "Dicas de Economia para Mulheres Empreendedoras",
+          "views": 138,
+          "dur_s": 33
+        },
+        {
+          "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
+          "views": 68,
+          "dur_s": 25
+        },
+        {
+          "title": "Podcast com IA: Guia Prático para Empreendedoras",
+          "views": 68,
+          "dur_s": 46
+        },
+        {
+          "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+          "views": 59,
+          "dur_s": 35
+        }
+      ]
     }
-  ]
+  },
+  "videos": {
+    "factory": [
+      {
+        "slug": "como-aumentar-sua-produtividade-com-inteligencia-artificial",
+        "title": "Inteligencia Artificial: Aumente Sua Produtividade Agora!",
+        "source": "factory",
+        "uploaded_at": "2026-04-02T01:16:37Z",
+        "video_id": "KST6_3UOpRg",
+        "views": 43,
+        "dur_s": 26
+      },
+      {
+        "slug": "como-investir-em-acoes-pela-primeira-vez-guia-pratico-para-mulheres",
+        "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
+        "source": "factory",
+        "uploaded_at": "2026-04-02T01:16:51Z",
+        "video_id": "5Yng4vSJHLA",
+        "views": 68,
+        "dur_s": 25
+      },
+      {
+        "slug": "dicas-de-economia-para-familias-estrategias-praticas-para-mulheres-empreendedoras",
+        "title": "Dicas de Economia para Mulheres Empreendedoras",
+        "source": "factory",
+        "uploaded_at": "2026-04-02T01:17:16Z",
+        "video_id": "OiwgWFoUutk",
+        "views": 138,
+        "dur_s": 33
+      },
+      {
+        "slug": "renda-extra-com-habilidades-digitais-guia-pratico-para-mulheres",
+        "title": "Renda Extra com Habilidades Digitais: Dicas PrÃ¡ticas",
+        "source": "factory",
+        "uploaded_at": "2026-04-02T01:17:35Z",
+        "video_id": "n0Zl17ggA1A",
+        "views": 2,
+        "dur_s": 26
+      },
+      {
+        "slug": "como-montar-um-negocio-com-ia-guia-pratico-para-mulheres-empreendedoras",
+        "title": "Como Montar um Negócio com IA: Guia Prático para Mulheres Empreendedoras",
+        "source": "unspecified",
+        "uploaded_at": "2026-04-02T01:21:40Z",
+        "video_id": "AieCB8tAkw8",
+        "views": 0,
+        "dur_s": 215
+      },
+      {
+        "slug": "como-usar-ia-para-criar-cursos-online-para-mulheres-empreendedoras",
+        "title": "Como Usar IA para Criar Cursos Online para Mulheres Empreendedoras",
+        "source": "unspecified",
+        "uploaded_at": "2026-04-02T01:21:56Z",
+        "video_id": "Umjx03355b8",
+        "views": 1,
+        "dur_s": 185
+      },
+      {
+        "slug": "darkflow-3_investimentos_que_rendem_mais_que_a_poupança_em_2026",
+        "title": "3 Investimentos que Rendem Mais que a Poupança em 2026",
+        "source": "unspecified",
+        "uploaded_at": "2026-04-02T01:26:13Z",
+        "video_id": "xzR4fdEZ27M",
+        "views": 0,
+        "dur_s": 503
+      },
+      {
+        "slug": "darkflow-5_formas_de_usar_ChatGPT_para_ganhar_dinheiro_em_2026.",
+        "title": "5 Formas de Usar ChatGPT para Ganhar Dinheiro em 2026",
+        "source": "unspecified",
+        "uploaded_at": "2026-04-02T01:29:07Z",
+        "video_id": "vV1I4PkByzg",
+        "views": 1,
+        "dur_s": 361
+      },
+      {
+        "slug": "darkflow-7_ferramentas_de_IA_gratuitas_que_todo_empreendedor_precisa_",
+        "title": "7 Ferramentas de IA Gratuitas que Todo Empreendedor Precisa",
+        "source": "unspecified",
+        "uploaded_at": "2026-04-02T01:32:06Z",
+        "video_id": "WZBt0Vk8YWE",
+        "views": 0,
+        "dur_s": 475
+      },
+      {
+        "slug": "darkflow-CDB_vs_Poupança_quanto_dinheiro_você_está_perdendo",
+        "title": "CDB vs Poupança: Quanto Dinheiro Você Está Perdendo?",
+        "source": "unspecified",
+        "uploaded_at": "2026-04-02T01:34:57Z",
+        "video_id": "rhkrm3BhfUQ",
+        "views": 0,
+        "dur_s": 464
+      },
+      {
+        "slug": "darkflow-Como_automatizar_seu_Instagram_inteiro_com_inteligência_arti",
+        "title": "Como Automatizar Seu Instagram Inteiro com IA",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-03T10:04:19Z",
+        "video_id": "B5RzO_LES44",
+        "views": 0,
+        "dur_s": 430
+      },
+      {
+        "slug": "darkflow-Como_criar_um_e-book_com_ChatGPT_e_vender_na_Amazon_em_1_dia",
+        "title": "E-book com ChatGPT: Crie e Venda na Amazon em 1 Dia",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-03T10:08:28Z",
+        "video_id": "9RY3scX6VVg",
+        "views": 0,
+        "dur_s": 417
+      },
+      {
+        "slug": "darkflow-Como_economizar_R$200_por_mês_cancelando_assinaturas_inúteis",
+        "title": "Como Economizar R$200/Mês Cancelando Assinaturas Inúteis",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-03T10:12:16Z",
+        "video_id": "xpL6lUF9VS4",
+        "views": 0,
+        "dur_s": 415
+      },
+      {
+        "slug": "darkflow-Como_ganhar_dinheiro_vendendo_templates_no_Canva_em_2026",
+        "title": "Ganhe Dinheiro Vendendo Templates no Canva em 2026",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-03T10:17:47Z",
+        "video_id": "NXd_1WbWcUE",
+        "views": 0,
+        "dur_s": 489
+      },
+      {
+        "slug": "darkflow-Notion_com_IA_monte_seu_sistema_de_produtividade_em_10_minut",
+        "title": "Notion com IA: Sistema de Produtividade em 10 Minutos",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-03T10:21:12Z",
+        "video_id": "RYeVwm7w78I",
+        "views": 1,
+        "dur_s": 434
+      },
+      {
+        "slug": "darkflow-Reserva_de_emergência_quanto_guardar_e_onde_investir",
+        "title": "Reserva de Emergência: Quanto Guardar e Onde Investir",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-04T10:04:02Z",
+        "video_id": "zzF1wxcduEI",
+        "views": 0,
+        "dur_s": 406
+      },
+      {
+        "slug": "darkflow2-5_Aplicativos_de_IA_que_Substituem_Funcionários_em_2026",
+        "title": "5 Aplicativos de IA que Substituem Funcionários em 2026",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-04T10:14:24Z",
+        "video_id": "EpXIsQAynjE",
+        "views": 1,
+        "dur_s": 476
+      },
+      {
+        "slug": "darkflow2-Automatize_seu_WhatsApp_Business_com_IA_em_2026",
+        "title": "Automatize seu WhatsApp Business com IA em 2026",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-04T10:25:23Z",
+        "video_id": "4K8EGsTbZE4",
+        "views": 2,
+        "dur_s": 455
+      },
+      {
+        "slug": "darkflow2-Como_Montar_uma_Renda_Extra_com_Apenas_2_Horas_por_Dia",
+        "title": "Como Montar uma Renda Extra com Apenas 2 Horas por Dia",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-04T10:34:25Z",
+        "video_id": "19quiFkCLGU",
+        "views": 8,
+        "dur_s": 407
+      },
+      {
+        "slug": "darkflow2-Como_Sair_das_Dívidas_em_90_Dias_Método_Avalanche",
+        "title": "Como Sair das Dívidas em 90 Dias: Método Avalanche",
+        "source": "backlog-drain",
+        "uploaded_at": "2026-04-04T10:46:15Z",
+        "video_id": "dZCItBIamgM",
+        "views": 6,
+        "dur_s": 589
+      },
+      {
+        "slug": "como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico",
+        "title": "Podcast com IA: Guia Prático para Empreendedoras",
+        "source": "factory",
+        "uploaded_at": "2026-04-14T15:44:46.092Z",
+        "video_id": "r8hV5RdmyOI",
+        "views": 68,
+        "dur_s": 46
+      },
+      {
+        "slug": "como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio",
+        "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+        "source": "factory",
+        "uploaded_at": "2026-04-14T17:27:31.406Z",
+        "video_id": "EDZT0R7IdXE",
+        "views": 59,
+        "dur_s": 35
+      },
+      {
+        "slug": "empreendedorismo-digital-para-maes-como-comecar-e-prosperar",
+        "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
+        "source": "factory",
+        "uploaded_at": "2026-04-14T17:27:38.384Z",
+        "video_id": "aPHduqCYD8Q",
+        "views": 298,
+        "dur_s": 34
+      },
+      {
+        "slug": "investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras",
+        "title": "Investimentos para Mulheres Empreendedoras: Guia Prático para Iniciantes",
+        "source": "factory",
+        "uploaded_at": "2026-04-14T17:27:45.979Z",
+        "video_id": "xIOKmgsMyMk",
+        "views": 0,
+        "dur_s": 52
+      },
+      {
+        "slug": "renda-extra-online-melhores-livros-recursos",
+        "title": "Renda Extra Online 2026: Os 5 Melhores Livros e Recursos",
+        "source": "factory",
+        "uploaded_at": "2026-05-04T10:22:06.671Z",
+        "video_id": "Z1PItt9X2_Y",
+        "views": 0,
+        "dur_s": 44
+      }
+    ],
+    "midas": [
+      {
+        "video": "corte_00001.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-22T11:25:32.924Z",
+        "video_id": "843529942f134c158e113d6d2f08862c",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00002.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-23T11:43:38.961Z",
+        "video_id": "588059ca94d9419a942de682aa778fcb",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00003.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-24T11:48:59.257Z",
+        "video_id": "080b93523ce846cdbd762fb100462d16",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00002.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-29T14:40:38.623Z",
+        "video_id": "cbfb2a752d0343b383477ae21227dd6b",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00004.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-29T20:41:48.188Z",
+        "video_id": "FHb90ySvqLs",
+        "views": 0,
+        "dur_s": 51
+      },
+      {
+        "video": "versiculo_v001.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-29T21:03:03.403Z",
+        "video_id": "igY7idIqdC4",
+        "views": 0,
+        "dur_s": 12
+      },
+      {
+        "video": "corte_00005.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-29T21:37:12.009Z",
+        "video_id": "XOTEHfw7CO8",
+        "views": 0,
+        "dur_s": 45
+      },
+      {
+        "video": "versiculo_v002.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-29T22:39:39.779Z",
+        "video_id": "b6Qbc3a9VVE",
+        "views": 0,
+        "dur_s": 8
+      },
+      {
+        "video": "corte_00006_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-29T22:44:10.275Z",
+        "video_id": "i2p2njkdkxg",
+        "views": 0,
+        "dur_s": 38
+      },
+      {
+        "video": "versiculo_v003.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-29T23:32:45.158Z",
+        "video_id": "mikDeG6xFKY",
+        "views": 0,
+        "dur_s": 6
+      },
+      {
+        "video": "corte_00001_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-30T12:03:57.860Z",
+        "video_id": "KB5Q3uHvfmU",
+        "views": 0,
+        "dur_s": 38
+      },
+      {
+        "video": "versiculo_v004.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-04-30T23:29:23.605Z",
+        "video_id": "ToGgn_Oy5-w",
+        "views": 0,
+        "dur_s": 8
+      },
+      {
+        "video": "versiculo_v005.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-01T11:42:08.613Z",
+        "video_id": "1eH3K4BkeME",
+        "views": 0,
+        "dur_s": 8
+      },
+      {
+        "video": "corte_00004_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-01T23:18:08.372Z",
+        "video_id": "kB-ECf9lOVI",
+        "views": 0,
+        "dur_s": 51
+      },
+      {
+        "video": "corte_00007_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-03T11:18:12.466Z",
+        "video_id": "oPNB3dH0mnI",
+        "views": 0,
+        "dur_s": 46
+      },
+      {
+        "video": "versiculo_v006.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-03T23:12:35.746Z",
+        "video_id": "szLIdXHaMpI",
+        "views": 0,
+        "dur_s": 8
+      },
+      {
+        "video": "versiculo_v007.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-04T23:33:10.698Z",
+        "video_id": "gjiL1pcHq68",
+        "views": 0,
+        "dur_s": 6
+      },
+      {
+        "video": "corte_00005_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-05T11:54:22.170Z",
+        "video_id": "BpX9grG478E",
+        "views": 0,
+        "dur_s": 45
+      },
+      {
+        "video": "corte_00008_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-05T17:47:43.886Z",
+        "video_id": "SNYDD1p2zF4",
+        "views": 0,
+        "dur_s": 20
+      },
+      {
+        "video": "versiculo_v008.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-05T17:54:46.342Z",
+        "video_id": "24Z41T2XOsI",
+        "views": 1,
+        "dur_s": 8
+      },
+      {
+        "video": "corte_00011.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-05T18:06:25.712Z",
+        "video_id": "0qJ2VggVIdo",
+        "views": 0,
+        "dur_s": 30
+      },
+      {
+        "video": "versiculo_v009.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-06T12:18:27.743Z",
+        "video_id": "7FOT8AYqHVI",
+        "views": 0,
+        "dur_s": 8
+      },
+      {
+        "video": "corte_00006_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-06T23:17:15.527Z",
+        "video_id": "J_HEx2ZBOjU",
+        "views": 0,
+        "dur_s": 38
+      }
+    ]
+  }
 }
