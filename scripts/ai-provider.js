@@ -7,25 +7,50 @@ const GEMINI_KEY = process.env.GEMINI_API_KEY;
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 
 // Tolerant JSON parser — extracts JSON from markdown code blocks ```json ... ```
+// Rejeita JSON "vazio" (ex: `{"":""}`, `{}`, `[]`) pra caller cair pro próximo provider.
 function parseJsonTolerant(text) {
-  if (typeof text !== 'string') return text;
+  if (typeof text !== 'string') return validateNonEmpty(text);
   // Try direct parse first
-  try { return JSON.parse(text); } catch {}
+  try { return validateNonEmpty(JSON.parse(text)); } catch {}
   // Strip markdown code fence ```json or ```
   const fenced = text.match(/```(?:json)?\s*([\s\S]*?)\s*```/);
   if (fenced) {
-    try { return JSON.parse(fenced[1]); } catch {}
+    try { return validateNonEmpty(JSON.parse(fenced[1])); } catch {}
   }
   // Extract first {...} or [...] block
   const objMatch = text.match(/\{[\s\S]*\}/);
   if (objMatch) {
-    try { return JSON.parse(objMatch[0]); } catch {}
+    try { return validateNonEmpty(JSON.parse(objMatch[0])); } catch {}
   }
   const arrMatch = text.match(/\[[\s\S]*\]/);
   if (arrMatch) {
-    try { return JSON.parse(arrMatch[0]); } catch {}
+    try { return validateNonEmpty(JSON.parse(arrMatch[0])); } catch {}
   }
   throw new Error(`JSON parse falhou. Início do texto: ${text.substring(0, 200)}`);
+}
+
+// Rejeita `{}`, `[]`, ou objetos com TODAS chaves/valores vazios (ex: `{"":""}`).
+// Modelos free às vezes retornam JSON sintaticamente válido mas semanticamente vazio.
+function validateNonEmpty(parsed) {
+  if (parsed === null || parsed === undefined) {
+    throw new Error('JSON resultado é null/undefined');
+  }
+  if (Array.isArray(parsed)) {
+    if (parsed.length === 0) throw new Error('JSON array vazio');
+    return parsed;
+  }
+  if (typeof parsed === 'object') {
+    const keys = Object.keys(parsed);
+    if (keys.length === 0) throw new Error('JSON object vazio');
+    // Detecta `{"":""}` ou variantes — todas as keys ou todos os values são strings vazias
+    const allEmpty = keys.every((k) => {
+      if (k.trim() === '') return true;
+      const v = parsed[k];
+      return v === '' || v === null || v === undefined;
+    });
+    if (allEmpty) throw new Error('JSON object com todas keys/values vazios');
+  }
+  return parsed;
 }
 
 async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
@@ -65,15 +90,16 @@ async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
   throw new Error('Nenhum AI provider disponível ou todos falharam.');
 }
 
-// Free models on OpenRouter, tried in order. Each has independent rate limits,
-// so rotating across them lets us generate multiple items per minute.
+// Free models on OpenRouter, tried in order. Lista atualizada 2026-05-07
+// (modelos antigos como gemma-3-12b foram descontinuados — 404 "no endpoints").
+// Verificar periodicamente em https://openrouter.ai/models?max_price=0
 const OPENROUTER_FREE_MODELS = [
-  'google/gemma-4-31b-it:free',
+  'meta-llama/llama-3.3-70b-instruct:free',
   'qwen/qwen3-next-80b-a3b-instruct:free',
-  'openai/gpt-oss-120b:free',
-  'z-ai/glm-4.5-air:free',
-  'google/gemma-3-12b-it:free',
-  'nvidia/nemotron-3-super-120b-a12b:free',
+  'google/gemma-4-31b-it:free',
+  'nvidia/llama-3.1-nemotron-70b-instruct:free',
+  'meta-llama/llama-3.2-3b-instruct:free',
+  'mistralai/mistral-7b-instruct:free',
 ];
 
 async function generateOpenRouter(prompt, { json, maxTokens }) {
