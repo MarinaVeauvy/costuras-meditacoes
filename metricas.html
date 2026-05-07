@@ -66,6 +66,15 @@
     <h2>🎯 Captions por format_used (últimos 30 posts)</h2>
     <table><thead><tr><th>Format</th><th>Uso</th><th>Distribuição</th></tr></thead><tbody id="tbl-formats"></tbody></table>
   </section>
+
+  <section>
+    <h2>📺 YouTube — Canal AurumLab Cloud</h2>
+    <div id="yt-summary" class="empty">Carregando...</div>
+    <h3 style="font-size: 0.95rem; color: var(--emerald-dark); margin: 1.2rem 0 0.6rem;">Top 5 vídeos por views</h3>
+    <table><thead><tr><th>Views</th><th>Duração</th><th>Source</th><th>Título</th></tr></thead><tbody id="tbl-yt-top"></tbody></table>
+    <h3 style="font-size: 0.95rem; color: var(--emerald-dark); margin: 1.2rem 0 0.6rem;">Evolução semanal (snapshots)</h3>
+    <table><thead><tr><th>Data</th><th>Total views</th><th>Média</th><th>Mediana</th><th>Zero views</th></tr></thead><tbody id="tbl-yt-history"></tbody></table>
+  </section>
 </div>
 
 <script>
@@ -168,6 +177,50 @@ function formatPill(type) {
     const p = total30 ? Math.round(n/total30*100) : 0;
     tblF.innerHTML += `<tr><td>${f}</td><td>${n}</td><td><span class="bar" style="width:${p*2}px"></span> ${p}%</td></tr>`;
   });
+
+  // === YouTube AurumLab Cloud ===
+  const ytSnap = await loadJSON('https://raw.githubusercontent.com/MarinaVeauvy/costuras-meditacoes/master/youtube/views-snapshot.json');
+  const ytHist = await loadJSON('https://raw.githubusercontent.com/MarinaVeauvy/costuras-meditacoes/master/youtube/views-history.json');
+  const ytSummaryEl = document.getElementById('yt-summary');
+  const tblTop = document.getElementById('tbl-yt-top');
+  const tblHist = document.getElementById('tbl-yt-history');
+
+  if (!ytSnap || !ytSnap.summary) {
+    ytSummaryEl.textContent = 'Snapshot ainda não foi gerado. Workflow roda Domingo 12:00 BRT.';
+  } else {
+    const f = ytSnap.summary.factory || {};
+    const c = ytSnap.summary.combined || {};
+    ytSummaryEl.innerHTML = `
+      <div class="grid">
+        <div class="card"><div class="label">Vídeos rastreados</div><div class="value">${c.count || 0}</div><div class="delta">factory: ${f.count||0}</div></div>
+        <div class="card"><div class="label">Views totais</div><div class="value">${c.total_views || 0}</div><div class="delta">factory: ${f.total_views||0}</div></div>
+        <div class="card"><div class="label">Média/vídeo</div><div class="value">${(c.avg_views || 0).toFixed?.(1) || c.avg_views || 0}</div><div class="delta">mediana: ${c.median_views||0}</div></div>
+        <div class="card"><div class="label">Vídeos com 0 views</div><div class="value" style="color: ${c.zero_views > c.count/2 ? 'var(--danger)' : 'var(--emerald-dark)'}">${c.zero_views || 0}</div><div class="delta">${c.count ? Math.round((c.zero_views||0)/c.count*100) : 0}%</div></div>
+      </div>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #888;">Snapshot: ${(ytSnap.snapshot_at||'').slice(0,10)} · canal @aurumlabcloud</p>
+    `;
+
+    // Top 5
+    const allVideos = [...(ytSnap.videos?.factory || []), ...(ytSnap.videos?.midas || [])];
+    const top5 = allVideos.filter(v => typeof v.views === 'number').sort((a,b) => b.views - a.views).slice(0, 5);
+    if (top5.length) {
+      top5.forEach(v => {
+        tblTop.innerHTML += `<tr><td><strong>${v.views}</strong></td><td>${v.dur_s||'?'}s</td><td>${v.source||'-'}</td><td>${(v.title||v.video||'').slice(0,60)}</td></tr>`;
+      });
+    } else {
+      tblTop.innerHTML = '<tr><td colspan="4" class="empty">Sem dados ainda.</td></tr>';
+    }
+  }
+
+  // History
+  if (ytHist && ytHist.snapshots && ytHist.snapshots.length) {
+    ytHist.snapshots.slice(-10).reverse().forEach(s => {
+      const c = s.combined || s.factory || {};
+      tblHist.innerHTML += `<tr><td>${(s.snapshot_at||'').slice(0,10)}</td><td>${c.total_views||0}</td><td>${c.avg_views||0}</td><td>${c.median_views||0}</td><td>${c.zero_views||0}</td></tr>`;
+    });
+  } else {
+    tblHist.innerHTML = '<tr><td colspan="5" class="empty">Histórico vai aparecer após primeiro snapshot semanal.</td></tr>';
+  }
 })();
 </script>
 </body>

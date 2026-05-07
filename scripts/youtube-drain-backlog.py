@@ -1,8 +1,22 @@
 """
+YouTube Backlog Drain — DESCONTINUADO (07/05/2026)
+
+DESCONTINUADO porque os 10 vídeos uploaded por este pipeline (long-form 7-10min)
+geraram média 1.8 views — algoritmo do YouTube Shorts não distribui long-form
+nesse canal. Mantemos apenas o pipeline factory (Shorts 25-46s, média 75 views).
+
+NÃO REATIVAR sem antes validar nicho diferente. Se Marina quiser long-form,
+precisa de canal dedicado e estratégia editorial separada.
+
+Original:
 YouTube Backlog Drain — Upload pendentes em batch diário
 Roda localmente via Task Scheduler do Windows
 Limite: 5 vídeos por execução (quota diária YouTube ~6)
 """
+import sys
+print("ERRO: youtube-drain-backlog.py descontinuado. Veja docstring no topo do arquivo.", file=sys.stderr)
+sys.exit(1)
+
 import os
 import sys
 import json

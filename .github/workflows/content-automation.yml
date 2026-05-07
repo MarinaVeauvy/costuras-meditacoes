@@ -19,6 +19,8 @@ on:
     - cron: '0 15 * * 0'
     # YouTube retry upload: DESATIVADO ate 2026-05-01 (economia de minutos Actions)
     # - cron: '0 12 * * 2,5'
+    # YouTube factory: DIÁRIO 12:00 UTC (09h BRT) — 3 Shorts/dia (Shorts converteu, long-form morreu)
+    - cron: '0 12 * * *'
     # SEO Internal Links: 1o dia do mês 06:00 UTC
     - cron: '0 6 1 * *'
   workflow_dispatch:
@@ -152,10 +154,10 @@ jobs:
 
   youtube:
     if: >
-      (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1') ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 12 * * *') ||
       (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'youtube')
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -180,7 +182,7 @@ jobs:
           WP_USER: ${{ secrets.WP_USER }}
           WP_PASS: ${{ secrets.WP_PASS }}
           YOUTUBE_OAUTH_TOKEN: ${{ secrets.YOUTUBE_OAUTH_TOKEN }}
-          VIDEO_COUNT: '1'
+          VIDEO_COUNT: '3'
           PYTHON_PATH: python
         run: node scripts/youtube-factory.js
       - name: Commit arquivos

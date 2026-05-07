@@ -1,0 +1,33 @@
+name: YouTube Views Tracking (semanal)
+
+on:
+  schedule:
+    # Domingo 15:00 UTC = 12:00 BRT (sábado fim de semana mostra views consolidados)
+    - cron: '0 15 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+
+      - name: Track views (factory + midas shorts)
+        run: node scripts/youtube-track-views.js --include-midas
+
+      - name: Commit snapshot + history
+        run: |
+          git config user.name "youtube-tracker"
+          git config user.email "youtube-tracker@users.noreply.github.com"
+          git add youtube/views-snapshot.json youtube/views-history.json || true
+          git diff --cached --quiet || git commit -m "chore(youtube): views snapshot $(date -u +%Y-%m-%d) [skip ci]"
+          git push || echo "Push skipped"
