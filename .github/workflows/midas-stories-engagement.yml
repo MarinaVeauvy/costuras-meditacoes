@@ -2,8 +2,9 @@ name: Midas Stories — Engagement (pergunta/enquete)
 
 on:
   schedule:
-    # Terça e sexta às 17:00 UTC = 14:00 BRT (horário de pico mobile)
-    - cron: '0 17 * * 2,5'
+    # Diário às 17:00 UTC = 14:00 BRT (pico mobile)
+    # Stories duram 24h — algoritmo IG premia consistência diária
+    - cron: '0 17 * * *'
   workflow_dispatch:
     inputs:
       account:

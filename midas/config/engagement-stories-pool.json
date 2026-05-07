@@ -81,6 +81,86 @@
       "follow_up_caption": "Eu tentei 3 caminhos antes de entender que faltava método. Compartilho o que aprendi no link da bio.",
       "categoria": "renda-extra",
       "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 }
+    },
+    {
+      "id": "ENG-011-medo-investir",
+      "pergunta_visual": "O que mais\nte assusta\nem investir?",
+      "cta_texto": "Conta no DM 💬",
+      "follow_up_caption": "Pra maioria de nós, o medo é perder o pouco que tem. Aprender é a única forma de transformar medo em decisão.",
+      "categoria": "medo-financeiro",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 }
+    },
+    {
+      "id": "ENG-012-sonho-financeiro",
+      "pergunta_visual": "Qual seu\nmaior sonho\nfinanceiro?",
+      "cta_texto": "Comenta aqui 👇 (pode sonhar grande)",
+      "follow_up_caption": "O primeiro passo é ousar nomear. Depois é construir o caminho. Material no link da bio.",
+      "categoria": "visao-futura",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 }
+    },
+    {
+      "id": "ENG-013-mãe-pe-no-chao",
+      "pergunta_visual": "Sua mãe\nera 'pé no chão'\ncom dinheiro?",
+      "cta_texto": "Comenta SIM ou NÃO 👇",
+      "follow_up_caption": "Herdamos crenças mais que conta bancária. Saber qual herdou é o primeiro passo pra escolher o que fica.",
+      "categoria": "intergeracional",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 3 }
+    },
+    {
+      "id": "ENG-014-tabu-salario",
+      "pergunta_visual": "Você fala\nde salário\ncom amigas?",
+      "cta_texto": "Comenta SIM ou NÃO 👇",
+      "follow_up_caption": "Tabu de salário entre mulheres mantém todas ganhando menos. Romper esse silêncio é ato político.",
+      "categoria": "tabu-feminino",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 }
+    },
+    {
+      "id": "ENG-015-quanto-poupa",
+      "pergunta_visual": "Você poupa\nantes ou\ndepois\nde gastar?",
+      "cta_texto": "Comenta ANTES ou DEPOIS 👇",
+      "follow_up_caption": "Quem poupa antes acumula. Quem poupa depois sobrevive. A ordem é o segredo.",
+      "categoria": "habito-financeiro",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 3 }
+    },
+    {
+      "id": "ENG-016-deus-cuida",
+      "pergunta_visual": "'Deus cuida'\nsignifica não\nplanejar?",
+      "cta_texto": "Comenta sua opinião 💬",
+      "follow_up_caption": "Confiar em Deus E planejar não são opostos. Lucas 14:28 — 'quem constrói torre primeiro calcula custos'.",
+      "categoria": "fe-planejamento",
+      "persona_priority": { "prosperidade-do-reino": 3, "mae-empreendedora": 1 }
+    },
+    {
+      "id": "ENG-017-erro-jovem",
+      "pergunta_visual": "Maior erro\nfinanceiro que\nvocê cometeu\nna juventude?",
+      "cta_texto": "Conta no DM 💬",
+      "follow_up_caption": "O meu foi não começar a poupar aos 22. Mas como dizem: a melhor hora foi 10 anos atrás. A segunda melhor é hoje.",
+      "categoria": "auditoria-passado",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 2 }
+    },
+    {
+      "id": "ENG-018-filho-mesada",
+      "pergunta_visual": "Você dá\nmesada\npros filhos?",
+      "cta_texto": "Comenta SIM, NÃO ou DEPENDE",
+      "follow_up_caption": "Mesada é primeira aula prática de finanças. Quem cresce administrando R$50 vira adulto que administra R$5 mil.",
+      "categoria": "filhos-educacao",
+      "persona_priority": { "prosperidade-do-reino": 1, "mae-empreendedora": 3 }
+    },
+    {
+      "id": "ENG-019-prosperar-sozinha",
+      "pergunta_visual": "Mulher pode\nprosperar\nsozinha?",
+      "cta_texto": "Comenta sua experiência 💬",
+      "follow_up_caption": "Pode e deve. Independência financeira feminina não é tendência — é segurança. Provérbios 31 vivia disso.",
+      "categoria": "autonomia-feminina",
+      "persona_priority": { "prosperidade-do-reino": 3, "mae-empreendedora": 2 }
+    },
+    {
+      "id": "ENG-020-divida-vergonha",
+      "pergunta_visual": "Você tem\nvergonha das\nsuas dívidas?",
+      "cta_texto": "Comenta o emoji da sua emoção 👇",
+      "follow_up_caption": "Vergonha mantém dívida no escuro. No escuro ela cresce. O primeiro passo é olhar de frente — sem julgamento.",
+      "categoria": "emocao-financeira",
+      "persona_priority": { "prosperidade-do-reino": 2, "mae-empreendedora": 3 }
     }
   ],
   "background_colors": [
