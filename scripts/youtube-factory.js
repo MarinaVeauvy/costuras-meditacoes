@@ -73,43 +73,76 @@ function getUploaded() {
 }
 
 // ============================================================
-// STEP 2: Generate video script with AI
+// STEP 2: Generate video script with AI (Format Vault edition)
 // ============================================================
+const VOICE_POOL = [
+  'pt-BR-FranciscaNeural',  // calma, calorosa
+  'pt-BR-ThalitaNeural',    // jovem, dinâmica
+];
+
+const BGM_POOL = [
+  // Mixkit royalty-free (URLs públicas, licença permissiva)
+  'https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3',
+  'https://assets.mixkit.co/music/preview/mixkit-driving-ambition-32.mp3',
+  'https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3',
+  'https://assets.mixkit.co/music/preview/mixkit-uplifting-pop-619.mp3',
+  'https://assets.mixkit.co/music/preview/mixkit-getting-ready-39.mp3',
+  'https://assets.mixkit.co/music/preview/mixkit-positive-business-685.mp3',
+];
+
 async function generateScript(article) {
   const title = article.title.rendered;
   const excerpt = article.excerpt.rendered.replace(/<[^>]+>/g, '').substring(0, 300);
 
-  const prompt = `Crie um roteiro de YouTube Short (60 segundos) sobre este artigo.
+  const prompt = `Crie um roteiro de YouTube Short (45-60 segundos) sobre este artigo.
 
 ARTIGO: "${title}"
 RESUMO: "${excerpt}"
 
-Retorne JSON com:
-- youtube_title: título SEO YouTube (max 70 chars, keyword no início, pt-BR)
-- description: descrição YouTube com keywords (300 chars, pt-BR)
-- tags: array de 10 tags em português
-- thumbnail_text: texto curto para thumbnail (max 25 chars)
-- scenes: array de 5-6 objetos, cada um com:
-  - narration: texto da narração para essa cena (1-2 frases, pt-BR)
-  - visual_query: busca em inglês para stock footage no Pexels (ex: "woman working laptop", "money coins finance")
-  - duration: duração em segundos (total deve dar ~60s)
+ESTRUTURA OBRIGATÓRIA (Format Vault Brendan Kane):
+- Cena 1 HOOK (3-5s): Format Vault — escolha 1:
+  * FV-001 Counter-Intuitive: "Tudo que te ensinaram sobre X está errado"
+  * FV-005 Secret Reveal: "O que ninguém conta sobre Y"
+  * FV-007 Data Drop: "97% das pessoas erram nisso"
+  * FV-006 Pattern Interrupt: "Pare. Você precisa ver isso"
+- Cenas 2-4 CONTEÚDO (8-12s cada): especificidade obrigatória — 1 número/fato concreto por cena, sem "transforma sua vida"
+- Cena 5 CTA (5-7s): "Tá no link da bio" / "Salve pra ler depois" / "Comenta AMÉM se concorda"
+
+Retorne JSON:
+- youtube_title: max 70 chars, keyword no início, hook scroll-stop
+- description: 300 chars com keywords pt-BR
+- tags: array 10 tags
+- thumbnail_text: max 18 chars, MAIÚSCULAS, hook destacado
+- thumbnail_keyword: 1 palavra que ressume (pra contraste visual na thumb)
+- scenes: array 5 objetos com:
+  - narration: texto narração (1-2 frases, max 25 palavras, pt-BR)
+  - visual_query: busca Pexels em inglês (ex: "woman writing journal warm")
+  - visual_query_alt: busca alternativa pra cortes dinâmicos (mesmo tema, ângulo diferente)
+  - keywords_highlight: array 1-3 palavras DA narração pra destacar em dourado
+  - voice: "francisca" (calma, default) | "thalita" (dinâmica, hook/CTA)
+  - duration: segundos (total ~50s)
 
 REGRAS:
-- Cena 1: HOOK forte (5-7 segundos)
-- Cenas 2-4: conteúdo prático (10-15 segundos cada)
-- Cena 5: CTA inscrever-se (5-7 segundos)
-- Tom: direto, prático, empoderador
+- Tom: direto, testemunho/storytelling > tutorial
+- Tema: educação financeira feminina + IA + empreendedorismo (NUNCA cripto direto)
 - NUNCA mencionar "Quarta Via", "manifestar", "lei da atração"`;
 
   return await generate(prompt, { json: true, maxTokens: 2048 });
 }
 
 // ============================================================
-// STEP 3: Generate TTS narration for each scene
+// STEP 3: Generate TTS narration (voz parametrizada)
 // ============================================================
-function generateTTS(text, outputPath) {
+function resolveVoice(voiceKey) {
+  if (voiceKey === 'thalita') return 'pt-BR-ThalitaNeural';
+  if (voiceKey === 'francisca') return 'pt-BR-FranciscaNeural';
+  return voiceKey || 'pt-BR-FranciscaNeural';
+}
+
+function generateTTS(text, outputPath, voiceKey = 'francisca') {
+  const voice = resolveVoice(voiceKey);
   const escaped = text.replace(/"/g, '\\"').replace(/\n/g, ' ');
-  const cmd = `${PYTHON} -m edge_tts --voice "pt-BR-FranciscaNeural" --rate="+5%" --text "${escaped}" --write-media "${outputPath}"`;
+  const cmd = `${PYTHON} -m edge_tts --voice "${voice}" --rate="+5%" --text "${escaped}" --write-media "${outputPath}"`;
   execSync(cmd, { timeout: 30000, stdio: 'pipe' });
 }
 
@@ -121,40 +154,163 @@ function getAudioDuration(filePath) {
 }
 
 // ============================================================
-// STEP 4: Download B-roll from Pexels
+// STEP 4: Download B-roll from Pexels — múltiplos clipes pra cortes dinâmicos
 // ============================================================
-async function downloadBroll(query, outputPath, minDuration = 5) {
+async function downloadBrollClips(queries, outputDir, sceneIdx, count = 2) {
   if (!PEXELS_KEY) throw new Error('PEXELS_API_KEY não configurada');
+  const clipsPaths = [];
+  const seenIds = new Set();
 
-  const res = await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&per_page=5&size=medium&orientation=portrait`, {
-    headers: { Authorization: PEXELS_KEY },
-  });
-  const data = await res.json();
-
-  if (!data.videos || data.videos.length === 0) {
-    // Fallback: generic business footage
-    const fallback = await fetch(`https://api.pexels.com/videos/search?query=business+woman+office&per_page=3&size=medium&orientation=portrait`, {
-      headers: { Authorization: PEXELS_KEY },
-    });
-    const fbData = await fallback.json();
-    if (!fbData.videos?.length) throw new Error('No Pexels videos found');
-    data.videos = fbData.videos;
+  for (const query of queries) {
+    if (clipsPaths.length >= count) break;
+    try {
+      const res = await fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&per_page=8&size=medium&orientation=portrait`, {
+        headers: { Authorization: PEXELS_KEY },
+      });
+      const data = await res.json();
+      const videos = (data.videos || []).filter(v => !seenIds.has(v.id));
+      for (const video of videos) {
+        if (clipsPaths.length >= count) break;
+        seenIds.add(video.id);
+        const file = video.video_files
+          .filter(f => f.width >= 720 && f.height >= f.width)
+          .sort((a, b) => Math.abs(b.height - 1920) - Math.abs(a.height - 1920))[0]
+          || video.video_files.find(f => f.file_type === 'video/mp4');
+        if (!file) continue;
+        const dest = path.join(outputDir, `broll_${sceneIdx}_${clipsPaths.length}.mp4`);
+        await downloadFile(file.link, dest);
+        clipsPaths.push(dest);
+        await new Promise(r => setTimeout(r, 300));
+      }
+    } catch (e) { /* tenta próxima query */ }
   }
 
-  // Pick best video (prefer HD, portrait)
-  const video = data.videos[0];
-  const file = video.video_files
-    .filter(f => f.width >= 720)
-    .sort((a, b) => (a.width <= 1080 ? -1 : 1))[0] || video.video_files[0];
+  if (!clipsPaths.length) {
+    // Fallback genérico
+    try {
+      const res = await fetch(`https://api.pexels.com/videos/search?query=business+woman+office&per_page=3&size=medium&orientation=portrait`, {
+        headers: { Authorization: PEXELS_KEY },
+      });
+      const data = await res.json();
+      const v = data.videos?.[0];
+      if (v) {
+        const f = v.video_files.find(f => f.width >= 720) || v.video_files[0];
+        const dest = path.join(outputDir, `broll_${sceneIdx}_fallback.mp4`);
+        await downloadFile(f.link, dest);
+        clipsPaths.push(dest);
+      }
+    } catch {}
+  }
 
-  await downloadFile(file.link, outputPath);
-  return outputPath;
+  return clipsPaths;
 }
 
 // ============================================================
-// STEP 5: Render final video with FFmpeg
+// STEP 4b: Download BGM (background music) royalty-free
 // ============================================================
-function renderVideo(scenes, outputPath) {
+async function downloadBgm(outputPath) {
+  const url = BGM_POOL[Math.floor(Math.random() * BGM_POOL.length)];
+  try {
+    await downloadFile(url, outputPath);
+    return outputPath;
+  } catch (e) {
+    console.log(`    BGM download falhou: ${e.message.slice(0, 80)}`);
+    return null;
+  }
+}
+
+// ============================================================
+// STEP 5: Render final video with FFmpeg (Brendan Kane edition)
+//
+// Melhorias v2 (07/05):
+// - Hook overlay top 3s (palavra-chave da cena 1, fontsize 80, cor dourada)
+// - Cortes dinâmicos: 2 clipes Pexels por cena, troca a 50% da cena
+// - Texto kinetic: drawtext com fade-in palavra por palavra
+// - Highlights: keywords da scene em cor dourada
+// - Watermark @aurumlabcloud (não mais Marina Veauvy)
+// - Music bed: BGM volume 12%, ducking auto sob TTS
+// - Fade transitions entre cenas (200ms)
+// ============================================================
+
+function escapeDt(text) {
+  return String(text || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'")
+    .replace(/:/g, '\\:')
+    .replace(/,/g, '\\,')
+    .replace(/%/g, '\\%');
+}
+
+function buildSceneFilter({ sceneIdx, narration, keywords, audioDuration, hookText, isFirstScene, clipPaths }) {
+  // Splits audioDuration entre N clipes
+  const N = clipPaths.length;
+  const perClipDur = audioDuration / N;
+  const fps = 25;
+
+  // Cada clipe: scale + crop 1080x1920 + zoompan + trim
+  const clipFilters = clipPaths.map((_, i) =>
+    `[${i}:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,` +
+    `zoompan=z='min(zoom+0.0005,1.12)':d=${Math.ceil(perClipDur * fps)}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920:fps=${fps},` +
+    `trim=duration=${perClipDur.toFixed(2)},setpts=PTS-STARTPTS[c${i}]`
+  ).join(';');
+
+  // Concat dos clipes
+  const concat = clipPaths.map((_, i) => `[c${i}]`).join('') + `concat=n=${N}:v=1:a=0[bg]`;
+
+  // Caption kinetic: palavra por palavra cumulativa, com highlight em keywords
+  // Estratégia: tokeniza, monta drawtexts cumulativos
+  const words = (narration || '').split(/\s+/).filter(Boolean);
+  const slot = audioDuration / Math.max(words.length, 1);
+  const kwSet = new Set((keywords || []).map(k => k.toLowerCase().replace(/[.,;!?]/g, '')));
+
+  const wordDrawtexts = [];
+  for (let w = 0; w < words.length; w++) {
+    const visible = words.slice(0, w + 1).join(' ');
+    const startT = w * slot;
+    const endT = (w + 1) * slot + 0.3; // 300ms de overlap suave
+    // Word color: dourado se for keyword, branco senão
+    const lastWord = words[w].toLowerCase().replace(/[.,;!?]/g, '');
+    const isKw = kwSet.has(lastWord);
+    const color = isKw ? '#FFE082' : 'white';
+    wordDrawtexts.push(
+      `drawtext=text='${escapeDt(visible)}':fontcolor=${color}:fontsize=58:` +
+      `borderw=3:bordercolor=black@0.85:` +
+      `box=1:boxcolor=black@0.45:boxborderw=18:` +
+      `line_spacing=10:x=(w-text_w)/2:y=h*0.62:` +
+      `enable='between(t\\,${startT.toFixed(2)}\\,${endT.toFixed(2)})'`
+    );
+  }
+  // Frase completa fica no fim
+  const finalText = words.join(' ');
+  wordDrawtexts.push(
+    `drawtext=text='${escapeDt(finalText)}':fontcolor=white:fontsize=58:` +
+    `borderw=3:bordercolor=black@0.85:` +
+    `box=1:boxcolor=black@0.45:boxborderw=18:` +
+    `line_spacing=10:x=(w-text_w)/2:y=h*0.62:` +
+    `enable='gte(t\\,${(words.length * slot).toFixed(2)})'`
+  );
+
+  // Hook overlay top 3s (apenas na primeira cena)
+  let hookOverlay = '';
+  if (isFirstScene && hookText) {
+    hookOverlay =
+      `,drawtext=text='${escapeDt(hookText.toUpperCase())}':fontcolor=#FFE082:fontsize=82:` +
+      `borderw=4:bordercolor=black@0.95:` +
+      `box=1:boxcolor=black@0.65:boxborderw=22:` +
+      `line_spacing=14:x=(w-text_w)/2:y=h*0.18:` +
+      `enable='between(t\\,0\\,3.0)'`;
+  }
+
+  // Watermark @aurumlabcloud — todo vídeo
+  const watermark =
+    `,drawtext=text='@aurumlabcloud':fontcolor=white@0.55:fontsize=26:` +
+    `borderw=1:bordercolor=black@0.7:x=w-text_w-30:y=40`;
+
+  // Compose final
+  return `${clipFilters};${concat};[bg]${wordDrawtexts.join(',')}${hookOverlay}${watermark}[v]`;
+}
+
+function renderVideo(scenes, outputPath, bgmPath = null) {
   const tempDir = path.join(FACTORY_DIR, 'temp_' + Date.now());
   ensureDir(tempDir);
 
@@ -163,28 +319,40 @@ function renderVideo(scenes, outputPath) {
   for (let i = 0; i < scenes.length; i++) {
     const scene = scenes[i];
     const audioPath = scene.audioPath;
-    const videoPath = scene.videoPath;
+    const clipPaths = scene.clipPaths || (scene.videoPath ? [scene.videoPath] : []);
+    if (!audioPath || !clipPaths.length) continue;
+
     const audioDuration = scene.audioDuration;
     const segmentPath = path.join(tempDir, `segment_${i}.mp4`);
 
-    // Trim/loop video to match audio duration, add subtle zoom effect
-    // Scale to 1080x1920 (9:16 portrait for Shorts)
-    const cmd = `ffmpeg -y -stream_loop -1 -i "${videoPath}" -i "${audioPath}" ` +
-      `-filter_complex "` +
-      `[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,` +
-      `zoompan=z='min(zoom+0.0005,1.15)':d=${Math.ceil(audioDuration * 25)}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1080x1920:fps=25,` +
-      `drawtext=text='Marina Veauvy':fontcolor=white@0.3:fontsize=20:x=40:y=h-50` +
-      `[v]" ` +
-      `-map "[v]" -map 1:a -c:v libx264 -preset fast -c:a aac -b:a 192k ` +
-      `-t ${audioDuration} -shortest "${segmentPath}"`;
+    // Build filter_complex
+    const filterStr = buildSceneFilter({
+      sceneIdx: i,
+      narration: scene.narration || '',
+      keywords: scene.keywords_highlight || [],
+      audioDuration,
+      hookText: i === 0 ? (scene.hook_overlay || (scene.narration || '').split(/[.!?]/)[0] || '') : '',
+      isFirstScene: i === 0,
+      clipPaths,
+    });
+
+    // Build inputs (todos os clipes + audio)
+    const inputs = clipPaths.map(p => `-stream_loop -1 -i "${p}"`).join(' ') + ` -i "${audioPath}"`;
+    const audioMapIdx = clipPaths.length;
+
+    const cmd = `ffmpeg -y ${inputs} -filter_complex "${filterStr}" ` +
+      `-map "[v]" -map ${audioMapIdx}:a -c:v libx264 -preset fast -c:a aac -b:a 192k ` +
+      `-t ${audioDuration} -shortest -pix_fmt yuv420p "${segmentPath}"`;
 
     try {
-      execSync(cmd, { timeout: 120000, stdio: 'pipe' });
+      execSync(cmd, { timeout: 180000, stdio: 'pipe' });
       segmentPaths.push(segmentPath);
-    } catch {
-      // Fallback simpler render without zoompan
-      const cmdSimple = `ffmpeg -y -stream_loop -1 -i "${videoPath}" -i "${audioPath}" ` +
-        `-vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920" ` +
+    } catch (e) {
+      // Fallback v1 — sem kinetic + sem cortes (1 clipe estático)
+      console.log(`    Cena ${i}: fallback render simples (${(e.message||'').slice(-150)})`);
+      const cmdSimple = `ffmpeg -y -stream_loop -1 -i "${clipPaths[0]}" -i "${audioPath}" ` +
+        `-vf "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,` +
+        `drawtext=text='@aurumlabcloud':fontcolor=white@0.55:fontsize=26:x=w-text_w-30:y=40" ` +
         `-c:v libx264 -preset fast -c:a aac -b:a 192k ` +
         `-t ${audioDuration} -shortest "${segmentPath}"`;
       try {
@@ -201,16 +369,70 @@ function renderVideo(scenes, outputPath) {
     return null;
   }
 
-  // Concat all segments
+  // Concat segments (sem BGM ainda)
   const concatFile = path.join(tempDir, 'concat.txt');
   fs.writeFileSync(concatFile, segmentPaths.map(p => `file '${p.replace(/\\/g, '/')}'`).join('\n'));
-
-  const concatCmd = `ffmpeg -y -f concat -safe 0 -i "${concatFile}" -c:v libx264 -c:a aac -movflags +faststart "${outputPath}"`;
+  const intermediatePath = bgmPath ? path.join(tempDir, 'concat_no_bgm.mp4') : outputPath;
+  const concatCmd = `ffmpeg -y -f concat -safe 0 -i "${concatFile}" -c:v libx264 -c:a aac -movflags +faststart "${intermediatePath}"`;
   execSync(concatCmd, { timeout: 120000, stdio: 'pipe' });
 
-  // Cleanup
+  // Mix BGM com ducking (sidechaincompress: BGM abaixa quando TTS toca)
+  if (bgmPath && fs.existsSync(bgmPath)) {
+    try {
+      // Ducking: comprime BGM com sidechain do TTS
+      // Volume BGM 12%, ducking ratio 8:1
+      const mixCmd = `ffmpeg -y -i "${intermediatePath}" -stream_loop -1 -i "${bgmPath}" ` +
+        `-filter_complex "` +
+        `[1:a]volume=0.12,aloop=loop=-1:size=2e9[bgm];` +
+        `[0:a][bgm]sidechaincompress=threshold=0.05:ratio=8:attack=5:release=200[mixed]` +
+        `" -map 0:v -map "[mixed]" -c:v copy -c:a aac -b:a 192k -shortest "${outputPath}"`;
+      execSync(mixCmd, { timeout: 120000, stdio: 'pipe' });
+    } catch (e) {
+      // Fallback sem ducking — só mixa volumes
+      console.log(`    BGM mix com ducking falhou, fallback simples: ${(e.message||'').slice(-100)}`);
+      try {
+        const fallbackMix = `ffmpeg -y -i "${intermediatePath}" -stream_loop -1 -i "${bgmPath}" ` +
+          `-filter_complex "[1:a]volume=0.10[bgm];[0:a][bgm]amix=inputs=2:duration=first[mixed]" ` +
+          `-map 0:v -map "[mixed]" -c:v copy -c:a aac -b:a 192k -shortest "${outputPath}"`;
+        execSync(fallbackMix, { timeout: 120000, stdio: 'pipe' });
+      } catch (e2) {
+        // Último recurso: copia sem BGM
+        fs.copyFileSync(intermediatePath, outputPath);
+      }
+    }
+  }
+
   fs.rmSync(tempDir, { recursive: true, force: true });
   return outputPath;
+}
+
+// ============================================================
+// STEP 5b: Gerar thumbnail customizada (1280x720)
+// ============================================================
+function generateThumbnail(scenes, thumbText, thumbnailPath) {
+  // Pega primeiro frame do primeiro clipe como BG, sobrepõe texto grande dourado
+  const clipPaths = scenes[0]?.clipPaths || (scenes[0]?.videoPath ? [scenes[0].videoPath] : []);
+  if (!clipPaths.length || !thumbText) return null;
+  const bgClip = clipPaths[0];
+  const t = (thumbText || '').toUpperCase().slice(0, 22);
+
+  try {
+    const cmd = `ffmpeg -y -i "${bgClip}" -ss 1.0 -frames:v 1 ` +
+      `-vf "scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720,` +
+      `drawbox=x=0:y=0:w=iw:h=ih:color=black@0.40:t=fill,` +
+      `drawtext=text='${escapeDt(t)}':fontcolor=#FFE082:fontsize=110:` +
+      `borderw=5:bordercolor=black@0.95:` +
+      `box=1:boxcolor=black@0.55:boxborderw=24:` +
+      `line_spacing=18:x=(w-text_w)/2:y=(h-text_h)/2,` +
+      `drawtext=text='@aurumlabcloud':fontcolor=white@0.7:fontsize=32:` +
+      `borderw=2:bordercolor=black@0.8:x=w-text_w-40:y=h-60" ` +
+      `"${thumbnailPath}"`;
+    execSync(cmd, { timeout: 30000, stdio: 'pipe' });
+    return thumbnailPath;
+  } catch (e) {
+    console.log(`    Thumbnail erro: ${(e.message||'').slice(-100)}`);
+    return null;
+  }
 }
 
 // ============================================================
@@ -220,7 +442,7 @@ function buildDescription(summary, articleUrl) {
   const affiliateLink = 'https://novavidaprospera.com.br/?ref=yt_aurumlab';
   const amazonBook = 'https://www.amazon.com.br/dp/B0F1Y3QKQ7?tag=marinaveauv04-20';
   const blog = 'https://wp.marinaveauvy.com.br';
-  const channel = 'https://www.youtube.com/@marinaveauvy';
+  const channel = 'https://www.youtube.com/@aurumlabcloud';
 
   return `${summary}
 
@@ -301,48 +523,64 @@ async function processArticle(article) {
     return null;
   }
 
-  // Step 2: Generate TTS for each scene
-  console.log('  2/5 Gerando narração...');
+  // Step 2: Generate TTS for each scene (voz parametrizada)
+  console.log('  2/6 Gerando narração (Francisca/Thalita)...');
   for (let i = 0; i < scenes.length; i++) {
     const audioPath = path.join(workDir, `audio_${i}.mp3`);
-    generateTTS(scenes[i].narration, audioPath);
+    const voiceKey = scenes[i].voice || (i === 0 || i === scenes.length - 1 ? 'thalita' : 'francisca');
+    generateTTS(scenes[i].narration, audioPath, voiceKey);
     scenes[i].audioPath = audioPath;
     scenes[i].audioDuration = getAudioDuration(audioPath);
   }
 
-  // Step 3: Download B-roll for each scene
-  console.log('  3/5 Baixando footage Pexels...');
+  // Step 3: Download múltiplos clipes B-roll por cena (cortes dinâmicos)
+  console.log('  3/6 Baixando footage Pexels (2 clipes/cena)...');
   for (let i = 0; i < scenes.length; i++) {
-    const videoPath = path.join(workDir, `broll_${i}.mp4`);
+    const queries = [scenes[i].visual_query, scenes[i].visual_query_alt].filter(Boolean);
     try {
-      await downloadBroll(scenes[i].visual_query, videoPath);
-      scenes[i].videoPath = videoPath;
+      const clips = await downloadBrollClips(queries, workDir, i, 2);
+      scenes[i].clipPaths = clips;
+      scenes[i].videoPath = clips[0]; // legacy compat
     } catch (err) {
       console.log(`    B-roll cena ${i} fallback...`);
-      // Use previous scene's video or generic
-      scenes[i].videoPath = i > 0 ? scenes[i - 1].videoPath : null;
+      scenes[i].clipPaths = i > 0 && scenes[i - 1].clipPaths ? [scenes[i - 1].clipPaths[0]] : [];
+      scenes[i].videoPath = scenes[i].clipPaths[0] || null;
     }
-    await new Promise(r => setTimeout(r, 500)); // Pexels rate limit
+    await new Promise(r => setTimeout(r, 400));
   }
 
-  // Filter scenes with both audio and video
-  const validScenes = scenes.filter(s => s.audioPath && s.videoPath);
+  // Step 4: Download BGM (música de fundo)
+  console.log('  4/6 Baixando BGM royalty-free...');
+  const bgmPath = path.join(workDir, 'bgm.mp3');
+  const bgmOk = await downloadBgm(bgmPath);
+
+  // Filter scenes with audio + clips
+  const validScenes = scenes.filter(s => s.audioPath && s.clipPaths && s.clipPaths.length);
   if (validScenes.length < 2) {
     console.log('  ⚠️ Poucas cenas válidas');
     return null;
   }
 
-  // Step 4: Render video
-  console.log('  4/5 Renderizando vídeo...');
+  // Adiciona hook overlay text na primeira cena (LLM thumbnail_text)
+  if (validScenes[0]) {
+    validScenes[0].hook_overlay = script.thumbnail_text || (validScenes[0].narration || '').split(/[.!?]/)[0];
+  }
+
+  // Step 5: Render video (Brendan Kane edition)
+  console.log('  5/6 Renderizando (hook+kinetic+cortes+BGM)...');
   const outputPath = path.join(FACTORY_DIR, `${slug}.mp4`);
-  const rendered = renderVideo(validScenes, outputPath);
+  const rendered = renderVideo(validScenes, outputPath, bgmOk);
   if (!rendered) {
     console.log('  ❌ Render falhou');
     return null;
   }
 
+  // Step 5b: Thumbnail customizada
+  const thumbPath = path.join(FACTORY_DIR, `${slug}-thumb.jpg`);
+  generateThumbnail(validScenes, script.thumbnail_text, thumbPath);
+
   const size = (fs.statSync(outputPath).size / 1024 / 1024).toFixed(1);
-  console.log(`  5/5 Vídeo pronto! (${size}MB)`);
+  console.log(`  6/6 Vídeo pronto! (${size}MB)`);
 
   // Save metadata (inclui youtube_description montada com CTA afiliado)
   fs.writeFileSync(path.join(FACTORY_DIR, `${slug}.json`), JSON.stringify({

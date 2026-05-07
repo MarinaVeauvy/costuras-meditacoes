@@ -7,7 +7,10 @@ import os
 import json
 from google_auth_oauthlib.flow import InstalledAppFlow
 
-SCOPES = ['https://www.googleapis.com/auth/youtube.upload']
+SCOPES = [
+    'https://www.googleapis.com/auth/youtube.upload',
+    'https://www.googleapis.com/auth/youtube.force-ssl',  # edit/delete (precisa pra update-descriptions)
+]
 CLIENT_FILE = os.path.join(os.path.dirname(__file__), '..', 'youtube', 'oauth-client.json')
 TOKEN_FILE = os.path.join(os.path.dirname(__file__), '..', 'youtube', 'oauth-token.json')
 
