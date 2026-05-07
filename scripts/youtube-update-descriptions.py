@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Atualiza em massa a descrição dos vídeos já publicados no canal Marina Veauvy,
+Atualiza em massa a descrição dos vídeos já publicados no canal AurumLab Cloud,
 adicionando CTA + link afiliado MAC no topo (antes da descrição atual).
+SEM branding pessoal — descrição AurumLab Cloud only.
 
 Usa YouTube Data API v3 — requer scope youtube.force-ssl (edit).
 
@@ -24,36 +25,25 @@ TOKEN_FILE = os.path.join(YOUTUBE_DIR, 'oauth-token.json')
 UPLOADED_INDEX = os.path.join(YOUTUBE_DIR, 'uploaded-index.json')
 
 AFFILIATE_LINK = 'https://novavidaprospera.com.br/?ref=yt_aurumlab'
-BLOG = 'https://wp.marinaveauvy.com.br'
 CHANNEL = 'https://www.youtube.com/@aurumlabcloud'
-AMAZON_BOOK = 'https://www.amazon.com.br/dp/B0F1Y3QKQ7?tag=marinaveauv04-20'
 
+# Description AurumLab Cloud — sem branding pessoal Marina Veauvy
 CTA_BLOCK = f"""💡 Método completo passo a passo no link:
 👉 {AFFILIATE_LINK}
 
 ━━━━━━━━━━━━━━━━━━━━━━━
-🎯 QUER IR MAIS FUNDO?
+🎯 SE INSCREVA NO CANAL
 ━━━━━━━━━━━━━━━━━━━━━━━
 
-📝 Blog com conteúdo novo toda semana:
-{BLOG}
+📺 {CHANNEL}
 
-📚 Meu livro na Amazon:
-{AMAZON_BOOK}
-
-📧 Newsletters gratuitas (assina direto no blog):
-• Dinheiro Simples (toda quinta 07h)
-• Impulso IA (toda terça 07h)
-• Renda Extra Report (todo sábado 09h)
-
-📺 Inscreva-se pra mais conteúdo:
-{CHANNEL}
+Conteúdo novo sobre estratégias financeiras, automação com IA, renda passiva digital e educação financeira aplicada ao empreendedorismo moderno.
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 ⚠️ Conteúdo educativo. Não é recomendação de investimento. Decisões financeiras são pessoais — estude e consulte profissional qualificado.
 
-#financas #investimentos #iaparamulheres #empreendedorismo #educacaofinanceira
+#financas #investimentos #empreendedorismo #educacaofinanceira #rendapassiva #automacao
 
 ---
 """

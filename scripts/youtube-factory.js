@@ -123,9 +123,12 @@ Retorne JSON:
   - duration: segundos (total ~50s)
 
 REGRAS:
-- Tom: direto, testemunho/storytelling > tutorial
-- Tema: educação financeira feminina + IA + empreendedorismo (NUNCA cripto direto)
-- NUNCA mencionar "Quarta Via", "manifestar", "lei da atração"`;
+- Tom: direto, narrador/educativo, voz neutra
+- Tema: educação financeira + IA + empreendedorismo + renda passiva
+- NUNCA mencionar "Marina", "Marina Veauvy", "minha experiência pessoal", "no meu caso", "comigo aconteceu"
+- NUNCA mencionar "Quarta Via", "manifestar", "lei da atração", cripto direto
+- Voz é narrador genérico AurumLab Cloud, não pessoa identificada
+- Tags NÃO devem incluir "marina", "marinaveauvy", nome próprio`;
 
   return await generate(prompt, { json: true, maxTokens: 2048 });
 }
@@ -440,41 +443,27 @@ function generateThumbnail(scenes, thumbText, thumbnailPath) {
 // ============================================================
 function buildDescription(summary, articleUrl) {
   const affiliateLink = 'https://novavidaprospera.com.br/?ref=yt_aurumlab';
-  const amazonBook = 'https://www.amazon.com.br/dp/B0F1Y3QKQ7?tag=marinaveauv04-20';
-  const blog = 'https://wp.marinaveauvy.com.br';
   const channel = 'https://www.youtube.com/@aurumlabcloud';
 
+  // Description AurumLab Cloud — sem branding pessoal Marina Veauvy
   return `${summary}
 
 💡 Método completo passo a passo no link:
 👉 ${affiliateLink}
 
-📖 Artigo completo: ${articleUrl}
-
 ━━━━━━━━━━━━━━━━━━━━━━━
-🎯 QUER IR MAIS FUNDO?
+🎯 SE INSCREVA NO CANAL
 ━━━━━━━━━━━━━━━━━━━━━━━
 
-📝 Blog com conteúdo novo toda semana:
-${blog}
+📺 ${channel}
 
-📚 Meu livro na Amazon:
-${amazonBook}
-
-📧 Newsletters gratuitas (assina direto):
-• Dinheiro Simples (toda quinta 07h)
-• Impulso IA (toda terça 07h)
-• Renda Extra Report (todo sábado 09h)
-${blog}
-
-📺 Inscreva-se pra mais conteúdo:
-${channel}
+Conteúdo novo sobre estratégias financeiras, automação com IA, renda passiva digital e educação financeira aplicada ao empreendedorismo moderno.
 
 ━━━━━━━━━━━━━━━━━━━━━━━
 
 ⚠️ Conteúdo educativo. Não é recomendação de investimento. Decisões financeiras são pessoais — estude e consulte profissional qualificado.
 
-#financas #investimentos #iaparamulheres #empreendedorismo #educacaofinanceira #rendaextra #mulheresempreendedoras`;
+#financas #investimentos #empreendedorismo #educacaofinanceira #rendapassiva #automacao`;
 }
 
 // ============================================================
