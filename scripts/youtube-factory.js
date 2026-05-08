@@ -73,12 +73,96 @@ function getUploaded() {
 }
 
 // ============================================================
-// STEP 2: Generate video script with AI (Format Vault edition)
+// STEP 2: Generate video script with AI (anti-fadiga + validação)
 // ============================================================
 const VOICE_POOL = [
   'pt-BR-FranciscaNeural',  // calma, calorosa
   'pt-BR-ThalitaNeural',    // jovem, dinâmica
 ];
+
+const FV_DETECTORS = [
+  { id: 'FV-001', regex: /tudo\s+que.*errado|tudo\s+sobre.*errado|você\s+acha\s+que/i },
+  { id: 'FV-005', regex: /ninguém\s+conta|o\s+que\s+ninguém|segredo\s+que/i },
+  { id: 'FV-007', regex: /\d+\s*%|\d+\s+em\s+\d+|97%|85%/i },
+  { id: 'FV-006', regex: /pare\.|espera\s*—|você\s+precisa\s+ver/i },
+];
+
+function detectFormat(narration) {
+  if (!narration) return null;
+  for (const f of FV_DETECTORS) if (f.regex.test(narration)) return f.id;
+  return 'FV-OTHER';
+}
+
+function getRecentScripts(limit = 5) {
+  if (!fs.existsSync(FACTORY_DIR)) return [];
+  const files = fs.readdirSync(FACTORY_DIR)
+    .filter(f => f.endsWith('.json') && !f.endsWith('-meta.json') && !f.includes('-thumb'))
+    .map(f => ({ f, mtime: fs.statSync(path.join(FACTORY_DIR, f)).mtimeMs }))
+    .sort((a, b) => b.mtime - a.mtime)
+    .slice(0, limit);
+  const recent = [];
+  for (const { f } of files) {
+    try {
+      const j = JSON.parse(fs.readFileSync(path.join(FACTORY_DIR, f), 'utf8'));
+      const hookNarration = j.scenes?.[0]?.narration || '';
+      recent.push({
+        file: f,
+        title: j.youtube_title,
+        thumbnail_text: j.thumbnail_text,
+        hook_first_words: hookNarration.split(/\s+/).slice(0, 5).join(' ').toLowerCase(),
+        format: detectFormat(hookNarration),
+      });
+    } catch {}
+  }
+  return recent;
+}
+
+function buildAntiFatigueConstraints(recent) {
+  if (!recent.length) return 'Sem histórico — escolha qualquer Format Vault.';
+  const usedFormats = [...new Set(recent.map(r => r.format).filter(f => f && f !== 'FV-OTHER'))];
+  const usedThumbs = [...new Set(recent.map(r => r.thumbnail_text).filter(Boolean))];
+  const usedHookStarts = [...new Set(recent.map(r => r.hook_first_words).filter(Boolean))];
+  const allowedFormats = ['FV-001', 'FV-005', 'FV-006', 'FV-007'].filter(f => !usedFormats.includes(f));
+  const formatPool = allowedFormats.length ? allowedFormats : ['FV-001', 'FV-005', 'FV-006', 'FV-007'].filter(f => f !== usedFormats[0]);
+  return `Últimos 5 vídeos usaram formats: [${usedFormats.join(', ')}]
+PROIBIDO repetir esses formats. ESCOLHA hook de [${formatPool.join(', ')}].
+PROIBIDO repetir thumbnail_text dos últimos: [${usedThumbs.slice(0,5).join(' | ')}].
+PROIBIDO começar hook com palavras já usadas: [${usedHookStarts.slice(0,5).join(' | ')}].`;
+}
+
+function validateScript(script, article) {
+  const errors = [];
+  // Campos top-level
+  for (const k of ['youtube_title', 'description', 'thumbnail_text', 'pinned_comment']) {
+    if (!script[k] || typeof script[k] !== 'string' || !script[k].trim()) errors.push(`top.${k} ausente/vazio`);
+  }
+  if (!Array.isArray(script.scenes) || script.scenes.length < 4) {
+    errors.push(`scenes deve ter 4+ cenas (tem ${script.scenes?.length || 0})`);
+    return errors;
+  }
+  // Cada cena
+  script.scenes.forEach((s, i) => {
+    for (const k of ['narration', 'visual_query', 'voice']) {
+      if (!s[k] || !String(s[k]).trim()) errors.push(`cena[${i}].${k} ausente`);
+    }
+    if (!Array.isArray(s.keywords_highlight) || !s.keywords_highlight.length) {
+      errors.push(`cena[${i}].keywords_highlight vazio`);
+    }
+  });
+  // Especificidade: cenas 2-4 (corpo) precisam ter número OU termo do título
+  const titleWords = (article.title.rendered || '').toLowerCase().split(/\s+/).filter(w => w.length > 4);
+  const middleScenes = script.scenes.slice(1, 4);
+  const genericPhrases = [/transforma\s+sua\s+vida/i, /muda\s+tudo/i, /é\s+possível/i, /é\s+fundamental/i, /cenários\s+práticos/i];
+  middleScenes.forEach((s, i) => {
+    const text = s.narration || '';
+    const hasNumber = /\d/.test(text);
+    const hasTitleTerm = titleWords.some(w => text.toLowerCase().includes(w));
+    const isGeneric = genericPhrases.some(rx => rx.test(text));
+    if (!hasNumber && !hasTitleTerm) errors.push(`cena[${i+1}] sem número nem termo do tópico — genérica demais`);
+    if (isGeneric) errors.push(`cena[${i+1}] usa frase vazia: "${text.slice(0,60)}"`);
+  });
+  return errors;
+}
 
 const BGM_POOL = [
   // Mixkit royalty-free (URLs públicas, licença permissiva)
@@ -92,12 +176,28 @@ const BGM_POOL = [
 
 async function generateScript(article) {
   const title = article.title.rendered;
+  // Usa conteúdo completo do artigo (não só excerpt) — LLM precisa de fato real
+  const fullContent = (article.content?.rendered || article.excerpt.rendered)
+    .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().substring(0, 1500);
   const excerpt = article.excerpt.rendered.replace(/<[^>]+>/g, '').substring(0, 300);
+
+  const recent = getRecentScripts(5);
+  const antiFatigue = buildAntiFatigueConstraints(recent);
 
   const prompt = `Crie um roteiro de YouTube Short OTIMIZADO PARA VIEWS (30-40 segundos — retenção máxima).
 
 ARTIGO: "${title}"
 RESUMO: "${excerpt}"
+
+CONTEÚDO DO ARTIGO (extraia 1 NÚMERO OU FATO ESPECÍFICO daqui pra usar nas cenas 2-4):
+"""
+${fullContent}
+"""
+
+═══════════════════════════════════════
+ANTI-FADIGA (CRÍTICO)
+═══════════════════════════════════════
+${antiFatigue}
 
 ═══════════════════════════════════════
 TÍTULO (CRÍTICO PARA CTR NO FEED)
@@ -151,9 +251,35 @@ REGRAS DURAS
 - NUNCA mencionar "Marina", nome próprio, "minha experiência", "comigo"
 - NUNCA "Quarta Via", "manifestar", "lei da atração", cripto direto
 - Tags sem nome próprio
-- Duração total OBRIGATÓRIA 30-40s (Shorts curtos retêm 80% mais)`;
+- Duração total OBRIGATÓRIA 30-40s (Shorts curtos retêm 80% mais)
+- ESPECIFICIDADE: cenas 2-4 PRECISAM ter número concreto, % real ou termo técnico do artigo
+- PROIBIDO frases vazias: "transforma sua vida", "muda tudo", "é fundamental", "é possível", "cenários práticos"`;
 
-  return await generate(prompt, { json: true, maxTokens: 2048 });
+  // 2 tentativas com validação dura (anti-undefined + anti-genérico + anti-fadiga)
+  let lastErrors = [];
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    let script;
+    try {
+      script = await generate(prompt, { json: true, maxTokens: 2048 });
+    } catch (e) {
+      lastErrors = [`generate falhou: ${e.message}`];
+      continue;
+    }
+    const errors = validateScript(script, article);
+    if (!errors.length) {
+      if (attempt > 1) console.log(`  ✅ Validação OK na tentativa ${attempt}`);
+      return script;
+    }
+    lastErrors = errors;
+    console.log(`  ⚠️ Tentativa ${attempt} reprovada: ${errors.slice(0,3).join(' | ')}`);
+    if (attempt < 2) {
+      // Adiciona feedback explícito ao prompt antes do retry
+      // (LLM vê os erros do output anterior e tem chance de corrigir)
+      // Não modificamos `prompt` em si — confiamos que o LLM produza output melhor numa segunda chamada com mesma instrução,
+      // que já é forte. Se quiser ser mais agressivo, dá pra concatenar `\n\nRetry: erros anteriores: ${errors.join(';')}`.
+    }
+  }
+  throw new Error(`Script reprovado após 2 tentativas: ${lastErrors.slice(0,4).join(' | ')}`);
 }
 
 // ============================================================
