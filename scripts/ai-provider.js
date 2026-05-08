@@ -1,6 +1,7 @@
-// Unified AI Provider — OpenRouter (free) → Gemini → OpenAI → Anthropic (paid fallback)
+// Unified AI Provider — Groq (free, estável) → OpenRouter (free) → Gemini → OpenAI → Anthropic
 // All scripts use this instead of calling APIs directly
 
+const GROQ_KEY = process.env.GROQ_API_KEY;
 const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY;
 const OPENAI_KEY = process.env.OPENAI_API_KEY;
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
@@ -54,6 +55,15 @@ function validateNonEmpty(parsed) {
 }
 
 async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
+  // 1. Groq — free tier generoso (14400 req/dia), llama 3.3 70b
+  if (GROQ_KEY) {
+    try {
+      return await generateGroq(prompt, { json, maxTokens });
+    } catch (err) {
+      console.error(`  ⚠️ Groq falhou: ${err.message}`);
+    }
+  }
+
   if (OPENROUTER_KEY) {
     try {
       return await generateOpenRouter(prompt, { json, maxTokens });
@@ -88,6 +98,53 @@ async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
   }
 
   throw new Error('Nenhum AI provider disponível ou todos falharam.');
+}
+
+// Groq free models — endpoint compatível OpenAI, free tier 14400 req/dia
+const GROQ_MODELS = [
+  'llama-3.3-70b-versatile',  // top quality, 32k context
+  'llama-3.1-70b-versatile',  // fallback
+  'mixtral-8x7b-32768',       // backup com context maior
+];
+
+async function generateGroq(prompt, { json, maxTokens }) {
+  let lastErr;
+  for (const model of GROQ_MODELS) {
+    try {
+      return await callGroq(model, prompt, { json, maxTokens });
+    } catch (err) {
+      lastErr = err;
+      console.error(`    ↪ Groq ${model} falhou: ${err.message.substring(0, 120)}`);
+    }
+  }
+  throw lastErr || new Error('Todos os modelos Groq falharam');
+}
+
+async function callGroq(model, prompt, { json, maxTokens }) {
+  const body = {
+    model,
+    messages: [{ role: 'user', content: prompt }],
+    max_tokens: Math.min(maxTokens, 8000), // Groq max
+    temperature: 0.8,
+  };
+  if (json) body.response_format = { type: 'json_object' };
+
+  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${GROQ_KEY}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  const data = await res.json();
+  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+
+  const text = data.choices?.[0]?.message?.content;
+  if (!text) throw new Error('Groq returned empty response');
+
+  return json ? parseJsonTolerant(text) : text;
 }
 
 // Free models on OpenRouter, tried in order. Lista atualizada 2026-05-07
