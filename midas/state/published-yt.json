@@ -260,6 +260,16 @@
       "requestId": "03216608b7674667952076b735653f75",
       "publishedAt": "2026-05-09T11:28:30.332Z",
       "postUrl": "https://www.youtube.com/watch?v=aZXhPAva8ig"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "story_ST-007-filho-perguntou_1778368459426.mp4",
+      "platform": "youtube",
+      "postId": "Cl4yCj_mnbU",
+      "success": true,
+      "requestId": "d5646575b0cb4d14ab74bd41318ba7ad",
+      "publishedAt": "2026-05-09T23:15:08.903Z",
+      "postUrl": "https://www.youtube.com/watch?v=Cl4yCj_mnbU"
     }
   ]
 }
