@@ -1,0 +1,15 @@
+{
+  "name": "marinaveauvy-api-worker",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Cloudflare Worker que substitui APIs Vercel (newsletter, products, minicurso)",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.78.0"
+  }
+}

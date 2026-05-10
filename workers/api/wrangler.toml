@@ -1,0 +1,20 @@
+name = "marinaveauvy-api"
+main = "src/index.js"
+compatibility_date = "2026-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Logs visíveis em https://dash.cloudflare.com → Workers → marinaveauvy-api → Logs
+[observability]
+enabled = true
+
+# Environment variables não-secretas (vão pro código). Secrets (RESEND_API_KEY, ADMIN_KEY)
+# são adicionados via `wrangler secret put` ou painel Cloudflare.
+[vars]
+WORKER_NAME = "marinaveauvy-api"
+
+# Custom domain — Marina aponta api.marinaveauvy.com.br pra esse worker
+# Setup manual (uma vez):
+#   1. Cloudflare Dashboard → Workers & Pages → marinaveauvy-api → Settings → Domains & Routes
+#   2. Add Custom Domain: api.marinaveauvy.com.br
+#   3. Cloudflare cria DNS automaticamente (precisa do domínio na Cloudflare ou CNAME)
+# Endpoint default sem custom domain: marinaveauvy-api.<account>.workers.dev
