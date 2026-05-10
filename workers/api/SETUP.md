@@ -69,7 +69,7 @@ Edite as LPs (`newsletter-impulso-ia.html`, `planilha-auditoria.html`, etc.) tro
 
 ```js
 // Antes
-fetch('https://costuras-meditacoes.vercel.app/api/newsletter/subscribe', ...)
+fetch('https://marinaveauvy-api.9hj5r4bgq2.workers.dev/api/newsletter/subscribe', ...)
 
 // Depois
 fetch('https://marinaveauvy-api.<seu-subdomain>.workers.dev/api/newsletter/subscribe', ...)

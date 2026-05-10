@@ -105,7 +105,7 @@ async function sendBatchEmails(from, subject, htmlContent, contacts) {
   const results = { sent: 0, failed: 0, errors: [] };
 
   // Add unsubscribe link to HTML
-  const unsubBase = 'https://costuras-meditacoes.vercel.app/api/newsletter/subscribers';
+  const unsubBase = 'https://marinaveauvy-api.9hj5r4bgq2.workers.dev/api/newsletter/subscribers';
 
   for (let i = 0; i < contacts.length; i += 100) {
     const chunk = contacts.slice(i, i + 100);
