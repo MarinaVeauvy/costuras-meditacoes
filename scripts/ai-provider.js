@@ -147,16 +147,15 @@ async function callGroq(model, prompt, { json, maxTokens }) {
   return json ? parseJsonTolerant(text) : text;
 }
 
-// Free models on OpenRouter, tried in order. Lista atualizada 2026-05-07
-// (modelos antigos como gemma-3-12b foram descontinuados — 404 "no endpoints").
+// Free models on OpenRouter, tried in order. Lista atualizada 2026-05-10
+// Removidos: nvidia/llama-3.1-nemotron-70b:free e mistralai/mistral-7b:free
+// (404 "No endpoints found" — descontinuados pelos providers).
 // Verificar periodicamente em https://openrouter.ai/models?max_price=0
 const OPENROUTER_FREE_MODELS = [
   'meta-llama/llama-3.3-70b-instruct:free',
   'qwen/qwen3-next-80b-a3b-instruct:free',
   'google/gemma-4-31b-it:free',
-  'nvidia/llama-3.1-nemotron-70b-instruct:free',
   'meta-llama/llama-3.2-3b-instruct:free',
-  'mistralai/mistral-7b-instruct:free',
 ];
 
 async function generateOpenRouter(prompt, { json, maxTokens }) {
