@@ -300,6 +300,16 @@
       "requestId": "969442e3e3f34d3da7c0891f5d504754",
       "publishedAt": "2026-05-11T13:27:54.649Z",
       "postUrl": "https://www.youtube.com/watch?v=lW6eaywWPy4"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "story_ST-004-mentora-paga_1778542451018.mp4",
+      "platform": "youtube",
+      "postId": "tNjK_DG_M2s",
+      "success": true,
+      "requestId": "df315f22073b45b090ae0ec87f2de369",
+      "publishedAt": "2026-05-11T23:35:00.255Z",
+      "postUrl": "https://www.youtube.com/watch?v=tNjK_DG_M2s"
     }
   ]
 }
