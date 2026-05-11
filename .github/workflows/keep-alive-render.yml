@@ -1,0 +1,28 @@
+name: Keep Render Apps Alive (anti cold-start)
+
+# Render Free suspende após 15 min sem requests.
+# Cold start é ~50s — frustrante pra uso interno.
+# Solução: ping HTTP a cada 12 min mantém os apps acordados.
+#
+# 12 min × 60 (1h) × 24 (1d) = 120 requests/dia
+# Cada ping consome ~0.5s de runtime no Render = ~1h/mês total
+# Folga gigante no free tier (750h/mês).
+
+on:
+  schedule:
+    - cron: '*/12 * * * *'    # a cada 12 minutos
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ping pa-content-studio
+        run: |
+          for URL in \
+            "https://pa-content-studio.onrender.com/login" \
+            "https://studio.marinaveauvy.com.br/login"; do
+            CODE=$(curl -sL -o /dev/null -w "%{http_code}" --max-time 60 --connect-timeout 10 "$URL" || echo "000")
+            echo "$URL → HTTP $CODE"
+          done
