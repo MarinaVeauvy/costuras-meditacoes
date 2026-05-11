@@ -290,6 +290,16 @@
       "requestId": "6cf01fc261634975bc7a3c06081f9213",
       "publishedAt": "2026-05-10T23:20:27.886Z",
       "postUrl": "https://www.youtube.com/watch?v=s9WtwomiidM"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-001-dinheiro-pecado_1778506035477.mp4",
+      "platform": "youtube",
+      "postId": "lW6eaywWPy4",
+      "success": true,
+      "requestId": "969442e3e3f34d3da7c0891f5d504754",
+      "publishedAt": "2026-05-11T13:27:54.649Z",
+      "postUrl": "https://www.youtube.com/watch?v=lW6eaywWPy4"
     }
   ]
 }
