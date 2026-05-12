@@ -320,6 +320,16 @@
       "requestId": "afd8018d119a4d78ae0ccfa09269e7d0",
       "publishedAt": "2026-05-12T12:31:39.699Z",
       "postUrl": "https://www.youtube.com/watch?v=_NuwklwD-us"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00010_hooked.mp4",
+      "platform": "youtube",
+      "postId": "S90RaPPYWoY",
+      "success": true,
+      "requestId": "56ba1134199d436ba94d88a2b51319ee",
+      "publishedAt": "2026-05-12T23:41:56.005Z",
+      "postUrl": "https://www.youtube.com/watch?v=S90RaPPYWoY"
     }
   ]
 }

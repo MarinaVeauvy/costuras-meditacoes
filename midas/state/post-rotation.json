@@ -6,9 +6,9 @@
       "updated_at": "2026-05-12T12:30:26.021Z"
     },
     "orar_prosperar": {
-      "last_type": "story_post",
-      "slot_idx": 4,
-      "updated_at": "2026-05-11T23:34:01.204Z"
+      "last_type": "corte_mac",
+      "slot_idx": 5,
+      "updated_at": "2026-05-12T23:39:46.950Z"
     }
   },
   "_doc": "Estrutura v3 (29/04 fix bug intercala). Tipo alterna POR CONTA, não global."
