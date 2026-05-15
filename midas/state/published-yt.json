@@ -370,6 +370,16 @@
       "requestId": "fadc99cdce094af1809e6b88085604b3",
       "publishedAt": "2026-05-14T23:30:04.168Z",
       "postUrl": "https://www.youtube.com/watch?v=_0a2WEnJ0M8"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-003-quebrava-dezembro_1778847696420.mp4",
+      "platform": "youtube",
+      "postId": "3oCeFVzEJsI",
+      "success": true,
+      "requestId": "29d4a1f9f29f452bbe4b481f3ebe9548",
+      "publishedAt": "2026-05-15T12:22:15.356Z",
+      "postUrl": "https://www.youtube.com/watch?v=3oCeFVzEJsI"
     }
   ]
 }
