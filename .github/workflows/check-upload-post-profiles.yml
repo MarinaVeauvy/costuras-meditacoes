@@ -1,0 +1,34 @@
+name: Check Upload-Post Profiles (ad-hoc)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect profiles
+        env:
+          UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
+        run: |
+          node -e "
+          (async () => {
+            const key = process.env.UPLOAD_POST_API_KEY;
+            const base = 'https://api.upload-post.com/api';
+            const list = await fetch(base + '/uploadposts/users', {
+              headers: { Authorization: 'Apikey ' + key }
+            }).then(r => r.json());
+            console.log('=== PROFILES ===');
+            console.log(JSON.stringify(list, null, 2));
+            const profiles = list.profiles || list.users || list.data || (Array.isArray(list) ? list : []);
+            for (const p of profiles) {
+              const uname = p.username || p.profile_username || p.name;
+              if (!uname) continue;
+              console.log('\n=== DETAIL: ' + uname + ' ===');
+              const detail = await fetch(base + '/uploadposts/users/' + encodeURIComponent(uname), {
+                headers: { Authorization: 'Apikey ' + key }
+              }).then(r => r.json()).catch(e => ({ error: e.message }));
+              console.log(JSON.stringify(detail, null, 2));
+            }
+          })().catch(e => { console.error(e); process.exit(1); });
+          "
