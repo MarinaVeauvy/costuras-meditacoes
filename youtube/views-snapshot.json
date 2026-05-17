@@ -1,110 +1,29 @@
 {
-  "snapshot_at": "2026-05-07T14:44:37.507Z",
+  "snapshot_at": "2026-05-17T15:48:53.522Z",
   "summary": {
     "factory": {
       "label": "factory",
-      "count": 25,
-      "total_views": 696,
-      "avg_views": 27.8,
-      "median_views": 1,
-      "zero_views": 11,
-      "top5": [
-        {
-          "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
-          "views": 298,
-          "dur_s": 34
-        },
-        {
-          "title": "Dicas de Economia para Mulheres Empreendedoras",
-          "views": 138,
-          "dur_s": 33
-        },
-        {
-          "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
-          "views": 68,
-          "dur_s": 25
-        },
-        {
-          "title": "Podcast com IA: Guia Prático para Empreendedoras",
-          "views": 68,
-          "dur_s": 46
-        },
-        {
-          "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
-          "views": 59,
-          "dur_s": 35
-        }
-      ]
+      "total": 0,
+      "avg": 0,
+      "median": 0,
+      "count": 0,
+      "zero_views": 0
     },
     "midas": {
       "label": "midas-shorts",
-      "count": 19,
-      "total_views": 1,
-      "avg_views": 0.1,
-      "median_views": 0,
-      "zero_views": 18,
-      "top5": [
-        {
-          "title": "versiculo_v008.mp4",
-          "views": 1,
-          "dur_s": 8
-        },
-        {
-          "title": "corte_00004.mp4",
-          "views": 0,
-          "dur_s": 51
-        },
-        {
-          "title": "versiculo_v001.mp4",
-          "views": 0,
-          "dur_s": 12
-        },
-        {
-          "title": "corte_00005.mp4",
-          "views": 0,
-          "dur_s": 45
-        },
-        {
-          "title": "versiculo_v002.mp4",
-          "views": 0,
-          "dur_s": 8
-        }
-      ]
+      "total": 0,
+      "avg": 0,
+      "median": 0,
+      "count": 0,
+      "zero_views": 0
     },
     "combined": {
       "label": "combined",
-      "count": 44,
-      "total_views": 697,
-      "avg_views": 15.8,
-      "median_views": 0,
-      "zero_views": 29,
-      "top5": [
-        {
-          "title": "Empreendedorismo Digital para Mães: Comece Hoje!",
-          "views": 298,
-          "dur_s": 34
-        },
-        {
-          "title": "Dicas de Economia para Mulheres Empreendedoras",
-          "views": 138,
-          "dur_s": 33
-        },
-        {
-          "title": "Investir em AÃ§Ãµes: Guia PrÃ¡tico para Mulheres",
-          "views": 68,
-          "dur_s": 25
-        },
-        {
-          "title": "Podcast com IA: Guia Prático para Empreendedoras",
-          "views": 68,
-          "dur_s": 46
-        },
-        {
-          "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
-          "views": 59,
-          "dur_s": 35
-        }
-      ]
+      "total": 0,
+      "avg": 0,
+      "median": 0,
+      "count": 0,
+      "zero_views": 0
     }
   },
   "videos": {
@@ -115,8 +34,8 @@
         "source": "factory",
         "uploaded_at": "2026-04-02T01:16:37Z",
         "video_id": "KST6_3UOpRg",
-        "views": 43,
-        "dur_s": 26
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "como-investir-em-acoes-pela-primeira-vez-guia-pratico-para-mulheres",
@@ -124,8 +43,8 @@
         "source": "factory",
         "uploaded_at": "2026-04-02T01:16:51Z",
         "video_id": "5Yng4vSJHLA",
-        "views": 68,
-        "dur_s": 25
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "dicas-de-economia-para-familias-estrategias-praticas-para-mulheres-empreendedoras",
@@ -133,8 +52,8 @@
         "source": "factory",
         "uploaded_at": "2026-04-02T01:17:16Z",
         "video_id": "OiwgWFoUutk",
-        "views": 138,
-        "dur_s": 33
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "renda-extra-com-habilidades-digitais-guia-pratico-para-mulheres",
@@ -142,8 +61,8 @@
         "source": "factory",
         "uploaded_at": "2026-04-02T01:17:35Z",
         "video_id": "n0Zl17ggA1A",
-        "views": 2,
-        "dur_s": 26
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "como-montar-um-negocio-com-ia-guia-pratico-para-mulheres-empreendedoras",
@@ -151,8 +70,8 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:21:40Z",
         "video_id": "AieCB8tAkw8",
-        "views": 0,
-        "dur_s": 215
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "como-usar-ia-para-criar-cursos-online-para-mulheres-empreendedoras",
@@ -160,8 +79,8 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:21:56Z",
         "video_id": "Umjx03355b8",
-        "views": 1,
-        "dur_s": 185
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-3_investimentos_que_rendem_mais_que_a_poupança_em_2026",
@@ -169,8 +88,8 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:26:13Z",
         "video_id": "xzR4fdEZ27M",
-        "views": 0,
-        "dur_s": 503
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-5_formas_de_usar_ChatGPT_para_ganhar_dinheiro_em_2026.",
@@ -178,8 +97,8 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:29:07Z",
         "video_id": "vV1I4PkByzg",
-        "views": 1,
-        "dur_s": 361
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-7_ferramentas_de_IA_gratuitas_que_todo_empreendedor_precisa_",
@@ -187,8 +106,8 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:32:06Z",
         "video_id": "WZBt0Vk8YWE",
-        "views": 0,
-        "dur_s": 475
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-CDB_vs_Poupança_quanto_dinheiro_você_está_perdendo",
@@ -196,8 +115,8 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:34:57Z",
         "video_id": "rhkrm3BhfUQ",
-        "views": 0,
-        "dur_s": 464
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-Como_automatizar_seu_Instagram_inteiro_com_inteligência_arti",
@@ -205,8 +124,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-03T10:04:19Z",
         "video_id": "B5RzO_LES44",
-        "views": 0,
-        "dur_s": 430
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-Como_criar_um_e-book_com_ChatGPT_e_vender_na_Amazon_em_1_dia",
@@ -214,8 +133,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-03T10:08:28Z",
         "video_id": "9RY3scX6VVg",
-        "views": 0,
-        "dur_s": 417
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-Como_economizar_R$200_por_mês_cancelando_assinaturas_inúteis",
@@ -223,8 +142,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-03T10:12:16Z",
         "video_id": "xpL6lUF9VS4",
-        "views": 0,
-        "dur_s": 415
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-Como_ganhar_dinheiro_vendendo_templates_no_Canva_em_2026",
@@ -232,8 +151,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-03T10:17:47Z",
         "video_id": "NXd_1WbWcUE",
-        "views": 0,
-        "dur_s": 489
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-Notion_com_IA_monte_seu_sistema_de_produtividade_em_10_minut",
@@ -241,8 +160,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-03T10:21:12Z",
         "video_id": "RYeVwm7w78I",
-        "views": 1,
-        "dur_s": 434
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow-Reserva_de_emergência_quanto_guardar_e_onde_investir",
@@ -250,8 +169,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-04T10:04:02Z",
         "video_id": "zzF1wxcduEI",
-        "views": 0,
-        "dur_s": 406
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow2-5_Aplicativos_de_IA_que_Substituem_Funcionários_em_2026",
@@ -259,8 +178,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-04T10:14:24Z",
         "video_id": "EpXIsQAynjE",
-        "views": 1,
-        "dur_s": 476
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow2-Automatize_seu_WhatsApp_Business_com_IA_em_2026",
@@ -268,8 +187,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-04T10:25:23Z",
         "video_id": "4K8EGsTbZE4",
-        "views": 2,
-        "dur_s": 455
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow2-Como_Montar_uma_Renda_Extra_com_Apenas_2_Horas_por_Dia",
@@ -277,8 +196,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-04T10:34:25Z",
         "video_id": "19quiFkCLGU",
-        "views": 8,
-        "dur_s": 407
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "darkflow2-Como_Sair_das_Dívidas_em_90_Dias_Método_Avalanche",
@@ -286,8 +205,8 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-04T10:46:15Z",
         "video_id": "dZCItBIamgM",
-        "views": 6,
-        "dur_s": 589
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "como-criar-um-podcast-usando-ferramentas-de-ia-guia-pratico",
@@ -295,8 +214,8 @@
         "source": "factory",
         "uploaded_at": "2026-04-14T15:44:46.092Z",
         "video_id": "r8hV5RdmyOI",
-        "views": 68,
-        "dur_s": 46
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "como-automatizar-tarefas-repetitivas-e-ganhar-tempo-no-seu-negocio",
@@ -304,8 +223,8 @@
         "source": "factory",
         "uploaded_at": "2026-04-14T17:27:31.406Z",
         "video_id": "EDZT0R7IdXE",
-        "views": 59,
-        "dur_s": 35
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "empreendedorismo-digital-para-maes-como-comecar-e-prosperar",
@@ -313,8 +232,8 @@
         "source": "factory",
         "uploaded_at": "2026-04-14T17:27:38.384Z",
         "video_id": "aPHduqCYD8Q",
-        "views": 298,
-        "dur_s": 34
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "investimentos-para-iniciantes-um-guia-pratico-para-mulheres-empreendedoras",
@@ -322,8 +241,8 @@
         "source": "factory",
         "uploaded_at": "2026-04-14T17:27:45.979Z",
         "video_id": "xIOKmgsMyMk",
-        "views": 0,
-        "dur_s": 52
+        "views": null,
+        "dur_s": null
       },
       {
         "slug": "renda-extra-online-melhores-livros-recursos",
@@ -331,8 +250,35 @@
         "source": "factory",
         "uploaded_at": "2026-05-04T10:22:06.671Z",
         "video_id": "Z1PItt9X2_Y",
-        "views": 0,
-        "dur_s": 44
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "slug": "como-quitar-cartao-credito-rotativo-2026",
+        "title": "PERDE R$ 3 MIL",
+        "source": "factory",
+        "uploaded_at": "2026-05-08T15:52:39.290Z",
+        "video_id": "xpNaUpfoejc",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "slug": "imposto-renda-2026-mei-empresaria",
+        "title": "ERRO de R$3.000",
+        "source": "factory",
+        "uploaded_at": "2026-05-08T15:52:46.426Z",
+        "video_id": "Q6A4GU3Rylg",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "slug": "previdencia-privada-pgbl-vs-tesouro-ipca-2026",
+        "title": "ERRO de R$3.000 na Aposentadoria",
+        "source": "factory",
+        "uploaded_at": "2026-05-08T15:52:53.262Z",
+        "video_id": "m6dlOTNGiWo",
+        "views": null,
+        "dur_s": null
       }
     ],
     "midas": [
@@ -378,8 +324,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-04-29T20:41:48.188Z",
         "video_id": "FHb90ySvqLs",
-        "views": 0,
-        "dur_s": 51
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v001.mp4",
@@ -387,8 +333,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-04-29T21:03:03.403Z",
         "video_id": "igY7idIqdC4",
-        "views": 0,
-        "dur_s": 12
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00005.mp4",
@@ -396,8 +342,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-04-29T21:37:12.009Z",
         "video_id": "XOTEHfw7CO8",
-        "views": 0,
-        "dur_s": 45
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v002.mp4",
@@ -405,8 +351,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-04-29T22:39:39.779Z",
         "video_id": "b6Qbc3a9VVE",
-        "views": 0,
-        "dur_s": 8
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00006_hooked.mp4",
@@ -414,8 +360,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-04-29T22:44:10.275Z",
         "video_id": "i2p2njkdkxg",
-        "views": 0,
-        "dur_s": 38
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v003.mp4",
@@ -423,8 +369,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-04-29T23:32:45.158Z",
         "video_id": "mikDeG6xFKY",
-        "views": 0,
-        "dur_s": 6
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00001_hooked.mp4",
@@ -432,8 +378,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-04-30T12:03:57.860Z",
         "video_id": "KB5Q3uHvfmU",
-        "views": 0,
-        "dur_s": 38
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v004.mp4",
@@ -441,8 +387,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-04-30T23:29:23.605Z",
         "video_id": "ToGgn_Oy5-w",
-        "views": 0,
-        "dur_s": 8
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v005.mp4",
@@ -450,8 +396,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-01T11:42:08.613Z",
         "video_id": "1eH3K4BkeME",
-        "views": 0,
-        "dur_s": 8
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00004_hooked.mp4",
@@ -459,8 +405,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-01T23:18:08.372Z",
         "video_id": "kB-ECf9lOVI",
-        "views": 0,
-        "dur_s": 51
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00007_hooked.mp4",
@@ -468,8 +414,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-03T11:18:12.466Z",
         "video_id": "oPNB3dH0mnI",
-        "views": 0,
-        "dur_s": 46
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v006.mp4",
@@ -477,8 +423,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-03T23:12:35.746Z",
         "video_id": "szLIdXHaMpI",
-        "views": 0,
-        "dur_s": 8
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v007.mp4",
@@ -486,8 +432,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-04T23:33:10.698Z",
         "video_id": "gjiL1pcHq68",
-        "views": 0,
-        "dur_s": 6
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00005_hooked.mp4",
@@ -495,8 +441,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-05T11:54:22.170Z",
         "video_id": "BpX9grG478E",
-        "views": 0,
-        "dur_s": 45
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00008_hooked.mp4",
@@ -504,8 +450,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-05T17:47:43.886Z",
         "video_id": "SNYDD1p2zF4",
-        "views": 0,
-        "dur_s": 20
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v008.mp4",
@@ -513,8 +459,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-05T17:54:46.342Z",
         "video_id": "24Z41T2XOsI",
-        "views": 1,
-        "dur_s": 8
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00011.mp4",
@@ -522,8 +468,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-05T18:06:25.712Z",
         "video_id": "0qJ2VggVIdo",
-        "views": 0,
-        "dur_s": 30
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "versiculo_v009.mp4",
@@ -531,8 +477,8 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-06T12:18:27.743Z",
         "video_id": "7FOT8AYqHVI",
-        "views": 0,
-        "dur_s": 8
+        "views": null,
+        "dur_s": null
       },
       {
         "video": "corte_00006_hooked.mp4",
@@ -540,8 +486,170 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-06T23:17:15.527Z",
         "video_id": "J_HEx2ZBOjU",
-        "views": 0,
-        "dur_s": 38
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00007_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-08T15:43:25.292Z",
+        "video_id": "X_9De1AcwHc",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00009_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-08T23:31:28.439Z",
+        "video_id": "qgpXpaYISsU",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-002-auditoria-cartao_1778326061218.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-09T11:28:30.332Z",
+        "video_id": "aZXhPAva8ig",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-007-filho-perguntou_1778368459426.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-09T23:15:08.903Z",
+        "video_id": "Cl4yCj_mnbU",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00008_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-10T11:30:57.510Z",
+        "video_id": "-n5l22rDPZA",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00029_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-10T23:20:27.886Z",
+        "video_id": "s9WtwomiidM",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-001-dinheiro-pecado_1778506035477.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-11T13:27:54.649Z",
+        "video_id": "lW6eaywWPy4",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-004-mentora-paga_1778542451018.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-11T23:35:00.255Z",
+        "video_id": "tNjK_DG_M2s",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00011_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-12T12:31:39.699Z",
+        "video_id": "_NuwklwD-us",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00010_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-12T23:41:56.005Z",
+        "video_id": "S90RaPPYWoY",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "versiculo_v010.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-13T12:32:27.871Z",
+        "video_id": "yeWlnBOX2Rc",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "versiculo_v011.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-13T23:43:19.806Z",
+        "video_id": "rUmC3drbHTI",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00009_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-14T12:15:19.000Z",
+        "video_id": "yjXFrbB0FNY",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00012_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-14T23:30:04.168Z",
+        "video_id": "_0a2WEnJ0M8",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-003-quebrava-dezembro_1778847696420.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-15T12:22:15.356Z",
+        "video_id": "3oCeFVzEJsI",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-008-igreja-x-mundo_1778887818504.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-15T23:31:29.328Z",
+        "video_id": "ximPNXO45t4",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00029_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-16T23:19:44.912Z",
+        "video_id": "oitpnhm0M1M",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00013_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-17T11:41:46.707Z",
+        "video_id": "tQaVeFcqg8U",
+        "views": null,
+        "dur_s": null
       }
     ]
   }
