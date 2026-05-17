@@ -410,6 +410,16 @@
       "requestId": "cd0bb110eaf84ea5bc2506487de02ced",
       "publishedAt": "2026-05-17T11:41:46.707Z",
       "postUrl": "https://www.youtube.com/watch?v=tQaVeFcqg8U"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-005-3-erros_1779060791404.mp4",
+      "platform": "youtube",
+      "postId": "nrXAxv-Vinw",
+      "success": true,
+      "requestId": "54c9ae9556e74f6fb922ea9179ceeb87",
+      "publishedAt": "2026-05-17T23:34:32.288Z",
+      "postUrl": "https://www.youtube.com/watch?v=nrXAxv-Vinw"
     }
   ]
 }
