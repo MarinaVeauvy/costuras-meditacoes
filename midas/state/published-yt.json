@@ -420,6 +420,16 @@
       "requestId": "54c9ae9556e74f6fb922ea9179ceeb87",
       "publishedAt": "2026-05-17T23:34:32.288Z",
       "postUrl": "https://www.youtube.com/watch?v=nrXAxv-Vinw"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "story_ST-009-dado-mulheres-financas_1779147601105.mp4",
+      "platform": "youtube",
+      "postId": "DFG0-g5R6Rw",
+      "success": true,
+      "requestId": "1c14d6c063dc4b209c7595a4d51763c4",
+      "publishedAt": "2026-05-18T23:40:50.677Z",
+      "postUrl": "https://www.youtube.com/watch?v=DFG0-g5R6Rw"
     }
   ]
 }
