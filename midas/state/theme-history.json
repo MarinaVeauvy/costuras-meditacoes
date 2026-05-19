@@ -90,6 +90,27 @@
       "theme": "familia",
       "platform": "tiktok_publer_batch",
       "ts": "2026-05-19T15:20:03.410Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "corte_00010_hooked.mp4",
+      "theme": "financeiro",
+      "platform": "youtube",
+      "ts": "2026-05-19T15:39:21.833Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "corte_00010_hooked.mp4",
+      "theme": "financeiro",
+      "platform": "instagram",
+      "ts": "2026-05-19T15:39:21.833Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "corte_00010_hooked.mp4",
+      "theme": "financeiro",
+      "platform": "tiktok",
+      "ts": "2026-05-19T15:39:21.834Z"
     }
   ]
 }
