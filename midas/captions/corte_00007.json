@@ -1,47 +1,48 @@
 {
   "pros_peridade_do_reino": {
-    "hook": "Deus aprova ganhar bem, mas por que não prosperar?",
-    "body": "A Bíblia ensina que considerar campo e comprar é um sinal de sabedoria, como em Provérbios 31:16",
-    "cta": "Salve pra saber mais 🤍",
-    "overlay_cta": "Bio → link → te explico",
+    "hook": "Mulher virtuosa prospera",
+    "body": "Ela transforma o pouco que tem em provisão diária com sabedoria",
+    "cta": "Salve pra ler depois 🤍",
+    "overlay_cta": "Link na bio agora",
     "format_used": "FV-005",
     "cta_category": "save",
-    "theme_category": "proposito",
-    "transcript_quote": "Eu preparei um plano prático para você fazer 50 reais virar mil reais todo santo dia",
+    "theme_category": "financeiro",
+    "transcript_quote": "preparei um plano prático para você fazer 50 reais virar mil reais",
     "body_source": "transcript_paraphrase",
     "warnings": [
-      "invented_numbers:31,16"
+      "body_disconnected_from_transcript",
+      "hook_similar_recent:0.71"
     ],
     "schema_version": "v2",
-    "full_caption": "Deus aprova ganhar bem, mas por que não prosperar?\n\nA Bíblia ensina que considerar campo e comprar é um sinal de sabedoria, como em Provérbios 31:16\n\nSalve pra saber mais 🤍",
-    "hashtags_instagram": "#mulhercrista #educacaofinanceirafeminina #financasdomesticas #familiaprospera #planejamentofamiliar #fe #proposito #organizacaofinanceira #mulheresdefe #vidasimples",
-    "hashtags_tiktok": "#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
+    "full_caption": "Mulher virtuosa prospera\n\nEla transforma o pouco que tem em provisão diária com sabedoria\n\nSalve pra ler depois 🤍",
+    "hashtags_instagram": "#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
+    "hashtags_tiktok": "#sabedoriabiblica #proverbios #familia #patrimoniofamiliar #fyp #deus",
     "hashtags_youtube": "#Shorts #MulheresDeFe #PlanejamentoFinanceiro #FamiliaCrista",
-    "caption_ig": "Deus aprova ganhar bem, mas por que não prosperar?\n\nA Bíblia ensina que considerar campo e comprar é um sinal de sabedoria, como em Provérbios 31:16\n\nSalve pra saber mais 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulhercrista #educacaofinanceirafeminina #financasdomesticas #familiaprospera #planejamentofamiliar #fe #proposito #organizacaofinanceira #mulheresdefe #vidasimples",
-    "caption_tiktok": "Deus aprova ganhar bem, mas por que não prosperar?\n\nA Bíblia ensina que considerar campo e comprar é um sinal de sabedoria, como em Provérbios 31:16\n\nSalve pra saber mais 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
-    "caption_youtube": "Deus aprova ganhar bem, mas por que não prosperar?\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #MulheresDeFe #PlanejamentoFinanceiro #FamiliaCrista"
+    "caption_ig": "Mulher virtuosa prospera\n\nEla transforma o pouco que tem em provisão diária com sabedoria\n\nSalve pra ler depois 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
+    "caption_tiktok": "Mulher virtuosa prospera\n\nEla transforma o pouco que tem em provisão diária com sabedoria\n\nSalve pra ler depois 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#sabedoriabiblica #proverbios #familia #patrimoniofamiliar #fyp #deus",
+    "caption_youtube": "Mulher virtuosa prospera\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #MulheresDeFe #PlanejamentoFinanceiro #FamiliaCrista"
   },
   "orar_prosperar": {
-    "hook": "Você não precisa ser uma guerreira para criar com propósito",
-    "body": "A Bíblia ensina que uma mãe que se levanta antes do amanhecer e cuida de sua família é uma guerreira, como em Provérbios 31",
+    "hook": "Mamãe guerreira cresce",
+    "body": "Ela cuida da casa e cria com propósito, mesmo com rotina puxada",
     "cta": "Comenta AMÉM se concorda 🙏",
-    "overlay_cta": "Vai no link da bio",
-    "format_used": "FV-001",
+    "overlay_cta": "Bio te conto tudo",
+    "format_used": "FV-006",
     "cta_category": "comment",
     "theme_category": "familia",
-    "transcript_quote": "Eu preparei um plano prático para você fazer 50 reais virar mil reais todo santo dia",
+    "transcript_quote": "preparei um plano prático para você",
     "body_source": "transcript_paraphrase",
     "warnings": [
-      "invented_numbers:31",
-      "hook_similar_recent:1.00"
+      "quote_not_in_transcript",
+      "body_disconnected_from_transcript"
     ],
     "schema_version": "v2",
-    "full_caption": "Você não precisa ser uma guerreira para criar com propósito\n\nA Bíblia ensina que uma mãe que se levanta antes do amanhecer e cuida de sua família é uma guerreira, como em Provérbios 31\n\nComenta AMÉM se concorda 🙏",
+    "full_caption": "Mamãe guerreira cresce\n\nEla cuida da casa e cria com propósito, mesmo com rotina puxada\n\nComenta AMÉM se concorda 🙏",
     "hashtags_instagram": "#sabedoriabiblica #proverbios #patrimoniofamiliar #financasdomesticas #mulhercrista #propositodevida #familiacrista #educacaodefilhos #lardeus #abundancia",
-    "hashtags_tiktok": "#financasdomesticas #educacaofinanceira #familiaprospera #fyp #parati",
-    "hashtags_youtube": "#Shorts #MulherCrista #FinancasFamiliares #Proposito",
-    "caption_ig": "Você não precisa ser uma guerreira para criar com propósito\n\nA Bíblia ensina que uma mãe que se levanta antes do amanhecer e cuida de sua família é uma guerreira, como em Provérbios 31\n\nComenta AMÉM se concorda 🙏\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#sabedoriabiblica #proverbios #patrimoniofamiliar #financasdomesticas #mulhercrista #propositodevida #familiacrista #educacaodefilhos #lardeus #abundancia",
-    "caption_tiktok": "Você não precisa ser uma guerreira para criar com propósito\n\nA Bíblia ensina que uma mãe que se levanta antes do amanhecer e cuida de sua família é uma guerreira, como em Provérbios 31\n\nComenta AMÉM se concorda 🙏\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#financasdomesticas #educacaofinanceira #familiaprospera #fyp #parati",
-    "caption_youtube": "Você não precisa ser uma guerreira para criar com propósito\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #MulherCrista #FinancasFamiliares #Proposito"
+    "hashtags_tiktok": "#sabedoriabiblica #proverbios #familia #patrimoniofamiliar #fyp #deus",
+    "hashtags_youtube": "#Shorts #SabedoriaBiblica #Proverbios #VidaCrista",
+    "caption_ig": "Mamãe guerreira cresce\n\nEla cuida da casa e cria com propósito, mesmo com rotina puxada\n\nComenta AMÉM se concorda 🙏\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#sabedoriabiblica #proverbios #patrimoniofamiliar #financasdomesticas #mulhercrista #propositodevida #familiacrista #educacaodefilhos #lardeus #abundancia",
+    "caption_tiktok": "Mamãe guerreira cresce\n\nEla cuida da casa e cria com propósito, mesmo com rotina puxada\n\nComenta AMÉM se concorda 🙏\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#sabedoriabiblica #proverbios #familia #patrimoniofamiliar #fyp #deus",
+    "caption_youtube": "Mamãe guerreira cresce\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #SabedoriaBiblica #Proverbios #VidaCrista"
   }
 }

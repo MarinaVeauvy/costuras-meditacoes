@@ -98,6 +98,15 @@
       "success": false,
       "requestId": "1c14d6c063dc4b209c7595a4d51763c4",
       "publishedAt": "2026-05-18T23:40:50.678Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00007_hooked.mp4",
+      "platform": "facebook",
+      "postId": "da88cbcabeb14e259eb480b943fcd10e",
+      "success": false,
+      "requestId": "b3af06849ff540fba5558424491a2536",
+      "publishedAt": "2026-05-19T16:15:32.846Z"
     }
   ]
 }
