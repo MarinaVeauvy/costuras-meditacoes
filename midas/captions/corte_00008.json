@@ -1,30 +1,51 @@
 {
   "pros_peridade_do_reino": {
-    "hook": "O que ninguém conta sobre patrimônio",
-    "body": "3 passos para criar uma reserva financeira familiar",
-    "cta": "Salve pra ler depois 🤍",
-    "format_used": "FV-005",
-    "cta_category": "save",
-    "full_caption": "O que ninguém conta sobre patrimônio\n\n3 passos para criar uma reserva financeira familiar\n\nSalve pra ler depois 🤍",
-    "hashtags_instagram": "#financascomfe #vidaprospera #mulheresempreendedoras #educacaofinanceiracrista #familiaorganizada #disciplinafinanceira #intencaodevida #financaspraticas #organizadalar #cristasdefe",
-    "hashtags_tiktok": "#financasdomesticas #educacaofinanceira #familiaprospera #fyp #parati",
-    "hashtags_youtube": "#Shorts #SabedoriaBiblica #Proverbios #VidaCrista",
-    "caption_ig": "O que ninguém conta sobre patrimônio\n\n3 passos para criar uma reserva financeira familiar\n\nSalve pra ler depois 🤍\n\n#financascomfe #vidaprospera #mulheresempreendedoras #educacaofinanceiracrista #familiaorganizada #disciplinafinanceira #intencaodevida #financaspraticas #organizadalar #cristasdefe",
-    "caption_tiktok": "O que ninguém conta sobre patrimônio\n\n3 passos para criar uma reserva financeira familiar\n\nSalve pra ler depois 🤍\n\n#financasdomesticas #educacaofinanceira #familiaprospera #fyp #parati",
-    "caption_youtube": "O que ninguém conta sobre patrimônio #Shorts #SabedoriaBiblica #Proverbios #VidaCrista"
-  },
-  "orar_prosperar": {
-    "hook": "Tudo que te ensinaram sobre economia está errado",
-    "body": "50% das famílias brasileiras não têm reserva financeira",
-    "cta": "Comenta AMÉM se concorda 🙏",
+    "hook": "O que a escola não ensinou sobre prosperidade",
+    "body": "Ele transforma o pouco que você tem hoje em provisão diária, conforme Provérbios 31:16",
+    "cta": "Salve pra ler depois🤍",
+    "overlay_cta": "Vai no link da bio",
     "format_used": "FV-001",
-    "cta_category": "comment",
-    "full_caption": "Tudo que te ensinaram sobre economia está errado\n\n50% das famílias brasileiras não têm reserva financeira\n\nComenta AMÉM se concorda 🙏",
-    "hashtags_instagram": "#mulhercrista #educacaofinanceirafeminina #financasdomesticas #familiaprospera #planejamentofamiliar #fe #proposito #organizacaofinanceira #mulheresdefe #vidasimples",
+    "cta_category": "save",
+    "theme_category": "financeiro",
+    "transcript_quote": "preparei um plano prático para você fazer 50 reais virar mil reais todo santo dia",
+    "body_source": "transcript_paraphrase",
+    "warnings": [
+      "invented_numbers:31,16",
+      "quote_not_in_transcript",
+      "body_disconnected_from_transcript",
+      "hook_similar_recent:0.54",
+      "format_repeat:FV-001"
+    ],
+    "schema_version": "v2",
+    "full_caption": "O que a escola não ensinou sobre prosperidade\n\nEle transforma o pouco que você tem hoje em provisão diária, conforme Provérbios 31:16\n\nSalve pra ler depois🤍",
+    "hashtags_instagram": "#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
     "hashtags_tiktok": "#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
     "hashtags_youtube": "#Shorts #MulherCrista #FinancasFamiliares #Proposito",
-    "caption_ig": "Tudo que te ensinaram sobre economia está errado\n\n50% das famílias brasileiras não têm reserva financeira\n\nComenta AMÉM se concorda 🙏\n\n#mulhercrista #educacaofinanceirafeminina #financasdomesticas #familiaprospera #planejamentofamiliar #fe #proposito #organizacaofinanceira #mulheresdefe #vidasimples",
-    "caption_tiktok": "Tudo que te ensinaram sobre economia está errado\n\n50% das famílias brasileiras não têm reserva financeira\n\nComenta AMÉM se concorda 🙏\n\n#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
-    "caption_youtube": "Tudo que te ensinaram sobre economia está errado #Shorts #MulherCrista #FinancasFamiliares #Proposito"
+    "caption_ig": "O que a escola não ensinou sobre prosperidade\n\nEle transforma o pouco que você tem hoje em provisão diária, conforme Provérbios 31:16\n\nSalve pra ler depois🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
+    "caption_tiktok": "O que a escola não ensinou sobre prosperidade\n\nEle transforma o pouco que você tem hoje em provisão diária, conforme Provérbios 31:16\n\nSalve pra ler depois🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
+    "caption_youtube": "O que a escola não ensinou sobre prosperidade\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #MulherCrista #FinancasFamiliares #Proposito"
+  },
+  "orar_prosperar": {
+    "hook": "70% das mães evangélicas desistem de seus sonhos por medo de julgamento",
+    "body": "Você não está sozinha, mamãe, pois Deus aprova você prosperar para sustentar sua família",
+    "cta": "Compartilha com quem precisa ouvir",
+    "overlay_cta": "Bio → link → eu te explico tudo",
+    "format_used": "FV-007",
+    "cta_category": "share",
+    "theme_category": "familia",
+    "transcript_quote": "Se você é íntegra e quer construir fortuna da forma que Deus aprova",
+    "body_source": "transcript_paraphrase",
+    "warnings": [
+      "invented_numbers:70",
+      "hook_similar_recent:0.68"
+    ],
+    "schema_version": "v2",
+    "full_caption": "70% das mães evangélicas desistem de seus sonhos por medo de julgamento\n\nVocê não está sozinha, mamãe, pois Deus aprova você prosperar para sustentar sua família\n\nCompartilha com quem precisa ouvir",
+    "hashtags_instagram": "#sabedoriabiblica #proverbios #patrimoniofamiliar #financasdomesticas #mulhercrista #propositodevida #familiacrista #educacaodefilhos #lardeus #abundancia",
+    "hashtags_tiktok": "#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
+    "hashtags_youtube": "#Shorts #MulherCrista #FinancasFamiliares #Proposito",
+    "caption_ig": "70% das mães evangélicas desistem de seus sonhos por medo de julgamento\n\nVocê não está sozinha, mamãe, pois Deus aprova você prosperar para sustentar sua família\n\nCompartilha com quem precisa ouvir\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#sabedoriabiblica #proverbios #patrimoniofamiliar #financasdomesticas #mulhercrista #propositodevida #familiacrista #educacaodefilhos #lardeus #abundancia",
+    "caption_tiktok": "70% das mães evangélicas desistem de seus sonhos por medo de julgamento\n\nVocê não está sozinha, mamãe, pois Deus aprova você prosperar para sustentar sua família\n\nCompartilha com quem precisa ouvir\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
+    "caption_youtube": "70% das mães evangélicas desistem de seus sonhos por medo de julgamento\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #MulherCrista #FinancasFamiliares #Proposito"
   }
 }

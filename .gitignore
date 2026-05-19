@@ -18,3 +18,14 @@ pinterest-debug.png
 covers/
 .env
 midas/state/yt-token-*.json
+
+# Midas caption backups (locais — não versionar)
+midas/captions/*.v1-backup.json
+midas/captions/*.v2-backup.json
+midas/captions/quarantine/
+
+# Midas batches (geradas localmente pra Publer)
+midas/publer-batches/
+
+# Whisper transcript cache (regerado on-demand)
+midas-cortes/Cortes\ Prontos/*.transcript.json

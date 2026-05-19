@@ -101,10 +101,10 @@ async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
 }
 
 // Groq free models — endpoint compatível OpenAI, free tier 14400 req/dia
+// Atualizado 2026: mixtral, gemma2-9b-it e llama-3.1-70b foram decommissioned.
 const GROQ_MODELS = [
-  'llama-3.3-70b-versatile',  // top quality, 32k context
-  'llama-3.1-70b-versatile',  // fallback
-  'mixtral-8x7b-32768',       // backup com context maior
+  'llama-3.3-70b-versatile',  // top quality, 128k context
+  'llama-3.1-8b-instant',     // fallback rápido (context 128k mas tokens out menores)
 ];
 
 async function generateGroq(prompt, { json, maxTokens }) {
@@ -120,7 +120,7 @@ async function generateGroq(prompt, { json, maxTokens }) {
   throw lastErr || new Error('Todos os modelos Groq falharam');
 }
 
-async function callGroq(model, prompt, { json, maxTokens }) {
+async function callGroq(model, prompt, { json, maxTokens }, attempt = 1) {
   const body = {
     model,
     messages: [{ role: 'user', content: prompt }],
@@ -139,7 +139,19 @@ async function callGroq(model, prompt, { json, maxTokens }) {
   });
 
   const data = await res.json();
-  if (data.error) throw new Error(data.error.message || JSON.stringify(data.error));
+  if (data.error) {
+    const msg = data.error.message || JSON.stringify(data.error);
+    // Retry com backoff em rate limit — Groq fornece tempo no header / mensagem
+    const isRateLimit = res.status === 429 || /rate limit|too many requests|TPM/i.test(msg);
+    if (isRateLimit && attempt < 3) {
+      const waitMatch = msg.match(/try again in ([\d.]+)s/i);
+      const waitSec = waitMatch ? Math.ceil(parseFloat(waitMatch[1])) + 2 : (attempt * 30);
+      console.error(`    ↪ Groq ${model} rate limit, aguardando ${waitSec}s (attempt ${attempt}/3)...`);
+      await new Promise(r => setTimeout(r, waitSec * 1000));
+      return callGroq(model, prompt, { json, maxTokens }, attempt + 1);
+    }
+    throw new Error(msg);
+  }
 
   const text = data.choices?.[0]?.message?.content;
   if (!text) throw new Error('Groq returned empty response');

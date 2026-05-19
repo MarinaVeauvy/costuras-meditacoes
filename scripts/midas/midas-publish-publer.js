@@ -117,6 +117,20 @@ async function main() {
     throw new Error(`Captions ausentes pra ${account.id} em ${captionsPath}`);
   }
 
+  // GATE V2 — só publica captions schema_version=v2 sem violações.
+  const { isPublishableCaption, checkThemeRotation, recordPublishedTheme } = require('./midas-caption-utils');
+  const accountCaption = captions[account.id];
+  const gate = isPublishableCaption(accountCaption);
+  if (!gate.ok) {
+    throw new Error(`ABORTADO: caption[${account.id}] em ${captionsPath} não é publicável. Reasons: ${gate.reasons.join(' | ')}. Regere com midas-generate-captions.js.`);
+  }
+
+  // GATE THEME ROTATION — bloqueia 3+ "financeiro" seguidos.
+  const themeCheck = checkThemeRotation(account.id, accountCaption.theme_category);
+  if (!themeCheck.ok) {
+    throw new Error(`ABORTADO: ${themeCheck.reason}`);
+  }
+
   const platforms = ['instagram', 'tiktok', 'youtube'];
   const targets = platformFilter === 'all' ? platforms : [platformFilter];
   const results = {};
@@ -151,6 +165,12 @@ async function main() {
         postId,
         caption: text,
         publishedAt: new Date().toISOString(),
+      });
+      recordPublishedTheme({
+        account: account.id,
+        video: args.video,
+        theme: accountCaption.theme_category,
+        platform,
       });
     } catch (err) {
       results[platform] = { status: 'error', error: err.message };

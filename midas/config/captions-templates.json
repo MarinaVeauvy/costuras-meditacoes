@@ -61,6 +61,38 @@
     "fundamento", "conceito", "princípio", "pilar", "família próspera",
     "propósito", "abundância", "sabedoria", "bençãos", "responsabilidade"
   ],
+  "lexicon_bank": {
+    "_doc": "Vocabulário tribal do nicho cristão feminino BR. LLM deve usar 1-2 termos por caption pra evitar tom 'AI corporativo'.",
+    "tribal_terms": [
+      "irmã", "amada", "mamãe", "guerreira", "filha do Rei", "mulher virtuosa",
+      "mulher de fé", "esposa de Provérbios 31", "filhas de Sara", "amiga"
+    ],
+    "bible_references": [
+      "Provérbios 31", "Provérbios 31:16", "Provérbios 13:11", "Provérbios 22:7",
+      "Lucas 16:10", "Lucas 10 (Marta e Maria)", "Salmos 127", "Salmos 23",
+      "Deuteronômio 8:18", "Mateus 25 (talentos)", "Eclesiastes 11", "Jó", "José do Egito",
+      "Ana que orou em silêncio", "Mulher samaritana"
+    ],
+    "faith_concepts": [
+      "Senhor", "Ele", "providência", "graça", "bênção", "amém", "glória",
+      "Deus aprova", "Deus restaura", "Ele te chamou", "Ele cuida",
+      "azeite", "vinha", "alpargatas", "testemunho", "milagre", "fé prática",
+      "discernimento", "sabedoria do Alto", "propósito"
+    ],
+    "family_concepts": [
+      "lar", "marido", "filhos", "casa", "criar com propósito", "rotina puxada",
+      "mesa da família", "dia a dia", "cuidar dos meus", "Provérbios 31 na prática"
+    ],
+    "transformation_concepts": [
+      "atravessei", "antes eu", "Ele me tirou de", "fundo do poço",
+      "novo capítulo", "Ele me restaurou", "depois de tudo", "no tempo certo Dele",
+      "Ele te tira da escuridão", "do nada"
+    ],
+    "forbidden_christianese": [
+      "abundância universal", "universo", "energia", "vibração", "manifestar",
+      "lei da atração", "frequência", "abundância cósmica"
+    ]
+  },
   "hashtags_instagram": [
     "#mulhercrista #educacaofinanceirafeminina #financasdomesticas #familiaprospera #planejamentofamiliar #fe #proposito #organizacaofinanceira #mulheresdefe #vidasimples",
     "#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",

@@ -69,7 +69,19 @@ async function downloadVideo(url, dest) {
   fs.writeFileSync(dest, Buffer.from(ab));
 }
 
-function applyOverlay(inputPath, outputPath, hook) {
+function probeDuration(videoPath) {
+  const r = spawnSync('ffprobe', [
+    '-v', 'error',
+    '-show_entries', 'format=duration',
+    '-of', 'default=noprint_wrappers=1:nokey=1',
+    videoPath,
+  ], { stdio: ['ignore', 'pipe', 'pipe'] });
+  if (r.status !== 0) return null;
+  const d = parseFloat((r.stdout || '').toString().trim());
+  return isFinite(d) ? d : null;
+}
+
+function applyOverlay(inputPath, outputPath, hook, overlayCta = null) {
   const fontFile = findFontFile();
   if (!fontFile) throw new Error('Nenhuma fonte bold encontrada');
 
@@ -80,11 +92,10 @@ function applyOverlay(inputPath, outputPath, hook) {
 
   const ff = (p) => p.replace(/\\/g, '/').replace(/^([A-Za-z]):/, '$1\\:');
 
-  // Strategy: drawtext com box (fundo preto semi-transparente) + texto branco com sombra
-  // Aparece de t=0.3 até t=3.5 (3.2 segundos de exibição)
-  // Posição: y=(h*0.20) — superior, fora do face/produto
-  // Box: padding 30px, opacidade 0.55
-  const drawtextFilter = [
+  const filters = [];
+
+  // (1) Hook nos primeiros 3.2s — texto branco grande no terço superior
+  filters.push([
     `drawtext=fontfile='${ff(fontFile)}'`,
     `textfile='${ff(textPath)}'`,
     `fontsize=72`,
@@ -98,7 +109,35 @@ function applyOverlay(inputPath, outputPath, hook) {
     `x=(w-text_w)/2`,
     `y=h*0.18`,
     `enable='between(t,0.3,3.5)'`,
-  ].join(':');
+  ].join(':'));
+
+  // (2) Overlay CTA nos últimos ~4s — texto amarelo no terço inferior
+  // Algoritmo Reels 2026 pesa CTA visual >> CTA em caption (80% nunca expande).
+  if (overlayCta && overlayCta.trim()) {
+    const ctaPath = path.join(tmpDir, 'overlay-cta.txt');
+    fs.writeFileSync(ctaPath, wrapText(overlayCta.trim(), 18));
+    const duration = probeDuration(inputPath);
+    // Se conseguimos duração, mostra nos últimos 4s. Senão, fallback: gt(t,8) garante aparição em cortes 30-60s.
+    const ctaEnable = duration && duration > 6
+      ? `enable='between(t,${(duration - 4).toFixed(2)},${duration.toFixed(2)})'`
+      : `enable='gt(t,8)'`;
+    filters.push([
+      `drawtext=fontfile='${ff(fontFile)}'`,
+      `textfile='${ff(ctaPath)}'`,
+      `fontsize=58`,
+      `fontcolor=yellow`,
+      `borderw=3`,
+      `bordercolor=black@0.9`,
+      `box=1`,
+      `boxcolor=black@0.6`,
+      `boxborderw=22`,
+      `x=(w-text_w)/2`,
+      `y=h*0.78`,
+      ctaEnable,
+    ].join(':'));
+  }
+
+  const drawtextFilter = filters.join(',');
 
   const args = [
     '-y',
@@ -154,7 +193,7 @@ async function uploadCloudinary(filePath, publicId) {
 async function main() {
   const args = parseArgs();
   if (!args.video || !args.videoUrl || !args.hook) {
-    throw new Error('Uso: --video=X.mp4 --videoUrl=URL --hook="texto"');
+    throw new Error('Uso: --video=X.mp4 --videoUrl=URL --hook="texto" [--overlayCta="texto curto"]');
   }
 
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'midas-overlay-'));
@@ -164,8 +203,9 @@ async function main() {
 
   await downloadVideo(args.videoUrl, inputPath);
 
-  console.error(`🎯 Aplicando overlay hook (${args.hook.length} chars)`);
-  applyOverlay(inputPath, outputPath, args.hook);
+  const overlayCta = typeof args.overlayCta === 'string' && args.overlayCta.trim() ? args.overlayCta : null;
+  console.error(`🎯 Aplicando overlay hook (${args.hook.length} chars)` + (overlayCta ? ` + CTA "${overlayCta}"` : ''));
+  applyOverlay(inputPath, outputPath, args.hook, overlayCta);
 
   console.error(`☁️  Upload Cloudinary...`);
   const publicId = `${path.basename(args.video, '.mp4')}_hooked`;
@@ -186,3 +226,5 @@ async function main() {
 if (require.main === module) {
   main().catch(e => { console.error('ERRO:', e.message); process.exit(1); });
 }
+
+module.exports = { applyOverlay, probeDuration, wrapText };

@@ -190,6 +190,7 @@ jobs:
           VIDEO_URL=$(jq -r '.url' pick.json)
           ORIG_CAPTIONS="midas/captions/${VIDEO%.mp4}.json"
           HOOK=$(jq -r ".[\"$ACCOUNT\"].hook" "$ORIG_CAPTIONS")
+          OVERLAY_CTA=$(jq -r ".[\"$ACCOUNT\"].overlay_cta // empty" "$ORIG_CAPTIONS")
 
           if [ -z "$HOOK" ] || [ "$HOOK" = "null" ]; then
             echo "⚠️ Hook ausente — pulando overlay"
@@ -198,10 +199,12 @@ jobs:
           fi
 
           echo "🎯 Hook: $HOOK"
+          echo "🔔 Overlay CTA: ${OVERLAY_CTA:-(nenhum)}"
           node scripts/midas/midas-overlay-hook.js \
             --video="$VIDEO" \
             --videoUrl="$VIDEO_URL" \
-            --hook="$HOOK" > overlay.json
+            --hook="$HOOK" \
+            ${OVERLAY_CTA:+--overlayCta="$OVERLAY_CTA"} > overlay.json
           cat overlay.json
           NEW_URL=$(jq -r '.url' overlay.json)
           NEW_VIDEO=$(jq -r '.video' overlay.json)

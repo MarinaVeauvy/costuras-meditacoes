@@ -1,30 +1,48 @@
 {
   "pros_peridade_do_reino": {
-    "hook": "O que ninguém conta sobre patrimônio",
-    "body": "3 passos para criar um legado familiar",
+    "hook": "Dinheiro não é pecado, mas prosperar é preciso",
+    "body": "Construir fortuna do jeito que Deus aprova exige integridade — não atalho",
     "cta": "Salve pra ler depois 🤍",
-    "format_used": "FV-005",
+    "overlay_cta": "Vai no link da bio",
+    "format_used": "FV-001",
     "cta_category": "save",
-    "full_caption": "O que ninguém conta sobre patrimônio\n\n3 passos para criar um legado familiar\n\nSalve pra ler depois 🤍",
+    "theme_category": "financeiro",
+    "transcript_quote": "dinheiro é pecado?",
+    "body_source": "transcript_paraphrase",
+    "warnings": [
+      "body_disconnected_from_transcript"
+    ],
+    "schema_version": "v2",
+    "full_caption": "Dinheiro não é pecado, mas prosperar é preciso\n\nConstruir fortuna do jeito que Deus aprova exige integridade — não atalho\n\nSalve pra ler depois 🤍",
     "hashtags_instagram": "#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
     "hashtags_tiktok": "#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
-    "hashtags_youtube": "#Shorts #MulherCrista #FinancasFamiliares #Proposito",
-    "caption_ig": "O que ninguém conta sobre patrimônio\n\n3 passos para criar um legado familiar\n\nSalve pra ler depois 🤍\n\n#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
-    "caption_tiktok": "O que ninguém conta sobre patrimônio\n\n3 passos para criar um legado familiar\n\nSalve pra ler depois 🤍\n\n#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
-    "caption_youtube": "O que ninguém conta sobre patrimônio #Shorts #MulherCrista #FinancasFamiliares #Proposito"
+    "hashtags_youtube": "#Shorts #EducacaoFinanceira #FamiliaProspera #Patrimonio",
+    "caption_ig": "Dinheiro não é pecado, mas prosperar é preciso\n\nConstruir fortuna do jeito que Deus aprova exige integridade — não atalho\n\nSalve pra ler depois 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
+    "caption_tiktok": "Dinheiro não é pecado, mas prosperar é preciso\n\nConstruir fortuna do jeito que Deus aprova exige integridade — não atalho\n\nSalve pra ler depois 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
+    "caption_youtube": "Dinheiro não é pecado, mas prosperar é preciso\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #EducacaoFinanceira #FamiliaProspera #Patrimonio"
   },
   "orar_prosperar": {
-    "hook": "Tudo que te ensinaram sobre orçamento está errado",
-    "body": "Aprenda a economizar 20% do seu salário",
-    "cta": "Comenta AMÉM se concorda 🙏",
-    "format_used": "FV-001",
-    "cta_category": "comment",
-    "full_caption": "Tudo que te ensinaram sobre orçamento está errado\n\nAprenda a economizar 20% do seu salário\n\nComenta AMÉM se concorda 🙏",
-    "hashtags_instagram": "#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
-    "hashtags_tiktok": "#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
+    "hook": "Cansada de não ter tempo para o seu sonho",
+    "body": "Eu também sou assim, mãe cansada de cuidar e querendo criar com propósito",
+    "cta": "Compartilha com quem precisa ouvir",
+    "overlay_cta": "Bio → link → eu te explico tudo",
+    "format_used": "FV-006",
+    "cta_category": "share",
+    "theme_category": "familia",
+    "transcript_quote": "Eu fiquei cansada de não ter tempo",
+    "body_source": "transcript_paraphrase",
+    "warnings": [
+      "quote_not_in_transcript",
+      "body_disconnected_from_transcript",
+      "missing_tribal_lexicon"
+    ],
+    "schema_version": "v2",
+    "full_caption": "Cansada de não ter tempo para o seu sonho\n\nEu também sou assim, mãe cansada de cuidar e querendo criar com propósito\n\nCompartilha com quem precisa ouvir",
+    "hashtags_instagram": "#financascomfe #vidaprospera #mulheresempreendedoras #educacaofinanceiracrista #familiaorganizada #disciplinafinanceira #intencaodevida #financaspraticas #organizadalar #cristasdefe",
+    "hashtags_tiktok": "#financasdomesticas #educacaofinanceira #familiaprospera #fyp #parati",
     "hashtags_youtube": "#Shorts #MulheresDeFe #PlanejamentoFinanceiro #FamiliaCrista",
-    "caption_ig": "Tudo que te ensinaram sobre orçamento está errado\n\nAprenda a economizar 20% do seu salário\n\nComenta AMÉM se concorda 🙏\n\n#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
-    "caption_tiktok": "Tudo que te ensinaram sobre orçamento está errado\n\nAprenda a economizar 20% do seu salário\n\nComenta AMÉM se concorda 🙏\n\n#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
-    "caption_youtube": "Tudo que te ensinaram sobre orçamento está errado #Shorts #MulheresDeFe #PlanejamentoFinanceiro #FamiliaCrista"
+    "caption_ig": "Cansada de não ter tempo para o seu sonho\n\nEu também sou assim, mãe cansada de cuidar e querendo criar com propósito\n\nCompartilha com quem precisa ouvir\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#financascomfe #vidaprospera #mulheresempreendedoras #educacaofinanceiracrista #familiaorganizada #disciplinafinanceira #intencaodevida #financaspraticas #organizadalar #cristasdefe",
+    "caption_tiktok": "Cansada de não ter tempo para o seu sonho\n\nEu também sou assim, mãe cansada de cuidar e querendo criar com propósito\n\nCompartilha com quem precisa ouvir\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#financasdomesticas #educacaofinanceira #familiaprospera #fyp #parati",
+    "caption_youtube": "Cansada de não ter tempo para o seu sonho\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #MulheresDeFe #PlanejamentoFinanceiro #FamiliaCrista"
   }
 }

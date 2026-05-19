@@ -19,6 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 const { generateCaptions } = require('./midas-generate-captions');
+const { isPublishableCaption, checkThemeRotation, recordPublishedTheme } = require('./midas-caption-utils');
 
 const CONFIG_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'accounts.json');
 const CAPTIONS_DIR = path.join(__dirname, '..', '..', 'midas', 'captions');
@@ -37,7 +38,16 @@ function parseArgs() {
 
 function loadState() {
   if (!fs.existsSync(STATE_PATH)) return { used: [] };
-  return JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
+  const data = JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
+  // Compat: arquivo de estado real usa { published: [{video, account, ...}] };
+  // derivamos lista de vídeos já usados a partir disso.
+  if (!Array.isArray(data.used)) {
+    const fromPublished = Array.isArray(data.published)
+      ? [...new Set(data.published.map(p => p.video).filter(Boolean))]
+      : [];
+    data.used = fromPublished;
+  }
+  return data;
 }
 
 function saveState(state) {
@@ -46,8 +56,15 @@ function saveState(state) {
 }
 
 function listAvailableCortes(used) {
+  const quarantineDir = path.join(CAPTIONS_DIR, 'quarantine');
+  const quarantined = fs.existsSync(quarantineDir)
+    ? new Set(fs.readdirSync(quarantineDir)
+        .filter(f => f.endsWith('.json') && f.startsWith('corte_'))
+        .map(f => f.replace(/\.json$/, '.mp4')))
+    : new Set();
+
   const all = fs.readdirSync(CORTES_DIR).filter(f => f.endsWith('.mp4')).sort();
-  return all.filter(f => !used.includes(f));
+  return all.filter(f => !used.includes(f) && !quarantined.has(f));
 }
 
 function formatCsvRow(fields) {
@@ -90,13 +107,36 @@ async function main() {
   const captionsTxt = [];
 
   let counter = 1;
+  const failures = [];
   for (const video of selected) {
     console.log(`\n[${counter}/${selected.length}] Processando ${video}...`);
-    const captions = await ensureCaptions(video);
+    let captions;
+    try {
+      captions = await ensureCaptions(video);
+    } catch (err) {
+      console.warn(`   ⏭️  ${video} falhou em ensureCaptions: ${err.message.slice(0, 200)}`);
+      failures.push({ video, error: err.message });
+      counter++;
+      continue;
+    }
 
     for (const account of accounts) {
       const caption = captions[account.id];
       if (!caption) continue;
+
+      // GATE V2 — batch só inclui captions publicáveis (schema v2 + sem violações).
+      const gate = isPublishableCaption(caption);
+      if (!gate.ok) {
+        console.warn(`   ⏭️  [${account.id}] caption pulada (${gate.reasons.join(' | ')}). Regere com midas-generate-captions.js.`);
+        continue;
+      }
+
+      // GATE THEME ROTATION — bloqueia 3+ "financeiro" seguidos por conta.
+      const themeCheck = checkThemeRotation(account.id, caption.theme_category);
+      if (!themeCheck.ok) {
+        console.warn(`   ⏭️  [${account.id}] tema pulado: ${themeCheck.reason}`);
+        continue;
+      }
 
       const newName = `${account.id}_${String(counter).padStart(2, '0')}.mp4`;
       const srcPath = path.join(CORTES_DIR, video);
@@ -111,21 +151,37 @@ async function main() {
       ]));
 
       captionsTxt.push(`=== ${newName} | @${account.tiktok_handle || 'PENDING'} ===\n${caption.caption_tiktok}\n`);
+
+      // Registra no histórico de temas (batch é a "publicação de fato" pro TikTok via Publer)
+      recordPublishedTheme({
+        account: account.id,
+        video,
+        theme: caption.theme_category,
+        platform: 'tiktok_publer_batch',
+      });
     }
 
     state.used.push(video);
     counter++;
   }
 
+  // Sempre escreve CSV+captions com o que conseguiu, mesmo se algum corte falhou
   fs.writeFileSync(path.join(batchDir, 'publer-import.csv'), csvLines.join('\n'));
   fs.writeFileSync(path.join(batchDir, 'captions.txt'), captionsTxt.join('\n'));
+  if (failures.length) {
+    fs.writeFileSync(path.join(batchDir, '_failures.json'), JSON.stringify(failures, null, 2));
+  }
   saveState(state);
 
-  const totalFiles = (count * accounts.length);
+  const includedRows = csvLines.length - 1; // menos header
+  const successfulVideos = selected.length - failures.length;
   console.log(`\n✅ Batch gerado em ${batchDir}`);
-  console.log(`   ${totalFiles} arquivos mp4 (${count} cortes × ${accounts.length} contas)`);
+  console.log(`   ${includedRows} linhas no CSV (${successfulVideos}/${selected.length} cortes processados × ${accounts.length} contas)`);
   console.log(`   publer-import.csv — importa no Publer Bulk Upload`);
   console.log(`   captions.txt — lista pra copiar caption por caption`);
+  if (failures.length) {
+    console.log(`   ⚠️  _failures.json — ${failures.length} cortes não geraram caption (rate limit, etc)`);
+  }
   console.log(`\n📌 Próximo passo manual:`);
   console.log(`   1. Abre ${batchDir}`);
   console.log(`   2. No Publer web: Library → Upload → solta todos mp4`);

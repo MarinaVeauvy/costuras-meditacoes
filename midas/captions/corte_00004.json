@@ -1,28 +1,50 @@
 {
   "pros_peridade_do_reino": {
-    "hook": "Pare. Você precisa ver isso.",
-    "body": "Como aplicar Provérbios à gestão do orçamento familiar sem complicação.",
-    "cta": "Salve pra ler depois 📌",
-    "format_used": "FV-006",
-    "full_caption": "Pare. Você precisa ver isso.\n\nComo aplicar Provérbios à gestão do orçamento familiar sem complicação.\n\nSalve pra ler depois 📌",
-    "hashtags_instagram": "#fé #propósito #abundância #educacaofinanceira #patrimôniofamiliar #sabedoria #provérbios #liberdadefinanceira #famíliacomdeus #esperança",
-    "hashtags_tiktok": "#sabedoria #provérbios #família #patrimônio #fyp #deus",
-    "hashtags_youtube": "#Shorts #EducacaoFinanceira #Família #Patrimônio",
-    "caption_ig": "Pare. Você precisa ver isso.\n\nComo aplicar Provérbios à gestão do orçamento familiar sem complicação.\n\nSalve pra ler depois 📌\n\n#fé #propósito #abundância #educacaofinanceira #patrimôniofamiliar #sabedoria #provérbios #liberdadefinanceira #famíliacomdeus #esperança",
-    "caption_tiktok": "Pare. Você precisa ver isso.\n\nComo aplicar Provérbios à gestão do orçamento familiar sem complicação.\n\nSalve pra ler depois 📌\n\n#sabedoria #provérbios #família #patrimônio #fyp #deus",
-    "caption_youtube": "Pare. Você precisa ver isso. #Shorts #EducacaoFinanceira #Família #Patrimônio"
+    "hook": "Deus aprova prosperar com sabedoria",
+    "body": "Aproveitar a provisão do Senhor requer equilíbrio e sabedoria, como a mulher virtuosa que considera campo e azeite",
+    "cta": "Salva pra ler sobre provisão",
+    "overlay_cta": "Vai no link da bio",
+    "format_used": "FV-001",
+    "cta_category": "save",
+    "theme_category": "financeiro",
+    "transcript_quote": "considera campo e compra",
+    "body_source": "transcript_paraphrase",
+    "warnings": [
+      "quote_not_in_transcript",
+      "body_disconnected_from_transcript",
+      "hook_similar_recent:0.45",
+      "format_repeat:FV-001"
+    ],
+    "schema_version": "v2",
+    "full_caption": "Deus aprova prosperar com sabedoria\n\nAproveitar a provisão do Senhor requer equilíbrio e sabedoria, como a mulher virtuosa que considera campo e azeite\n\nSalva pra ler sobre provisão",
+    "hashtags_instagram": "#financascomfe #vidaprospera #mulheresempreendedoras #educacaofinanceiracrista #familiaorganizada #disciplinafinanceira #intencaodevida #financaspraticas #organizadalar #cristasdefe",
+    "hashtags_tiktok": "#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
+    "hashtags_youtube": "#Shorts #EducacaoFinanceira #FamiliaProspera #Patrimonio",
+    "caption_ig": "Deus aprova prosperar com sabedoria\n\nAproveitar a provisão do Senhor requer equilíbrio e sabedoria, como a mulher virtuosa que considera campo e azeite\n\nSalva pra ler sobre provisão\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#financascomfe #vidaprospera #mulheresempreendedoras #educacaofinanceiracrista #familiaorganizada #disciplinafinanceira #intencaodevida #financaspraticas #organizadalar #cristasdefe",
+    "caption_tiktok": "Deus aprova prosperar com sabedoria\n\nAproveitar a provisão do Senhor requer equilíbrio e sabedoria, como a mulher virtuosa que considera campo e azeite\n\nSalva pra ler sobre provisão\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulhercrista #fe #familia #proposito #fyp #parati #cristapraticando",
+    "caption_youtube": "Deus aprova prosperar com sabedoria\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #EducacaoFinanceira #FamiliaProspera #Patrimonio"
   },
   "orar_prosperar": {
-    "hook": "O que ninguém conta sobre finanças em família",
-    "body": "Pequenas mudanças diárias que transformam seu lar em bênção.",
-    "cta": "Marca aquela amiga que precisa ver 🌟",
+    "hook": "Mulher virtuosa prospera com cuidado",
+    "body": "Cuidar da casa e da família é uma das principais responsabilidades de uma mulher virtuosa, e é nesse contexto que a prosperidade se torna uma questão de fé e devoção",
+    "cta": "Compartilha com quem precisa",
+    "overlay_cta": "Bio: te conto tudo",
     "format_used": "FV-005",
-    "full_caption": "O que ninguém conta sobre finanças em família\n\nPequenas mudanças diárias que transformam seu lar em bênção.\n\nMarca aquela amiga que precisa ver 🌟",
-    "hashtags_instagram": "#deus #família #propósito #planejamentofinanceiro #poupar #famíliapróspera #fé #salmosdodia #bençãos #gratidão",
-    "hashtags_tiktok": "#famíliapróspera #educacaofinanceira #propósito #fé #fyp",
-    "hashtags_youtube": "#Shorts #EducacaoFinanceira #Família #Patrimônio",
-    "caption_ig": "O que ninguém conta sobre finanças em família\n\nPequenas mudanças diárias que transformam seu lar em bênção.\n\nMarca aquela amiga que precisa ver 🌟\n\n#deus #família #propósito #planejamentofinanceiro #poupar #famíliapróspera #fé #salmosdodia #bençãos #gratidão",
-    "caption_tiktok": "O que ninguém conta sobre finanças em família\n\nPequenas mudanças diárias que transformam seu lar em bênção.\n\nMarca aquela amiga que precisa ver 🌟\n\n#famíliapróspera #educacaofinanceira #propósito #fé #fyp",
-    "caption_youtube": "O que ninguém conta sobre finanças em família #Shorts #EducacaoFinanceira #Família #Patrimônio"
+    "cta_category": "share",
+    "theme_category": "familia",
+    "transcript_quote": "rotina puxada cuidando da casa",
+    "body_source": "transcript_paraphrase",
+    "warnings": [
+      "quote_not_in_transcript",
+      "body_disconnected_from_transcript"
+    ],
+    "schema_version": "v2",
+    "full_caption": "Mulher virtuosa prospera com cuidado\n\nCuidar da casa e da família é uma das principais responsabilidades de uma mulher virtuosa, e é nesse contexto que a prosperidade se torna uma questão de fé e devoção\n\nCompartilha com quem precisa",
+    "hashtags_instagram": "#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
+    "hashtags_tiktok": "#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
+    "hashtags_youtube": "#Shorts #EducacaoFinanceira #FamiliaProspera #Patrimonio",
+    "caption_ig": "Mulher virtuosa prospera com cuidado\n\nCuidar da casa e da família é uma das principais responsabilidades de uma mulher virtuosa, e é nesse contexto que a prosperidade se torna uma questão de fé e devoção\n\nCompartilha com quem precisa\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
+    "caption_tiktok": "Mulher virtuosa prospera com cuidado\n\nCuidar da casa e da família é uma das principais responsabilidades de uma mulher virtuosa, e é nesse contexto que a prosperidade se torna uma questão de fé e devoção\n\nCompartilha com quem precisa\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
+    "caption_youtube": "Mulher virtuosa prospera com cuidado\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #EducacaoFinanceira #FamiliaProspera #Patrimonio"
   }
 }

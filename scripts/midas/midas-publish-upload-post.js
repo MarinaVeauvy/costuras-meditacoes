@@ -138,14 +138,19 @@ async function main() {
     throw new Error(`Captions ausentes pra ${account.id}`);
   }
 
-  // SAFETY NET — não publica com placeholders "undefined" do generator quebrado
+  // GATE V2 — publisher só aceita captions schema_version=v2 sem violações.
+  // Cobre: undefined literal, forbidden_words, hook/body/cta vazios, schema legacy.
+  const { isPublishableCaption, checkThemeRotation, recordPublishedTheme } = require('./midas-caption-utils');
   const accountCaption = captions[account.id];
-  const fields = ['hook', 'caption_ig', 'caption_tiktok', 'caption_youtube', 'full_caption'];
-  for (const f of fields) {
-    const val = accountCaption[f];
-    if (typeof val === 'string' && val.toLowerCase().includes('undefined')) {
-      throw new Error(`ABORTADO: caption[${account.id}].${f} contém "undefined" — caption generator falhou. Não publicar.`);
-    }
+  const gate = isPublishableCaption(accountCaption);
+  if (!gate.ok) {
+    throw new Error(`ABORTADO: caption[${account.id}] não é publicável. Reasons: ${gate.reasons.join(' | ')}. Regere com midas-generate-captions.js (schema_version=v2 obrigatório).`);
+  }
+
+  // GATE THEME ROTATION — bloqueia 3+ "financeiro" seguidos na conta (anti-Finance bucket).
+  const themeCheck = checkThemeRotation(account.id, accountCaption.theme_category);
+  if (!themeCheck.ok) {
+    throw new Error(`ABORTADO: ${themeCheck.reason}`);
   }
 
   const platforms = account.upload_post_platforms || ['instagram', 'youtube'];
@@ -186,6 +191,14 @@ async function main() {
       entry.postUrl = `https://www.instagram.com/p/${r.platform_post_id}/`;
     }
     appendPublished(platformKey, entry);
+    if (r.success) {
+      recordPublishedTheme({
+        account: account.id,
+        video: args.video,
+        theme: accountCaption.theme_category,
+        platform: r.platform,
+      });
+    }
   }
 
   const anySuccess = (final.results || []).some(r => r.success);
