@@ -293,15 +293,8 @@ function composeReel({ bgVideoPath, ttsAudioPath, narrative, ctaText, outputPath
     `:y=h*0.40` +
     `:enable='between(t,${start.toFixed(2)},${end.toFixed(2)})'`;
 
-  // Watermark sutil — aparece o vídeo todo, canto superior direito
-  const watermark =
-    `drawtext=fontfile='${ff(fontFile)}'` +
-    `:text='${escapeText('@marinaveauvy')}'` +
-    `:fontsize=28` +
-    `:fontcolor=white@0.55` +
-    `:borderw=1:bordercolor=black@0.7` +
-    `:x=w-text_w-30` +
-    `:y=40`;
+  // Watermark removido — projeto Midas não conecta com perfil pessoal @marinaveauvy.
+  // Se quiser watermark da própria conta Midas no futuro, derive do account.id.
 
   const drawtexts = [
     hookSlot(hookText, 0.0, 3.0),
@@ -310,7 +303,6 @@ function composeReel({ bgVideoPath, ttsAudioPath, narrative, ctaText, outputPath
     slot(legenda3, 11.0, 18.0),
     slot(legenda4, 18.0, 22.0),
     ctaSlot(ctaWrapped, 22.0, TOTAL_DURATION),
-    watermark,
   ].join(',');
 
   const videoFilter = [

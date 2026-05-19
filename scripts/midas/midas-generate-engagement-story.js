@@ -94,9 +94,9 @@ function composeImage({ template, bgColor, outputPath }) {
 
   const perguntaText = template.pergunta_visual; // already has \n line breaks
   const ctaText = template.cta_texto;
-  const watermarkText = '@marinaveauvy';
 
-  // Compose: solid background + pergunta centro + CTA inferior + watermark canto
+  // Compose: solid background + pergunta centro + CTA inferior
+  // Watermark removido — projeto Midas não conecta com perfil pessoal @marinaveauvy.
   // Drawtext usa newline literal — converter \n pra \\n no escape
   const perguntaEscaped = escapeText(perguntaText);
   const ctaEscaped = escapeText(ctaText);
@@ -119,21 +119,11 @@ function composeImage({ template, bgColor, outputPath }) {
     `:x=(w-text_w)/2` +
     `:y=h*0.78`;
 
-  const drawWatermark =
-    `drawtext=fontfile='${ff(fontFile)}'` +
-    `:text='${escapeText(watermarkText)}'` +
-    `:fontsize=32` +
-    `:fontcolor=${bgColor.text_hex}@0.55` +
-    `:x=w-text_w-40` +
-    `:y=60`;
-
-  const filter = `color=c=${bgColor.hex}:s=1080x1920:d=1[bg];[bg]${drawPergunta},${drawCta},${drawWatermark}[v]`;
-
   const args = [
     '-y',
     '-f', 'lavfi',
     '-i', `color=c=${bgColor.hex}:s=1080x1920:d=1`,
-    '-filter_complex', `${drawPergunta},${drawCta},${drawWatermark}`,
+    '-filter_complex', `${drawPergunta},${drawCta}`,
     '-frames:v', '1',
     outputPath,
   ];
