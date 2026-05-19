@@ -16,6 +16,14 @@ function getTemplates() {
   return _templatesCache;
 }
 
+// Handles pessoais que NUNCA podem aparecer em conteúdo publicado.
+// Guard hard-coded — não depende do templates.json. Bloqueia anywhere no caption.
+const PERSONAL_HANDLES_BLOCKLIST = [
+  '@marinaveauvy', '@marinaveuvy',
+  'marinaveauvy', 'marinaveuvy',
+  'marinaveauvy.com.br',
+];
+
 /**
  * Verifica se uma caption específica (de uma conta) é publicável.
  * @param {object} caption - objeto da conta no JSON (ex: captionsJson.pros_peridade_do_reino)
@@ -25,6 +33,14 @@ function isPublishableCaption(caption) {
   const reasons = [];
   if (!caption || typeof caption !== 'object') {
     return { ok: false, reasons: ['caption_missing_or_not_object'] };
+  }
+
+  // (0) Guard: handle pessoal NUNCA pode aparecer em nenhum campo da caption.
+  // Proteção contra regressão futura (ex: LLM aprender o handle de algum lugar).
+  const allText = JSON.stringify(caption).toLowerCase();
+  const personalHits = PERSONAL_HANDLES_BLOCKLIST.filter(h => allText.includes(h.toLowerCase()));
+  if (personalHits.length) {
+    reasons.push(`personal_handle_leaked:${personalHits.join('|')}`);
   }
 
   // (1) Schema version v2 — gate principal

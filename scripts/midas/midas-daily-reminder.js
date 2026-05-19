@@ -19,7 +19,9 @@ const STATE_IG = path.join(__dirname, '..', '..', 'midas', 'state', 'published-i
 const STATE_YT = path.join(__dirname, '..', '..', 'midas', 'state', 'published-yt.json');
 
 const MARINA_EMAIL = process.env.MARINA_EMAIL || 'macmarina@gmail.com';
-const FROM_EMAIL = 'Midas Bot <contato@marinaveauvy.com.br>';
+// FROM_EMAIL: configurável via env pra desacoplar do domínio pessoal.
+// Fallback é o sandbox padrão do Resend (só envia pra emails verificados).
+const FROM_EMAIL = process.env.MIDAS_FROM_EMAIL || 'Midas Bot <onboarding@resend.dev>';
 
 function loadJson(p, def = null) {
   if (!fs.existsSync(p)) return def;

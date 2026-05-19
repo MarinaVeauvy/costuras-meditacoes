@@ -96,7 +96,7 @@ function composeImage({ template, bgColor, outputPath }) {
   const ctaText = template.cta_texto;
 
   // Compose: solid background + pergunta centro + CTA inferior
-  // Watermark removido — projeto Midas não conecta com perfil pessoal @marinaveauvy.
+  // Watermark removido — projeto Midas não pode conectar com perfis pessoais.
   // Drawtext usa newline literal — converter \n pra \\n no escape
   const perguntaEscaped = escapeText(perguntaText);
   const ctaEscaped = escapeText(ctaText);

@@ -293,7 +293,7 @@ function composeReel({ bgVideoPath, ttsAudioPath, narrative, ctaText, outputPath
     `:y=h*0.40` +
     `:enable='between(t,${start.toFixed(2)},${end.toFixed(2)})'`;
 
-  // Watermark removido — projeto Midas não conecta com perfil pessoal @marinaveauvy.
+  // Watermark removido — projeto Midas não pode conectar com perfis pessoais.
   // Se quiser watermark da própria conta Midas no futuro, derive do account.id.
 
   const drawtexts = [
