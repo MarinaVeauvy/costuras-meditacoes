@@ -152,12 +152,17 @@ async function main() {
 
       captionsTxt.push(`=== ${newName} | @${account.tiktok_handle || 'PENDING'} ===\n${caption.caption_tiktok}\n`);
 
-      // Registra no histórico de temas (batch é a "publicação de fato" pro TikTok via Publer)
+      // Registra no histórico (batch é a "publicação de fato" pro TikTok via Publer)
       recordPublishedTheme({
         account: account.id,
         video,
         theme: caption.theme_category,
         platform: 'tiktok_publer_batch',
+        format_used: caption.format_used,
+        cta_category: caption.cta_category,
+        hook: caption.hook,
+        overlay_cta: caption.overlay_cta,
+        transcript_quote: caption.transcript_quote,
       });
     }
 

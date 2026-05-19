@@ -171,6 +171,11 @@ async function main() {
         video: args.video,
         theme: accountCaption.theme_category,
         platform,
+        format_used: accountCaption.format_used,
+        cta_category: accountCaption.cta_category,
+        hook: accountCaption.hook,
+        overlay_cta: accountCaption.overlay_cta,
+        transcript_quote: accountCaption.transcript_quote,
       });
     } catch (err) {
       results[platform] = { status: 'error', error: err.message };

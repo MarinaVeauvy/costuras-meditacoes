@@ -55,7 +55,9 @@ function validateNonEmpty(parsed) {
 }
 
 async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
-  // 1. Groq — free tier generoso (14400 req/dia), llama 3.3 70b
+  // Ordem: free tiers mais confiáveis primeiro. Gemini promoved acima de OpenRouter
+  // porque OpenRouter free tier tem mais 404s e descontinuações imprevistas.
+  // 1. Groq (free, 14400 req/dia)
   if (GROQ_KEY) {
     try {
       return await generateGroq(prompt, { json, maxTokens });
@@ -64,19 +66,21 @@ async function generate(prompt, { json = false, maxTokens = 4096 } = {}) {
     }
   }
 
-  if (OPENROUTER_KEY) {
-    try {
-      return await generateOpenRouter(prompt, { json, maxTokens });
-    } catch (err) {
-      console.error(`  ⚠️ OpenRouter falhou: ${err.message}`);
-    }
-  }
-
+  // 2. Gemini (free, 1500 req/dia, infraestrutura Google estável)
   if (GEMINI_KEY) {
     try {
       return await generateGemini(prompt, { json, maxTokens });
     } catch (err) {
       console.error(`  ⚠️ Gemini falhou: ${err.message}`);
+    }
+  }
+
+  // 3. OpenRouter (free, modelos rotativos — menos confiável)
+  if (OPENROUTER_KEY) {
+    try {
+      return await generateOpenRouter(prompt, { json, maxTokens });
+    } catch (err) {
+      console.error(`  ⚠️ OpenRouter falhou: ${err.message}`);
     }
   }
 

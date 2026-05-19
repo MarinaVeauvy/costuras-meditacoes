@@ -61,7 +61,37 @@ function truncateTitle(hook, maxLen = YT_TITLE_MAX) {
   return base + suffix;
 }
 
-async function uploadPostCreate({ apiKey, profileUsername, platforms, videoUrl, captions }) {
+// UTM tag por conta — bridge site rastreia origem dos cliques no link.
+const ACCOUNT_UTM_MAP = {
+  pros_peridade_do_reino: 'reino',
+  orar_prosperar: 'orar',
+  liberdade_com_fe: 'liberdade',
+};
+
+function buildYouTubeDescription(captions, account, bridgeSite) {
+  const ref = ACCOUNT_UTM_MAP[account?.id] || account?.id || 'unknown';
+  const bridgeUrl = bridgeSite ? `${bridgeSite}/?ref=${ref}` : null;
+
+  const lines = [];
+  lines.push(captions.hook);
+  lines.push('');
+  lines.push(captions.body);
+  lines.push('');
+  lines.push(`👉 ${captions.cta}`);
+  if (bridgeUrl) {
+    lines.push(`👉 Material completo: ${bridgeUrl}`);
+  }
+  lines.push('');
+  lines.push('━━━━━━━━━━━━━━━━━━━━');
+  lines.push('📌 Conteúdo educativo. Não é recomendação financeira ou de investimento.');
+  lines.push('Decisões financeiras são pessoais — estude e consulte profissional qualificado.');
+  lines.push('━━━━━━━━━━━━━━━━━━━━');
+  lines.push('');
+  lines.push(captions.hashtags_youtube || '#Shorts');
+  return lines.join('\n');
+}
+
+async function uploadPostCreate({ apiKey, profileUsername, platforms, videoUrl, captions, account, bridgeSite }) {
   const form = new FormData();
   form.append('user', profileUsername);
   for (const p of platforms) form.append('platform[]', p);
@@ -76,7 +106,10 @@ async function uploadPostCreate({ apiKey, profileUsername, platforms, videoUrl, 
   }
   if (platforms.includes('youtube')) {
     form.append('youtube_title', ytTitle);
-    form.append('description', captions.caption_youtube || captions.full_caption);
+    const ytDescription = account
+      ? buildYouTubeDescription(captions, account, bridgeSite)
+      : (captions.caption_youtube || captions.full_caption);
+    form.append('description', ytDescription);
   }
   if (platforms.includes('tiktok')) {
     form.append('tiktok_title', captions.caption_tiktok || captions.full_caption);
@@ -162,6 +195,8 @@ async function main() {
     platforms,
     videoUrl: args.videoUrl,
     captions: captions[account.id],
+    account,
+    bridgeSite: config.bridge_site,
   });
 
   console.log(`✅ Upload aceito. request_id=${initial.request_id} job_id=${initial.job_id}`);
@@ -197,6 +232,11 @@ async function main() {
         video: args.video,
         theme: accountCaption.theme_category,
         platform: r.platform,
+        format_used: accountCaption.format_used,
+        cta_category: accountCaption.cta_category,
+        hook: accountCaption.hook,
+        overlay_cta: accountCaption.overlay_cta,
+        transcript_quote: accountCaption.transcript_quote,
       });
     }
   }

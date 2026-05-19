@@ -178,20 +178,27 @@ function checkThemeRotation(accountId, newTheme) {
 }
 
 /**
- * Registra um post publicado no histórico de temas. Publishers chamam após publicar.
+ * Registra um post publicado no histórico. Publishers chamam após publicar.
+ * Aceita objeto rico (recordPublishedPost) ou compat com versão antiga (theme + account + video + platform).
  */
-function recordPublishedTheme({ account, video, theme, platform }) {
+function recordPublishedTheme(input) {
   const data = loadThemeHistory();
   data.history.push({
-    account,
-    video,
-    theme: theme || 'unknown',
-    platform: platform || 'unknown',
+    account: input.account,
+    video: input.video,
+    theme: input.theme || 'unknown',
+    platform: input.platform || 'unknown',
+    // Novos campos opcionais (para tracking de performance por dimensão)
+    format_used: input.format_used || null,
+    cta_category: input.cta_category || null,
+    hook: input.hook || null,
+    overlay_cta: input.overlay_cta || null,
+    transcript_quote: input.transcript_quote || null,
     ts: new Date().toISOString(),
   });
-  // Mantém só últimos 200 (50 por conta x 4 contas worst case) — economiza arquivo
-  if (data.history.length > 200) {
-    data.history = data.history.slice(-200);
+  // Mantém só últimos 500 (escalado pra cobrir mais histórico após enriquecimento)
+  if (data.history.length > 500) {
+    data.history = data.history.slice(-500);
   }
   saveThemeHistory(data);
 }

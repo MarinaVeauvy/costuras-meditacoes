@@ -159,6 +159,52 @@ async function main() {
     md += `- ⏳ Aguardando primeiro engagement (like/comment)\n`;
   }
 
+  // === Breakdown por dimensão (format/theme/CTA) — dos últimos 7 dias ===
+  const THEME_HISTORY_PATH = path.join(__dirname, '..', '..', 'midas', 'state', 'theme-history.json');
+  if (fs.existsSync(THEME_HISTORY_PATH)) {
+    try {
+      const themeData = JSON.parse(fs.readFileSync(THEME_HISTORY_PATH, 'utf8'));
+      const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+      const recent = (themeData.history || []).filter(p => new Date(p.ts).getTime() >= sevenDaysAgo);
+
+      const tally = (entries, key) => {
+        const out = {};
+        for (const e of entries) {
+          const v = e[key] || 'unknown';
+          out[v] = (out[v] || 0) + 1;
+        }
+        return out;
+      };
+
+      const renderTally = (label, t) => {
+        const rows = Object.entries(t).sort((a, b) => b[1] - a[1]);
+        if (rows.length === 0) return '';
+        let out = `\n### ${label}\n\n`;
+        const total = rows.reduce((s, [, n]) => s + n, 0);
+        out += `| Valor | Posts | % |\n|---|---|---|\n`;
+        for (const [k, n] of rows) {
+          out += `| ${k} | ${n} | ${total ? Math.round((n / total) * 100) : 0}% |\n`;
+        }
+        return out;
+      };
+
+      md += `\n## 🧪 Diversidade de conteúdo (últimos 7 dias — ${recent.length} registros)\n`;
+      md += renderTally('Format Vault usado', tally(recent, 'format_used'));
+      md += renderTally('Theme category', tally(recent, 'theme_category'));
+      // theme_category cai em 'theme' no schema legado — fallback
+      const themeTally = tally(recent, 'theme');
+      if (Object.keys(themeTally).length > 1 || (!themeTally.unknown && Object.keys(themeTally).length === 1)) {
+        md += renderTally('Theme (legacy field)', themeTally);
+      }
+      md += renderTally('CTA category', tally(recent, 'cta_category'));
+      md += renderTally('Conta', tally(recent, 'account'));
+
+      md += `\n> 💡 Use isso pra detectar concentração: se 70%+ dos posts tem o mesmo format/theme, regerar pra diversificar.\n`;
+    } catch (err) {
+      md += `\n## 🧪 Diversidade de conteúdo\n\n_(erro lendo theme-history.json: ${err.message})_\n`;
+    }
+  }
+
   md += `\n## 🔗 Links das contas\n\n`;
   for (const a of activeAccounts) {
     md += `- **${a.id}:**\n`;
