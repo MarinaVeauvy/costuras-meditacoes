@@ -26,6 +26,7 @@ const os = require('os');
 const { spawn, execSync } = require('child_process');
 
 const DEFAULT_CORTES_DIR = process.env.MIDAS_CORTES_DIR || 'C:/Users/marin/midas-cortes/Cortes Prontos';
+const REPO_TRANSCRIPTS_DIR = path.join(__dirname, '..', '..', 'midas', 'transcripts');
 const TMP_DIR = path.join(os.tmpdir(), 'midas-transcribe');
 const WHISPER_MODEL = process.env.MIDAS_WHISPER_MODEL || 'small';
 
@@ -142,13 +143,27 @@ with io.open(r"${outPath.replace(/\\/g, '/').replace(/"/g, '\\"')}", "w", encodi
  * @returns {Promise<{ text, segments, duration, language, fromCache }>}
  */
 async function transcribeClip(videoFileOrPath, opts = {}) {
+  // (1) Cache do repo: midas/transcripts/corte_NNNNN.json
+  // Tem prioridade — funciona em CI mesmo sem mp4 local.
+  if (!opts.force) {
+    const filename = path.basename(videoFileOrPath, '.mp4');
+    const repoCachePath = path.join(REPO_TRANSCRIPTS_DIR, `${filename}.transcript.json`);
+    if (fs.existsSync(repoCachePath)) {
+      const cached = JSON.parse(fs.readFileSync(repoCachePath, 'utf8'));
+      if (cached.text && typeof cached.text === 'string' && cached.text.trim()) {
+        return { ...cached, fromCache: true, cacheSource: 'repo' };
+      }
+    }
+  }
+
+  // (2) Cache local ao lado do mp4 + Whisper fallback (modo desenvolvimento)
   const videoPath = resolveVideoPath(videoFileOrPath);
   const cachePath = transcriptPathFor(videoPath);
 
   if (!opts.force && fs.existsSync(cachePath)) {
     const cached = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
     if (cached.text && typeof cached.text === 'string' && cached.text.trim()) {
-      return { ...cached, fromCache: true };
+      return { ...cached, fromCache: true, cacheSource: 'local' };
     }
   }
 
@@ -157,6 +172,12 @@ async function transcribeClip(videoFileOrPath, opts = {}) {
     throw new Error(`Transcript vazio para ${path.basename(videoPath)} — Whisper rodou mas não retornou texto`);
   }
   fs.writeFileSync(cachePath, JSON.stringify(result, null, 2));
+  // Também salva no repo cache pra futuras execuções em CI
+  try {
+    fs.mkdirSync(REPO_TRANSCRIPTS_DIR, { recursive: true });
+    const filename = path.basename(videoPath, '.mp4');
+    fs.writeFileSync(path.join(REPO_TRANSCRIPTS_DIR, `${filename}.transcript.json`), JSON.stringify(result, null, 2));
+  } catch { /* não crítico — local cache já tem */ }
   return { ...result, fromCache: false };
 }
 
