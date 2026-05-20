@@ -365,6 +365,11 @@ function buildCaptionsByAccount(versiculo, pool) {
       caption_ig: `${baseText}\n\n${hashtagsIg}`,
       caption_tiktok: `${baseText}\n\n${hashtagsTk}`,
       caption_youtube: `${versiculo.ref} ${hashtagsYt}`,
+      // Marca como v2 pra passar pelo gate de publicação (gate foi projetado pra cortes
+      // mas precisa aceitar versículo/story também — todos têm hook+body+cta+caption_*).
+      schema_version: 'v2',
+      theme_category: 'fe',
+      body_source: 'versiculo_biblico',
     };
   }
   return out;

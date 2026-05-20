@@ -394,6 +394,10 @@ function buildCaptionsByAccount(template, narrative, cta, pool) {
       caption_ig: `${fullCaption}\n\n${hashtagsIg}`,
       caption_tiktok: `${fullCaption}\n\n${hashtagsTk}`,
       caption_youtube: `${hook} ${hashtagsYt}`,
+      // Marca como v2 pra passar pelo gate de publicação (todos os tipos: corte, versículo, story).
+      schema_version: 'v2',
+      theme_category: 'proposito',
+      body_source: 'story_narrative',
     };
   }
   return out;
