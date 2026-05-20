@@ -132,6 +132,42 @@
       "theme": "familia",
       "platform": "instagram",
       "ts": "2026-05-19T16:15:32.849Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v012.mp4",
+      "theme": "fe",
+      "platform": "youtube",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Bem-aventurado o homem que põe no Senhor a sua confiança.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-20T23:53:25.282Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v012.mp4",
+      "theme": "fe",
+      "platform": "tiktok",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Bem-aventurado o homem que põe no Senhor a sua confiança.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-20T23:53:25.283Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v012.mp4",
+      "theme": "fe",
+      "platform": "instagram",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Bem-aventurado o homem que põe no Senhor a sua confiança.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-20T23:53:25.283Z"
     }
   ]
 }
