@@ -168,6 +168,42 @@
       "overlay_cta": null,
       "transcript_quote": null,
       "ts": "2026-05-20T23:53:25.283Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "versiculo_v013.mp4",
+      "theme": "fe",
+      "platform": "youtube",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Aquietai-vos e sabei que eu sou Deus.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-21T23:37:48.368Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "versiculo_v013.mp4",
+      "theme": "fe",
+      "platform": "tiktok",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Aquietai-vos e sabei que eu sou Deus.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-21T23:37:48.369Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "versiculo_v013.mp4",
+      "theme": "fe",
+      "platform": "instagram",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Aquietai-vos e sabei que eu sou Deus.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-21T23:37:48.369Z"
     }
   ]
 }
