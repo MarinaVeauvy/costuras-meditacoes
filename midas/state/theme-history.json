@@ -240,6 +240,42 @@
       "overlay_cta": "Link na bio agora",
       "transcript_quote": " Eu vou te ensinar do fundo do meu coração tudo que eu fiz para construir patrimônio",
       "ts": "2026-05-22T12:45:57.657Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00014_hooked.mp4",
+      "theme": "familia",
+      "platform": "youtube",
+      "format_used": "FV-006",
+      "cta_category": "comment",
+      "hook": "Mamãe, é possível prosperar",
+      "overlay_cta": "Bio: te conto tudo",
+      "transcript_quote": "Eu preparei um plano prático",
+      "ts": "2026-05-22T23:45:01.561Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00014_hooked.mp4",
+      "theme": "familia",
+      "platform": "tiktok",
+      "format_used": "FV-006",
+      "cta_category": "comment",
+      "hook": "Mamãe, é possível prosperar",
+      "overlay_cta": "Bio: te conto tudo",
+      "transcript_quote": "Eu preparei um plano prático",
+      "ts": "2026-05-22T23:45:01.562Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00014_hooked.mp4",
+      "theme": "familia",
+      "platform": "instagram",
+      "format_used": "FV-006",
+      "cta_category": "comment",
+      "hook": "Mamãe, é possível prosperar",
+      "overlay_cta": "Bio: te conto tudo",
+      "transcript_quote": "Eu preparei um plano prático",
+      "ts": "2026-05-22T23:45:01.562Z"
     }
   ]
 }
