@@ -276,6 +276,42 @@
       "overlay_cta": "Bio: te conto tudo",
       "transcript_quote": "Eu preparei um plano prático",
       "ts": "2026-05-22T23:45:01.562Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-006-marido-financas_1779536756379.mp4",
+      "theme": "proposito",
+      "platform": "youtube",
+      "format_used": "ST-006",
+      "cta_category": "bio",
+      "hook": "Brigas por dinheiro",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-23T11:46:56.951Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-006-marido-financas_1779536756379.mp4",
+      "theme": "proposito",
+      "platform": "instagram",
+      "format_used": "ST-006",
+      "cta_category": "bio",
+      "hook": "Brigas por dinheiro",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-23T11:46:56.952Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-006-marido-financas_1779536756379.mp4",
+      "theme": "proposito",
+      "platform": "tiktok",
+      "format_used": "ST-006",
+      "cta_category": "bio",
+      "hook": "Brigas por dinheiro",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-23T11:46:56.953Z"
     }
   ]
 }
