@@ -348,6 +348,42 @@
       "overlay_cta": null,
       "transcript_quote": null,
       "ts": "2026-05-23T23:35:04.078Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "corte_00013_hooked.mp4",
+      "theme": "financeiro",
+      "platform": "youtube",
+      "format_used": "FV-001",
+      "cta_category": "comment",
+      "hook": "Prosperidade exige equilíbrio",
+      "overlay_cta": "Bio: te explico tudo",
+      "transcript_quote": "Deuteronômio 8:18",
+      "ts": "2026-05-24T11:52:57.112Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "corte_00013_hooked.mp4",
+      "theme": "financeiro",
+      "platform": "instagram",
+      "format_used": "FV-001",
+      "cta_category": "comment",
+      "hook": "Prosperidade exige equilíbrio",
+      "overlay_cta": "Bio: te explico tudo",
+      "transcript_quote": "Deuteronômio 8:18",
+      "ts": "2026-05-24T11:52:57.113Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "corte_00013_hooked.mp4",
+      "theme": "financeiro",
+      "platform": "tiktok",
+      "format_used": "FV-001",
+      "cta_category": "comment",
+      "hook": "Prosperidade exige equilíbrio",
+      "overlay_cta": "Bio: te explico tudo",
+      "transcript_quote": "Deuteronômio 8:18",
+      "ts": "2026-05-24T11:52:57.114Z"
     }
   ]
 }
