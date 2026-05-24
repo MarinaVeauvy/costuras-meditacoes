@@ -384,6 +384,42 @@
       "overlay_cta": "Bio: te explico tudo",
       "transcript_quote": "Deuteronômio 8:18",
       "ts": "2026-05-24T11:52:57.114Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00015_hooked.mp4",
+      "theme": "familia",
+      "platform": "youtube",
+      "format_used": "FV-005",
+      "cta_category": "share",
+      "hook": "Mamãe, é tempo de prosperar com fé",
+      "overlay_cta": "Vai no link da bio",
+      "transcript_quote": "me ajuda, pelo amor de Deus",
+      "ts": "2026-05-24T23:39:00.545Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00015_hooked.mp4",
+      "theme": "familia",
+      "platform": "tiktok",
+      "format_used": "FV-005",
+      "cta_category": "share",
+      "hook": "Mamãe, é tempo de prosperar com fé",
+      "overlay_cta": "Vai no link da bio",
+      "transcript_quote": "me ajuda, pelo amor de Deus",
+      "ts": "2026-05-24T23:39:00.545Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00015_hooked.mp4",
+      "theme": "familia",
+      "platform": "instagram",
+      "format_used": "FV-005",
+      "cta_category": "share",
+      "hook": "Mamãe, é tempo de prosperar com fé",
+      "overlay_cta": "Vai no link da bio",
+      "transcript_quote": "me ajuda, pelo amor de Deus",
+      "ts": "2026-05-24T23:39:00.546Z"
     }
   ]
 }
