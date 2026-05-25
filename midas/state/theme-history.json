@@ -420,6 +420,42 @@
       "overlay_cta": "Vai no link da bio",
       "transcript_quote": "me ajuda, pelo amor de Deus",
       "ts": "2026-05-24T23:39:00.546Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v014.mp4",
+      "theme": "fe",
+      "platform": "youtube",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Crê no Senhor Jesus Cristo e serás salvo, tu e a tua casa.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-25T23:45:38.569Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v014.mp4",
+      "theme": "fe",
+      "platform": "instagram",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Crê no Senhor Jesus Cristo e serás salvo, tu e a tua casa.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-25T23:45:38.570Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v014.mp4",
+      "theme": "fe",
+      "platform": "tiktok",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Crê no Senhor Jesus Cristo e serás salvo, tu e a tua casa.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-25T23:45:38.571Z"
     }
   ]
 }
