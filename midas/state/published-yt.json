@@ -560,6 +560,16 @@
       "requestId": "6e520d3b79524c9eb5a92929bec6127f",
       "publishedAt": "2026-05-26T23:45:02.640Z",
       "postUrl": "https://www.youtube.com/watch?v=oJp6K4ezTHE"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00016_hooked.mp4",
+      "platform": "youtube",
+      "postId": "JvIge25qsgc",
+      "success": true,
+      "requestId": "7c78e180e50c4eba9d4a5f5abc848bd0",
+      "publishedAt": "2026-05-27T23:50:50.936Z",
+      "postUrl": "https://www.youtube.com/watch?v=JvIge25qsgc"
     }
   ]
 }

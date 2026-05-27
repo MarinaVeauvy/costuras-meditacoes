@@ -528,6 +528,42 @@
       "overlay_cta": "Link na bio agora",
       "transcript_quote": "preparei um plano prático para você fazer 50 reais virar mil reais",
       "ts": "2026-05-26T23:45:02.643Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00016_hooked.mp4",
+      "theme": "fe",
+      "platform": "youtube",
+      "format_used": "FV-006",
+      "cta_category": "comment",
+      "hook": "Mudança vem com fé",
+      "overlay_cta": "Bio te conto tudo",
+      "transcript_quote": "cuidar do espiritual junto com a minha esposa",
+      "ts": "2026-05-27T23:50:50.937Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00016_hooked.mp4",
+      "theme": "fe",
+      "platform": "tiktok",
+      "format_used": "FV-006",
+      "cta_category": "comment",
+      "hook": "Mudança vem com fé",
+      "overlay_cta": "Bio te conto tudo",
+      "transcript_quote": "cuidar do espiritual junto com a minha esposa",
+      "ts": "2026-05-27T23:50:50.937Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00016_hooked.mp4",
+      "theme": "fe",
+      "platform": "instagram",
+      "format_used": "FV-006",
+      "cta_category": "comment",
+      "hook": "Mudança vem com fé",
+      "overlay_cta": "Bio te conto tudo",
+      "transcript_quote": "cuidar do espiritual junto com a minha esposa",
+      "ts": "2026-05-27T23:50:50.938Z"
     }
   ]
 }
