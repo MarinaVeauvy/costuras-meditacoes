@@ -564,6 +564,42 @@
       "overlay_cta": "Bio te conto tudo",
       "transcript_quote": "cuidar do espiritual junto com a minha esposa",
       "ts": "2026-05-27T23:50:50.938Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-006-marido-financas_1780012368119.mp4",
+      "theme": "proposito",
+      "platform": "youtube",
+      "format_used": "ST-006",
+      "cta_category": "bio",
+      "hook": "Brigas por dinheiro",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-28T23:53:37.604Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-006-marido-financas_1780012368119.mp4",
+      "theme": "proposito",
+      "platform": "instagram",
+      "format_used": "ST-006",
+      "cta_category": "bio",
+      "hook": "Brigas por dinheiro",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-28T23:53:37.605Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-006-marido-financas_1780012368119.mp4",
+      "theme": "proposito",
+      "platform": "tiktok",
+      "format_used": "ST-006",
+      "cta_category": "bio",
+      "hook": "Brigas por dinheiro",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-05-28T23:53:37.606Z"
     }
   ]
 }
