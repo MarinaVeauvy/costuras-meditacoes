@@ -1,0 +1,75 @@
+{
+  "processed": 3,
+  "failed": 0,
+  "results": [
+    {
+      "file": "corte_00001.mp4",
+      "viral_score": 78,
+      "hook_strength": 85,
+      "storytelling": 70,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 95,
+      "hook_quote": "Quando que eu iria imaginar que eu estaria aqui, no Pivotano, do SBT com o João Kepler, é uma honra.",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio.",
+      "theme_category": "empreendedorismo",
+      "motivo": "O corte tem um bom gancho de autoridade e um CTA muito claro com uma promessa forte e alinhada à audiência. O visual é adequado e a linguagem ressoa bem com o público-alvo.",
+      "publishable": true,
+      "warnings": [],
+      "scored_at": "2026-05-20T15:44:21.262Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1642,
+        "output_tokens": 213
+      }
+    },
+    {
+      "file": "corte_00002.mp4",
+      "viral_score": 75,
+      "hook_strength": 90,
+      "storytelling": 65,
+      "cta_clarity": 80,
+      "visual_clarity": 85,
+      "audience_fit": 85,
+      "hook_quote": "Sete formas de construir um patrimônio. Então, eu queria compartilhar aqui algo realmente assim, que eu não falo isso pra ninguém.",
+      "suggested_overlay_cta": "Link na bio para prosperar com Deus!",
+      "theme_category": "dinheiro",
+      "motivo": "O hook é muito forte, prometendo um segredo e um número, o que atrai a audiência. O conteúdo é relevante para o público-alvo, mas o storytelling poderia ser mais conciso para um corte de 30s.",
+      "publishable": true,
+      "warnings": [
+        "O corte é um pouco longo para a atenção do Reels/TikTok, poderia ser mais direto após o hook.",
+        "A transição do tema 'diversificar' para 'milhares de alunos' e 'horárias de águia' é um pouco abrupta, mas o CTA final é claro."
+      ],
+      "scored_at": "2026-05-20T15:44:22.975Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1605,
+        "output_tokens": 277
+      }
+    },
+    {
+      "file": "corte_00003.mp4",
+      "viral_score": 78,
+      "hook_strength": 70,
+      "storytelling": 85,
+      "cta_clarity": 90,
+      "visual_clarity": 75,
+      "audience_fit": 95,
+      "hook_quote": "Então, todos trabalhando e, vez não ali, a gente está aqui, está em casa,",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000 da forma que Deus aprova. Link na bio!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte apresenta um testemunho de superação financeira com base na fé, alinhado à audiência. O CTA é claro e direto, e o storytelling é envolvente, apesar do hook inicial ser um pouco genérico.",
+      "publishable": true,
+      "warnings": [
+        "O hook inicial é um pouco genérico e não captura a atenção imediatamente para o tema principal de prosperidade com fé. Poderia ser mais direto sobre o problema ou a promessa.",
+        "A duração de 65.9s é um pouco longa para TikTok/Reels; idealmente, deveria ser cortado para 30-45s, focando mais no testemunho e na solução."
+      ],
+      "scored_at": "2026-05-20T15:44:25.772Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1653,
+        "output_tokens": 302
+      }
+    }
+  ]
+}

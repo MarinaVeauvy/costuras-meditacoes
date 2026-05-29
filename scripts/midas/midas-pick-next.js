@@ -23,6 +23,7 @@ const path = require('path');
 
 const CONFIG_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'accounts.json');
 const MANIFEST_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'cortes-manifest.json');
+const CRISTAOS_MANIFEST = path.join(__dirname, '..', '..', 'midas', 'config', 'cristaos-manifest.json');
 const STATE_IG = path.join(__dirname, '..', '..', 'midas', 'state', 'published-instagram.json');
 const STATE_YT = path.join(__dirname, '..', '..', 'midas', 'state', 'published-yt.json');
 const ROTATION_PATH = path.join(__dirname, '..', '..', 'midas', 'state', 'post-rotation.json');
@@ -53,18 +54,20 @@ function saveRotation(rotation) {
   fs.writeFileSync(ROTATION_PATH, JSON.stringify(rotation, null, 2));
 }
 
-// Sequência ótima de 20 slots: 10 cortes (50%) + 7 stories (35%) + 3 versículos (15%)
-// Distribuição: nunca 2 versículos seguidos, nunca 3+ stories seguidas, intercala cortes/stories
+// Sequência ótima de 20 slots: 8 corte_mac (40%) + 5 corte_cristao (25%)
+//                              + 4 story_post (20%) + 3 versiculo (15%)
+// Distribuição: nunca 2 versiculos/cristaos seguidos, intercala formatos
 const ROTATION_SEQUENCE = [
-  'corte_mac', 'story_post', 'corte_mac', 'story_post', 'corte_mac',
-  'versiculo', 'corte_mac', 'story_post', 'corte_mac', 'story_post',
-  'corte_mac', 'versiculo', 'corte_mac', 'story_post', 'corte_mac',
-  'versiculo', 'corte_mac', 'story_post', 'corte_mac', 'story_post',
+  'corte_mac',     'corte_cristao', 'corte_mac',     'story_post',
+  'versiculo',     'corte_mac',     'corte_cristao', 'corte_mac',
+  'story_post',    'corte_cristao', 'corte_mac',     'versiculo',
+  'corte_mac',     'corte_cristao', 'story_post',    'corte_mac',
+  'corte_cristao', 'corte_mac',     'story_post',    'versiculo',
 ];
 
 function decideTypeForAccount(accountId, args, rotation) {
   // Forçado por flag
-  if (['corte_mac', 'story_post', 'versiculo'].includes(args.type)) return args.type;
+  if (['corte_mac', 'corte_cristao', 'story_post', 'versiculo'].includes(args.type)) return args.type;
   const accState = rotation.accounts[accountId] || {};
   const slotIdx = (accState.slot_idx || 0) % ROTATION_SEQUENCE.length;
   return ROTATION_SEQUENCE[slotIdx];
@@ -123,6 +126,52 @@ function main() {
     console.log(JSON.stringify({ type: 'story_post', account: account.id }));
     return;
   }
+  if (postType === 'corte_cristao') {
+    // Busca corte cristao pre-gerado do banco; sinaliza se precisa gerar on-demand
+    const MIN = parseInt(process.env.MIN_VIRAL_SCORE || '80', 10);
+    const FALLBACK = parseInt(process.env.FALLBACK_VIRAL_SCORE || '60', 10);
+    const cristaos = loadJson(CRISTAOS_MANIFEST, { cristaos: [] });
+    const usedSet = new Set();
+    for (const p of (ig.published || [])) {
+      if (p.account === account.id && (p.source === 'corte_cristao' || /cristao_/.test(p.video || ''))) usedSet.add(p.video);
+    }
+    for (const p of (yt.published || [])) {
+      if (p.account === account.id && (p.source === 'corte_cristao' || /cristao_/.test(p.video || ''))) usedSet.add(p.video);
+    }
+    const unused = (cristaos.cristaos || []).filter(c => !usedSet.has(c.file));
+    const publishable = unused.filter(c => (c.viral_score || 0) >= MIN);
+    const unscored = unused.filter(c => c.viral_score === undefined);
+    const fallback = unused.filter(c => {
+      const s = c.viral_score;
+      return s !== undefined && s >= FALLBACK && s < MIN;
+    });
+    publishable.sort((a, b) => (b.viral_score || 0) - (a.viral_score || 0));
+    fallback.sort((a, b) => (b.viral_score || 0) - (a.viral_score || 0));
+
+    let pick = publishable[0] || unscored[0] || fallback[0] || unused[0];
+    if (!pick) {
+      // Banco vazio — sinaliza "generate on-demand"
+      console.log(JSON.stringify({
+        type: 'corte_cristao',
+        account: account.id,
+        generate_on_demand: true,
+        reason: 'banco_vazio',
+      }));
+      return;
+    }
+    console.log(JSON.stringify({
+      type: 'corte_cristao',
+      video: pick.file,
+      account: account.id,
+      url: pick.url,
+      public_id: pick.public_id,
+      template_id: pick.template_id,
+      viral_score: pick.viral_score,
+      hook_strength: pick.hook_strength,
+      theme_category: pick.theme_category || 'fe',
+    }));
+    return;
+  }
 
   // corte_mac
   if (!manifest.cortes.length) throw new Error('Manifest vazio — rode midas-upload-all-cortes.js');
@@ -147,8 +196,37 @@ function main() {
         usedByAccount.add(base);
       }
     }
-    corte = manifest.cortes.find(c => !usedByAccount.has(c.file));
-    if (!corte) {
+    // Gate de score: prioriza cortes >= MIN_VIRAL_SCORE (default 80).
+    // Fallback gracioso: se nenhum passar, usa cortes sem score; se tudo esta
+    // scorado e nada >= gate, libera ate score >= FALLBACK_SCORE (60).
+    const MIN_VIRAL_SCORE = parseInt(process.env.MIN_VIRAL_SCORE || '80', 10);
+    const FALLBACK_VIRAL_SCORE = parseInt(process.env.FALLBACK_VIRAL_SCORE || '60', 10);
+    const unused = manifest.cortes.filter(c => !usedByAccount.has(c.file));
+
+    const publishable = unused.filter(c => (c.viral_score || 0) >= MIN_VIRAL_SCORE);
+    const unscored = unused.filter(c => c.viral_score === undefined);
+    const fallback = unused.filter(c => {
+      const s = c.viral_score;
+      return s !== undefined && s >= FALLBACK_VIRAL_SCORE && s < MIN_VIRAL_SCORE;
+    });
+
+    // Ordena por viral_score DESC (cortes com score mais alto primeiro)
+    publishable.sort((a, b) => (b.viral_score || 0) - (a.viral_score || 0));
+    fallback.sort((a, b) => (b.viral_score || 0) - (a.viral_score || 0));
+
+    if (publishable.length > 0) {
+      corte = publishable[0];
+    } else if (unscored.length > 0) {
+      // Cortes sem score ainda — assume neutro e usa
+      corte = unscored[0];
+      console.error(`ℹ️  Sem cortes >=${MIN_VIRAL_SCORE}, usando unscored: ${corte.file}`);
+    } else if (fallback.length > 0) {
+      corte = fallback[0];
+      console.error(`⚠️  Sem cortes >=${MIN_VIRAL_SCORE}, fallback >=${FALLBACK_VIRAL_SCORE}: ${corte.file} (vs=${corte.viral_score})`);
+    } else if (unused.length > 0) {
+      corte = unused[0];
+      console.error(`⚠️  Todos cortes <${FALLBACK_VIRAL_SCORE}, usando melhor disponivel: ${corte.file} (vs=${corte.viral_score})`);
+    } else {
       console.error(`⚠️  Pool esgotado pra ${account.id}, reset implícito`);
       corte = manifest.cortes[0];
     }
@@ -160,6 +238,9 @@ function main() {
     account: account.id,
     url: corte.url,
     public_id: corte.public_id,
+    viral_score: corte.viral_score,
+    hook_strength: corte.hook_strength,
+    theme_category: corte.theme_category,
   }));
 }
 

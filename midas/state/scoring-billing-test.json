@@ -1,0 +1,72 @@
+{
+  "processed": 3,
+  "failed": 0,
+  "results": [
+    {
+      "file": "corte_00002.mp4",
+      "viral_score": 78,
+      "hook_strength": 85,
+      "storytelling": 70,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 85,
+      "hook_quote": "Sete formas de construir um patrimônio. Então, eu queria compartilhar aqui algo realmente assim, que eu não falo isso pra ninguém.",
+      "suggested_overlay_cta": "Link na bio: Transforme R$50 em R$1.000",
+      "theme_category": "dinheiro",
+      "motivo": "O hook é forte com número e exclusividade. O conteúdo é relevante para a audiência, e o CTA final é claro e alinhado com a bio.",
+      "publishable": true,
+      "warnings": [],
+      "scored_at": "2026-05-21T13:29:16.524Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1605,
+        "output_tokens": 200
+      }
+    },
+    {
+      "file": "corte_00001.mp4",
+      "viral_score": 82,
+      "hook_strength": 85,
+      "storytelling": 75,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 95,
+      "hook_quote": "Quando que eu iria imaginar que eu estaria aqui, no Pivotano, do SBT com o João Kepler, é uma honra.",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio.",
+      "theme_category": "dinheiro | fe | empreendedorismo | testemunho",
+      "motivo": "O corte tem um bom gancho de testemunho, uma promessa clara de transformação financeira alinhada com a fé e um CTA direto e forte para a audiência alvo.",
+      "publishable": true,
+      "warnings": [],
+      "scored_at": "2026-05-21T13:29:16.542Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1642,
+        "output_tokens": 212
+      }
+    },
+    {
+      "file": "corte_00003.mp4",
+      "viral_score": 78,
+      "hook_strength": 70,
+      "storytelling": 85,
+      "cta_clarity": 90,
+      "visual_clarity": 75,
+      "audience_fit": 95,
+      "hook_quote": "Então, todos trabalhando e, vez não ali, a gente está aqui, está em casa,",
+      "suggested_overlay_cta": "Clica no link da bio e descubra!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte apresenta um testemunho de superação financeira com base na fé, culminando em um CTA direto e alinhado com a audiência. O storytelling é envolvente, apesar de o hook inicial poder ser mais impactante.",
+      "publishable": true,
+      "warnings": [
+        "O hook inicial é um pouco genérico e não captura a atenção imediatamente, mas a frase 'O que eu acredito é que sempre Deus deixa uma porta aberta para nós e a gente precisa ter o passo de fé' que vem logo em seguida é mais forte e poderia ser o foco do hook.",
+        "A transição visual entre os frames é abrupta, o que pode quebrar o fluxo. O primeiro frame não é do palestrante, o que pode confundir o espectador no início."
+      ],
+      "scored_at": "2026-05-21T13:29:25.815Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1653,
+        "output_tokens": 305
+      }
+    }
+  ]
+}

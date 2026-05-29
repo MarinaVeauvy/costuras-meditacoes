@@ -452,31 +452,22 @@
       "postUrl": "https://www.youtube.com/watch?v=0lp2JnoUiCE"
     },
     {
-      "account": "pros_peridade_do_reino",
-      "video": "versiculo_v012.mp4",
-      "platform": "youtube",
-      "postId": "VQzTlPXp4Lg",
-      "success": true,
-      "requestId": "8f246c124b054220b76c2902b42af6b4",
-      "publishedAt": "2026-05-20T23:53:25.281Z",
-      "postUrl": "https://www.youtube.com/watch?v=VQzTlPXp4Lg"
-    },
-    {
       "account": "orar_prosperar",
-      "video": "versiculo_v013.mp4",
+      "video": "corte_00037.mp4",
       "platform": "youtube",
-      "postId": "Ng4lwx4eYMo",
+      "postId": "EhEncfmAzQs",
       "success": true,
-      "requestId": "4de516b7c5a5438db469d3651c0f5b64",
-      "publishedAt": "2026-05-21T23:37:48.367Z",
-      "postUrl": "https://www.youtube.com/watch?v=Ng4lwx4eYMo"
+      "requestId": "ac45982e7f3a4819936733b4f32a1226",
+      "publishedAt": "2026-05-22T22:17:38.957Z",
+      "postUrl": "https://www.youtube.com/watch?v=EhEncfmAzQs"
     },
     {
       "account": "pros_peridade_do_reino",
-      "video": "corte_00012_hooked.mp4",
+      "video": "corte_00037.mp4",
       "platform": "youtube",
-      "postId": "PIa41E7_fIg",
+      "postId": "T2LvoKLUoxQ",
       "success": true,
+<<<<<<< HEAD
       "requestId": "43170b2bbc3f4f2fa7afd67d303d8701",
       "publishedAt": "2026-05-22T12:45:57.654Z",
       "postUrl": "https://www.youtube.com/watch?v=PIa41E7_fIg"
@@ -580,6 +571,11 @@
       "requestId": "96904935ed164a67908ccdd5f2408b56",
       "publishedAt": "2026-05-28T23:53:37.603Z",
       "postUrl": "https://www.youtube.com/watch?v=WLenOYXkH14"
+=======
+      "requestId": "3be006123ba64d3db3820e938018008c",
+      "publishedAt": "2026-05-24T13:08:30.989Z",
+      "postUrl": "https://www.youtube.com/watch?v=T2LvoKLUoxQ"
+>>>>>>> dc3e597 (chore(midas): resolve state conflicts (accept remote))
     }
   ]
 }

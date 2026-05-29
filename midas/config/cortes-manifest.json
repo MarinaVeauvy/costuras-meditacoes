@@ -5,7 +5,25 @@
       "public_id": "corte_00001",
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776438559/midas/corte_00001.mp4",
       "bytes": 19395068,
-      "uploaded_at": "2026-04-17T15:09:19Z"
+      "uploaded_at": "2026-04-17T15:09:19Z",
+      "viral_score": 82,
+      "hook_strength": 85,
+      "storytelling": 75,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 95,
+      "hook_quote": "Quando que eu iria imaginar que eu estaria aqui, no Pivotano, do SBT com o João Kepler, é uma honra.",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio.",
+      "theme_category": "dinheiro",
+      "motivo": "O corte tem um bom hook de testemunho, uma promessa clara de transformação financeira alinhada com a fé, e um CTA explícito que se encaixa perfeitamente com a audiência e o CTA do canal. A linguagem é acessível e o visual é adequado.",
+      "publishable": true,
+      "warnings": [],
+      "scored_at": "2026-05-20T15:51:13.469Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1642,
+        "output_tokens": 224
+      }
     },
     {
       "file": "corte_00002.mp4",
@@ -13,7 +31,29 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440089/midas/corte_00002.mp4",
       "duration": 30.616667,
       "bytes": 15744341,
-      "uploaded_at": "2026-04-17T15:34:51.540Z"
+      "uploaded_at": "2026-04-17T15:34:51.540Z",
+      "viral_score": 68,
+      "hook_strength": 75,
+      "storytelling": 60,
+      "cta_clarity": 80,
+      "visual_clarity": 70,
+      "audience_fit": 75,
+      "hook_quote": "Sete formas de construir um patrimônio. Então, eu queria compartilhar aqui algo realmente assim, que eu não falo isso pra ninguém.",
+      "suggested_overlay_cta": "Link na bio para prosperar com Deus",
+      "theme_category": "dinheiro",
+      "motivo": "O hook é forte com número e exclusividade, e o CTA é claro. No entanto, o storytelling poderia ser mais conciso e focado, e o visual do primeiro frame não é ideal para o formato.",
+      "publishable": true,
+      "warnings": [
+        "primeiro frame não é ideal para 9:16",
+        "transição visual abrupta no início",
+        "conteúdo um pouco longo para o formato de Reels/TikTok sem um storytelling mais dinâmico"
+      ],
+      "scored_at": "2026-05-20T15:51:25.931Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1605,
+        "output_tokens": 253
+      }
     },
     {
       "file": "corte_00003.mp4",
@@ -21,7 +61,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440143/midas/corte_00003.mp4",
       "duration": 65.919002,
       "bytes": 21553203,
-      "uploaded_at": "2026-04-17T15:35:44.861Z"
+      "uploaded_at": "2026-04-17T15:35:44.861Z",
+      "viral_score": 78,
+      "hook_strength": 70,
+      "storytelling": 85,
+      "cta_clarity": 90,
+      "visual_clarity": 75,
+      "audience_fit": 95,
+      "hook_quote": "Então, todos trabalhando e, vez não ali, a gente está aqui, está em casa,",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000 da forma que Deus aprova. Link na bio!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte apresenta um testemunho de superação financeira com base na fé, o que ressoa muito bem com a audiência alvo. O CTA final é direto e alinhado com a proposta do canal.",
+      "publishable": true,
+      "warnings": [
+        "O hook inicial é um pouco genérico; poderia ser mais impactante para parar o scroll imediatamente.",
+        "A qualidade visual do primeiro frame (torre eólica) não se conecta diretamente com o conteúdo financeiro/evangélico, mas é rapidamente substituído por frames mais relevantes."
+      ],
+      "scored_at": "2026-05-21T13:32:56.814Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1653,
+        "output_tokens": 272
+      }
     },
     {
       "file": "corte_00004.mp4",
@@ -29,7 +90,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440209/midas/corte_00004.mp4",
       "duration": 50.762993,
       "bytes": 27160831,
-      "uploaded_at": "2026-04-17T15:36:52.079Z"
+      "uploaded_at": "2026-04-17T15:36:52.079Z",
+      "viral_score": 65,
+      "hook_strength": 50,
+      "storytelling": 70,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 85,
+      "hook_quote": "Vai pegar um transporte e eu falei, não, filho, eu tô orando sobre um negócio sobre essa moto total, aí é minha esposa.",
+      "suggested_overlay_cta": "Link na bio para prosperar com fé!",
+      "theme_category": "dinheiro | fe | testemunho",
+      "motivo": "O corte tem um bom alinhamento com a audiência e um CTA claro, mas o hook inicial é um pouco fraco para prender a atenção rapidamente em plataformas de scroll.",
+      "publishable": true,
+      "warnings": [
+        "Hook inicial não é tão impactante para os primeiros 3 segundos",
+        "Transição visual entre os frames anexados não é clara no corte"
+      ],
+      "scored_at": "2026-05-20T15:48:27.488Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1729,
+        "output_tokens": 238
+      }
     },
     {
       "file": "corte_00005.mp4",
@@ -37,7 +119,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440272/midas/corte_00005.mp4",
       "duration": 44.849002,
       "bytes": 34438793,
-      "uploaded_at": "2026-04-17T15:37:54.718Z"
+      "uploaded_at": "2026-04-17T15:37:54.718Z",
+      "viral_score": 62,
+      "hook_strength": 50,
+      "storytelling": 65,
+      "cta_clarity": 80,
+      "visual_clarity": 70,
+      "audience_fit": 75,
+      "hook_quote": "Aí ele bem assim, vocês não gostariam de aceitar Jesus agora?",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio",
+      "theme_category": "dinheiro | fe | testemunho",
+      "motivo": "O corte tem um bom alinhamento com a audiência e um CTA claro, mas o hook inicial é um pouco abstrato e o storytelling poderia ser mais conciso para o formato de short video.",
+      "publishable": true,
+      "warnings": [
+        "Hook inicial não é tão direto para o tema financeiro",
+        "Storytelling um pouco longo para o formato, poderia ser mais direto ao ponto da promessa financeira"
+      ],
+      "scored_at": "2026-05-20T15:48:30.503Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1645,
+        "output_tokens": 243
+      }
     },
     {
       "file": "corte_00006.mp4",
@@ -45,7 +148,27 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440309/midas/corte_00006.mp4",
       "duration": 37.952993,
       "bytes": 18815389,
-      "uploaded_at": "2026-04-17T15:38:31.433Z"
+      "uploaded_at": "2026-04-17T15:38:31.433Z",
+      "viral_score": 78,
+      "hook_strength": 80,
+      "storytelling": 75,
+      "cta_clarity": 90,
+      "visual_clarity": 70,
+      "audience_fit": 85,
+      "hook_quote": "Ela foi tua referência.",
+      "suggested_overlay_cta": "Link na bio para prosperar com Deus",
+      "theme_category": "dinheiro | fe | empreendedorismo",
+      "motivo": "O corte tem um bom gancho inicial sobre referência feminina, que ressoa com o público-alvo. O CTA é claro e alinhado com a bio, prometendo um método aprovado por Deus para ganhos financeiros.",
+      "publishable": true,
+      "warnings": [
+        "A qualidade visual do frame anexo do apresentador não é ideal para um vídeo de alta qualidade, mas a mensagem é forte."
+      ],
+      "scored_at": "2026-05-21T13:33:21.809Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1626,
+        "output_tokens": 220
+      }
     },
     {
       "file": "corte_00007.mp4",
@@ -53,7 +176,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440372/midas/corte_00007.mp4",
       "duration": 46.417007,
       "bytes": 28680680,
-      "uploaded_at": "2026-04-17T15:39:34.732Z"
+      "uploaded_at": "2026-04-17T15:39:34.732Z",
+      "viral_score": 78,
+      "hook_strength": 85,
+      "storytelling": 70,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 85,
+      "hook_quote": "Eu tô falando uma coisa pra vocês, a galera da emersão online tá ouvindo, a mentoria da Cris custa 52 mil reais e 997 reais, e vale muito.",
+      "suggested_overlay_cta": "Link na bio: R$50 em R$1.000 com Deus",
+      "theme_category": "dinheiro",
+      "motivo": "O corte apresenta um hook forte com números e promessa de alto valor, seguido por uma solução clara e um CTA direto, alinhado com a audiência e o CTA do canal. A transição para o close-up do apresentador melhora a conexão.",
+      "publishable": true,
+      "warnings": [
+        "A transição abrupta do palco para o close-up pode ser suavizada com uma edição mais fluida.",
+        "O segmento inicial sobre a mentoria da Cris pode ser ligeiramente confuso para quem não conhece o contexto, mas é salvo pela promessa subsequente."
+      ],
+      "scored_at": "2026-05-21T13:33:25.755Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1629,
+        "output_tokens": 299
+      }
     },
     {
       "file": "corte_00008.mp4",
@@ -61,7 +205,27 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440475/midas/corte_00008.mp4",
       "duration": 19.903991,
       "bytes": 12357541,
-      "uploaded_at": "2026-04-17T15:42:43.331Z"
+      "uploaded_at": "2026-04-17T15:42:43.331Z",
+      "viral_score": 78,
+      "hook_strength": 85,
+      "storytelling": 70,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 90,
+      "hook_quote": "E aí quando eu voltei, João, você não tem noção, cheguei em casa todos felizes, caramba, olha só, vendi R$3.000, quando eu puxei da ca...",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio",
+      "theme_category": "dinheiro | fe | empreendedorismo | testemunho",
+      "motivo": "O hook é intrigante com a menção de R$3.000 e a quebra de expectativa. O CTA é direto e alinhado com a bio, e o tema ressoa bem com o público-alvo.",
+      "publishable": true,
+      "warnings": [
+        "O corte do áudio 'ca...' no hook pode ser um pouco abrupto, mas cria curiosidade."
+      ],
+      "scored_at": "2026-05-21T13:33:16.306Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1613,
+        "output_tokens": 272
+      }
     },
     {
       "file": "corte_00011.mp4",
@@ -69,7 +233,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440569/midas/corte_00011.mp4",
       "duration": 29.891995,
       "bytes": 15813969,
-      "uploaded_at": "2026-04-17T15:42:51.134Z"
+      "uploaded_at": "2026-04-17T15:42:51.134Z",
+      "viral_score": 68,
+      "hook_strength": 65,
+      "storytelling": 60,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 70,
+      "hook_quote": "Então, mas ainda assim com mentalidade fortalecida, que a escola foi te dando, não tinha resultado.",
+      "suggested_overlay_cta": "Clica no link da bio e prospere!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte tem um bom CTA e alinha com a audiência, mas o hook poderia ser mais direto e o storytelling um pouco mais envolvente para prender a atenção desde o início.",
+      "publishable": true,
+      "warnings": [
+        "hook poderia ser mais impactante",
+        "storytelling um pouco disperso no meio"
+      ],
+      "scored_at": "2026-05-20T15:48:38.487Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1593,
+        "output_tokens": 217
+      }
     },
     {
       "file": "corte_00009.mp4",
@@ -77,7 +262,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440596/midas/corte_00009.mp4",
       "duration": 45.016667,
       "bytes": 22200418,
-      "uploaded_at": "2026-04-17T15:43:17.851Z"
+      "uploaded_at": "2026-04-17T15:43:17.851Z",
+      "viral_score": 78,
+      "hook_strength": 85,
+      "storytelling": 70,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 90,
+      "hook_quote": "A gente não tinha dinheiro nem para tomar um sorvete às vezes.",
+      "suggested_overlay_cta": "Link na bio para prosperar!",
+      "theme_category": "testemunho",
+      "motivo": "O hook é forte e o testemunho de superação ressoa bem com a audiência. O CTA é claro e alinhado com a bio.",
+      "publishable": true,
+      "warnings": [
+        "A transição entre os segmentos poderia ser mais fluida para manter o engajamento.",
+        "O visual do primeiro frame não é do palestrante, o que pode confundir inicialmente."
+      ],
+      "scored_at": "2026-05-20T15:48:34.580Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1594,
+        "output_tokens": 221
+      }
     },
     {
       "file": "corte_00029.mp4",
@@ -85,7 +291,30 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776440882/midas/corte_00029.mp4",
       "duration": 48.808005,
       "bytes": 28592699,
-      "uploaded_at": "2026-04-17T15:48:03.955Z"
+      "uploaded_at": "2026-04-17T15:48:03.955Z",
+      "viral_score": 55,
+      "hook_strength": 40,
+      "storytelling": 60,
+      "cta_clarity": 80,
+      "visual_clarity": 70,
+      "audience_fit": 75,
+      "hook_quote": "E aí eu fui maratonando tudo o que eu via do Bruno. Eu falei, isso é real?",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio",
+      "theme_category": "testemunho",
+      "motivo": "O corte tem um bom CTA e relevância para a audiência, mas o hook é fraco e o storytelling é um pouco solto, com transições visuais que não contribuem para a narrativa. O primeiro frame é totalmente desalinhado com o conteúdo.",
+      "publishable": true,
+      "warnings": [
+        "Hook fraco, não prende a atenção nos primeiros segundos.",
+        "Primeiro frame (homem pulando) não tem relação com o conteúdo e pode confundir o espectador.",
+        "O storytelling mistura testemunho pessoal com conselhos gerais de investimento sem uma transição fluida.",
+        "A duração de 48.8s é um pouco longa para um Reels/TikTok que busca viralização rápida."
+      ],
+      "scored_at": "2026-05-21T13:34:46.888Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1696,
+        "output_tokens": 310
+      }
     },
     {
       "file": "corte_00012.mp4",
@@ -93,7 +322,30 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441068/midas/corte_00012.mp4",
       "duration": 35.801995,
       "bytes": 17095606,
-      "uploaded_at": "2026-04-17T15:51:09.408Z"
+      "uploaded_at": "2026-04-17T15:51:09.408Z",
+      "viral_score": 40,
+      "hook_strength": 30,
+      "storytelling": 20,
+      "cta_clarity": 60,
+      "visual_clarity": 70,
+      "audience_fit": 50,
+      "hook_quote": "Ok, agente, agente, agente! Ok, agente, agente, agente!",
+      "suggested_overlay_cta": "Link na bio para prosperar!",
+      "theme_category": "dinheiro",
+      "motivo": "O hook é repetitivo e não entrega uma promessa clara. A narrativa é solta, sem um arco ou fechamento que gere curiosidade para o público-alvo.",
+      "publishable": false,
+      "warnings": [
+        "hook fraco e repetitivo",
+        "sem storytelling claro",
+        "linguagem 'leque da Bilbo' pode não ser universalmente compreendida ou alinhada com o público evangélico",
+        "o corte não entrega valor imediato ou uma 'sacada' que justifique o tempo de tela"
+      ],
+      "scored_at": "2026-05-21T13:33:09.288Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1514,
+        "output_tokens": 255
+      }
     },
     {
       "file": "corte_00013.mp4",
@@ -101,7 +353,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441075/midas/corte_00013.mp4",
       "duration": 46.030998,
       "bytes": 18534445,
-      "uploaded_at": "2026-04-17T15:51:17.551Z"
+      "uploaded_at": "2026-04-17T15:51:17.551Z",
+      "viral_score": 78,
+      "hook_strength": 85,
+      "storytelling": 70,
+      "cta_clarity": 90,
+      "visual_clarity": 75,
+      "audience_fit": 80,
+      "hook_quote": "Quanto que você já fez aqui? 700 mil dólares. Você já está vendo isso na sua corretora",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio",
+      "theme_category": "dinheiro",
+      "motivo": "O corte apresenta um hook forte com números impactantes e uma promessa de prosperidade, alinhando-se bem com a audiência. O CTA é claro e direto, reforçado pela menção a Deus.",
+      "publishable": true,
+      "warnings": [
+        "O segundo frame (palestra) tem um enquadramento um pouco distante e a palavra 'DEDICAÇÃO E' cortada, mas o contexto geral é compreensível.",
+        "O primeiro frame (pulo na água) não se conecta diretamente com o áudio e pode confundir no início, mas é um bom visual dinâmico."
+      ],
+      "scored_at": "2026-05-21T13:33:29.501Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1656,
+        "output_tokens": 287
+      }
     },
     {
       "file": "corte_00014.mp4",
@@ -109,7 +382,25 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441087/midas/corte_00014.mp4",
       "duration": 47.571995,
       "bytes": 26748465,
-      "uploaded_at": "2026-04-17T15:51:29.099Z"
+      "uploaded_at": "2026-04-17T15:51:29.099Z",
+      "viral_score": 75,
+      "hook_strength": 80,
+      "storytelling": 70,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 75,
+      "hook_quote": "Então, a Bolsa de Valores te trouxe um primeiro dinheiro de verdade.",
+      "suggested_overlay_cta": "Link na bio para transformar R$50 em R$1.000!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte tem um hook claro sobre dinheiro e um CTA forte e repetitivo. A promessa de '50 reais virar mil reais todo santo dia' com a 'Orária Asiática' é intrigante e alinha-se com a busca por renda extra da audiência, embora a conexão com a fé não seja explícita no corte, a bio do canal compensa. O visual é claro e o apresentador é expressivo.",
+      "publishable": true,
+      "warnings": [],
+      "scored_at": "2026-05-20T15:48:40.058Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1665,
+        "output_tokens": 244
+      }
     },
     {
       "file": "corte_00015.mp4",
@@ -117,7 +408,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441100/midas/corte_00015.mp4",
       "duration": 46.726009,
       "bytes": 26067826,
-      "uploaded_at": "2026-04-17T15:51:42.626Z"
+      "uploaded_at": "2026-04-17T15:51:42.626Z",
+      "viral_score": 65,
+      "hook_strength": 60,
+      "storytelling": 70,
+      "cta_clarity": 85,
+      "visual_clarity": 80,
+      "audience_fit": 75,
+      "hook_quote": "Mas conta aí a história da... Até teológia, eu ainda fui corretor da Bolsa de Valores porque quando meu quarto filho nasceu...",
+      "suggested_overlay_cta": "Link na bio para prosperar com Deus!",
+      "theme_category": "dinheiro | fe | familia | testemunho",
+      "motivo": "O corte tem um bom storytelling de superação e uma CTA clara, mas o hook poderia ser mais direto para prender a atenção rapidamente. A conexão com a fé e a família é forte.",
+      "publishable": true,
+      "warnings": [
+        "Hook um pouco longo e indireto para os primeiros 3 segundos",
+        "Transição abrupta da história pessoal para a CTA de renda extra"
+      ],
+      "scored_at": "2026-05-20T15:48:43.281Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1690,
+        "output_tokens": 241
+      }
     },
     {
       "file": "corte_00016.mp4",
@@ -125,7 +437,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441111/midas/corte_00016.mp4",
       "duration": 47.072993,
       "bytes": 18339000,
-      "uploaded_at": "2026-04-17T15:51:53.259Z"
+      "uploaded_at": "2026-04-17T15:51:53.259Z",
+      "viral_score": 78,
+      "hook_strength": 85,
+      "storytelling": 70,
+      "cta_clarity": 90,
+      "visual_clarity": 75,
+      "audience_fit": 95,
+      "hook_quote": "Eu do literalmente honra e glória a ele mesmo, total, porque eu sentia que a minha vida...",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio.",
+      "theme_category": "fe",
+      "motivo": "O corte tem um hook forte com apelo à fé e um CTA direto, alinhado com a audiência. O storytelling é um pouco solto, mas a mensagem geral é clara.",
+      "publishable": true,
+      "warnings": [
+        "O storytelling poderia ser mais estruturado para manter a atenção em um formato curto.",
+        "A transição visual entre os frames não é ideal, mas aceitável para um corte de palestra."
+      ],
+      "scored_at": "2026-05-21T13:33:42.113Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1688,
+        "output_tokens": 247
+      }
     },
     {
       "file": "corte_00017.mp4",
@@ -133,7 +466,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441121/midas/corte_00017.mp4",
       "duration": 73.752993,
       "bytes": 27733312,
-      "uploaded_at": "2026-04-17T15:52:03.532Z"
+      "uploaded_at": "2026-04-17T15:52:03.532Z",
+      "viral_score": 68,
+      "hook_strength": 65,
+      "storytelling": 70,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 70,
+      "hook_quote": "Pegou! Então, só que a grande sacada que eu quero falar com vocês hoje é o seguinte.",
+      "suggested_overlay_cta": "Clica no link da bio e comece a estudar!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte apresenta um bom CTA e aborda o tema de prosperidade com fé, mas o hook inicial não é tão forte para prender a atenção imediatamente. A parte visual é clara e o cenário final é bom.",
+      "publishable": true,
+      "warnings": [
+        "Hook poderia ser mais impactante com uma promessa clara ou pergunta intrigante nos primeiros 3 segundos.",
+        "Apesar de ter um CTA explícito, a transição para ele poderia ser mais fluida."
+      ],
+      "scored_at": "2026-05-21T13:33:46.971Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1688,
+        "output_tokens": 249
+      }
     },
     {
       "file": "corte_00018.mp4",
@@ -141,7 +495,25 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441138/midas/corte_00018.mp4",
       "duration": 59.977007,
       "bytes": 43322443,
-      "uploaded_at": "2026-04-17T15:52:20.235Z"
+      "uploaded_at": "2026-04-17T15:52:20.235Z",
+      "viral_score": 78,
+      "hook_strength": 80,
+      "storytelling": 70,
+      "cta_clarity": 85,
+      "visual_clarity": 75,
+      "audience_fit": 80,
+      "hook_quote": "Qual que é que nós nos aprendemos no Brasil? Que dono de negócio é você abrir uma franquia.",
+      "suggested_overlay_cta": "Mude de vida! Link na bio",
+      "theme_category": "empreendedorismo",
+      "motivo": "O corte apresenta um bom gancho ao questionar a percepção comum de 'dono de negócio' no Brasil, o que gera curiosidade. A narrativa, embora um pouco expositiva, culmina em um forte CTA alinhado com a audiência, prometendo transformação financeira com base na fé.",
+      "publishable": true,
+      "warnings": [],
+      "scored_at": "2026-05-21T13:33:36.547Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1738,
+        "output_tokens": 215
+      }
     },
     {
       "file": "corte_00019.mp4",
@@ -149,7 +521,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441146/midas/corte_00019.mp4",
       "duration": 49.198005,
       "bytes": 19198749,
-      "uploaded_at": "2026-04-17T15:52:28.548Z"
+      "uploaded_at": "2026-04-17T15:52:28.548Z",
+      "viral_score": 68,
+      "hook_strength": 70,
+      "storytelling": 60,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 75,
+      "hook_quote": "Ela chegou assim, por que você não ensina isso por pessoas comuns como você era?",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000 da forma que Deus aprova. Link na bio!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte tem um bom gancho inicial e um CTA claro, mas o storytelling é um pouco disperso, misturando a história pessoal com exemplos de sucesso e jargões financeiros, o que pode diluir a mensagem para a audiência alvo.",
+      "publishable": true,
+      "warnings": [
+        "A transição entre a história pessoal e o exemplo de 'um milhão de dólares' é um pouco abrupta.",
+        "A frase 'você vai ficar louco no ver' no final é um pouco informal e pode não ressoar totalmente com a audiência evangélica."
+      ],
+      "scored_at": "2026-05-21T13:34:05.931Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1674,
+        "output_tokens": 280
+      }
     },
     {
       "file": "corte_00020.mp4",
@@ -157,7 +550,29 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441156/midas/corte_00020.mp4",
       "duration": 47.036009,
       "bytes": 28593782,
-      "uploaded_at": "2026-04-17T15:52:37.539Z"
+      "uploaded_at": "2026-04-17T15:52:37.539Z",
+      "viral_score": 65,
+      "hook_strength": 60,
+      "storytelling": 70,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 60,
+      "hook_quote": "Você me fala uma coisa, vocês chegaram a ter a experiência de ser liquidado?",
+      "suggested_overlay_cta": "Link na bio para prosperar!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte tem um bom gancho inicial e uma promessa clara de não perder dinheiro, mas o jargão 'liquidado' pode não ressoar com toda a audiência, e o storytelling poderia ser mais focado em um testemunho pessoal ou uma metáfora mais acessível para o público evangélico.",
+      "publishable": true,
+      "warnings": [
+        "Jargão 'liquidado' pode não ser universalmente compreendido pela audiência alvo.",
+        "A transição entre 'vocês' e 'você' no meio do discurso pode ser um pouco confusa.",
+        "A conexão com a fé poderia ser mais explícita além de 'Deus aprova' na bio."
+      ],
+      "scored_at": "2026-05-21T13:33:52.204Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1687,
+        "output_tokens": 288
+      }
     },
     {
       "file": "corte_00021.mp4",
@@ -173,7 +588,29 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441168/midas/corte_00022.mp4",
       "duration": 30.69,
       "bytes": 14131556,
-      "uploaded_at": "2026-04-17T15:52:49.674Z"
+      "uploaded_at": "2026-04-17T15:52:49.674Z",
+      "viral_score": 68,
+      "hook_strength": 60,
+      "storytelling": 70,
+      "cta_clarity": 90,
+      "visual_clarity": 75,
+      "audience_fit": 65,
+      "hook_quote": "Até que chegou um ponto que eu falei assim, cara, chega, que eu comecei a operar o meu próprio capital, entendeu?",
+      "suggested_overlay_cta": "Link na bio para prosperar com Deus",
+      "theme_category": "dinheiro | fe | empreendedorismo",
+      "motivo": "O corte tem um bom CTA explícito e uma narrativa de superação que pode engajar, mas o hook poderia ser mais direto e o visual é genérico. O tema de 'operar o próprio capital' pode ser um pouco complexo para a audiência.",
+      "publishable": true,
+      "warnings": [
+        "Hook um pouco longo e não tão direto para prender a atenção nos primeiros segundos.",
+        "A linguagem 'operar o próprio capital' pode não ser imediatamente clara para a audiência alvo de 'renda extra'.",
+        "O visual é de palestra, o que pode ser menos dinâmico para Reels/TikTok."
+      ],
+      "scored_at": "2026-05-21T13:34:17.155Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1625,
+        "output_tokens": 292
+      }
     },
     {
       "file": "corte_00023.mp4",
@@ -181,7 +618,29 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441176/midas/corte_00023.mp4",
       "duration": 52.802993,
       "bytes": 27286254,
-      "uploaded_at": "2026-04-17T15:52:58.106Z"
+      "uploaded_at": "2026-04-17T15:52:58.106Z",
+      "viral_score": 68,
+      "hook_strength": 70,
+      "storytelling": 60,
+      "cta_clarity": 85,
+      "visual_clarity": 75,
+      "audience_fit": 80,
+      "hook_quote": "Não é, eu tenho que te dar boas notícias, tudo isso acabou na sua vida, você agora vai",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000 (Link na bio)",
+      "theme_category": "dinheiro",
+      "motivo": "O corte tem um bom gancho inicial com promessa de mudança e prosperidade, alinhado à fé. O CTA é claro e direto, mas o desenvolvimento do storytelling é um pouco longo e genérico, podendo perder a atenção da audiência do TikTok/Reels.",
+      "publishable": true,
+      "warnings": [
+        "Duração do vídeo é um pouco longa para o formato de Reels/TikTok (52.8s), ideal seria abaixo de 45s.",
+        "O storytelling é mais expositivo do que um arco de tensão/payoff, o que pode diminuir o engajamento.",
+        "A frase 'você não vai nem pensar no dinheiro e você vai entender que o dinheiro não é tão importante' pode soar contraditória para quem busca prosperidade financeira."
+      ],
+      "scored_at": "2026-05-21T13:33:59.384Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1659,
+        "output_tokens": 322
+      }
     },
     {
       "file": "corte_00024.mp4",
@@ -213,7 +672,29 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441210/midas/corte_00027.mp4",
       "duration": 52.19,
       "bytes": 30366021,
-      "uploaded_at": "2026-04-17T15:53:32.315Z"
+      "uploaded_at": "2026-04-17T15:53:32.315Z",
+      "viral_score": 65,
+      "hook_strength": 60,
+      "storytelling": 70,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 60,
+      "hook_quote": "Então, no outro dia você saiu pra vender, fez um dinheirinho, fez um dia que foi uma",
+      "suggested_overlay_cta": "Link na bio para transformar R$50 em R$1.000",
+      "theme_category": "dinheiro",
+      "motivo": "O vídeo tem um storytelling interessante sobre superação e venda, culminando em uma CTA clara para o produto. O hook poderia ser mais impactante para a audiência alvo.",
+      "publishable": true,
+      "warnings": [
+        "O hook inicial é um pouco longo e não tão direto para prender a atenção nos primeiros 3 segundos.",
+        "A transição de uma história pessoal para a oferta do produto é um pouco abrupta, mas o CTA é bem explícito.",
+        "A relevância da história da moto para a audiência evangélica feminina pode não ser imediata, a menos que seja contextualizada com fé e superação."
+      ],
+      "scored_at": "2026-05-21T13:34:27.710Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1716,
+        "output_tokens": 291
+      }
     },
     {
       "file": "corte_00028.mp4",
@@ -221,7 +702,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441221/midas/corte_00028.mp4",
       "duration": 45.812993,
       "bytes": 25452989,
-      "uploaded_at": "2026-04-17T15:53:42.207Z"
+      "uploaded_at": "2026-04-17T15:53:42.207Z",
+      "viral_score": 68,
+      "hook_strength": 60,
+      "storytelling": 70,
+      "cta_clarity": 80,
+      "visual_clarity": 85,
+      "audience_fit": 65,
+      "hook_quote": "Ele falou hoje, eu vou te levar na crucificação naquele momento.",
+      "suggested_overlay_cta": "Link na bio para prosperar!",
+      "theme_category": "dinheiro | fe | empreendedorismo",
+      "motivo": "O vídeo tem um bom CTA e um testemunho de sucesso financeiro, mas o hook inicial sobre a crucificação pode ser confuso para a audiência alvo, não conectando diretamente com a promessa de prosperidade de forma imediata.",
+      "publishable": true,
+      "warnings": [
+        "Hook inicial pode ser muito abstrato e não prender a atenção rapidamente para o tema financeiro.",
+        "A transição entre a analogia bíblica e o resultado financeiro poderia ser mais fluida para a audiência alvo."
+      ],
+      "scored_at": "2026-05-21T13:34:38.935Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1669,
+        "output_tokens": 251
+      }
     },
     {
       "file": "corte_00030.mp4",
@@ -229,7 +731,25 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441228/midas/corte_00030.mp4",
       "duration": 31.45,
       "bytes": 15090015,
-      "uploaded_at": "2026-04-17T15:53:49.796Z"
+      "uploaded_at": "2026-04-17T15:53:49.796Z",
+      "viral_score": 78,
+      "hook_strength": 85,
+      "storytelling": 70,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 95,
+      "hook_quote": "O 3x você não tem noção. Então, rapidinho, aquilo ali vai ser vendido para o mercado",
+      "suggested_overlay_cta": "Clica no link da bio e prospere!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte tem um hook forte com a promessa de '3x' e um CTA claro. A linguagem e o tema são muito alinhados com o público-alvo, e a menção de 'da forma que Deus aprova' reforça o fit.",
+      "publishable": true,
+      "warnings": [],
+      "scored_at": "2026-05-21T13:34:54.814Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1600,
+        "output_tokens": 209
+      }
     },
     {
       "file": "corte_00031.mp4",
@@ -261,7 +781,31 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441290/midas/corte_00034.mp4",
       "duration": 59.05,
       "bytes": 32582188,
-      "uploaded_at": "2026-04-17T15:54:52.450Z"
+      "uploaded_at": "2026-04-17T15:54:52.450Z",
+      "viral_score": 35,
+      "hook_strength": 20,
+      "storytelling": 30,
+      "cta_clarity": 70,
+      "visual_clarity": 60,
+      "audience_fit": 50,
+      "hook_quote": "Mas, enfim, resumindo a história, depois que ele conheceu o Bruno e a Cris, que veio o pedido do casamento.",
+      "suggested_overlay_cta": "Link na bio para prosperar com fé!",
+      "theme_category": "testemunho",
+      "motivo": "O corte mistura um testemunho pessoal com um pitch de vendas de forma abrupta, prejudicando o storytelling. O hook é fraco e não se conecta diretamente com a promessa de prosperidade financeira.",
+      "publishable": false,
+      "warnings": [
+        "Hook fraco e desalinhado com o público-alvo de finanças/fé",
+        "Transição abrupta entre testemunho pessoal e pitch de vendas de produto",
+        "Storytelling confuso, sem um arco claro de problema-solução focado na audiência",
+        "A parte do TrisX parece um corte de outro vídeo, com linguagem diferente e sem contexto",
+        "Não há menção explícita à fé ou a Deus na parte de finanças, o que é crucial para a audiência"
+      ],
+      "scored_at": "2026-05-21T13:38:04.604Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1700,
+        "output_tokens": 318
+      }
     },
     {
       "file": "corte_00035.mp4",
@@ -269,7 +813,28 @@
       "url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1776441296/midas/corte_00035.mp4",
       "duration": 32.051995,
       "bytes": 13833654,
-      "uploaded_at": "2026-04-17T15:54:57.788Z"
+      "uploaded_at": "2026-04-17T15:54:57.788Z",
+      "viral_score": 68,
+      "hook_strength": 60,
+      "storytelling": 75,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 70,
+      "hook_quote": "Eu fiz a primeira e não passei, então meu tio já estava desesperado, é fazer ferro né, perdi dinheiro",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000 da forma que Deus aprova. Link na bio!",
+      "theme_category": "dinheiro | fe | testemunho",
+      "motivo": "O corte tem um bom CTA explícito e a história de superação com fé ressoa com a audiência. O hook poderia ser mais forte para prender a atenção inicial.",
+      "publishable": true,
+      "warnings": [
+        "O hook menciona 'perdi dinheiro' mas não há uma promessa clara de como evitar isso ou recuperar, o que poderia ser mais engajador.",
+        "A transição do testemunho pessoal para o CTA final é um pouco abrupta, mas o CTA em si é muito claro."
+      ],
+      "scored_at": "2026-05-21T13:38:06.983Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1626,
+        "output_tokens": 279
+      }
     },
     {
       "file": "corte_00036.mp4",
@@ -278,6 +843,154 @@
       "duration": 31.685011,
       "bytes": 14162169,
       "uploaded_at": "2026-04-17T15:55:03.028Z"
+    },
+    {
+      "file": "corte_00037.mp4",
+      "hook": "Receber é o maior desafio",
+      "reason": "Esse trecho vai viralizar por abordar a ideia de que o maior desafio de um cristão é receber a benção de Deus, e não apenas pedir ou crer.",
+      "viral_score": 82,
+      "hook_strength": 85,
+      "storytelling": 75,
+      "cta_clarity": 90,
+      "visual_clarity": 80,
+      "audience_fit": 95,
+      "hook_quote": "Receber é o maior desafio",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio.",
+      "theme_category": "dinheiro",
+      "motivo": "O corte tem um bom hook de testemunho, uma promessa clara de transformação financeira alinhada com a fé, e um CTA explícito que se encaixa perfeitamente com a audiência e o CTA do canal. A linguagem é acessível e o visual é adequado.",
+      "publishable": true,
+      "warnings": [],
+      "scored_at": "2026-05-20T15:51:13.469Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1642,
+        "output_tokens": 224
+      },
+      "enhanced_file": "corte_00037_enhanced.mp4",
+      "enhanced_url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1779464037/midas/enhanced/corte_00037_enhanced.mp4",
+      "enhanced_public_id": "midas/enhanced/corte_00037_enhanced",
+      "enhanced_at": "2026-05-22T15:33:59.206Z"
+    },
+    {
+      "file": "corte_00038.mp4",
+      "hook": "Prosperidade é mais que dinheiro",
+      "reason": "Esse trecho vai viralizar por explicar que a prosperidade é mais do que dinheiro e que Deus é o dono de tudo.",
+      "viral_score": 68,
+      "hook_strength": 75,
+      "storytelling": 60,
+      "cta_clarity": 80,
+      "visual_clarity": 70,
+      "audience_fit": 75,
+      "hook_quote": "Prosperidade é mais que dinheiro",
+      "suggested_overlay_cta": "Link na bio para prosperar com Deus",
+      "theme_category": "dinheiro",
+      "motivo": "O hook é forte com número e exclusividade, e o CTA é claro. No entanto, o storytelling poderia ser mais conciso e focado, e o visual do primeiro frame não é ideal para o formato.",
+      "publishable": true,
+      "warnings": [
+        "primeiro frame não é ideal para 9:16",
+        "transição visual abrupta no início",
+        "conteúdo um pouco longo para o formato de Reels/TikTok sem um storytelling mais dinâmico"
+      ],
+      "scored_at": "2026-05-20T15:51:25.931Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1605,
+        "output_tokens": 253
+      },
+      "enhanced_file": "corte_00038_enhanced.mp4",
+      "enhanced_url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1779464203/midas/enhanced/corte_00038_enhanced.mp4",
+      "enhanced_public_id": "midas/enhanced/corte_00038_enhanced",
+      "enhanced_at": "2026-05-22T15:36:44.632Z"
+    },
+    {
+      "file": "corte_00039.mp4",
+      "hook": "Sucesso em nome de Jesus",
+      "reason": "Esse trecho vai viralizar por mostrar como a benção de Deus pode levar ao sucesso em qualquer área, incluindo o mercado de investimento.",
+      "viral_score": 78,
+      "hook_strength": 70,
+      "storytelling": 85,
+      "cta_clarity": 90,
+      "visual_clarity": 75,
+      "audience_fit": 95,
+      "hook_quote": "Sucesso em nome de Jesus",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000 da forma que Deus aprova. Link na bio!",
+      "theme_category": "dinheiro",
+      "motivo": "O corte apresenta um testemunho de superação financeira com base na fé, o que ressoa muito bem com a audiência alvo. O CTA final é direto e alinhado com a proposta do canal.",
+      "publishable": true,
+      "warnings": [
+        "O hook inicial é um pouco genérico; poderia ser mais impactante para parar o scroll imediatamente.",
+        "A qualidade visual do primeiro frame (torre eólica) não se conecta diretamente com o conteúdo financeiro/evangélico, mas é rapidamente substituído por frames mais relevantes."
+      ],
+      "scored_at": "2026-05-21T13:32:56.814Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1653,
+        "output_tokens": 272
+      },
+      "enhanced_file": "corte_00039_enhanced.mp4",
+      "enhanced_url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1779464286/midas/enhanced/corte_00039_enhanced.mp4",
+      "enhanced_public_id": "midas/enhanced/corte_00039_enhanced",
+      "enhanced_at": "2026-05-22T15:38:08.408Z"
+    },
+    {
+      "file": "corte_00040.mp4",
+      "hook": "Oração feita com fé",
+      "reason": "Trecho sobre a oração feita com fé ter poder",
+      "viral_score": 65,
+      "hook_strength": 50,
+      "storytelling": 70,
+      "cta_clarity": 80,
+      "visual_clarity": 75,
+      "audience_fit": 85,
+      "hook_quote": "Oração feita com fé",
+      "suggested_overlay_cta": "Link na bio para prosperar com fé!",
+      "theme_category": "dinheiro | fe | testemunho",
+      "motivo": "O corte tem um bom alinhamento com a audiência e um CTA claro, mas o hook inicial é um pouco fraco para prender a atenção rapidamente em plataformas de scroll.",
+      "publishable": true,
+      "warnings": [
+        "Hook inicial não é tão impactante para os primeiros 3 segundos",
+        "Transição visual entre os frames anexados não é clara no corte"
+      ],
+      "scored_at": "2026-05-20T15:48:27.488Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1729,
+        "output_tokens": 238
+      },
+      "enhanced_file": "corte_00040_enhanced.mp4",
+      "enhanced_url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1779464448/midas/enhanced/corte_00040_enhanced.mp4",
+      "enhanced_public_id": "midas/enhanced/corte_00040_enhanced",
+      "enhanced_at": "2026-05-22T15:40:50.001Z"
+    },
+    {
+      "file": "corte_00041.mp4",
+      "hook": "Vitória com fé",
+      "reason": "Trecho sobre a vitória que vence o mundo ser a nossa fé",
+      "viral_score": 62,
+      "hook_strength": 50,
+      "storytelling": 65,
+      "cta_clarity": 80,
+      "visual_clarity": 70,
+      "audience_fit": 75,
+      "hook_quote": "Vitória com fé",
+      "suggested_overlay_cta": "Transforme R$50 em R$1.000! Link na bio",
+      "theme_category": "dinheiro | fe | testemunho",
+      "motivo": "O corte tem um bom alinhamento com a audiência e um CTA claro, mas o hook inicial é um pouco abstrato e o storytelling poderia ser mais conciso para o formato de short video.",
+      "publishable": true,
+      "warnings": [
+        "Hook inicial não é tão direto para o tema financeiro",
+        "Storytelling um pouco longo para o formato, poderia ser mais direto ao ponto da promessa financeira"
+      ],
+      "scored_at": "2026-05-20T15:48:30.503Z",
+      "scored_by_model": "gemini/gemini-2.5-flash",
+      "usage": {
+        "input_tokens": 1645,
+        "output_tokens": 243
+      },
+      "enhanced_file": "corte_00041_enhanced.mp4",
+      "enhanced_url": "https://res.cloudinary.com/dixxvm1yt/video/upload/v1779464613/midas/enhanced/corte_00041_enhanced.mp4",
+      "enhanced_public_id": "midas/enhanced/corte_00041_enhanced",
+      "enhanced_at": "2026-05-22T15:43:36.287Z"
     }
   ]
 }

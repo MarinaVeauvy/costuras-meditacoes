@@ -16,6 +16,8 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
+try { require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env'), quiet: true }); } catch {}
+
 const CORTES_DIR = process.env.MIDAS_CORTES_DIR || 'C:/Users/marin/midas-cortes/Cortes Prontos';
 
 function parseArgs() {

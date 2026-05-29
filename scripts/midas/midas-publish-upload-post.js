@@ -24,6 +24,8 @@
 const fs = require('fs');
 const path = require('path');
 
+try { require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env'), quiet: true }); } catch {}
+
 const API_BASE = 'https://api.upload-post.com/api';
 const CONFIG_PATH = path.join(__dirname, '..', '..', 'midas', 'config', 'accounts.json');
 const CAPTIONS_DIR = path.join(__dirname, '..', '..', 'midas', 'captions');
