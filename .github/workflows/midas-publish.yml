@@ -246,21 +246,9 @@ jobs:
             --video="$VIDEO" \
             --videoUrl="$VIDEO_URL"
 
-      - name: Cross-post Reel as Story (boost de alcance)
-        if: ${{ github.event.inputs.dry_run != 'true' }}
-        continue-on-error: true
-        run: |
-          VIDEO=$(jq -r '.video' pick.json)
-          ACCOUNT=$(jq -r '.account' pick.json)
-          VIDEO_URL="${{ steps.upload.outputs.url }}"
-          # Aguarda 30s pra Reel ficar indexado antes do cross-post
-          # (Story que aponta pro Reel precisa do Reel já visível)
-          sleep 30
-          node scripts/midas/midas-publish-story.js \
-            --account="$ACCOUNT" \
-            --videoUrl="$VIDEO_URL" \
-            --sourceVideo="$VIDEO" \
-            --mode=cross-post || echo "⚠️ Cross-post story falhou (não-crítico, segue)"
+      # Cross-post Story DESATIVADO (29/05/2026) — tokens Meta Graph API expiraram.
+      # Tentativas falhavam 100% silenciosamente (continue-on-error: true).
+      # Pra reativar: renovar IG_TOKEN_1/2/3 via developers.facebook.com.
 
       - name: Commit state
         run: |

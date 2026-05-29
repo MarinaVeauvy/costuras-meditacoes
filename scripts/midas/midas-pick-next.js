@@ -232,12 +232,18 @@ function main() {
     }
   }
 
+  // Prefere versao enhanced (LUT + ASS subtitles + Whisper sync + CTA) quando existir
+  const finalUrl = corte.enhanced_url || corte.url;
+  const finalPublicId = corte.enhanced_public_id || corte.public_id;
+  const isEnhanced = !!corte.enhanced_url;
+
   console.log(JSON.stringify({
     type: 'corte_mac',
     video: corte.file,
     account: account.id,
-    url: corte.url,
-    public_id: corte.public_id,
+    url: finalUrl,
+    public_id: finalPublicId,
+    enhanced: isEnhanced,
     viral_score: corte.viral_score,
     hook_strength: corte.hook_strength,
     theme_category: corte.theme_category,
