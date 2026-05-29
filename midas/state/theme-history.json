@@ -202,7 +202,6 @@
       "cta_category": "save",
       "hook": "Prosperar é vontade de Deus",
       "overlay_cta": "Link na bio agora",
-<<<<<<< HEAD
       "transcript_quote": "preparei um plano prático para você fazer 50 reais virar mil reais",
       "ts": "2026-05-26T23:45:02.641Z"
     },
@@ -301,10 +300,6 @@
       "overlay_cta": null,
       "transcript_quote": null,
       "ts": "2026-05-28T23:53:37.606Z"
-=======
-      "transcript_quote": "Ele te dá poder pra adquirir riqueza",
-      "ts": "2026-05-24T13:08:31.041Z"
->>>>>>> dc3e597 (chore(midas): resolve state conflicts (accept remote))
     }
   ]
 }

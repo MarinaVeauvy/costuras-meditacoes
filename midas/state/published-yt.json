@@ -467,7 +467,6 @@
       "platform": "youtube",
       "postId": "T2LvoKLUoxQ",
       "success": true,
-<<<<<<< HEAD
       "requestId": "43170b2bbc3f4f2fa7afd67d303d8701",
       "publishedAt": "2026-05-22T12:45:57.654Z",
       "postUrl": "https://www.youtube.com/watch?v=PIa41E7_fIg"
@@ -571,11 +570,6 @@
       "requestId": "96904935ed164a67908ccdd5f2408b56",
       "publishedAt": "2026-05-28T23:53:37.603Z",
       "postUrl": "https://www.youtube.com/watch?v=WLenOYXkH14"
-=======
-      "requestId": "3be006123ba64d3db3820e938018008c",
-      "publishedAt": "2026-05-24T13:08:30.989Z",
-      "postUrl": "https://www.youtube.com/watch?v=T2LvoKLUoxQ"
->>>>>>> dc3e597 (chore(midas): resolve state conflicts (accept remote))
     }
   ]
 }

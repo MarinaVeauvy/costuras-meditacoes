@@ -168,7 +168,6 @@
       "platform": "tiktok",
       "postId": "7643444021834157329",
       "success": true,
-<<<<<<< HEAD
       "requestId": "43170b2bbc3f4f2fa7afd67d303d8701",
       "publishedAt": "2026-05-22T12:45:57.656Z"
     },
@@ -261,10 +260,6 @@
       "success": true,
       "requestId": "96904935ed164a67908ccdd5f2408b56",
       "publishedAt": "2026-05-28T23:53:37.605Z"
-=======
-      "requestId": "3be006123ba64d3db3820e938018008c",
-      "publishedAt": "2026-05-24T13:08:31.033Z"
->>>>>>> dc3e597 (chore(midas): resolve state conflicts (accept remote))
     }
   ],
   "used": [
