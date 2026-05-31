@@ -1,5 +1,5 @@
 {
-  "snapshot_at": "2026-05-17T15:48:53.522Z",
+  "snapshot_at": "2026-05-31T15:59:35.612Z",
   "summary": {
     "factory": {
       "label": "factory",
@@ -648,6 +648,150 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-17T11:41:46.707Z",
         "video_id": "tQaVeFcqg8U",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-005-3-erros_1779060791404.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-17T23:34:32.288Z",
+        "video_id": "nrXAxv-Vinw",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-009-dado-mulheres-financas_1779147601105.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-18T23:40:50.677Z",
+        "video_id": "DFG0-g5R6Rw",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00010_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-19T15:39:21.832Z",
+        "video_id": "XPbL-WDfIU0",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00007_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-19T16:15:32.847Z",
+        "video_id": "0lp2JnoUiCE",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00037.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-22T22:17:38.957Z",
+        "video_id": "EhEncfmAzQs",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00037.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-22T12:45:57.654Z",
+        "video_id": "T2LvoKLUoxQ",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00014_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-22T23:45:01.561Z",
+        "video_id": "VvrkRfbXMEg",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-006-marido-financas_1779536756379.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-23T11:46:56.950Z",
+        "video_id": "hqNEQ7R8jqg",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-010-proverbios-31_1779579254408.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-23T23:35:04.076Z",
+        "video_id": "h1w_uMA86qs",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00013_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-24T11:52:57.111Z",
+        "video_id": "R1WNRqKREfo",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00015_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-24T23:39:00.544Z",
+        "video_id": "-DEQi5mo2vo",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "versiculo_v014.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-25T23:45:38.568Z",
+        "video_id": "zzHFpJxL9I4",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "versiculo_v015.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-26T13:31:13.784Z",
+        "video_id": "KxEumruiAqA",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00014_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-26T23:45:02.640Z",
+        "video_id": "oJp6K4ezTHE",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00016_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-27T23:50:50.936Z",
+        "video_id": "JvIge25qsgc",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-006-marido-financas_1780012368119.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-05-28T23:53:37.603Z",
+        "video_id": "WLenOYXkH14",
         "views": null,
         "dur_s": null
       }

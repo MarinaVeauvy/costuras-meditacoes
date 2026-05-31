@@ -215,6 +215,33 @@
         "count": 0,
         "zero_views": 0
       }
+    },
+    {
+      "snapshot_at": "2026-05-31T15:59:35.612Z",
+      "factory": {
+        "label": "factory",
+        "total": 0,
+        "avg": 0,
+        "median": 0,
+        "count": 0,
+        "zero_views": 0
+      },
+      "midas": {
+        "label": "midas-shorts",
+        "total": 0,
+        "avg": 0,
+        "median": 0,
+        "count": 0,
+        "zero_views": 0
+      },
+      "combined": {
+        "label": "combined",
+        "total": 0,
+        "avg": 0,
+        "median": 0,
+        "count": 0,
+        "zero_views": 0
+      }
     }
   ]
 }
