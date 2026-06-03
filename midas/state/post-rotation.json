@@ -1,7 +1,6 @@
 {
   "accounts": {
     "pros_peridade_do_reino": {
-<<<<<<< HEAD
       "last_type": "story_post",
       "slot_idx": 18,
       "updated_at": "2026-05-28T23:52:37.988Z"
@@ -10,11 +9,6 @@
       "last_type": "corte_mac",
       "slot_idx": 17,
       "updated_at": "2026-05-27T23:48:52.389Z"
-=======
-      "last_type": "corte_cristao",
-      "slot_idx": 10,
-      "updated_at": "2026-05-20T21:44:34.262Z"
->>>>>>> dc3e597 (chore(midas): resolve state conflicts (accept remote))
     }
   }
 }
