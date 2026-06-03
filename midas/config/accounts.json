@@ -12,7 +12,7 @@
       "tiktok_handle": "pros.peridadedoreino",
       "tiktok_status": "connected",
       "upload_post_username": "prosperidadedoreino1",
-      "upload_post_platforms": ["instagram", "youtube", "tiktok"],
+      "upload_post_platforms": ["instagram", "youtube"],
       "publer_accounts": {
         "instagram": "DEPRECATED",
         "tiktok": "DEPRECATED",
@@ -32,7 +32,7 @@
       "tiktok_status": "connected",
       "facebook_status": "connected",
       "upload_post_username": "ProsperidadedoReino",
-      "upload_post_platforms": ["instagram", "youtube", "tiktok"],
+      "upload_post_platforms": ["instagram", "youtube"],
       "active": true,
       "persona": "mae-empreendedora",
       "bio_angle": "Orar + prosperar — mães empreendedoras de fé"
