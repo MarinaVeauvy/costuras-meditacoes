@@ -300,6 +300,30 @@
       "overlay_cta": null,
       "transcript_quote": null,
       "ts": "2026-05-28T23:53:37.606Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-010-proverbios-31_1782086059564.mp4",
+      "theme": "proposito",
+      "platform": "youtube",
+      "format_used": "ST-010",
+      "cta_category": "bio",
+      "hook": "Provérbios 31 é citado, mas não aplicado",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-06-21T23:55:39.790Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "story_ST-010-proverbios-31_1782086059564.mp4",
+      "theme": "proposito",
+      "platform": "instagram",
+      "format_used": "ST-010",
+      "cta_category": "bio",
+      "hook": "Provérbios 31 é citado, mas não aplicado",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-06-21T23:55:39.791Z"
     }
   ]
 }
