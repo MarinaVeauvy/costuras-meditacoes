@@ -1,29 +1,55 @@
 {
-  "snapshot_at": "2026-06-14T16:16:41.055Z",
+  "snapshot_at": "2026-06-21T16:25:03.458Z",
   "summary": {
     "factory": {
       "label": "factory",
-      "total": 0,
-      "avg": 0,
-      "median": 0,
-      "count": 0,
-      "zero_views": 0
+      "count": 1,
+      "total_views": 2,
+      "avg_views": 2,
+      "median_views": 2,
+      "zero_views": 0,
+      "top5": [
+        {
+          "title": "5 Formas de Usar ChatGPT para Ganhar Dinheiro em 2026",
+          "views": 2,
+          "dur_s": null
+        }
+      ]
     },
     "midas": {
       "label": "midas-shorts",
-      "total": 0,
-      "avg": 0,
-      "median": 0,
-      "count": 0,
-      "zero_views": 0
+      "count": 1,
+      "total_views": 0,
+      "avg_views": 0,
+      "median_views": 0,
+      "zero_views": 1,
+      "top5": [
+        {
+          "title": "corte_00011_hooked.mp4",
+          "views": 0,
+          "dur_s": null
+        }
+      ]
     },
     "combined": {
       "label": "combined",
-      "total": 0,
-      "avg": 0,
-      "median": 0,
-      "count": 0,
-      "zero_views": 0
+      "count": 2,
+      "total_views": 2,
+      "avg_views": 1,
+      "median_views": 2,
+      "zero_views": 1,
+      "top5": [
+        {
+          "title": "5 Formas de Usar ChatGPT para Ganhar Dinheiro em 2026",
+          "views": 2,
+          "dur_s": null
+        },
+        {
+          "title": "corte_00011_hooked.mp4",
+          "views": 0,
+          "dur_s": null
+        }
+      ]
     }
   },
   "videos": {
@@ -97,7 +123,7 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:29:07Z",
         "video_id": "vV1I4PkByzg",
-        "views": null,
+        "views": 2,
         "dur_s": null
       },
       {
@@ -567,7 +593,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-12T12:31:39.699Z",
         "video_id": "_NuwklwD-us",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {

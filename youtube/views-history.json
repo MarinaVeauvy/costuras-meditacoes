@@ -296,6 +296,59 @@
         "count": 0,
         "zero_views": 0
       }
+    },
+    {
+      "snapshot_at": "2026-06-21T16:25:03.458Z",
+      "factory": {
+        "label": "factory",
+        "count": 1,
+        "total_views": 2,
+        "avg_views": 2,
+        "median_views": 2,
+        "zero_views": 0,
+        "top5": [
+          {
+            "title": "5 Formas de Usar ChatGPT para Ganhar Dinheiro em 2026",
+            "views": 2,
+            "dur_s": null
+          }
+        ]
+      },
+      "midas": {
+        "label": "midas-shorts",
+        "count": 1,
+        "total_views": 0,
+        "avg_views": 0,
+        "median_views": 0,
+        "zero_views": 1,
+        "top5": [
+          {
+            "title": "corte_00011_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      },
+      "combined": {
+        "label": "combined",
+        "count": 2,
+        "total_views": 2,
+        "avg_views": 1,
+        "median_views": 2,
+        "zero_views": 1,
+        "top5": [
+          {
+            "title": "5 Formas de Usar ChatGPT para Ganhar Dinheiro em 2026",
+            "views": 2,
+            "dur_s": null
+          },
+          {
+            "title": "corte_00011_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      }
     }
   ]
 }
