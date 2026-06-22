@@ -324,6 +324,30 @@
       "overlay_cta": null,
       "transcript_quote": null,
       "ts": "2026-06-21T23:55:39.791Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00021_hooked.mp4",
+      "theme": "familia",
+      "platform": "youtube",
+      "format_used": "FV-005",
+      "cta_category": "save",
+      "hook": "Existe um plano para você",
+      "overlay_cta": "Link na bio agora",
+      "transcript_quote": "Na próxima imersão, você vai estar no palco",
+      "ts": "2026-06-22T23:56:58.103Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "corte_00021_hooked.mp4",
+      "theme": "familia",
+      "platform": "instagram",
+      "format_used": "FV-005",
+      "cta_category": "save",
+      "hook": "Existe um plano para você",
+      "overlay_cta": "Link na bio agora",
+      "transcript_quote": "Na próxima imersão, você vai estar no palco",
+      "ts": "2026-06-22T23:56:58.104Z"
     }
   ]
 }
