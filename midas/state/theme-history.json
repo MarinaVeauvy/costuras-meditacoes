@@ -372,6 +372,30 @@
       "overlay_cta": null,
       "transcript_quote": null,
       "ts": "2026-06-23T13:26:50.976Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "story_ST-007-filho-perguntou_1782257865078.mp4",
+      "theme": "proposito",
+      "platform": "youtube",
+      "format_used": "ST-007",
+      "cta_category": "bio",
+      "hook": "Meu filho me perguntou se éramos ricos",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-06-23T23:38:34.220Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "story_ST-007-filho-perguntou_1782257865078.mp4",
+      "theme": "proposito",
+      "platform": "instagram",
+      "format_used": "ST-007",
+      "cta_category": "bio",
+      "hook": "Meu filho me perguntou se éramos ricos",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-06-23T23:38:34.221Z"
     }
   ]
 }
