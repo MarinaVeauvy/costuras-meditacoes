@@ -348,6 +348,30 @@
       "overlay_cta": "Link na bio agora",
       "transcript_quote": "Na próxima imersão, você vai estar no palco",
       "ts": "2026-06-22T23:56:58.104Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v016.mp4",
+      "theme": "fe",
+      "platform": "youtube",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-06-23T13:26:50.976Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "versiculo_v016.mp4",
+      "theme": "fe",
+      "platform": "instagram",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-06-23T13:26:50.976Z"
     }
   ]
 }
