@@ -1,49 +1,48 @@
 {
   "pros_peridade_do_reino": {
-    "hook": "Dinheiro não é pecado, mas sim",
-    "body": "ter sabedoria para gerenciar o que se tem, irmã, é o que Provérbios 31 nos ensina",
+    "hook": "Dinheiro não é pecado",
+    "body": "Deus te dá poder para adquirir riqueza, como em Deuteronômio 8:18",
     "cta": "Comenta AMÉM se concorda 🙏",
-    "overlay_cta": "Vai no link da bio",
-    "format_used": "FV-006",
+    "overlay_cta": "Link na bio agora",
+    "format_used": "FV-001",
     "cta_category": "comment",
-    "theme_category": "financeiro",
-    "transcript_quote": "porque... Ih, fui inspirado a falar um negócio aqui",
+    "theme_category": "fe",
+    "transcript_quote": "Ele te dá poder pra adquirir riqueza",
     "body_source": "transcript_paraphrase",
     "warnings": [
-      "invented_numbers:31",
-      "quote_not_in_transcript",
-      "body_disconnected_from_transcript",
-      "hook_similar_recent:0.56"
+      "invented_numbers:8,18",
+      "quote_not_in_transcript"
     ],
     "schema_version": "v2",
-    "full_caption": "Dinheiro não é pecado, mas sim\n\nter sabedoria para gerenciar o que se tem, irmã, é o que Provérbios 31 nos ensina\n\nComenta AMÉM se concorda 🙏",
-    "hashtags_instagram": "#sabedoriabiblica #proverbios #patrimoniofamiliar #financasdomesticas #mulhercrista #propositodevida #familiacrista #educacaodefilhos #lardeus #abundancia",
-    "hashtags_tiktok": "#sabedoriabiblica #proverbios #familia #patrimoniofamiliar #fyp #deus",
-    "hashtags_youtube": "#Shorts #MulherCrista #FinancasFamiliares #Proposito",
-    "caption_ig": "Dinheiro não é pecado, mas sim\n\nter sabedoria para gerenciar o que se tem, irmã, é o que Provérbios 31 nos ensina\n\nComenta AMÉM se concorda 🙏\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#sabedoriabiblica #proverbios #patrimoniofamiliar #financasdomesticas #mulhercrista #propositodevida #familiacrista #educacaodefilhos #lardeus #abundancia",
-    "caption_tiktok": "Dinheiro não é pecado, mas sim\n\nter sabedoria para gerenciar o que se tem, irmã, é o que Provérbios 31 nos ensina\n\nComenta AMÉM se concorda 🙏\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#sabedoriabiblica #proverbios #familia #patrimoniofamiliar #fyp #deus",
-    "caption_youtube": "Dinheiro não é pecado, mas sim\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #MulherCrista #FinancasFamiliares #Proposito"
+    "full_caption": "Dinheiro não é pecado\n\nDeus te dá poder para adquirir riqueza, como em Deuteronômio 8:18\n\nComenta AMÉM se concorda 🙏",
+    "hashtags_instagram": "#financascomfe #vidaprospera #mulheresempreendedoras #educacaofinanceiracrista #familiaorganizada #disciplinafinanceira #intencaodevida #financaspraticas #organizadalar #cristasdefe",
+    "hashtags_tiktok": "#financasdomesticas #educacaofinanceira #familiaprospera #fyp #parati",
+    "hashtags_youtube": "#Shorts #EducacaoFinanceira #FamiliaProspera #Patrimonio",
+    "caption_ig": "Dinheiro não é pecado\n\nDeus te dá poder para adquirir riqueza, como em Deuteronômio 8:18\n\nComenta AMÉM se concorda 🙏\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#financascomfe #vidaprospera #mulheresempreendedoras #educacaofinanceiracrista #familiaorganizada #disciplinafinanceira #intencaodevida #financaspraticas #organizadalar #cristasdefe",
+    "caption_tiktok": "Dinheiro não é pecado\n\nDeus te dá poder para adquirir riqueza, como em Deuteronômio 8:18\n\nComenta AMÉM se concorda 🙏\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#financasdomesticas #educacaofinanceira #familiaprospera #fyp #parati",
+    "caption_youtube": "Dinheiro não é pecado\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #EducacaoFinanceira #FamiliaProspera #Patrimonio"
   },
   "orar_prosperar": {
-    "hook": "Existe um plano para você",
-    "body": "criar com propósito e ter uma rotina que te permita cuidar da família e de você, amada, é possível",
+    "hook": "Segredo para criar com propósito",
+    "body": "Construir fortuna do jeito que Deus aprova exige integridade, como Provérbios 31",
     "cta": "Salve pra ler depois 🤍",
-    "overlay_cta": "Link na bio agora",
+    "overlay_cta": "Vai no link da bio",
     "format_used": "FV-005",
     "cta_category": "save",
     "theme_category": "familia",
-    "transcript_quote": "Na próxima imersão, você vai estar no palco",
+    "transcript_quote": "construir fortuna da forma que Deus aprova",
     "body_source": "transcript_paraphrase",
     "warnings": [
-      "body_disconnected_from_transcript"
+      "invented_numbers:31",
+      "quote_not_in_transcript"
     ],
     "schema_version": "v2",
-    "full_caption": "Existe um plano para você\n\ncriar com propósito e ter uma rotina que te permita cuidar da família e de você, amada, é possível\n\nSalve pra ler depois 🤍",
-    "hashtags_instagram": "#mulhercrista #educacaofinanceirafeminina #financasdomesticas #familiaprospera #planejamentofamiliar #fe #proposito #organizacaofinanceira #mulheresdefe #vidasimples",
+    "full_caption": "Segredo para criar com propósito\n\nConstruir fortuna do jeito que Deus aprova exige integridade, como Provérbios 31\n\nSalve pra ler depois 🤍",
+    "hashtags_instagram": "#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
     "hashtags_tiktok": "#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
-    "hashtags_youtube": "#Shorts #MulherCrista #FinancasFamiliares #Proposito",
-    "caption_ig": "Existe um plano para você\n\ncriar com propósito e ter uma rotina que te permita cuidar da família e de você, amada, é possível\n\nSalve pra ler depois 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulhercrista #educacaofinanceirafeminina #financasdomesticas #familiaprospera #planejamentofamiliar #fe #proposito #organizacaofinanceira #mulheresdefe #vidasimples",
-    "caption_tiktok": "Existe um plano para você\n\ncriar com propósito e ter uma rotina que te permita cuidar da família e de você, amada, é possível\n\nSalve pra ler depois 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
-    "caption_youtube": "Existe um plano para você\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #MulherCrista #FinancasFamiliares #Proposito"
+    "hashtags_youtube": "#Shorts #SabedoriaBiblica #Proverbios #VidaCrista",
+    "caption_ig": "Segredo para criar com propósito\n\nConstruir fortuna do jeito que Deus aprova exige integridade, como Provérbios 31\n\nSalve pra ler depois 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#orcamentofamiliar #financasdacasa #economiapratica #mulhercristapro #familiacrista #educacaofinanceira #poupar #planejamento #fe #mulhervirtuosa",
+    "caption_tiktok": "Segredo para criar com propósito\n\nConstruir fortuna do jeito que Deus aprova exige integridade, como Provérbios 31\n\nSalve pra ler depois 🤍\n\n📌 Conteúdo educativo. Não é recomendação financeira.\n\n#mulheresdefe #organizacaofinanceira #vidaprospera #fyp #parati #cristã",
+    "caption_youtube": "Segredo para criar com propósito\n\n📌 Conteúdo educativo. Não é recomendação financeira. #Shorts #SabedoriaBiblica #Proverbios #VidaCrista"
   }
 }

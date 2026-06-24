@@ -396,6 +396,30 @@
       "overlay_cta": null,
       "transcript_quote": null,
       "ts": "2026-06-23T23:38:34.221Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "corte_00021_hooked.mp4",
+      "theme": "fe",
+      "platform": "youtube",
+      "format_used": "FV-001",
+      "cta_category": "comment",
+      "hook": "Dinheiro não é pecado",
+      "overlay_cta": "Link na bio agora",
+      "transcript_quote": "Ele te dá poder pra adquirir riqueza",
+      "ts": "2026-06-24T12:37:42.174Z"
+    },
+    {
+      "account": "pros_peridade_do_reino",
+      "video": "corte_00021_hooked.mp4",
+      "theme": "fe",
+      "platform": "instagram",
+      "format_used": "FV-001",
+      "cta_category": "comment",
+      "hook": "Dinheiro não é pecado",
+      "overlay_cta": "Link na bio agora",
+      "transcript_quote": "Ele te dá poder pra adquirir riqueza",
+      "ts": "2026-06-24T12:37:42.175Z"
     }
   ]
 }
