@@ -1,31 +1,29 @@
 {
-  "snapshot_at": "2026-06-21T16:25:03.458Z",
+  "snapshot_at": "2026-06-28T16:03:36.059Z",
   "summary": {
     "factory": {
       "label": "factory",
-      "count": 1,
-      "total_views": 2,
-      "avg_views": 2,
-      "median_views": 2,
-      "zero_views": 0,
-      "top5": [
-        {
-          "title": "5 Formas de Usar ChatGPT para Ganhar Dinheiro em 2026",
-          "views": 2,
-          "dur_s": null
-        }
-      ]
+      "total": 0,
+      "avg": 0,
+      "median": 0,
+      "count": 0,
+      "zero_views": 0
     },
     "midas": {
       "label": "midas-shorts",
-      "count": 1,
+      "count": 2,
       "total_views": 0,
       "avg_views": 0,
       "median_views": 0,
-      "zero_views": 1,
+      "zero_views": 2,
       "top5": [
         {
-          "title": "corte_00011_hooked.mp4",
+          "title": "versiculo_v009.mp4",
+          "views": 0,
+          "dur_s": null
+        },
+        {
+          "title": "story_ST-004-mentora-paga_1778542451018.mp4",
           "views": 0,
           "dur_s": null
         }
@@ -34,18 +32,18 @@
     "combined": {
       "label": "combined",
       "count": 2,
-      "total_views": 2,
-      "avg_views": 1,
-      "median_views": 2,
-      "zero_views": 1,
+      "total_views": 0,
+      "avg_views": 0,
+      "median_views": 0,
+      "zero_views": 2,
       "top5": [
         {
-          "title": "5 Formas de Usar ChatGPT para Ganhar Dinheiro em 2026",
-          "views": 2,
+          "title": "versiculo_v009.mp4",
+          "views": 0,
           "dur_s": null
         },
         {
-          "title": "corte_00011_hooked.mp4",
+          "title": "story_ST-004-mentora-paga_1778542451018.mp4",
           "views": 0,
           "dur_s": null
         }
@@ -123,7 +121,7 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:29:07Z",
         "video_id": "vV1I4PkByzg",
-        "views": 2,
+        "views": null,
         "dur_s": null
       },
       {
@@ -503,7 +501,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-06T12:18:27.743Z",
         "video_id": "7FOT8AYqHVI",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {
@@ -584,7 +582,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-11T23:35:00.255Z",
         "video_id": "tNjK_DG_M2s",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {
@@ -593,7 +591,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-12T12:31:39.699Z",
         "video_id": "_NuwklwD-us",
-        "views": 0,
+        "views": null,
         "dur_s": null
       },
       {
@@ -818,6 +816,51 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-28T23:53:37.603Z",
         "video_id": "WLenOYXkH14",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-010-proverbios-31_1782086059564.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-06-21T23:55:39.788Z",
+        "video_id": "6TM8xUBxkv8",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00021_hooked.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-06-22T23:56:58.102Z",
+        "video_id": "emWlatDMpP0",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "versiculo_v016.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-06-23T13:26:50.975Z",
+        "video_id": "5GEhxqnFxkQ",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "story_ST-007-filho-perguntou_1782257865078.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-06-23T23:38:34.219Z",
+        "video_id": "JFBjtgP0G04",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "corte_00021_hooked.mp4",
+        "account": "pros_peridade_do_reino",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-06-24T12:37:42.173Z",
+        "video_id": "ZoNOUV5lu7Q",
         "views": null,
         "dur_s": null
       }
