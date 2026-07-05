@@ -1,5 +1,5 @@
 {
-  "snapshot_at": "2026-06-28T16:03:36.059Z",
+  "snapshot_at": "2026-07-05T15:26:23.138Z",
   "summary": {
     "factory": {
       "label": "factory",
@@ -11,43 +11,19 @@
     },
     "midas": {
       "label": "midas-shorts",
-      "count": 2,
-      "total_views": 0,
-      "avg_views": 0,
-      "median_views": 0,
-      "zero_views": 2,
-      "top5": [
-        {
-          "title": "versiculo_v009.mp4",
-          "views": 0,
-          "dur_s": null
-        },
-        {
-          "title": "story_ST-004-mentora-paga_1778542451018.mp4",
-          "views": 0,
-          "dur_s": null
-        }
-      ]
+      "total": 0,
+      "avg": 0,
+      "median": 0,
+      "count": 0,
+      "zero_views": 0
     },
     "combined": {
       "label": "combined",
-      "count": 2,
-      "total_views": 0,
-      "avg_views": 0,
-      "median_views": 0,
-      "zero_views": 2,
-      "top5": [
-        {
-          "title": "versiculo_v009.mp4",
-          "views": 0,
-          "dur_s": null
-        },
-        {
-          "title": "story_ST-004-mentora-paga_1778542451018.mp4",
-          "views": 0,
-          "dur_s": null
-        }
-      ]
+      "total": 0,
+      "avg": 0,
+      "median": 0,
+      "count": 0,
+      "zero_views": 0
     }
   },
   "videos": {
@@ -501,7 +477,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-06T12:18:27.743Z",
         "video_id": "7FOT8AYqHVI",
-        "views": 0,
+        "views": null,
         "dur_s": null
       },
       {
@@ -582,7 +558,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-11T23:35:00.255Z",
         "video_id": "tNjK_DG_M2s",
-        "views": 0,
+        "views": null,
         "dur_s": null
       },
       {
