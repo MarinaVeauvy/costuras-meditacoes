@@ -420,6 +420,30 @@
       "overlay_cta": "Link na bio agora",
       "transcript_quote": "Ele te dá poder pra adquirir riqueza",
       "ts": "2026-06-24T12:37:42.175Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "versiculo_v017.mp4",
+      "theme": "fe",
+      "platform": "youtube",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Os que esperam no Senhor renovarão as suas forças, subirão com asas como águias.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-07-22T11:19:47.256Z"
+    },
+    {
+      "account": "orar_prosperar",
+      "video": "versiculo_v017.mp4",
+      "theme": "fe",
+      "platform": "instagram",
+      "format_used": null,
+      "cta_category": null,
+      "hook": "Os que esperam no Senhor renovarão as suas forças, subirão com asas como águias.",
+      "overlay_cta": null,
+      "transcript_quote": null,
+      "ts": "2026-07-22T11:19:47.257Z"
     }
   ]
 }
