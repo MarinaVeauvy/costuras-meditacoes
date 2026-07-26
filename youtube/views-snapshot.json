@@ -1,5 +1,5 @@
 {
-  "snapshot_at": "2026-07-19T15:20:07.551Z",
+  "snapshot_at": "2026-07-26T15:23:03.466Z",
   "summary": {
     "factory": {
       "label": "factory",
@@ -837,6 +837,15 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-06-24T12:37:42.173Z",
         "video_id": "ZoNOUV5lu7Q",
+        "views": null,
+        "dur_s": null
+      },
+      {
+        "video": "versiculo_v017.mp4",
+        "account": "orar_prosperar",
+        "source": "midas-shorts",
+        "uploaded_at": "2026-07-22T11:19:47.255Z",
+        "video_id": "zTCCK0IV9Pc",
         "views": null,
         "dur_s": null
       }
