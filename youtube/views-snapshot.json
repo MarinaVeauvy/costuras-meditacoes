@@ -1,5 +1,5 @@
 {
-  "snapshot_at": "2026-08-02T15:22:23.869Z",
+  "snapshot_at": "2026-08-09T15:08:07.726Z",
   "summary": {
     "factory": {
       "label": "factory",
@@ -11,19 +11,33 @@
     },
     "midas": {
       "label": "midas-shorts",
-      "total": 0,
-      "avg": 0,
-      "median": 0,
-      "count": 0,
-      "zero_views": 0
+      "count": 1,
+      "total_views": 0,
+      "avg_views": 0,
+      "median_views": 0,
+      "zero_views": 1,
+      "top5": [
+        {
+          "title": "story_ST-003-quebrava-dezembro_1778847696420.mp4",
+          "views": 0,
+          "dur_s": null
+        }
+      ]
     },
     "combined": {
       "label": "combined",
-      "total": 0,
-      "avg": 0,
-      "median": 0,
-      "count": 0,
-      "zero_views": 0
+      "count": 1,
+      "total_views": 0,
+      "avg_views": 0,
+      "median_views": 0,
+      "zero_views": 1,
+      "top5": [
+        {
+          "title": "story_ST-003-quebrava-dezembro_1778847696420.mp4",
+          "views": 0,
+          "dur_s": null
+        }
+      ]
     }
   },
   "videos": {
@@ -621,7 +635,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-15T12:22:15.356Z",
         "video_id": "3oCeFVzEJsI",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {

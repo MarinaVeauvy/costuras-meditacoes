@@ -535,6 +535,47 @@
         "count": 0,
         "zero_views": 0
       }
+    },
+    {
+      "snapshot_at": "2026-08-09T15:08:07.726Z",
+      "factory": {
+        "label": "factory",
+        "total": 0,
+        "avg": 0,
+        "median": 0,
+        "count": 0,
+        "zero_views": 0
+      },
+      "midas": {
+        "label": "midas-shorts",
+        "count": 1,
+        "total_views": 0,
+        "avg_views": 0,
+        "median_views": 0,
+        "zero_views": 1,
+        "top5": [
+          {
+            "title": "story_ST-003-quebrava-dezembro_1778847696420.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      },
+      "combined": {
+        "label": "combined",
+        "count": 1,
+        "total_views": 0,
+        "avg_views": 0,
+        "median_views": 0,
+        "zero_views": 1,
+        "top5": [
+          {
+            "title": "story_ST-003-quebrava-dezembro_1778847696420.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      }
     }
   ]
 }
