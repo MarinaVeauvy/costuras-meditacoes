@@ -1,24 +1,56 @@
 {
-  "snapshot_at": "2026-08-09T15:08:07.726Z",
+  "snapshot_at": "2026-08-16T15:04:12.682Z",
   "summary": {
     "factory": {
       "label": "factory",
-      "total": 0,
-      "avg": 0,
-      "median": 0,
-      "count": 0,
-      "zero_views": 0
+      "count": 3,
+      "total_views": 59,
+      "avg_views": 19.7,
+      "median_views": 0,
+      "zero_views": 2,
+      "top5": [
+        {
+          "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+          "views": 59,
+          "dur_s": null
+        },
+        {
+          "title": "7 Ferramentas de IA Gratuitas que Todo Empreendedor Precisa",
+          "views": 0,
+          "dur_s": null
+        },
+        {
+          "title": "Ganhe Dinheiro Vendendo Templates no Canva em 2026",
+          "views": 0,
+          "dur_s": null
+        }
+      ]
     },
     "midas": {
       "label": "midas-shorts",
-      "count": 1,
+      "count": 4,
       "total_views": 0,
       "avg_views": 0,
       "median_views": 0,
-      "zero_views": 1,
+      "zero_views": 4,
       "top5": [
         {
-          "title": "story_ST-003-quebrava-dezembro_1778847696420.mp4",
+          "title": "story_ST-001-dinheiro-pecado_1778506035477.mp4",
+          "views": 0,
+          "dur_s": null
+        },
+        {
+          "title": "corte_00007_hooked.mp4",
+          "views": 0,
+          "dur_s": null
+        },
+        {
+          "title": "corte_00021_hooked.mp4",
+          "views": 0,
+          "dur_s": null
+        },
+        {
+          "title": "story_ST-007-filho-perguntou_1782257865078.mp4",
           "views": 0,
           "dur_s": null
         }
@@ -26,14 +58,34 @@
     },
     "combined": {
       "label": "combined",
-      "count": 1,
-      "total_views": 0,
-      "avg_views": 0,
+      "count": 7,
+      "total_views": 59,
+      "avg_views": 8.4,
       "median_views": 0,
-      "zero_views": 1,
+      "zero_views": 6,
       "top5": [
         {
-          "title": "story_ST-003-quebrava-dezembro_1778847696420.mp4",
+          "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+          "views": 59,
+          "dur_s": null
+        },
+        {
+          "title": "7 Ferramentas de IA Gratuitas que Todo Empreendedor Precisa",
+          "views": 0,
+          "dur_s": null
+        },
+        {
+          "title": "Ganhe Dinheiro Vendendo Templates no Canva em 2026",
+          "views": 0,
+          "dur_s": null
+        },
+        {
+          "title": "story_ST-001-dinheiro-pecado_1778506035477.mp4",
+          "views": 0,
+          "dur_s": null
+        },
+        {
+          "title": "corte_00007_hooked.mp4",
           "views": 0,
           "dur_s": null
         }
@@ -120,7 +172,7 @@
         "source": "unspecified",
         "uploaded_at": "2026-04-02T01:32:06Z",
         "video_id": "WZBt0Vk8YWE",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {
@@ -165,7 +217,7 @@
         "source": "backlog-drain",
         "uploaded_at": "2026-04-03T10:17:47Z",
         "video_id": "NXd_1WbWcUE",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {
@@ -237,7 +289,7 @@
         "source": "factory",
         "uploaded_at": "2026-04-14T17:27:31.406Z",
         "video_id": "EDZT0R7IdXE",
-        "views": null,
+        "views": 59,
         "dur_s": null
       },
       {
@@ -563,7 +615,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-11T13:27:54.649Z",
         "video_id": "lW6eaywWPy4",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {
@@ -635,7 +687,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-15T12:22:15.356Z",
         "video_id": "3oCeFVzEJsI",
-        "views": 0,
+        "views": null,
         "dur_s": null
       },
       {
@@ -698,7 +750,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-19T16:15:32.847Z",
         "video_id": "0lp2JnoUiCE",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {
@@ -824,7 +876,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-06-22T23:56:58.102Z",
         "video_id": "emWlatDMpP0",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {
@@ -842,7 +894,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-06-23T23:38:34.219Z",
         "video_id": "JFBjtgP0G04",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {

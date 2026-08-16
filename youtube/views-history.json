@@ -576,6 +576,99 @@
           }
         ]
       }
+    },
+    {
+      "snapshot_at": "2026-08-16T15:04:12.682Z",
+      "factory": {
+        "label": "factory",
+        "count": 3,
+        "total_views": 59,
+        "avg_views": 19.7,
+        "median_views": 0,
+        "zero_views": 2,
+        "top5": [
+          {
+            "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+            "views": 59,
+            "dur_s": null
+          },
+          {
+            "title": "7 Ferramentas de IA Gratuitas que Todo Empreendedor Precisa",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "Ganhe Dinheiro Vendendo Templates no Canva em 2026",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      },
+      "midas": {
+        "label": "midas-shorts",
+        "count": 4,
+        "total_views": 0,
+        "avg_views": 0,
+        "median_views": 0,
+        "zero_views": 4,
+        "top5": [
+          {
+            "title": "story_ST-001-dinheiro-pecado_1778506035477.mp4",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "corte_00007_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "corte_00021_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "story_ST-007-filho-perguntou_1782257865078.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      },
+      "combined": {
+        "label": "combined",
+        "count": 7,
+        "total_views": 59,
+        "avg_views": 8.4,
+        "median_views": 0,
+        "zero_views": 6,
+        "top5": [
+          {
+            "title": "Automatize Tarefas Repetitivas e Ganhe Tempo no Seu Negócio",
+            "views": 59,
+            "dur_s": null
+          },
+          {
+            "title": "7 Ferramentas de IA Gratuitas que Todo Empreendedor Precisa",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "Ganhe Dinheiro Vendendo Templates no Canva em 2026",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "story_ST-001-dinheiro-pecado_1778506035477.mp4",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "corte_00007_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      }
     }
   ]
 }
