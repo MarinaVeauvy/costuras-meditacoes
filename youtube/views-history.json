@@ -669,6 +669,67 @@
           }
         ]
       }
+    },
+    {
+      "snapshot_at": "2026-08-23T15:05:04.415Z",
+      "factory": {
+        "label": "factory",
+        "total": 0,
+        "avg": 0,
+        "median": 0,
+        "count": 0,
+        "zero_views": 0
+      },
+      "midas": {
+        "label": "midas-shorts",
+        "count": 3,
+        "total_views": 1,
+        "avg_views": 0.3,
+        "median_views": 0,
+        "zero_views": 2,
+        "top5": [
+          {
+            "title": "corte_00037.mp4",
+            "views": 1,
+            "dur_s": null
+          },
+          {
+            "title": "corte_00015_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "versiculo_v015.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      },
+      "combined": {
+        "label": "combined",
+        "count": 3,
+        "total_views": 1,
+        "avg_views": 0.3,
+        "median_views": 0,
+        "zero_views": 2,
+        "top5": [
+          {
+            "title": "corte_00037.mp4",
+            "views": 1,
+            "dur_s": null
+          },
+          {
+            "title": "corte_00015_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          },
+          {
+            "title": "versiculo_v015.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      }
     }
   ]
 }
