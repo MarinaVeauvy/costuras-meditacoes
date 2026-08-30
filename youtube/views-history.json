@@ -730,6 +730,69 @@
           }
         ]
       }
+    },
+    {
+      "snapshot_at": "2026-08-30T15:02:41.910Z",
+      "factory": {
+        "label": "factory",
+        "count": 1,
+        "total_views": 86,
+        "avg_views": 86,
+        "median_views": 86,
+        "zero_views": 0,
+        "top5": [
+          {
+            "title": "ERRO de R$3.000 na Aposentadoria",
+            "views": 86,
+            "dur_s": null
+          }
+        ]
+      },
+      "midas": {
+        "label": "midas-shorts",
+        "count": 2,
+        "total_views": 4,
+        "avg_views": 2,
+        "median_views": 4,
+        "zero_views": 1,
+        "top5": [
+          {
+            "title": "versiculo_v008.mp4",
+            "views": 4,
+            "dur_s": null
+          },
+          {
+            "title": "corte_00029_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      },
+      "combined": {
+        "label": "combined",
+        "count": 3,
+        "total_views": 90,
+        "avg_views": 30,
+        "median_views": 4,
+        "zero_views": 1,
+        "top5": [
+          {
+            "title": "ERRO de R$3.000 na Aposentadoria",
+            "views": 86,
+            "dur_s": null
+          },
+          {
+            "title": "versiculo_v008.mp4",
+            "views": 4,
+            "dur_s": null
+          },
+          {
+            "title": "corte_00029_hooked.mp4",
+            "views": 0,
+            "dur_s": null
+          }
+        ]
+      }
     }
   ]
 }

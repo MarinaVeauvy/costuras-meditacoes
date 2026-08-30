@@ -1,34 +1,36 @@
 {
-  "snapshot_at": "2026-08-23T15:05:04.415Z",
+  "snapshot_at": "2026-08-30T15:02:41.910Z",
   "summary": {
     "factory": {
       "label": "factory",
-      "total": 0,
-      "avg": 0,
-      "median": 0,
-      "count": 0,
-      "zero_views": 0
+      "count": 1,
+      "total_views": 86,
+      "avg_views": 86,
+      "median_views": 86,
+      "zero_views": 0,
+      "top5": [
+        {
+          "title": "ERRO de R$3.000 na Aposentadoria",
+          "views": 86,
+          "dur_s": null
+        }
+      ]
     },
     "midas": {
       "label": "midas-shorts",
-      "count": 3,
-      "total_views": 1,
-      "avg_views": 0.3,
-      "median_views": 0,
-      "zero_views": 2,
+      "count": 2,
+      "total_views": 4,
+      "avg_views": 2,
+      "median_views": 4,
+      "zero_views": 1,
       "top5": [
         {
-          "title": "corte_00037.mp4",
-          "views": 1,
+          "title": "versiculo_v008.mp4",
+          "views": 4,
           "dur_s": null
         },
         {
-          "title": "corte_00015_hooked.mp4",
-          "views": 0,
-          "dur_s": null
-        },
-        {
-          "title": "versiculo_v015.mp4",
+          "title": "corte_00029_hooked.mp4",
           "views": 0,
           "dur_s": null
         }
@@ -37,23 +39,23 @@
     "combined": {
       "label": "combined",
       "count": 3,
-      "total_views": 1,
-      "avg_views": 0.3,
-      "median_views": 0,
-      "zero_views": 2,
+      "total_views": 90,
+      "avg_views": 30,
+      "median_views": 4,
+      "zero_views": 1,
       "top5": [
         {
-          "title": "corte_00037.mp4",
-          "views": 1,
+          "title": "ERRO de R$3.000 na Aposentadoria",
+          "views": 86,
           "dur_s": null
         },
         {
-          "title": "corte_00015_hooked.mp4",
-          "views": 0,
+          "title": "versiculo_v008.mp4",
+          "views": 4,
           "dur_s": null
         },
         {
-          "title": "versiculo_v015.mp4",
+          "title": "corte_00029_hooked.mp4",
           "views": 0,
           "dur_s": null
         }
@@ -311,7 +313,7 @@
         "source": "factory",
         "uploaded_at": "2026-05-08T15:52:53.262Z",
         "video_id": "m6dlOTNGiWo",
-        "views": null,
+        "views": 86,
         "dur_s": null
       }
     ],
@@ -493,7 +495,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-05T17:54:46.342Z",
         "video_id": "24Z41T2XOsI",
-        "views": null,
+        "views": 4,
         "dur_s": null
       },
       {
@@ -574,7 +576,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-10T23:20:27.886Z",
         "video_id": "s9WtwomiidM",
-        "views": null,
+        "views": 0,
         "dur_s": null
       },
       {
@@ -727,7 +729,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-22T22:17:38.957Z",
         "video_id": "EhEncfmAzQs",
-        "views": 1,
+        "views": null,
         "dur_s": null
       },
       {
@@ -781,7 +783,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-24T23:39:00.544Z",
         "video_id": "-DEQi5mo2vo",
-        "views": 0,
+        "views": null,
         "dur_s": null
       },
       {
@@ -799,7 +801,7 @@
         "source": "midas-shorts",
         "uploaded_at": "2026-05-26T13:31:13.784Z",
         "video_id": "KxEumruiAqA",
-        "views": 0,
+        "views": null,
         "dur_s": null
       },
       {
